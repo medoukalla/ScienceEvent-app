@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="{{ config('app.locale') }}" dir="{{ __('voyager::generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact " data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template" data-style="night">
+<html lang="{{ config('app.locale') }}" dir="{{ __('voyager::generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}"  data-style="light">
 
   <head>
     <meta charset="utf-8" />
@@ -32,8 +32,6 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/fontawesome.css') }}" />
-    {{-- <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/tabler-icons.css') }}"/> --}}
-    <link href="https://cdn.jsdelivr.net/npm/@tabler/icons@3.4.0/font/tabler-icons.min.css" rel="stylesheet"/>
 
 
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/flag-icons.css') }}" />
@@ -56,11 +54,33 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/tabler-icons.css') }}"/>
+
+
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/cards-advance.css') }}" />
 
+    <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
+
+    @yield('css')
+    @if(__('voyager::generic.is_rtl') == 'true')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css">
+        <link rel="stylesheet" href="{{ voyager_asset('css/rtl.css') }}">
+    @endif
+
+    @if(!empty(config('voyager.additional_css')))<!-- Additional CSS -->
+        @foreach(config('voyager.additional_css') as $css)<link rel="stylesheet" type="text/css" href="{{ asset($css) }}">@endforeach
+    @endif
+
+    @yield('head')
     
+    @livewireStyles
     
+
+    <style>
+        @import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css');
+
+    </style>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/js/config.js') }}"></script>
     
@@ -100,6 +120,8 @@
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row g-6" id="vyager">
+                            @yield('page_header')
+
                             @yield('content')
                         </div>
                     </div>
@@ -107,7 +129,7 @@
 
 
                     <!-- Footer -->
-                    @include('voyager::partials.app-footer')
+                    {{-- @include('voyager::partials.app-footer') --}}
                     <!-- Footer -->
 
 
@@ -146,9 +168,9 @@
     <script src="{{ asset('assets/vendor/libs/node-waves/node-waves.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/hammer/hammer.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
-    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/js/menu.js') }}"></script> --}}
     
     <!-- endbuild -->
 
@@ -164,22 +186,28 @@
     <!-- Page JS -->
     <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 
-
     <script type="text/javascript" src="{{ voyager_asset('js/app.js') }}"></script>
+
+
+    @if ( Auth::user()->role->id == 2 )
+        <!--StartofTawk.toScript-->
+        <script type="text/javascript"> var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date(); (function(){ var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0]; s1.async=true; s1.src='https://embed.tawk.to/66aa527732dca6db2cb811cf/default'; s1.charset='UTF-8'; s1.setAttribute('crossorigin','*'); s0.parentNode.insertBefore(s1,s0); })(); </script>
+        <!--End of Tawk.to Script-->
+    @endif
 
     <script>
         @if(Session::has('alerts'))
             let alerts = {!! json_encode(Session::get('alerts')) !!};
             helpers.displayAlerts(alerts, toastr);
         @endif
-
+    
         @if(Session::has('message'))
-
+    
         // TODO: change Controllers to use AlertsMessages trait... then remove this
         var alertType = {!! json_encode(Session::get('alert-type', 'info')) !!};
         var alertMessage = {!! json_encode(Session::get('message')) !!};
         var alerter = toastr[alertType];
-
+    
         if (alerter) {
             alerter(alertMessage);
         } else {
@@ -193,6 +221,7 @@
     @if(!empty(config('voyager.additional_js')))<!-- Additional Javascript -->
         @foreach(config('voyager.additional_js') as $js)<script type="text/javascript" src="{{ asset($js) }}"></script>@endforeach
     @endif
+    @livewireScripts
 
 </body>
 </html>

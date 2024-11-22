@@ -7,7 +7,6 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="voyager-data"></i>
         @if($db->action == 'update')
             {{ __('voyager::database.editing_table', ['table' => $db->table->name]) }}
         @else

@@ -5,7 +5,7 @@
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="{{ $dataType->icon }}"></i> {{ $dataType->getTranslatedAttribute('display_name_plural') }}
+            {{ $dataType->getTranslatedAttribute('display_name_plural') }}
         </h1>
         @can('add', app($dataType->model_name))
             <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
@@ -43,7 +43,7 @@
             <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
-                        @if ($isServerSide)
+                        {{-- @if ($isServerSide)
                             <form method="get" class="form-search">
                                 <div id="search-input">
                                     <div class="col-2">
@@ -73,7 +73,7 @@
                                     <input type="hidden" name="order_by" value="{{ Request::get('order_by') }}">
                                 @endif
                             </form>
-                        @endif
+                        @endif --}}
                         <div class="table-responsive">
                             <table id="dataTable" class="table table-hover">
                                 <thead>
