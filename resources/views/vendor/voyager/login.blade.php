@@ -10,14 +10,14 @@
             <div class="form-group form-group-default" id="emailGroup">
                 <label>{{ __('voyager::generic.email') }}</label>
                 <div class="controls">
-                    <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('voyager::generic.email') }}" class="form-control" required>
+                    <input style=" width: 300px; height: 40px; margin-bottom: 20px; " type="text" name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('voyager::generic.email') }}" class="form-control" required>
                 </div>
             </div>
 
             <div class="form-group form-group-default" id="passwordGroup">
                 <label>{{ __('voyager::generic.password') }}</label>
                 <div class="controls">
-                    <input type="password" name="password" placeholder="{{ __('voyager::generic.password') }}" class="form-control" required>
+                    <input style=" width: 300px; height: 40px; margin-bottom: 20px; " type="password" name="password" placeholder="{{ __('voyager::generic.password') }}" class="form-control" required>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-block login-button">
+            <button type="submit" class="btn btn-block login-button" style=" width: 300px; height: 40px; margin-bottom: 20px; ">
                 <span class="signingin hidden"><span class="voyager-refresh"></span> {{ __('voyager::login.loggingin') }}...</span>
                 <span class="signin">{{ __('voyager::generic.login') }}</span>
             </button>

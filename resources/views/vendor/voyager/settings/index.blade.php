@@ -210,7 +210,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="voyager-settings"></i> {{ __('voyager::generic.settings') }}
+        {{ __('voyager::generic.settings') }}
     </h1>
 @stop
 

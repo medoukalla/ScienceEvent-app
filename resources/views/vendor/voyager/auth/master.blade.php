@@ -40,7 +40,7 @@
     @yield('pre_css')
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 </head>
-<body class="login">
+<body class="login" style="background: none !important;">
 <div class="container-fluid">
     <div class="row">
         <div class="faded-bg animated"></div>
@@ -48,15 +48,7 @@
             <div class="clearfix">
                 <div class="col-sm-12 col-md-10 col-md-offset-2">
                     <div class="logo-title-container">
-                        <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
-                        @if($admin_logo_img == '')
-                            <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn" src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon">
-                        @else
-                            <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn" src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon">
-                        @endif
-                        <div class="copy animated fadeIn">
-                            <h1>{{ Voyager::setting('admin.title', 'Voyager') }}</h1>
-                            <p>{{ Voyager::setting('admin.description', __('voyager::login.welcome')) }}</p>
+                        
                         </div>
                     </div> <!-- .logo-title-container -->
                 </div>

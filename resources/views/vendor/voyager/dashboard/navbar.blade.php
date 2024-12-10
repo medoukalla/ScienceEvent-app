@@ -344,14 +344,26 @@
             <li>
               <div class="dropdown-divider my-1 mx-n2"></div>
             </li>
-            <li>
-              <div class="d-grid px-2 pt-2 pb-1">
-                <a class="btn btn-sm btn-danger d-flex" href="auth-login-cover.html" target="_blank">
-                  <small class="align-middle">Logout</small>
-                  <i class="ti ti-logout ms-2 ti-14px"></i>
-                </a>
-              </div>
-            </li>
+            <li {!! isset($item['classes']) && !empty($item['classes']) ? 'class="'.$item['classes'].'"' : '' !!}>
+              @if(isset($item['route']) && $item['route'] == 'voyager.logout')
+              <form action="{{ route('voyager.logout') }}" method="POST">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn btn-danger btn-block">
+                      @if(isset($item['icon_class']) && !empty($item['icon_class']))
+                      <i class="{!! $item['icon_class'] !!}"></i>
+                      @endif
+                      Logout
+                  </button>
+              </form>
+              @else
+              <a href="{{ isset($item['route']) && Route::has($item['route']) ? route($item['route']) : (isset($item['route']) ? $item['route'] : '#') }}" {!! isset($item['target_blank']) && $item['target_blank'] ? 'target="_blank"' : '' !!}>
+                  @if(isset($item['icon_class']) && !empty($item['icon_class']))
+                  <i class="{!! $item['icon_class'] !!}"></i>
+                  @endif
+                  Logout
+              </a>
+              @endif
+          </li>
           </ul>
         </li>
         <!--/ User -->
