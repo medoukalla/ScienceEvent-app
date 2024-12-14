@@ -4,7 +4,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="voyager-bread"></i> {{ __('voyager::generic.bread') }}
+        {{ __('voyager::generic.bread') }}
     </h1>
 @stop
 
@@ -37,23 +37,23 @@
                             </p>
                         </td>
 
-                        <td class="actions text-right">
+                        <td class="actions text-end">
                             @if($table->dataTypeId)
                                 <a href="{{ route('voyager.' . $table->slug . '.index') }}"
-                                   class="btn btn-warning btn-sm browse_bread" style="margin-right: 0;">
+                                   class="btn btn-sm btn-label-warning waves-effect browse_bread" style="margin-right: 0;">
                                     <i class="voyager-plus"></i> {{ __('voyager::generic.browse') }}
                                 </a>
                                 <a href="{{ route('voyager.bread.edit', $table->name) }}"
-                                   class="btn btn-primary btn-sm edit">
+                                   class="btn btn-sm btn-label-primary waves-effectm edit">
                                     <i class="voyager-edit"></i> {{ __('voyager::generic.edit') }}
                                 </a>
                                 <a href="#delete-bread" data-id="{{ $table->dataTypeId }}" data-name="{{ $table->name }}"
-                                     class="btn btn-danger btn-sm delete">
+                                     class="btn btn-sm btn-label-danger waves-effect delete">
                                     <i class="voyager-trash"></i> {{ __('voyager::generic.delete') }}
                                 </a>
                             @else
                                 <a href="{{ route('voyager.bread.create', $table->name) }}"
-                                   class="_btn btn-default btn-sm pull-right">
+                                   class="_btn btn btn-sm btn-label-default waves-effect pull-right">
                                     <i class="voyager-plus"></i> {{ __('voyager::bread.add_bread') }}
                                 </a>
                             @endif

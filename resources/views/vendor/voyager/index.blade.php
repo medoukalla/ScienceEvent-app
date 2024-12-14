@@ -42,7 +42,7 @@
                     </div>
                   </div>
                   <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                    <img src="{{ asset('assets/img/illustrations/card-website-analytics-1.png') }}" alt="Website Analytics" height="150" class="card-website-analytics-img">
+                    <img src="{{ asset('assets-dashboard/img/illustrations/card-website-analytics-1.png') }}" alt="Website Analytics" height="150" class="card-website-analytics-img">
                   </div>
                 </div>
               </div>
@@ -83,7 +83,7 @@
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                  <img src="{{ asset('assets/img/illustrations/card-website-analytics-2.png') }}" alt="Website Analytics" height="150" class="card-website-analytics-img">
+                  <img src="{{ asset('assets-dashboard/img/illustrations/card-website-analytics-2.png') }}" alt="Website Analytics" height="150" class="card-website-analytics-img">
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@
                   </div>
                 </div>
                 <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                  <img src="{{ asset('assets/img/illustrations/card-website-analytics-3.png') }}" alt="Website Analytics" height="150" class="card-website-analytics-img">
+                  <img src="{{ asset('assets-dashboard/img/illustrations/card-website-analytics-3.png') }}" alt="Website Analytics" height="150" class="card-website-analytics-img">
                 </div>
               </div>
             </div>
