@@ -12,7 +12,6 @@
 
 @section('page_header')
     <div class="page-title">
-        <i class="voyager-data"></i>
         @if (isset($dataType->id))
             {{ __('voyager::bread.edit_bread_for_table', ['table' => $dataType->name]) }}
         @else

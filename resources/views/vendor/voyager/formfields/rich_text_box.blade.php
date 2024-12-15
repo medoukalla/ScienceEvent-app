@@ -1,9 +1,8 @@
-<textarea class="form-control richTextBox" name="{{ $row->field }}" id="richtext{{ $row->field }}">
+<textarea class="form-control richTextBox" name="{{ $row->field }}" id="richtext">
     {{ old($row->field, $dataTypeContent->{$row->field} ?? '') }}
 </textarea>
-
 @push('javascript')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             var additionalConfig = {
                 selector: 'textarea.richTextBox[name="{{ $row->field }}"]',
@@ -13,5 +12,6 @@
 
             tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
         });
-    </script>
+    </script> --}}
+    
 @endpush
