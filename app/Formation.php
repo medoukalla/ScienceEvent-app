@@ -33,4 +33,26 @@ class Formation extends Model
     {
         return $this->belongsTo(Doctor::class, 'doctor_id');
     }
+
+
+    /**
+     * Get all of the extraits for the Formation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function extraits()
+    {
+        return $this->hasMany(Extrait::class, 'formation_id');
+    }
+
+
+    /**
+     * Get all of the packs for the Formation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function packs()
+    {
+        return $this->hasMany(Pack::class, 'formation_id');
+    }
 }

@@ -19,6 +19,15 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 Route::get('formation/{formation}', [FrontendController::class, 'formation_details'])->name('frontend.formation');
 
+Route::get('about', [FrontendController::class, 'about'])->name('frontend.about');
+
+Route::get('login', [FrontendController::class, 'login'])->name('frontend.login');  
+
+Route::post('login', [FrontendController::class, 'postLogin'])->name('frontend.postlogin');
+
+Route::get('register', [FrontendController::class, 'register'])->name('frontend.register');
+
+Route::post('register', [FrontendController::class, 'postRegister'])->name('frontend.postregister');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
