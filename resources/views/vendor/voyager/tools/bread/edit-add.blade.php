@@ -1,4 +1,4 @@
-@extends('voyager::default_master')
+@extends('voyager::master')
 
 @if (isset($dataType->id))
     @section('page_title', __('voyager::bread.edit_bread_for_table', ['table' => $dataType->name]))
