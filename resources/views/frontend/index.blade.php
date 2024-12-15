@@ -126,71 +126,8 @@
     <!-- doctors  -->
     @livewire('doctors')
     
-
-    <section class="faq-section section-padding-top-125 section-padding-bottom-120">
-        <div class="w-layout-blockcontainer container w-container">
-        <div data-w-id="5fc3460f-5850-3652-132a-37b925fb21e3"
-            style="-webkit-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d;opacity:0"
-            class="section-title-block center mb-80">
-            <div class="section-subtitle primary-color">FAQS</div>
-            <h2 class="section-title">Frequently asked questions</h2>
-        </div>
-        <ul class="accordion">
-            <li>
-            <input type="radio" name="accordion" id="first">
-            <label for="first">
-                <span>Quels sont les pré-requis pour suivre une de nos formations ?</span>
-                <img src="{{ asset('assets/svg/faq-arrow.svg') }}" alt="">
-            </label>
-            <div class="co-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta unde voluptas sequi, ipsum reiciendis
-                laboriosam velit recusandae, esse, quaerat qui eius non quasi molestias beatae dolorem similique libero!
-                Accusantium necessitatibus temporibus sed nobis maxime dignissimos, soluta rerum, dolores vel voluptas
-                architecto quod quas labore qui reiciendis omnis dolorum! Voluptatem, tempore!</p>
-            </div>
-            </li>
-            <li>
-            <input type="radio" name="accordion" id="second">
-            <label for="second">
-                <span>Les formations Santé Académie se font-elles en visio, à une heure précise ?</span>
-                <img src="{{ asset('assets/svg/faq-arrow.svg') }}" alt="">
-            </label>
-            <div class="co-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta unde voluptas sequi, ipsum reiciendis
-                laboriosam velit recusandae, esse, quaerat qui eius non quasi molestias beatae dolorem similique libero!
-                Accusantium necessitatibus temporibus sed nobis maxime dignissimos, soluta rerum, dolores vel voluptas
-                architecto quod quas labore qui reiciendis omnis dolorum! Voluptatem, tempore!</p>
-            </div>
-            </li>
-            <li>
-            <input type="radio" name="accordion" id="third">
-            <label for="third">
-                <span>Je suis un professionnel de santé. Comment financer ma formation sur Santé Académie
-                ?</span>
-                <img src="{{ asset('assets/svg/faq-arrow.svg') }}" alt="">
-            </label>
-            <div class="co-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta unde voluptas sequi, ipsum reiciendis
-                laboriosam velit recusandae, esse, quaerat qui eius non quasi molestias beatae dolorem similique libero!
-                Accusantium necessitatibus temporibus sed nobis maxime dignissimos, soluta rerum, dolores vel voluptas
-                architecto quod quas labore qui reiciendis omnis dolorum! Voluptatem, tempore!</p>
-            </div>
-            </li>
-            <li>
-            <input type="radio" name="accordion" id="fourth">
-            <label for="fourth">
-                <span>Comment percevoir mes indemnisations ?</span>
-                <img src="{{ asset('assets/svg/faq-arrow.svg') }}" alt="">
-            </label>
-            <div class="co-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta unde voluptas sequi, ipsum reiciendis
-                laboriosam velit recusandae, esse, quaerat qui eius non quasi molestias beatae dolorem similique libero!
-                Accusantium necessitatibus temporibus sed nobis maxime dignissimos, soluta rerum, dolores vel voluptas
-                architecto quod quas labore qui reiciendis omnis dolorum! Voluptatem, tempore!</p>
-            </div>
-            </li>
-        </ul>
-        </div>
-    </section>
+    <!-- Faq's  -->
+    @livewire('faq')
+    
 
   @stop
