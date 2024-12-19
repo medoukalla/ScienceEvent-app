@@ -4449,6 +4449,8 @@ blockquote {
   border-radius: 20px !important;
   position: relative;
   overflow: hidden;
+  /* max-height: 600px; */
+  max-height: 600px;
 }
 
 .hero-main-image-two {

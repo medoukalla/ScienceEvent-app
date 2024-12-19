@@ -14,7 +14,7 @@
                                 <div class="map">
                                     <div class="path-name">Formation</div>
                                     <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="Path arrow">
-                                    <div class="path-name selected">{{ $formation->name }}</div>
+                                    <div class="path-name selected">{{ $formation->title }}</div>
                                 </div>
                             </div>
                             <!-- Domain tage -->
@@ -22,7 +22,7 @@
                                 <span>{{ $formation->category->name }}</span>
                             </div>
                             <div data-w-id="316ed8d2-66d5-d21f-f414-3781cc3a9386"
-                                style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1"
+                                style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1; margin-top: -90px;"
                                 class="formation-heading">
                                 <h2>{{ $formation->title }}</h2>
                                 <p>{{ $formation->brief }}</p>

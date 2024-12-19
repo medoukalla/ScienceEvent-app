@@ -9,7 +9,9 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        return view('frontend.index',[
+            'last_formation' => Formation::latest()->first(),
+        ]);
     }
 
     public function about()
