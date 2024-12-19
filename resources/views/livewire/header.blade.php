@@ -119,9 +119,11 @@
                             </div>
                           </div>
                           <!-- Button more results -->
-                          <div class="more-btn">
-                            Voir les 20 formations infirmier
-                          </div>
+                           <a href="{{ route('frontend.formations') }}" class="more-results">
+                             <div class="more-btn">
+                               Voir les 20 formations infirmier
+                             </div>
+                           </a>
                         </div>
                       </div>
                     </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Doctor;
 use Illuminate\Http\Request;
 use App\Formation;
 
@@ -48,5 +50,15 @@ class FrontendController extends Controller
     public function contact()
     {
         return view('frontend.contact');
+    }   
+
+
+    public function formations()
+    {
+        return view('frontend.formations',[
+            'formations' => Formation::all(),
+            'categories' => Category::all(),
+            'doctors' => Doctor::all()
+        ]);
     }   
 }
