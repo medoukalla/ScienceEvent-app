@@ -19,6 +19,8 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 Route::get('formation/{formation}', [FrontendController::class, 'formation_details'])->name('frontend.formation');
 
+route::get('contact', [FrontendController::class, 'contact'])->name('frontend.contact');
+
 Route::get('about', [FrontendController::class, 'about'])->name('frontend.about');
 
 Route::get('login', [FrontendController::class, 'login'])->name('frontend.login');  

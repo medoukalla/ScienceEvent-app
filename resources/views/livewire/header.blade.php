@@ -193,7 +193,7 @@
             </li>
             <li class="nav-menu-list">
               <div class="nav-menu-link-wrapper">
-                <a href="/blog" class="nav-menu-link">Média</a>
+                <a href="{{ route('frontend.contact') }}" class="nav-menu-link">Contact</a>
                 <div class="nav-menu-link-shape"></div>
               </div>
             </li>
