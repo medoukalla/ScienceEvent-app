@@ -18,14 +18,14 @@
                         <div class="collection-list-wrapper-team w-dyn-list">
                             <div role="list" class="collection-list-team w-dyn-items">
                                 <div role="listitem" class="collection-item-team w-dyn-item">
-                                <div class="single-team-card"><a href="/teams/elise-wilson"
+                                <div class="single-team-card"><a href="{{ route('frontend.doctor', [$doctor, $doctor->name]) }}"
                                     class="team-image-link-block w-inline-block"><img
                                         src="{{ asset('storage/'.$doctor->avatar) }}" loading="lazy"
                                         alt="Team Image" class="team-image" />
                                     <div class="team-image-overly"></div>
                                     </a>
                                     <div class="team-content-and-social-wrap">
-                                    <div class="team-content-wrap"><a href="/teams/elise-wilson"
+                                    <div class="team-content-wrap"><a href="{{ route('frontend.doctor', [$doctor, $doctor->name]) }}""
                                         class="team-name-link-block w-inline-block">
                                         <h3 class="team-name">{{ $doctor->name }}</h3>
                                         </a>

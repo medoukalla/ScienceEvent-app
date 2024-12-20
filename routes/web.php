@@ -33,6 +33,8 @@ Route::get('register', [FrontendController::class, 'register'])->name('frontend.
 
 Route::post('register', [FrontendController::class, 'postRegister'])->name('frontend.postregister');
 
+Route::get('doctor/{doctor}/{name}', [FrontendController::class, 'doctor'])->name('frontend.doctor');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

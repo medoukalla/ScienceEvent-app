@@ -61,4 +61,16 @@ class FrontendController extends Controller
             'doctors' => Doctor::all()
         ]);
     }   
+
+
+    public function doctor(Doctor $doctor, $name) {
+
+        if (!$doctor) {
+            return redirect()->route('frontend.index');
+        }
+
+        return view('frontend.doctor', [
+            'doctor' => $doctor
+        ]);
+    }
 }

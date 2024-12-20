@@ -62,12 +62,9 @@
                     </div>
                 </div>
                 <div class="why-choose-us-button-wrap">
-                    <a data-w-id="c02c7700-2f84-fbb9-088f-3f37b0699bcc"
-                        href="/contact-us" class="button-primary w-inline-block">
+                    <a data-w-id="c02c7700-2f84-fbb9-088f-3f37b0699bcc" href="{{ route('frontend.contact') }}" class="button-primary w-inline-block">
                         <div style="color:rgb(255,255,255)" class="button-primary-text">Contact us</div>
-                        <div style="width:100%;height:100%" class="button-primary-hover">
-
-                        </div>
+                        <div style="width:100%;height:100%" class="button-primary-hover"></div>
                     </a>
                 </div>
             </div>
