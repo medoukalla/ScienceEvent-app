@@ -49,6 +49,15 @@ class FormationDetails extends Component
     public function mount($formation) {
         $this->formation = $formation;
         $this->display = 'details';
+
+
+        if (auth()->check()) {
+            $this->user = auth()->user();
+            $this->name = $this->user->name;
+            $this->phone = $this->user->phone;
+            $this->email = $this->user->email;
+            $this->specialite = $this->user->specialite;
+        }
     }
 
     // Return to detaisl section 
