@@ -35,6 +35,9 @@ Route::post('register', [FrontendController::class, 'postRegister'])->name('fron
 
 Route::get('doctor/{doctor}/{name}', [FrontendController::class, 'doctor'])->name('frontend.doctor');
 
+Route::get('profile', [FrontendController::class, 'profile'])->name('frontend.profile')->middleware('auth');
+Route::post('profile', [FrontendController::class, 'profile_update'])->name('frontend.profile.update');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
