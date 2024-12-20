@@ -2,11 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
+use App\Notifications\WaitingConfirmation;
+use App\Notifications\WelcomeNewUser;
+use App\Order;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class FormationDetails extends Component
 {
+
+    use WithFileUploads;
 
     public $formation;
 
@@ -16,7 +24,27 @@ class FormationDetails extends Component
     public $payment_method = 'virement';
 
 
+    public $user;
+
+
+    // user informations 
+    public $name;
+    public $phone;
+    public $email;
+    public $specialite;
+
+
     public $amount;
+
+    public $proof;
+
+    // save the is of created order
+    public $order_id;
+
+    public $password;
+
+    // new or old user 
+    public $new_user = false;
 
     public function mount($formation) {
         $this->formation = $formation;
@@ -33,6 +61,59 @@ class FormationDetails extends Component
         $this->display = 'login';
     }
 
+    // function to save user personal in
+    public function save_user() {
+
+        $validatedData = $this->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|email',
+            'specialite' => 'required|string|max:255',
+        ],
+        [
+            'name.required' => 'Le nom est obligatoire.',
+            'phone.required' => 'Le phone est obligatoire.',
+            'email.required' => 'Le email est obligatoire.',
+            'specialite.required' => 'La specialite est obligatoire.',
+            'name.string' => 'Le nom doit etre une chaine de caracteres.',
+            'phone.string' => 'Le phone doit etre une chaine de caracteres.',
+            'email.email' => 'Le format de l\'email n\'est pas valide.',
+            'specialite.string' => 'La specialite doit etre une chaine de caracteres.',
+        ],
+        [
+            'name' => 'Nom',
+            'phone' => 'Phone',
+            'email' => 'Email',
+            'specialite' => 'Spécialité',
+        ]);
+        
+        
+        $user = User::where('email', $this->email)->first();
+        if($user) {
+            $this->user = $user;
+            $this->new_user = false;
+        } else {
+
+            $password = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
+
+            $this->user = User::create([
+                'name' => $this->name,
+                'phone' => $this->phone,
+                'email' => $this->email,
+                'password' => bcrypt($password),
+                'specialite' => $this->specialite,
+            ]);
+
+            $this->password = $password;
+
+            $this->new_user = true;
+            
+        }
+
+        session()->put('user_id', $this->user->id);
+
+        $this->display = 'payment';
+    }
 
     // show register form 
     public function register() {
@@ -48,4 +129,70 @@ class FormationDetails extends Component
     {
         return view('livewire.formation-details');
     }
+
+
+    public function paymentOffline() {
+
+        // create new order
+        $order = new Order();
+        $order->formation_id = $this->formation->id;
+        $order->user_id = $this->user->id;
+        $order->price = $this->amount;
+        $order->status = 1;
+
+        // payment method to number 
+        switch ($this->payment_method) {
+            case 'virement':
+                $order->method_payment = 1;
+                break;
+            case 'cheque':
+                $order->method_payment = 2;
+                break;
+            case 'espece':
+                $order->method_payment = 3;
+                break;
+            case 'prise_en_charge':
+                $order->method_payment = 4;
+                break;
+        }
+
+        if ( $order->save() ) {
+            $this->order_id = $order->id;
+            
+            $this->display = 'send_proof';
+        }
+
+    }
+
+
+    public function add_proof() {    
+
+        $this->validate([
+            'proof' => 'required|mimes:jpeg,png,jpg,gif,svg',
+        ],
+        [
+            'proof.required' => 'Le proof est obligatoire.',
+            'proof.mimes' => 'Le proof doit etre un fichier de type: jpeg,png,jpg,gif,svg.',
+        ],
+        [
+            'proof' => 'Proof',
+        ]);
+
+        $order = Order::find($this->order_id);      
+ 
+        $proof = $this->proof->store('proofs', 'public');
+
+        $order->proof = $proof;
+        $order->save();        
+        $this->display = 'success';
+
+        // send email notification to user 
+        if ( $this->new_user == false ) {
+            $user = User::find($this->user->id);
+            $user->notify(new WaitingConfirmation($user, $order));
+        }else {
+            $user = User::find($this->user->id);
+            $user->notify(new WelcomeNewUser($user, $order, $this->password));
+        }
+    }   
 }

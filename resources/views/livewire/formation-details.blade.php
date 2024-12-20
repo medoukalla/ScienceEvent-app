@@ -85,22 +85,13 @@
                     </div>
                 </div>
             </div>
-            @guest 
+            
             <div class="floating-btn">
-                <div wire:click="login" class="btn-org" style="margin-top: 20px;">
-                    Se connecter
-                </div>
-                <div wire:click="register" class="btn-org-no-border">
-                    S’inscrire en E-learning
+                <div wire:click="register" class="btn-org" style="margin-top: 20px;">
+                    Acheter cette formation
                 </div>
             </div>
-            @else
-                <div class="floating-btn">
-                    <div wire:click="payment" class="btn-org" style="margin-top: 20px;">
-                        Acheter cette formation
-                    </div>
-                </div>
-            @endguest
+
             <hr>
             <div class="info-ref-wrap">
                 <div class="info-ref">
@@ -120,6 +111,58 @@
                     02 22 44 42 11
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Register form  -->
+    <div class="class-details-instructor-inner" @if ($display != 'register') style="display: none" @endif )>
+        <div class="r-side-floating">
+            <div class="r-s-title">
+                INSCRIPTION
+            </div>
+            <div class="class-categories">
+                <form action="{{ route('voyager.login') }}" method="POST" style="width: 100%;">
+                    @csrf
+                    
+                    <div class="form-group">
+                        <label for="name">Nom & Prénom*</label>
+                        <input wire:model.lazy="name" type="text" class="form-control " style="width: 100%; height:40px;" id="name" name="name" required>
+                        @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="specialite">Spécialité</label>
+                        <input wire:model.lazy="specialite" type="text" class="form-control " style="width: 100%; height:40px;" id="specialite" name="specialite">
+                        @error('specialite') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Téléphone*</label>
+                        <input wire:model.lazy="phone" type="tel" class="form-control " style="width: 100%; height:40px;" id="phone" name="phone" required>
+                        @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                        <input wire:model.lazy="email" type="email" class="form-control " style="width: 100%; height:40px;" id="email" name="email" required>
+                    </div>
+                    
+                    
+
+                    <div class="floating-btn">
+                        <div wire:click="save_user" class="btn-org" style="margin-top: 20px;">
+                            S'inscrire
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <hr>
+
+            <div class="floating-btn">
+                <div wire:click="back" class="btn-org" >
+                    Retourne
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -234,7 +277,7 @@
                 </div>
 
                 <div class="floating-btn" @if ( $payment_method == 'credit_card' ) style="display: none;" @else style="display:block;" @endif >
-                    <div wire:click="confirmPayment" class="btn-org" style="margin-top: 20px;">
+                    <div wire:click="paymentOffline" class="btn-org" style="margin-top: 20px;">
                         Confirmer le payement
                     </div>
                 </div>
@@ -256,82 +299,71 @@
         </div>
     </div>
 
-    <!-- Login form  -->
-    <div class="class-details-instructor-inner" @if ($display != 'login') style="display: none" @endif )>
+    <!-- Upload proof  -->
+    <div class="class-details-instructor-inner" @if ($display != 'send_proof') style="display: none" @endif >
         <div class="r-side-floating">
             <div class="r-s-title">
-                Se connecter
+                {{ $formation->title }}
             </div>
             <div class="format">
-                <p>
-                    Vous n'avez pas de compte ? <a wire:click="register" href="javascript:;"><u>Inscrivez-vous gratuitement</u></a>
-                </p>
+                Format
             </div>
-            <div class="class-categories">
-                <form action="{{ route('voyager.login') }}" method="POST">
-                    @csrf
-                    <input type="text" name="email" placeholder="Email">
-                    <input type="password" name="password" placeholder="Mot de passe">
-                    <div class="floating-btn">
-                        <div class="btn-org" style="margin-top: 20px;">
-                            Se connecter
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <div class="class-categories" style="display: block !important;">
+            
+                <p style="font-size: 17px;margin-bottom: 10px;background-color: #ff9f9f63;padding: 10px 12px;line-height: 24px;border-radius: 10px;">Veuillez uploader votre preuve de paiement pour acclerer la verification de votre paiement.</p>
+            
 
+                <div class="form-group">
+                    <label for="proof">Preuve du paiement*</label>
+                    <input wire:model="proof" type="file" class="form-control " style="width: 100%; height:40px;" id="proof" name="proof" required>
+                    @error('proof') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+                
+                
+
+                <div class="floating-btn">
+                    <div wire:click="add_proof" class="btn-org" style="margin-top: 20px;">
+                        Confirmer paiement
+                    </div>
+                </div>
+            
+            </div>
+            
+            
             <div class="floating-btn">
-                <div wire:click="back" class="btn-org" style="margin-top: 20px;">
-                    Retourne
+                <div wire:click="add_proof" class="btn-org" style="margin-top: 20px;">
+                    Acheter cette formation
                 </div>
             </div>
 
-            <hr>
+            
         </div>
     </div>
 
-    <!-- Register form  -->
-    <div class="class-details-instructor-inner" @if ($display != 'register') style="display: none" @endif )>
+    <!-- Upload proof  -->
+    <div class="class-details-instructor-inner" @if ($display != 'success') style="display: none" @endif >
         <div class="r-side-floating">
             <div class="r-s-title">
-                S'inscrire en E-learning
+                {{ $formation->title }}
             </div>
             <div class="format">
-                <p>
-                    Vous avez déjà un compte ?  <a wire:click="login" href="javascript:;"><u>Se connecter</u></a>
+                Format
+            </div>
+            <div class="class-categories" style="display: block !important;">
+            
+                <p style="font-size: 17px;margin-bottom: 10px;background-color: #dff0d8;padding: 10px 12px;line-height: 24px;border-radius: 10px;">
+                    Votre commande a ete bien enregistree. Nous allons confirmer votre paiement des que possible.
+                    <br>
+                    Veuillez consulter votre boite email pour plus de details.
                 </p>
-            </div>
-            <div class="class-categories">
-                <form action="{{ route('voyager.login') }}" method="POST">
-                    @csrf
-                    <input type="text" name="name" placeholder="Nom">
-                    <input type="text" name="email" placeholder="Email">
-                    <input type="password" name="password" placeholder="Mot de passe">  
-                    <div class="floating-btn">
-                        <div class="btn-org" style="margin-top: 20px;">
-                            S'inscrire
-                        </div>
-                    </div>
-                </form>
+        
+            
             </div>
 
-            <hr>
-
-            <div class="floating-btn">
-                <div wire:click="back" class="btn-org" >
-                    Retourne
-                </div>
-            </div>
-
+            
         </div>
     </div>
     
-
-
-
-
-
-
 
     <style>
         .r-side-floating input[type="text"], 
