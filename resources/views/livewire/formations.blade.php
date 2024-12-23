@@ -12,9 +12,18 @@
                     <div role="listitem" class="collection-grid-item-classes w-dyn-item">
                     <div class="information-wrap">
                         <div class="i-img-wrap">
-                            <a href="{{ route('frontend.formation',$formation->id) }}">
-                                <img src="{{ asset('storage/'.$formation->cover) }}" alt="{{ $formation->title }}">
-                            </a>
+                            @php
+                                $videos = json_decode($formation->video);
+                            @endphp
+                            
+                            @if (!empty($videos) && isset($videos[0]->download_link))
+                                <video style="width: 100%; height: auto;" controlslist="nodownload nofullscreen noplaybackrate" disablepictureinpicture autoplay muted playsinline>
+                                    <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4">
+                                    Votre navigateur ne prend pas en charge la balise vidéo.
+                                </video>
+                            @else
+                                <p>Aucune vidéo disponible.</p>
+                            @endif
                         </div>
                         <div class="cat-tagge">
                         <a href="{{ route('frontend.formation',$formation->id) }}">{{ $formation->category->name }}</a>
