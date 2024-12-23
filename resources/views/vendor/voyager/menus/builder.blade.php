@@ -102,7 +102,8 @@
                         <label for="icon_class">{{ __('voyager::menu_builder.icon_class') }} 
                             <a href="https://tablericons.com/" target="_blank">
                             Utiliser une classe de police Tabler
-                            </label>
+                            </a>
+                        </label>
                         <input type="text" class="form-control" id="m_icon_class" name="icon_class"
                                placeholder="{{ __('voyager::menu_builder.icon_class_ph') }}"><br>
 

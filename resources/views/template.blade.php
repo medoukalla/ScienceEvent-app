@@ -10,6 +10,9 @@
   <meta content="Webflow" name="generator" />
   <link href="{{ asset('assets/style.css') }}" rel="stylesheet" type="text/css" />
 
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+
+
   @livewireStyles
 
 </head>
