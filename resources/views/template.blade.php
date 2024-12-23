@@ -7,10 +7,27 @@
   <title>@yield('page_title', setting('site.title') )</title>
 
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <meta content="Webflow" name="generator" />
   <link href="{{ asset('assets/style.css') }}" rel="stylesheet" type="text/css" />
 
   <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+  <!-- for seo  -->
+  <meta name="description" content="{{ setting('site.meta_description') }}">
+  <meta name="keywords" content="{{ setting('site.meta_keywords') }}">
+  <meta name="author" content="{{ setting('site.author') }}">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta property="og:title" content="{{ setting('site.title') }}">
+  <meta property="og:description" content="{{ setting('site.meta_description') }}">
+  <meta property="og:image" content="{{ asset('storage/'.setting('site.logo')) }}">
+  <meta property="og:url" content="{{ url()->current() }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ setting('site.title') }}">
+  <meta name="twitter:description" content="{{ setting('site.meta_description') }}">
+  <meta name="twitter:image" content="{{ asset('storage/'.setting('site.logo')) }}">
 
 
   @livewireStyles

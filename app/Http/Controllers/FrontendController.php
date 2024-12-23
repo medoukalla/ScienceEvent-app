@@ -27,6 +27,12 @@ class FrontendController extends Controller
         return view('frontend.formation-details', compact('formation'));
     }
 
+
+    public function formation_access( Formation $formation )   
+    {
+        return view('frontend.formation-access', compact('formation'));
+    }
+
     public function login()
     {
         return view('frontend.login');

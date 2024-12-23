@@ -159,7 +159,7 @@
 
             <div class="floating-btn">
                 <div wire:click="back" class="btn-org" >
-                    Retourne
+                    Retour
                 </div>
             </div>
 
@@ -291,7 +291,7 @@
 
 
             <div class="floating-btn">
-                <div wire:click="back" class="btn-org" style="margin-top: 20px;">
+                <div wire:click="register" class="btn-org" style="margin-top: 20px;">
                     Retour
                 </div>
             </div>
@@ -331,8 +331,8 @@
             
             
             <div class="floating-btn">
-                <div wire:click="add_proof" class="btn-org" style="margin-top: 20px;">
-                    Acheter cette formation
+                <div wire:click="payment" class="btn-org" style="margin-top: 20px;">
+                    Retour
                 </div>
             </div>
 
