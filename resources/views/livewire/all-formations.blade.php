@@ -82,26 +82,28 @@
                         @foreach ( $formations as $formation )
                             <div role="listitem" class="collection-grid-item-classes w-dyn-item">
                                 <div class="information-wrap">
-                                    <div class="i-img-wrap">
-                                        <img src="https://www.santeacademie.com/_next/image?url=https%3A%2F%2Ffrontstage.santeacademie.com%2Fuploads%2Ftopic-36f63d%2F9%2F5%2Fpicture%2Fpresentation%2Fpresentation-thumbnail-8d60fb0a70984cc249bd6f95b5469479.png&w=640&q=75"
-                                            alt="information image">
-                                    </div>
-                                    <div class="cat-tagge">
-                                        {{ $formation->category->name }}
-                                    </div>
-                                    <div class="i-title">
-                                        {{ $formation->title }}
-                                    </div>
-                                    <div class="i-planning">
-                                        <div class="i-date">
-                                            <img src="{{ asset('assets/svg/i-date.svg') }}" alt="information date">
-                                            <span>{{ $formation->date }}</span>
+                                    <a href="{{ route('frontend.formation', $formation->id) }}">
+
+                                        <div class="i-img-wrap">
+                                            <img src="{{ asset('storage/'.$formation->cover) }}" alt="information image">
                                         </div>
-                                        <div class="i-profile">
-                                            <img src="{{ asset('assets/svg/user.svg') }}" alt="information date">
-                                            <span>{{ $formation->doctor->name }}</span>
+                                        <div class="cat-tagge">
+                                            {{ $formation->category->name }}
                                         </div>
-                                    </div>
+                                        <div class="i-title">
+                                            {{ $formation->title }}
+                                        </div>
+                                        <div class="i-planning">
+                                            <div class="i-date">
+                                                <img src="{{ asset('assets/svg/i-date.svg') }}" alt="information date">
+                                                <span>{{ $formation->date }}</span>
+                                            </div>
+                                            <div class="i-profile">
+                                                <img src="{{ asset('assets/svg/user.svg') }}" alt="information date">
+                                                <span>{{ $formation->doctor->name }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
 
                                 </div>
                             </div>

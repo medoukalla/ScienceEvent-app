@@ -12,7 +12,9 @@
                             <!-- Pages path -->
                             <div class="path-map">
                                 <div class="map">
-                                    <div class="path-name">Formation</div>
+                                    <a href="{{ route('frontend.formations') }}" >
+                                        <div class="path-name">Les formations</div>
+                                    </a>
                                     <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="Path arrow">
                                     <div class="path-name selected">{{ $formation->title }}</div>
                                 </div>
@@ -30,10 +32,19 @@
                             <div data-w-id="6481ae6b-8faa-c180-5d32-6eeed6b317ba"
                                 style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1"
                                 class="class-details-description-image-with-content w-richtext">
-                                <figure style="max-width:846pxpx"
-                                    class="w-richtext-align-fullwidth w-richtext-figure-type-image dr-image">
-                                    <img src="{{ asset('storage/' . $formation->cover) }}" loading="lazy" alt="" />
-                                </figure>
+
+                                @php
+                                    $videos = json_decode($formation->video);
+                                @endphp
+                                
+                                @if (!empty($videos) && isset($videos[0]->download_link))
+                                    <video controls style="width: 100%; height: auto;">
+                                        <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4">
+                                        Votre navigateur ne prend pas en charge la balise vidéo.
+                                    </video>
+                                @else
+                                    <p>Aucune vidéo disponible.</p>
+                                @endif
                                 <div class="formation-heading">
                                     <h3><span>Résumé</span> de la formation</h3>
                                 </div>
