@@ -4449,9 +4449,9 @@ blockquote {
   border-radius: 20px !important;
   position: relative;
   overflow: hidden;
-  /* max-height: 600px; */
-  max-height: 600px;
+  max-height: 400px;
 }
+
 
 .hero-main-image-two {
   border-radius: 20px;
@@ -11358,6 +11358,11 @@ blockquote {
   width: 100%;
 }
 
+.nav-content-wrapper {
+  height: 190px !important;
+  overflow-y: scroll;
+}
+
 .top-mega {
   display: flex;
   align-items: center;
@@ -11394,11 +11399,6 @@ blockquote {
   gap: 20px;
 }
 
-.menu-result {
-  max-height: 200px;
-  overflow-x: hidden;
-}
-
 .result-img-wrapper {
   display: flex;
   align-items: center;
@@ -11409,7 +11409,7 @@ blockquote {
 }
 
 .result-img-wrapper img {
-  /* height: 100%; */
+  height: 100%;
   border-radius: 5px;
 }
 
@@ -11568,8 +11568,7 @@ blockquote {
   position: relative;
   width: 100%;
   height: 200px;
-  min-height: 250px;
-  background-color: red;
+  min-height: 200px;
   border-radius: 15px;
   overflow: hidden;
 }
@@ -12255,4 +12254,167 @@ input[type="radio"] {
 
   background-color: rgb(50, 173, 230, 30%) !important;
   color: #32ADE6 !important;
+}
+
+/* Formation filter design */
+
+.formations-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 100px;
+  width: 100%;
+  gap: 20px;
+}
+
+.formations-wrapper .formations-filter {
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  width: 20%;
+  font-size: 14px;
+  font-weight: 600;
+  height: 550px !important;
+  overflow-y: scroll;
+}
+
+.formations-wrapper .formations-filter-wrapper {
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+}
+
+.formations-wrapper .formations-filter ul li {
+  background-image: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-left: 0;
+}
+
+.formations-wrapper .formations-filter .filter-drop {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: 600;
+}
+
+.formations-wrapper .formations-filter .filter-options {
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.formations-wrapper .formations-filter .filter-options:last-child {
+  border-bottom: 0;
+}
+
+.formations-wrapper .formations-filter .filter-options:last-child:hover {
+  background-color: rgba(0, 0, 0, 0.041);
+}
+
+.formations-wrapper .formations-filter .filter-options .filter-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.formations-wrapper .formations-filter .filter-options .filter-type img {
+  transform: rotate(90deg);
+}
+
+.formations-wrapper .formations-filter .option-type {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2%;
+}
+
+.formations-wrapper .formations-filter .option-type .o-type {
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 5px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.formations-wrapper .formations-filter .option-type .o-type:hover {
+  background-color: var(--orange-clr);
+  color: var(--gray-bg-color);
+}
+
+.formations-wrapper .formations-filter .filter-drop span:nth-child(2) {
+  font-size: 14px;
+  color: var(--orange-clr);
+  cursor: pointer;
+}
+
+.formations-wrapper .formations-filter ul li input[type="radio"] {
+  height: 12px;
+  width: 12px;
+  margin-right: 2px;
+  content: " ";
+  display: inline-block;
+  vertical-align: baseline;
+  border: 1px solid var(--orange-clr);
+  cursor: pointer;
+}
+
+.formations-wrapper .formations-filter ul {
+  padding-top: 20px;
+  display: block;
+}
+
+.formations-wrapper .formations-filter ul li {
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+.formations-wrapper .formations-filter ul li:hover {
+  background-color: rgba(0, 0, 0, 0.041);
+  border-radius: 5px;
+}
+
+.formations-wrapper .formations-filter ul li span {
+  line-height: 25px;
+}
+
+.formations-wrapper .formations {
+  width: 80%;
+}
+
+.formations-wrapper .formations .information-wrap .i-img-wrap {
+  width: 100%;
+  height: 175px;
+  min-height: 175px;
+  border-radius: 15px;
+}
+
+.formation-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.formation-header-wrapper video {
+  height: 300px;
+  border-radius: 15px;
+}
+
+.f-hear-content .path-map .map {
+  margin-bottom: 0;
+}
+
+.f-header-content .f-h-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 55px;
+}
+
+.f-header-content .btn-org {
+  width: fit-content;
 }

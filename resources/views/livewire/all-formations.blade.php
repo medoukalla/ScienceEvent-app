@@ -1,0 +1,114 @@
+<div class="all-formations">
+    <div class="w-layout-blockcontainer container w-container">
+        <div class="formations-wrapper">
+            <div class="formations-filter">
+                <div class="formations-filter-wrapper">
+                    <div class="filter job">
+                        <div class="filter-drop">
+                            <span>Filter</span>
+                            <span wire:click="resetFilters">Réinitialiser</span>
+                        </div>
+                        <div class="filter-options">
+                            <div class="filter-type">
+                                <span>Categories</span>
+                                <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="">
+                            </div>
+                            <ul>
+                                @foreach ( $categories as $category )       
+                                    <li wire:click="setCategory({{ $category->id }})">
+                                        <input type="radio" name="category" value="{{ $category->id }}" @if ( $selectedCategory == $category->id ) checked @endif >
+                                        <span>{{ $category->name }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter job">
+                        <div class="filter-options">
+                            <div class="filter-type">
+                                <span>Médecins</span>
+                                <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="">
+                            </div>
+                            <ul>
+                                @foreach ( $doctors as $doctor )
+                                    <li wire:click="setDoctor({{ $doctor->id }})">
+                                        <input type="radio" name="doctor" value="{{ $doctor->id }}" @if ( $selectedDoctor == $doctor->id ) checked @endif>
+                                        <span>{{ $doctor->name }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter job">
+                        <div class="filter-options">
+                            <div class="filter-type">
+                                <span>Type de formation</span>
+                                <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="">
+                            </div>
+                            <ul>
+                                @foreach ( ['1' => 'E-learning', '2' => 'Présentiel', '3' => 'Classe Virtuelle'] as $key => $value )
+                                    <li wire:click="setType({{ $key }})">
+                                        <input type="radio" name="type" value="{{ $key }}" @if ( $selectedType == $key ) checked @endif>
+                                        <span>{{ $value }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="formations">
+                <div class="collection-grid-wrapper-classes w-dyn-list">
+                    <div role="list" class="collection-grid-classes w-dyn-items">
+
+                        @php
+                            if ( $selectedCategory || $selectedDoctor || $selectedType ) {
+                                $formations = $formations->filter(function($formation) use ($selectedCategory, $selectedDoctor, $selectedType) {
+                                    $result = true;
+                                    if ( $selectedCategory ) {
+                                        $result = $result && $formation->category_id == $selectedCategory;
+                                    }
+                                    if ( $selectedDoctor ) {
+                                        $result = $result && $formation->doctor_id == $selectedDoctor;
+                                    }
+                                    if ( $selectedType ) {
+                                        $result = $result && $formation->type == $selectedType;
+                                    }
+                                    return $result;
+                                });
+                            }
+                            
+                        @endphp
+                        @foreach ( $formations as $formation )
+                            <div role="listitem" class="collection-grid-item-classes w-dyn-item">
+                                <div class="information-wrap">
+                                    <div class="i-img-wrap">
+                                        <img src="https://www.santeacademie.com/_next/image?url=https%3A%2F%2Ffrontstage.santeacademie.com%2Fuploads%2Ftopic-36f63d%2F9%2F5%2Fpicture%2Fpresentation%2Fpresentation-thumbnail-8d60fb0a70984cc249bd6f95b5469479.png&w=640&q=75"
+                                            alt="information image">
+                                    </div>
+                                    <div class="cat-tagge">
+                                        {{ $formation->category->name }}
+                                    </div>
+                                    <div class="i-title">
+                                        {{ $formation->title }}
+                                    </div>
+                                    <div class="i-planning">
+                                        <div class="i-date">
+                                            <img src="{{ asset('assets/svg/i-date.svg') }}" alt="information date">
+                                            <span>{{ $formation->date }}</span>
+                                        </div>
+                                        <div class="i-profile">
+                                            <img src="{{ asset('assets/svg/user.svg') }}" alt="information date">
+                                            <span>{{ $formation->doctor->name }}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
