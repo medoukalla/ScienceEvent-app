@@ -8,15 +8,15 @@
             <!-- Information video -->
             <div class="formation-main-video">
                 @php
-                    $videos = json_decode($formation->video);
+                $videos = json_decode($formation->video);
                 @endphp
-                
+
                 @if (!empty($videos) && isset($videos[0]->download_link))
-                    <video controls crossorigin playsinline poster="{{ asset('storage/' . $formation->cover) }}">
-                        <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4" size="576">
-                    </video>
+                <video controls crossorigin playsinline poster="{{ asset('storage/' . $formation->cover) }}">
+                    <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4" size="576">
+                </video>
                 @else
-                    <p>Aucune vidéo disponible.</p>
+                <p>Aucune vidéo disponible.</p>
                 @endif
             </div>
             <div class="class-details-content-and-instructor-wrap">
@@ -30,11 +30,13 @@
 
 
                     <!-- Chat -->
-                    <div class="formation-component-wrapper" id="chat-section">
+                    <div class="formation-component-wrapper" id="chat-section" style="display: none;">
                         <div class="comment-section">
-                            <!-- Comment -->
+
                             <div class="comments-counts">
-                                live chat ...
+
+                                @livewire('formation-chat',['formationId' => $formation->id])
+
                             </div>
                         </div>
                     </div>
@@ -115,21 +117,124 @@
                             </div>
                         </div>
 
+
+                        <!-- Add new comment input  -->
+                        <input style="width:300px; height:50px; border-radius: 10px; outline: none; border:none;" type="text" name="comment" placeholder="Ajouter un commentaire..." class="comment-input">
+                        <button style="height: 50px;" type="button" class="comment-button">Envoyer</button>
+
+
                     </div>
 
                     <!-- Resources -->
-                    <div class="formation-component-wrapper" id="resources-section">
+                    <div class="formation-component-wrapper" id="resources-section" style="display: none;">
                         <div class="comment-section">
-                            <!-- Comment -->
+
                             <div class="comments-counts">
-                                Resources ...
+
+                                <section class="resources-section section-padding">
+                                    <div class="container">
+                                        <div class="resources-header">
+                                            <h3 class="section-title">Ressources du cours</h3>
+                                            <p class="section-subtitle">Accédez aux ressources disponibles pour ce cours</p>
+                                        </div>
+
+                                        <!-- Resources List -->
+                                        <div class="resources-list">
+                                            <!-- Resource: PDF -->
+                                            <div class="resource-item">
+                                                <div class="resource-icon">
+                                                    <i class="ti ti-file-text"></i>
+                                                </div>
+                                                <div class="resource-details">
+                                                    <h4 class="resource-title">Document PDF - Introduction au cours</h4>
+                                                    <p class="resource-type">Type : PDF</p>
+                                                </div>
+                                                <a href="/path-to-resource.pdf" download class="resource-download-btn">
+                                                    Télécharger
+                                                </a>
+                                            </div>
+
+                                            <!-- Resource: Image -->
+                                            <div class="resource-item">
+                                                <div class="resource-icon">
+                                                    <i class="ti ti-photo"></i>
+                                                </div>
+                                                <div class="resource-details">
+                                                    <h4 class="resource-title">Image - Diagramme de processus</h4>
+                                                    <p class="resource-type">Type : Image</p>
+                                                </div>
+                                                <a href="/path-to-image.jpg" download class="resource-download-btn">
+                                                    Télécharger
+                                                </a>
+                                            </div>
+
+                                            <!-- Resource: Word -->
+                                            <div class="resource-item">
+                                                <div class="resource-icon">
+                                                    <i class="ti ti-file"></i>
+                                                </div>
+                                                <div class="resource-details">
+                                                    <h4 class="resource-title">Document Word - Plan du cours</h4>
+                                                    <p class="resource-type">Type : Document Word</p>
+                                                </div>
+                                                <a href="/path-to-document.docx" download class="resource-download-btn">
+                                                    Télécharger
+                                                </a>
+                                            </div>
+
+                                            <!-- Resource: Excel -->
+                                            <div class="resource-item">
+                                                <div class="resource-icon">
+                                                    <i class="ti ti-chart-bar"></i>
+                                                </div>
+                                                <div class="resource-details">
+                                                    <h4 class="resource-title">Feuille Excel - Données du cours</h4>
+                                                    <p class="resource-type">Type : Feuille Excel</p>
+                                                </div>
+                                                <a href="/path-to-excel.xlsx" download class="resource-download-btn">
+                                                    Télécharger
+                                                </a>
+                                            </div>
+
+                                            <!-- Resource: Video -->
+                                            <div class="resource-item">
+                                                <div class="resource-icon">
+                                                    <i class="ti ti-video"></i>
+                                                </div>
+                                                <div class="resource-details">
+                                                    <h4 class="resource-title">Vidéo - Introduction au chapitre 1</h4>
+                                                    <p class="resource-type">Type : Vidéo</p>
+                                                </div>
+                                                <a href="/path-to-video.mp4" download class="resource-download-btn">
+                                                    Télécharger
+                                                </a>
+                                            </div>
+
+                                            <!-- Resource: Link -->
+                                            <div class="resource-item">
+                                                <div class="resource-icon">
+                                                    <i class="ti ti-link"></i>
+                                                </div>
+                                                <div class="resource-details">
+                                                    <h4 class="resource-title">Lien - Article recommandé</h4>
+                                                    <p class="resource-type">Type : Lien externe</p>
+                                                </div>
+                                                <a href="https://example.com" target="_blank" class="resource-download-btn">
+                                                    Accéder
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
                             </div>
                         </div>
                     </div>
 
 
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -396,5 +501,249 @@
     });
 </script>
 
+<style>
+    /* General Chat Section Styles */
+    .chat-section {
+        background-color: #ffffff;
+        border: 1px solid #e6e6e6;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 40px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    }
 
+    .chat-header {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .chat-header .section-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+
+    .chat-header .section-subtitle {
+        font-size: 14px;
+        color: #777;
+    }
+
+    /* Chat Messages Container */
+    .chat-messages {
+        max-height: 400px;
+        overflow-y: auto;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+
+    /* Chat Message Bubble */
+    .chat-message {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 15px;
+    }
+
+    .chat-message:last-child {
+        margin-bottom: 0;
+    }
+
+    .chat-bubble {
+        max-width: 70%;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        line-height: 1.5;
+        position: relative;
+        word-wrap: break-word;
+    }
+
+    .chat-bubble p {
+        font-family: var(--lato);
+        color: var(--paragraph-color);
+        margin-bottom: 0;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 16px;
+    }
+
+    /* Sender Message (Blue Background) */
+    .chat-message.sender .chat-bubble {
+        background-color: #d4edfc;
+        color: #333;
+        align-self: flex-start;
+        margin-right: auto;
+        border-bottom-left-radius: 5px;
+    }
+
+    /* Receiver Message (Gray Background) */
+    .chat-message.receiver .chat-bubble {
+        background-color: #e6e6e6;
+        color: #333;
+        align-self: flex-end;
+        margin-left: auto;
+        border-bottom-right-radius: 5px;
+    }
+
+    /* User Message (Yellow Background) */
+    .chat-message.user .chat-bubble {
+        background-color: #fff8db;
+        color: #333;
+        margin-left: auto;
+        border-bottom-right-radius: 5px;
+    }
+
+    .chat-bubble .chat-timestamp {
+        display: block;
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+        text-align: right;
+    }
+
+    /* Chat Input and Send Button */
+    .chat-form {
+        margin-top: 10px;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .chat-input {
+        flex: 1;
+        resize: none;
+        height: 50px;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        font-size: 14px;
+        outline: none;
+        overflow: hidden;
+    }
+
+    .chat-send-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    /* General Section Styles */
+    .resources-section {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 30px;
+        margin-top: 50px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .resources-header {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .resources-header .section-title {
+        font-size: 22px;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+
+    .resources-header .section-subtitle {
+        font-size: 14px;
+        color: #666;
+    }
+
+    /* Resources List */
+    .resources-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Individual Resource */
+    .resource-item {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .resource-item:hover {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Resource Icon */
+    .resource-icon {
+        font-size: 28px;
+        color: var(--primary-color);
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: #f4f6f8;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    /* Resource Details */
+    .resource-details {
+        flex: 1;
+    }
+
+    .resource-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 3px;
+    }
+
+    .resource-type {
+        font-size: 12px;
+        color: #777;
+    }
+
+    /* Download Button */
+    .resource-download-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .resource-download-btn:hover {
+        background-color: var(--primary-color-hover);
+    }
+</style>
 @stop
