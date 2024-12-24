@@ -140,89 +140,39 @@
 
                                         <!-- Resources List -->
                                         <div class="resources-list">
-                                            <!-- Resource: PDF -->
-                                            <div class="resource-item">
-                                                <div class="resource-icon">
-                                                    <i class="ti ti-file-text"></i>
+                                            @foreach($formation->resources as $resource)
+                                                @php
+                                                    $resource_info = json_decode($resource->file_path);
+                                                @endphp
+                                                <div class="resource-item">
+                                                    <div class="resource-icon">
+                                                        @if (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['png', 'jpg', 'jpeg','gif', 'webp']))
+                                                            <i class="ti ti-photo"></i>
+                                                        @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['pdf']))
+                                                            <i class="ti ti-file-type-pdf"></i>
+                                                        @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['docx', 'doc']))
+                                                            <i class="ti ti-brand-office"></i>
+                                                        @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['xlsx', 'xls']))
+                                                            <i class="ti ti-file-excel"></i>
+                                                        @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['pptx', 'ppt']))
+                                                            <i class="ti ti-presentation"></i>
+                                                        @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['mp4', 'webm', 'mov', 'avi']))
+                                                            <i class="ti ti-video"></i>
+                                                        
+                                                        @else
+                                                            <i class="ti ti-file-text"></i>
+                                                        @endif
+                                                    </div>
+                                                    <div class="resource-details">
+                                                        <h4 class="resource-title">{{ $resource->file_name }}</h4>
+                                                        <p class="resource-type">Type : {{ ucfirst(pathinfo($resource_info[0]->download_link, PATHINFO_EXTENSION)) }}</p>
+                                                    </div>
+                                                    <a href="{{ Storage::url($resource_info[0]->download_link) }}" download class="resource-download-btn">
+                                                        Télécharger
+                                                    </a>
                                                 </div>
-                                                <div class="resource-details">
-                                                    <h4 class="resource-title">Document PDF - Introduction au cours</h4>
-                                                    <p class="resource-type">Type : PDF</p>
-                                                </div>
-                                                <a href="/path-to-resource.pdf" download class="resource-download-btn">
-                                                    Télécharger
-                                                </a>
-                                            </div>
-
-                                            <!-- Resource: Image -->
-                                            <div class="resource-item">
-                                                <div class="resource-icon">
-                                                    <i class="ti ti-photo"></i>
-                                                </div>
-                                                <div class="resource-details">
-                                                    <h4 class="resource-title">Image - Diagramme de processus</h4>
-                                                    <p class="resource-type">Type : Image</p>
-                                                </div>
-                                                <a href="/path-to-image.jpg" download class="resource-download-btn">
-                                                    Télécharger
-                                                </a>
-                                            </div>
-
-                                            <!-- Resource: Word -->
-                                            <div class="resource-item">
-                                                <div class="resource-icon">
-                                                    <i class="ti ti-file"></i>
-                                                </div>
-                                                <div class="resource-details">
-                                                    <h4 class="resource-title">Document Word - Plan du cours</h4>
-                                                    <p class="resource-type">Type : Document Word</p>
-                                                </div>
-                                                <a href="/path-to-document.docx" download class="resource-download-btn">
-                                                    Télécharger
-                                                </a>
-                                            </div>
-
-                                            <!-- Resource: Excel -->
-                                            <div class="resource-item">
-                                                <div class="resource-icon">
-                                                    <i class="ti ti-chart-bar"></i>
-                                                </div>
-                                                <div class="resource-details">
-                                                    <h4 class="resource-title">Feuille Excel - Données du cours</h4>
-                                                    <p class="resource-type">Type : Feuille Excel</p>
-                                                </div>
-                                                <a href="/path-to-excel.xlsx" download class="resource-download-btn">
-                                                    Télécharger
-                                                </a>
-                                            </div>
-
-                                            <!-- Resource: Video -->
-                                            <div class="resource-item">
-                                                <div class="resource-icon">
-                                                    <i class="ti ti-video"></i>
-                                                </div>
-                                                <div class="resource-details">
-                                                    <h4 class="resource-title">Vidéo - Introduction au chapitre 1</h4>
-                                                    <p class="resource-type">Type : Vidéo</p>
-                                                </div>
-                                                <a href="/path-to-video.mp4" download class="resource-download-btn">
-                                                    Télécharger
-                                                </a>
-                                            </div>
-
-                                            <!-- Resource: Link -->
-                                            <div class="resource-item">
-                                                <div class="resource-icon">
-                                                    <i class="ti ti-link"></i>
-                                                </div>
-                                                <div class="resource-details">
-                                                    <h4 class="resource-title">Lien - Article recommandé</h4>
-                                                    <p class="resource-type">Type : Lien externe</p>
-                                                </div>
-                                                <a href="https://example.com" target="_blank" class="resource-download-btn">
-                                                    Accéder
-                                                </a>
-                                            </div>
+                                            @endforeach
+                                            
                                         </div>
                                     </div>
                                 </section>

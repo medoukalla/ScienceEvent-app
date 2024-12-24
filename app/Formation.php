@@ -55,4 +55,15 @@ class Formation extends Model
     {
         return $this->hasMany(Pack::class, 'formation_id');
     }
+
+
+    /**
+     * Get all of the resources for the Formation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function resources()
+    {
+        return $this->hasMany(Resource::class, 'formation_id');
+    }
 }
