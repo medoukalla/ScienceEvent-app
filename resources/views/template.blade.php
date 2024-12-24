@@ -29,6 +29,8 @@
   <meta name="twitter:description" content="{{ setting('site.meta_description') }}">
   <meta name="twitter:image" content="{{ asset('storage/'.setting('site.logo')) }}">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
   @livewireStyles
 

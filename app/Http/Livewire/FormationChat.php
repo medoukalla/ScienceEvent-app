@@ -18,20 +18,21 @@ class FormationChat extends Component
         'message' => 'required|string|max:500',
     ];
 
+    
     public function mount($formationId)
     {
         $this->formationId = $formationId;
-        $this->loadMessages();
     }
-
+    
     public function loadMessages()
-{
-    $this->messages = Chat::where('formation_id', $this->formationId)
-        ->with('user')
-        ->orderBy('created_at', 'asc')
-        ->get()
-        ->toArray(); // Convert to array
-}
+    {
+        $this->messages = Chat::where('formation_id', $this->formationId)
+            ->with('user')
+            ->orderBy('created_at', 'asc')
+            ->get()
+            ->toArray(); // Convert to array
+
+    }
 
     public function sendMessage()
     {
@@ -44,11 +45,13 @@ class FormationChat extends Component
         ]);
 
         $this->message = ''; // Clear input
-        $this->loadMessages(); // Reload messages
+        // $this->loadMessages(); // Reload messages
+        
     }
-
+    
     public function render()
     {
+        $this->loadMessages();
         return view('livewire.formation-chat');
     }
 }
