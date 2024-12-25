@@ -43,86 +43,7 @@
 
                     <!-- Commenters -->
                     <div class="formation-component-wrapper" id="comments-section" style="display: none;">
-                        <div class="comment-section">
-                            <!-- Comment -->
-                            <div class="comments-counts">
-                                25 Commentairs ...
-                            </div>
-                            <div class="comment">
-                                <div class="comment-header">
-                                    <img src="{{ asset('assets/images/comment-image-5.png') }}" alt="User 1"
-                                        class="comment-avatar">
-                                    <span class="comment-name">Sophia .B</span>
-                                    <div class="you-tage">Vous</div>
-                                </div>
-                                <div class="comment-content">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non qui excepturi
-                                    fuga cumque ipsa dolores vitae quaerat officia. Laboriosam, labore.
-                                </div>
-                                <div class="comment-footer">
-                                    <div class="like-inline">
-                                        <span class="like-icon" data-liked="true">❤</span>
-                                        <span class="likes" data-increase="true">2 likes</span>
-                                        <span class="reply">Répondre</span>
-                                    </div>
-                                    <div class="comment-date">
-                                        ill ya 1 mois
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Reply -->
-                            <div class="reply">
-                                <div class="top-reply-contnet">répondre les commentaires ...</div>
-                                <div class="comment-header">
-                                    <img src="{{ asset('assets/images/reply-image.png') }}" alt="User 2"
-                                        class="comment-avatar">
-                                    <span class="comment-name">Ella .B</span>
-                                    <div class="you-tage author">Author</div>
-                                </div>
-                                <div class="comment-content">
-                                    This is a reply to the comment.
-                                </div>
-                                <div class="comment-footer">
-                                    <div class="like-inline">
-                                        <span class="like-icon" data-liked="true">❤</span>
-                                        <span class="likes" data-increase="true">10 likes</span>
-                                        <span class="comment-reply">Répondre</span>
-                                    </div>
-                                    <div class="comment-date">
-                                        ill ya 1 mois
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Reply -->
-                            <div class="reply">
-                                <div class="comment-header">
-                                    <img src="{{ asset('assets/images/comment-image-5.png') }}" alt="User 2"
-                                        class="comment-avatar">
-                                    <span class="comment-name">Sophia .B</span>
-                                    <div class="you-tage">Vous</div>
-                                </div>
-                                <div class="comment-content">
-                                    This is a reply to the comment.
-                                </div>
-                                <div class="comment-footer">
-                                    <div class="like-inline">
-                                        <span class="like-icon" data-liked="false">❤</span>
-                                        <span class="likes" data-increase="false">0 likes</span>
-                                        <span class="reply">Répondre</span>
-                                    </div>
-                                    <div class="comment-date">
-                                        ill ya 1 mois
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Add new comment input  -->
-                        <input style="width:300px; height:50px; border-radius: 10px; outline: none; border:none;" type="text" name="comment" placeholder="Ajouter un commentaire..." class="comment-input">
-                        <button style="height: 50px;" type="button" class="comment-button">Envoyer</button>
-
-
+                       @livewire('comments')
                     </div>
 
                     <!-- Resources -->
@@ -134,8 +55,8 @@
                                 <section class="resources-section section-padding">
                                     <div class="container">
                                         <div class="resources-header">
-                                            <h3 class="section-title">Ressources du cours</h3>
-                                            <p class="section-subtitle">Accédez aux ressources disponibles pour ce cours</p>
+                                            <h3 class="section-title">Ressources du formation</h3>
+                                            <p class="section-subtitle">Accédez aux ressources disponibles pour ce formation</p>
                                         </div>
 
                                         <!-- Resources List -->
