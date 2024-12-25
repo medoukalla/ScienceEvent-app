@@ -8,11 +8,9 @@ use Livewire\Component;
 
 class Comments extends Component
 {
-
     public $formationId;
     public $content = '';
     public $replyTo = null;
-    
 
     protected $rules = [
         'content' => 'required|string|max:500',
@@ -41,7 +39,23 @@ class Comments extends Component
         ]);
 
         // Reset fields after adding
+        $this->resetCommentState();
+    }
+
+    /**
+     * Reset content and reply state.
+     */
+    private function resetCommentState()
+    {
         $this->content = '';
+        $this->replyTo = null;
+    }
+
+    /**
+     * Cancel replying to a comment.
+     */
+    public function cancelReply()
+    {
         $this->replyTo = null;
     }
 

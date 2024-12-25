@@ -10,7 +10,7 @@
         <div class="comment-header">
             <img src="{{ asset('assets/images/comment-avatar.png') }}" alt="User Avatar" class="comment-avatar">
             <span class="comment-name">{{ $comment->user->name }}</span>
-            <div class="you-tag {{ auth()->id() === $comment->user_id ? 'visible' : 'hidden' }}">Vous</div>
+            <div class="you-tag {{ auth()->id() === $comment->user_id ? 'visible' : 'hidden' }}"> <small>(Vous)</small></div>
         </div>
         <div class="comment-content">
             {{ $comment->content }}
@@ -55,8 +55,8 @@
     </div>
     @endforeach
 
-    <!-- Add new comment input -->
-    <div class="add-comment">
+    <!-- Show input for adding a new comment or reply -->
+    <div class="add-comment" style="display: {{ $replyTo ? 'none' : 'block' }}">
         <textarea wire:model.defer="content" placeholder="Ajouter un commentaire..."></textarea>
         <button wire:click="addComment">Publier</button>
     </div>
