@@ -2,43 +2,6 @@
 
 @section('content')
 
-<div class="hero-video-animation">
-    <div class="w-layout-blockcontainer container w-container">
-        <div class="hero-v-content-wrapper">
-            <div class="hero-v-content">
-                <div class="hero-v-title">
-                    La formation e-learning
-                        que les soignants méritent
-                </div>
-                <p>Améliorez la prise en charge de vos patients à l’hôpital ou en libéral grâce à nos formations agréées DPC, conçues par les meilleurs experts européens.</p>
-                <div class="btn-org">
-                    Télécharger le catalogue
-                </div>
-            </div>
-            <div class="video-parts">
-                <div class="v-part v-part-left">
-                    <div class="video-container">
-                        <video src="https://www.santeacademie.com/videos/Webm_Site_2024_gauche_vlongue.webm" autoplay loop muted width="600"></video>
-                    </div>
-                </video>
-                </div>
-                <div class="v-part v-part-midle">
-                    <div class="video-container">
-                        <video src="https://www.santeacademie.com/videos/Webm_Site_2024_milieu_vlongue.webm" autoplay loop muted width="600"></video>
-                    </div>
-                </video>
-                </div>
-                <div class="v-part v-part-right">
-                   <div class="video-container">
-                    <video src="https://www.santeacademie.com/videos/Webm_Site_2024_droite_vlongue.webm" autoplay loop muted width="600"></video>
-                    </video>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="formation-header">
     <div class="w-layout-blockcontainer container w-container">
         <div class="formation-header-wrapper">
