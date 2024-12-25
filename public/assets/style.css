@@ -2201,6 +2201,7 @@ textarea.w-select {
   --tage-clr: #007AFF;
   --white: white;
   --black: black;
+  --green: #148d89;
 }
 
 .w-layout-blockcontainer {
@@ -12423,4 +12424,100 @@ input[type="radio"] {
   border-radius: 24px;
   width: 100%;
   height: auto;
+}
+
+/* Home categories design */
+
+.cat-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.categorie-box {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(346deg, rgba(255, 255, 255, 1) 30%, rgba(118, 169, 250, 1) 100%);
+  background: -webkit-linear-gradient(346deg, rgba(255, 255, 255, 1) 30%, rgba(118, 169, 250, 1) 100%);
+  background: linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(118, 169, 250, 0.3) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#76a9fa", GradientType=1);
+  padding: 2rem;
+  width: 100%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.categorie-box:hover {
+  transform: scale(1.05);
+}
+
+.categorie-box:nth-child(2) {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(217, 142, 25, 1) 100%);
+  background: -webkit-linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(217, 142, 25, 1) 100%);
+  background: linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(217, 142, 25, 0.3) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#d98e19", GradientType=1);
+}
+
+.categorie-box:nth-child(3) {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(31, 193, 185, 1) 100%);
+  background: -webkit-linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(31, 193, 185, 1) 100%);
+  background: linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(31, 193, 185, 0.3) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#1fc1b9", GradientType=1);
+}
+
+
+.categorie-box:nth-child(4) {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(31, 193, 185, 1) 100%);
+  background: -webkit-linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(31, 193, 185, 1) 100%);
+  background: linear-gradient(346deg, rgba(255, 255, 255, 1) 51%, rgba(31, 193, 185, 0.3) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#1fc1b9", GradientType=1);
+}
+
+
+.categorie-box .cat-img {
+  width: 2rem;
+  margin-bottom: 20px;
+}
+
+.categorie-box .cat-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--black);
+}
+
+.categorie-box p {
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+  color: var(--gray-clr);
+}
+
+.categorie-box .cat-link {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--tage-clr);
+}
+
+.categorie-box:hover .cat-link {
+  text-decoration: underline;
+}
+
+.categorie-box:nth-child(2) .cat-link {
+  color: var(--orange-clr);
+}
+
+.categorie-box:nth-child(3) .cat-link {
+  color: var(--green);
+}
+
+.categorie-box:nth-child(4) .cat-link {
+  color: var(--green);
 }
