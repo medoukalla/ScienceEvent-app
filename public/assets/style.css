@@ -12557,11 +12557,26 @@ input[type="radio"] {
   gap: 10px;
 }
 
+.hero-v-content-wrapper .video-parts .v-part {
+  position: relative;
+}
+
 .hero-v-content-wrapper .video-parts .v-part.v-part-left {
   width: 11rem;
   overflow: hidden;
   border-radius: 100px;
   height: 360px;
+}
+
+.hero-v-content-wrapper .video-parts .v-part.v-part-left::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(252, 176, 69, 0.295);
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .hero-v-content-wrapper .video-parts .v-part.v-part-midle {
