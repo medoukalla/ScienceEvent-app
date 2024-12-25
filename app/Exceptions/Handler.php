@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Auth\AuthenticationException;
+
 
 class Handler extends ExceptionHandler
 {
@@ -15,6 +17,17 @@ class Handler extends ExceptionHandler
     protected $levels = [
         //
     ];
+
+    // protected function unauthenticated($request, AuthenticationException $exception)
+    // {
+    //     // If the request expects JSON, return a JSON response
+    //     if ($request->expectsJson()) {
+    //         return response()->json(['message' => 'Unauthenticated'], 401);
+    //     }
+
+    //     // Redirect to your custom login route if not authenticated
+    //     return redirect()->route('frontend.login'); // Replace with your route name
+    // }
 
     /**
      * A list of the exception types that are not reported.
