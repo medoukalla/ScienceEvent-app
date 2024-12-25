@@ -38,7 +38,7 @@
                         @endphp
 
                         @if (!empty($videos) && isset($videos[0]->download_link))
-                        <video controls style="width: 100%; height: auto;">
+                        <video controls class="formation-video">
                             <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4">
                             Votre navigateur ne prend pas en charge la balise vidéo.
                         </video>
