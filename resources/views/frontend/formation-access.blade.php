@@ -43,7 +43,7 @@
 
                     <!-- Commenters -->
                     <div class="formation-component-wrapper" id="comments-section" style="display: none;">
-                       @livewire('comments')
+                       @livewire('comments',['formationId' => $formation->id])
                     </div>
 
                     <!-- Resources -->
