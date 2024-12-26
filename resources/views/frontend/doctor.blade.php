@@ -4,7 +4,84 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 
-<section class="py-12 bg-gray-50">
+<div class="profile-bio section-padding-bottom-130">
+    <div class="w-layout-blockcontainer container w-container">
+        <div class="class-details-content-and-instructor-wrap">
+            <div class="class-details-content-wrap">
+                <div data-w-id="316ed8d2-66d5-d21f-f414-3781cc3a9386"
+                    style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1"
+                    class="class-details-summary-wrap w-richtext">
+                    <h3>Dr Mathieu Bataille</h3>
+                    <p>Le Docteur Mathieu Bataille, Médecin dermatologue, praticien hospitalier à temps partiel sur le CHR de Saint Omer ainsi que praticien consultant à l’Hôpital de St Vincent Lille. Il est membre depuis 2016 de la société Française de Dermatologie et Vénéréologie. Il crée en 2019, le groupe de télé-dermatologie et e-santé de la SFD. Dr Bataille est détenteur de 5 DU, Dermatologie chirurgicale : Université de Versailles Saint-Quentin-en-Yvelines, 2016 - 2017 : Télémédecine :Faculté de Droit, Institut Catholique de Lille.  En 2016 - 2017 : Dermatologie pédiatrique : Faculté de Médecine, Université de Nantes. En 2015 - 2016 : Immunothérapies ciblées des maladies inflammatoires et auto-immunes. Faculté de Médecine de Lille H. Warembourg, Université de Lille II et en 2015 - 2016 : Dermatologie Infectieuse et Tropicale : Faculté de Médecine, Université Pierre et Marie Curie, Paris VI. Il est le co-investigateur de différentes recherches cliniques. Il enseigne à la faculté de médecine de Lille ainsi qu’en formation continue. Il est également l’auteur de diverses publications et articles internationaux et nationaux sur le champ de la dermatologie.</p>
+                    <div class="more-info-by-title">
+                        More information by <span>Dr Mathieu Bataille</span>
+                    </div>
+                    <div class="more-info-flex">
+                        <div class="more-info-wrap">
+                            <div class="more-info-img">
+                                <img src="{{ asset('assets/images/s-video-4.png') }}" alt="">
+                            </div>
+                            <div class="more-info-title">
+                                <span>Dermatologie générale</span>
+                                <p>Démarche diagnostique des affections...</p>
+                            </div>
+                            <div class="more-info-date">
+                                <p>
+                                    Pour près de 20 000 professionnels de santé. <span>Mis à jour en 2024.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="more-info-wrap">
+                            <div class="more-info-img">
+                                <img src="{{ asset('assets/images/s-video-1.png') }}" alt="">
+                            </div>
+                            <div class="more-info-title">
+                                <span>Dermatologie générale</span>
+                                <p>Démarche diagnostique des affections...</p>
+                            </div>
+                            <div class="more-info-date">
+                                <p>
+                                    Pour près de 20 000 professionnels de santé. <span>Mis à jour en 2024.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="more-info-wrap">
+                            <div class="more-info-img">
+                                <img src="{{ asset('assets/images/s-video-3.png') }}" alt="">
+                            </div>
+                            <div class="more-info-title">
+                                <span>Dermatologie générale</span>
+                                <p>Démarche diagnostique des affections...</p>
+                            </div>
+                            <div class="more-info-date">
+                                <p>
+                                    Pour près de 20 000 professionnels de santé. <span>Mis à jour en 2024.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="class-details-instructor-wrap">
+                <div data-w-id="6ae58209-ab24-01db-849c-b47225314b04"
+                    style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1"
+                    class="class-details-instructor-inner">
+                    <div class="class-details-instructor-image-wrap"><img
+                            src="https://www.santeacademie.com/_next/image?url=https%3A%2F%2Ffrontstage.santeacademie.com%2Fuploads%2Ftrainer-39de27%2F7%2F4%2Fpicture%2FprofilePicture%2FprofilePicture-user_avatar-Z9PSdT02we.png&w=640&q=75"
+                            loading="lazy" alt="Instructor Image" class="class-details-instructor-image" />
+                    </div>
+                    <div class="class-details-instructor-content-wrap">
+                        <div class="class-details-instructor-name">Dr Mathieu Bataille</div>
+                        <div class="class-details-instruction-designation">Médecin dermatologue</div>
+                        <p class="class-details-instructor-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolor sunt eveniet possimus eligendi dolore cum iure alias. Doloribus, et?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-6 lg:px-20">
         <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="grid grid-cols-1 md:grid-cols-3">
@@ -83,12 +160,15 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
+
+
+
 
 <hr>
 
 <!-- Doctor's Formations Section -->
-<section class="py-12 bg-gray-50">
+{{-- <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-6 lg:px-20">
         <h2 class="text-2xl font-bold text-gray-800 mb-6">Formations de {{ $doctor->name }}</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -124,6 +204,6 @@
             @endforelse
         </div>
     </div>
-</section>
+</section> --}}
 
 @endsection
