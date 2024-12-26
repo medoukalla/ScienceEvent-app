@@ -2,89 +2,43 @@
 
 namespace App;
 
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
 class Comment extends Model
 {
-    public $newCommentContent = '';
-    public $replyContent = '';
-    public $showReplyInput = null;
-    public $comments = [];
+    use HasFactory;
 
-    public function mount()
+    protected $fillable = [
+        'formation_id',
+        'user_id',
+        'parent_id',
+        'content',
+    ];
+
+    /**
+     * Relationship for nested replies.
+     */
+    public function replies()
     {
-        $this->loadComments();
+        return $this->hasMany(Comment::class, 'parent_id');
     }
 
-    public function render()
+    /**
+     * Relationship for the user who wrote the comment.
+     */
+    public function user()
     {
-        return view('livewire.comments');
+        return $this->belongsTo(User::class);
     }
 
-    public function loadComments()
+    /**
+     * Relationship for likes associated with the comment.
+     */
+    public function likes()
     {
-        // Fetch comments with their replies (assuming you have replies as a relationship on the Comment model)
-        $this->comments = Comment::with('replies')->get()->map(function ($comment) {
-            return [
-                'id' => $comment->id,
-                'user_id' => $comment->user_id,
-                'user_name' => $comment->user->name,
-                'content' => $comment->content,
-                'likes_count' => $comment->likes_count,
-                'created_at' => $comment->created_at,
-                'replies' => $comment->replies->map(function ($reply) {
-                    return [
-                        'id' => $reply->id,
-                        'user_id' => $reply->user_id,
-                        'user_name' => $reply->user->name,
-                        'content' => $reply->content,
-                        'likes_count' => $reply->likes_count,
-                        'created_at' => $reply->created_at,
-                    ];
-                }),
-            ];
-        })->toArray();
-    }
-
-    public function addComment()
-    {
-        // Validate input
-        $this->validate([
-            'newCommentContent' => 'required|min:3',
-        ]);
-
-        // Add new comment
-        Comment::create([
-            'user_id' => auth()->id(),
-            'content' => $this->newCommentContent,
-        ]);
-
-        $this->newCommentContent = '';
-        $this->loadComments();
-    }
-
-    public function showReplyInput($commentId)
-    {
-        $this->showReplyInput = $this->showReplyInput === $commentId ? null : $commentId;
-    }
-
-    public function addReply($commentId)
-    {
-        // Validate input
-        $this->validate([
-            'replyContent' => 'required|min:3',
-        ]);
-
-        // Add reply
-        $comment = Comment::findOrFail($commentId);
-        $comment->replies()->create([
-            'user_id' => auth()->id(),
-            'content' => $this->replyContent,
-        ]);
-
-        $this->replyContent = '';
-        $this->showReplyInput = null;
-        $this->loadComments();
+        return $this->hasMany(Like::class, 'comment_id');
     }
 }

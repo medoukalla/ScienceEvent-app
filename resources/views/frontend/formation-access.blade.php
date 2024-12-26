@@ -24,8 +24,8 @@
                 <div class="class-details-content-wrap">
                     <div class="formation-tab">
                         <div class="f-tab formation selected" id="chat-button">Chat</div>
-                        <div class="f-tab comments" id="comments-button">Commentaires</div>
-                        <div class="f-tab resources" id="resources-button">Ressources</div>
+                        <div class="f-tab comments" id="comments-button"> <small>({{ $number_of_comments }})</small> Commentaires</div>
+                        <div class="f-tab resources" id="resources-button"> <small>({{ $number_of_resources }})</small> Ressources</div>
                     </div>
 
 
@@ -43,7 +43,7 @@
 
                     <!-- Commenters -->
                     <div class="formation-component-wrapper" id="comments-section" style="display: none;">
-                       @livewire('comments')
+                       @livewire('comments',['formationId' => $formation->id])
                     </div>
 
                     <!-- Resources -->

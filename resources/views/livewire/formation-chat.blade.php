@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Chat Header -->
         <div class="chat-header">
-            <h3 class="section-title">Discussion de cours</h3>
+            <h3 class="section-title">Discussion de formation</h3>
             <p class="section-subtitle">Partagez vos pensées avec les autres participants</p>
         </div>
 

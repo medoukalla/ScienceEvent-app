@@ -66,4 +66,15 @@ class Formation extends Model
     {
         return $this->hasMany(Resource::class, 'formation_id');
     }
+
+
+    /**
+     * Get all of the comments for the Formation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'formation_id');
+    }
 }
