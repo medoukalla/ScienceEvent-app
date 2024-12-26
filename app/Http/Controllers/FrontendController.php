@@ -30,7 +30,17 @@ class FrontendController extends Controller
 
     public function formation_access( Formation $formation )   
     {
-        return view('frontend.formation-access', compact('formation'));
+
+        // count number of comments
+        $number_of_comments = $formation->comments()->count();
+        // count number of resources
+        $number_of_resources = $formation->resources()->count();
+
+        return view('frontend.formation-access', [
+            'formation' => $formation,
+            'number_of_comments' => $number_of_comments,
+            'number_of_resources' => $number_of_resources
+        ]);
     }
 
     public function login()

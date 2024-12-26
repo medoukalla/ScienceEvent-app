@@ -12230,6 +12230,7 @@ input[type="radio"] {
   /* Default gray for no likes */
   margin-right: 5px;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .like-icon[data-liked="true"] {
@@ -12241,6 +12242,7 @@ input[type="radio"] {
   font-size: 0.9rem;
   color: #333;
 }
+
 
 .you-tage {
   display: flex;
