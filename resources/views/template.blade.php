@@ -164,8 +164,7 @@
                 </div>
                 <div class="footer-bottom">
                 <div id="w-node-_2873a121-65b0-7763-f38d-6f77f9a9ad21-f9a9accc" class="copyright-link-wrap">Copyright ©
-                    {{ setting('site.title') }} | Designed by <a href="#" target="_blank"
-                    class="copyright-link">agency</a> 
+                    {{ setting('site.title') }} 2024
                 </div>
                 </div>
             </div>
