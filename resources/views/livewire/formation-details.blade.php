@@ -116,7 +116,34 @@
 
     <!-- Register form  -->
     <div class="class-details-instructor-inner" @if ($display != 'register') style="display: none" @endif )>
-        <div class="r-side-floating">
+                <div class="r-side-floating">
+            <div class="btn-back">
+                <img src="{{ asset('assets/svg/arrow-back.svg') }}" alt="">
+                <span>Retour</span>
+            </div>
+            <div class="contact-us-form insc-floeating">
+                <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
+                    <label for="">Nom et prénom :</label>
+                    <input class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre nom et prénom" type="tel" id="field-4" required="">
+                </div>
+                <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
+                    <label for="">Spécialité :</label>
+                    <input class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre spécialité" type="tel" id="field-4" required="">
+                </div>
+                <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
+                    <label for="">Téléphone :*</label>
+                    <input class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votr téléphone" type="tel" id="field-4" required="">
+                </div>
+                <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
+                    <label for="">Email :*</label>
+                    <input class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre email" type="tel" id="field-4" required="">
+                </div>
+                <div class="btn-org">
+                    S'inscrire
+                </div>
+            </div>
+        </div>
+        {{-- <div class="r-side-floating">
             <div class="r-s-title">
                 INSCRIPTION
             </div>
@@ -163,7 +190,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> --}}
     </div>
 
     <!-- payment  -->

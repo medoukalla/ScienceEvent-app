@@ -3355,7 +3355,7 @@ blockquote {
   height: 52px;
   margin-bottom: 0;
   padding: 8px 20px;
-  font-size: 18px;
+  font-size: 15px;
   transition: border-color .2s;
 }
 
@@ -3364,7 +3364,7 @@ blockquote {
 }
 
 .form-input-field::placeholder {
-  color: #091e42;
+  color: #0000004f;
 }
 
 .form-input-field.textarea {
@@ -11666,6 +11666,22 @@ header {
 }
 
 /* button orange */
+.btn-back {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #00000026;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-back:hover span{
+  color: var(--orange-clr);
+}
+
 .btn-org {
   display: flex;
   align-items: center;
@@ -12871,4 +12887,8 @@ input[type="radio"] {
 
 .more-info-by-title span {
   color: var(--orange-clr);
+}
+
+.insc-floeating {
+  grid-template-columns: 1fr !important;
 }
