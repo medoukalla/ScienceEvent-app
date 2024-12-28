@@ -14,6 +14,7 @@ class FrontendController extends Controller
     {
         return view('frontend.index',[
             'last_formation' => Formation::latest()->first(),
+            'categories' => Category::limit(4)->get(),
         ]);
     }
 
