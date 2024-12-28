@@ -1472,7 +1472,7 @@ textarea.w-select {
   min-width: 100%;
   display: none;
   position: absolute;
-  left: -200px;
+  left: 0;
   width: 725px !important;
 }
 
@@ -2202,6 +2202,7 @@ textarea.w-select {
   --white: white;
   --black: black;
   --green: #148d89;
+  --hard-blue: rgb(21, 36, 58);
 }
 
 .w-layout-blockcontainer {
@@ -6089,7 +6090,7 @@ blockquote {
 
 .nav-menu-wrapper {
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   display: flex;
 }
@@ -12891,4 +12892,15 @@ input[type="radio"] {
 
 .insc-floeating {
   grid-template-columns: 1fr !important;
+}
+
+.top-bar-wrapper {
+  background-color: var(--hard-blue);
+    padding: 20px 0px;
+}
+
+.top-bar-wrapper .top-bar  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

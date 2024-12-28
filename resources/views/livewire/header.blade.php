@@ -3,8 +3,8 @@
     <div data-animation="over-left" data-collapse="medium" data-duration="400" data-easing="ease"
       data-easing2="ease" role="banner" class="navbar-container w-nav">
       <div class="navbar-wrapper">
-        <a href="{{ route('frontend.index') }}" class="navbar-brand w-nav-brand"><img
-            loading="lazy" src="{{ asset('storage/'.setting('site.logo')) }}" alt="Brand Logo" class="brand-logo" /></a>
+        {{-- <a href="{{ route('frontend.index') }}" class="navbar-brand w-nav-brand"><img
+            loading="lazy" src="{{ asset('storage/'.setting('site.logo')) }}" alt="Brand Logo" class="brand-logo" /></a> --}}
 
         <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
           <ul role="list" class="nav-menu w-list-unstyled">

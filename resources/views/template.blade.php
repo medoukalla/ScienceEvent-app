@@ -39,7 +39,10 @@
 <body>
 
     <div class="page-wrapper">
-    
+
+        <!-- Header top-bar -->
+        @livewire('top-bar')
+
         <!-- Header Section -->
         @livewire('header')
         
