@@ -2885,6 +2885,12 @@ blockquote {
   font-weight: 500;
   color: var(--primary-color);
   cursor: pointer;
+      padding: 10px 30px;
+}
+
+.auth-button:hover{
+      background: #f5f5f5;
+    border-radius: 8px;
 }
 
 .button-primary {
@@ -5996,9 +6002,9 @@ blockquote {
 
 .nav-menu-link {
   font-family: var(--source-serif-pro);
-  color: var(--body-color);
+  color: var(--gray-clr);
   padding: 4px 10px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   font-weight: 700;
   line-height: 1.4;
@@ -6027,12 +6033,12 @@ blockquote {
 .nav-dropdown-toggle {
   grid-column-gap: 11px;
   grid-row-gap: 11px;
-  color: var(--body-color);
+  color: var(--gray-clr);
   align-items: center;
   margin-left: 0;
   margin-right: 0;
   padding: 4px 10px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.4;
   transition: color .3s;
@@ -11337,7 +11343,6 @@ blockquote {
 
 /* Mega menu */
 header {
-  padding: 10px 0;
   box-shadow: 0px 1px 10px #00000014;
   background-color: #fff;
 }
