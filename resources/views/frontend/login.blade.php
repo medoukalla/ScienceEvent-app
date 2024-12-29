@@ -5,7 +5,47 @@
 
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-<section class="bg-gray-200 h-screen flex flex-col">
+	<div class="utility-page-wrap section-padding-bottom-130 gray-bg-color">
+	  <div class="utility-page-content w-password-page w-form">
+	    <form action="/.wf_auth" method="post" id="email-form" name="email-form" data-name="Email Form" class="utility-page-form w-password-page">
+	      <div class="w-layout-blockcontainer container w-container">
+	        <div class="utility-page-form-wrap">
+                <div data-w-id="2dc45f07-8b73-cc01-e7bc-96f74d81301f" style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="password-protected-content-wrap">
+                <h2 class="password-protected-title">Connectez-vous</h2>
+                <input class="password-protected-text-field w-password-page w-input" autofocus="true" maxlength="256" name="email" data-name="field" placeholder="Votre email" type="email" id="email" />
+                <input class="password-protected-text-field w-password-page w-input" autofocus="true" maxlength="256" name="pass" data-name="field" placeholder="Mote de pass" type="password" id="pass" />
+                    <div class="btn-org">
+                        Me connecter
+                    </div>
+                </div>
+	          <div style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="password-protected-image-wrap">
+	            <img src="https://cdn.prod.website-files.com/667cd9f8b1766578e6b4dfd1/66a9d5a0425336b208de78d1_password-protected.png" alt="" class="password-protected-image" />
+	          </div>
+	        </div>
+	      </div>
+	      <div class="w-password-page w-form-fail">
+	        <div>Incorrect password. Please try again.</div>
+	      </div>
+	      <div style="display:none" class="w-password-page w-embed w-script">
+	        <input type="hidden" name="path" value="
+					<%WF_FORM_VALUE_PATH%>" />
+	        <input type="hidden" name="page" value="
+						<%WF_FORM_VALUE_PAGE%>" />
+	      </div>
+	      <div style="display:none" class="w-password-page w-embed w-script">
+	        <script type="application/javascript">
+	          (function _handlePasswordPageOnload() {
+	            if (/[?&]e=1(&|$)/.test(document.location.search)) {
+	              document.querySelector('.w-password-page.w-form-fail').style.display = 'block';
+	            }
+	          })()
+	        </script>
+	      </div>
+	    </form>
+	  </div>
+	</div>
+
+{{-- <section class="bg-gray-200 h-screen flex flex-col">
     <div class="container mx-auto p-4 flex flex-1 items-center justify-center">
         <div class="w-full max-w-md">
 
@@ -43,6 +83,6 @@
             </form>
         </div>
     </div>
-</section>
+</section> --}}
 
 @endsection

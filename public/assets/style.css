@@ -5698,10 +5698,12 @@ blockquote {
 }
 
 .password-protected-title {
-  margin-bottom: 28px;
-  font-size: 42px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 28px;
   font-weight: 700;
   line-height: 52.4px;
+  color: var(--orange-clr);
 }
 
 .password-protected-text-field {
@@ -5716,11 +5718,12 @@ blockquote {
 }
 
 .password-protected-text-field:focus {
-  border-color: var(--primary-color);
+  border-color: var(--orange-clr);
 }
 
 .password-protected-text-field::placeholder {
-  color: #091e42;
+  color: #00000067;
+  font-size: 15px;
 }
 
 .password-protected-label {
@@ -8147,7 +8150,6 @@ blockquote {
   }
 
   .password-protected-content-wrap {
-    padding-left: 129px;
     padding-right: 41px;
   }
 
@@ -12977,4 +12979,8 @@ input[type="radio"] {
   100% {
     transform: translateX(0); /* Remains still for the rest of the duration */
   }
+}
+
+.w-password-page img {
+  width: 70%;
 }
