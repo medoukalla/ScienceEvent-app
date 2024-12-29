@@ -5,7 +5,7 @@
 
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-	<div class="utility-page-wrap section-padding-bottom-130 gray-bg-color">
+	{{-- <div class="utility-page-wrap section-padding-bottom-130 gray-bg-color">
 	  <div class="utility-page-content w-password-page w-form">
 	    <form action="/.wf_auth" method="post" id="email-form" name="email-form" data-name="Email Form" class="utility-page-form w-password-page">
 	      <div class="w-layout-blockcontainer container w-container">
@@ -43,9 +43,9 @@
 	      </div>
 	    </form>
 	  </div>
-	</div>
+	</div> --}}
 
-{{-- <section class="bg-gray-200 h-screen flex flex-col">
+<section class="bg-gray-200 h-screen flex flex-col">
     <div class="container mx-auto p-4 flex flex-1 items-center justify-center">
         <div class="w-full max-w-md">
 
@@ -83,6 +83,6 @@
             </form>
         </div>
     </div>
-</section> --}}
+</section>
 
 @endsection

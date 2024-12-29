@@ -2,7 +2,7 @@
 
 
     <!-- visitor  -->
-    <div class="class-details-instructor-inner" @if ($display != 'details') style="display: none" @endif >
+    {{-- <div class="class-details-instructor-inner" @if ($display != 'details') style="display: none" @endif >
         <div class="r-side-floating">
             <div class="r-s-title">
                 {{ $formation->title }}
@@ -112,11 +112,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Register form  -->
-    <div class="class-details-instructor-inner" @if ($display != 'register') style="display: none" @endif )>
-                <div class="r-side-floating">
+    <div class="class-details-instructor-inner" @if ($display != 'register') style="display: block" @endif )>
+        {{-- <div class="r-side-floating">
             <div class="btn-back">
                 <img src="{{ asset('assets/svg/arrow-back.svg') }}" alt="">
                 <span>Retour</span>
@@ -142,7 +142,7 @@
                     S'inscrire
                 </div>
             </div>
-        </div>
+        </div> --}}
         {{-- <div class="r-side-floating">
             <div class="r-s-title">
                 INSCRIPTION
@@ -194,8 +194,12 @@
     </div>
 
     <!-- payment  -->
-    <div class="class-details-instructor-inner" @if ($display != 'payment') style="display: none" @endif >
+    <div class="class-details-instructor-inner" @if ($display != 'payment') style="display: block" @endif >
         <div class="r-side-floating">
+            <div class="btn-back">
+                <img src="{{ asset('assets/svg/arrow-back.svg') }}" alt="">
+                <span>Retour</span>
+            </div>
             <div class="r-s-title">
                 {{ $formation->title }}
             </div>
@@ -222,9 +226,31 @@
                     Classe Virtuelle
                 </div>
             </div>
-            
-
-            <div class="packs-select" style="display: {{ count($formation->packs) == 0 ? 'none' : '' }}">
+            {{-- Packs --}}
+            <div class="formation-packs">
+                <div class="pack">
+                    <div class="pack-type">
+                        <input type="radio" name="" id="">
+                        <span>Pack inscription</span>
+                    </div>
+                    <div class="pack-price">6160 DH</div>
+                </div>
+                <div class="pack selected">
+                    <div class="pack-type">
+                        <input type="radio" name="" id="">
+                        <span>Pack inscription + Hébérgement 2 nuits en chambre double</span>
+                    </div>
+                    <div class="pack-price">6160 DH</div>
+                </div>
+                <div class="pack">
+                    <div class="pack-type">
+                        <input type="radio" name="" id="">
+                        <span>Pack inscription + Hébérgement 2 nuits en chambre single</span>
+                    </div>
+                    <div class="pack-price">6160 DH</div>
+                </div>
+            </div>
+            {{-- <div class="packs-select" style="display: {{ count($formation->packs) == 0 ? 'none' : '' }}">
                 <table>
                     <thead>
                         <tr>
@@ -245,11 +271,11 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
 
             <hr>
 
-            <section class="payment-content" style="display: {{ $amount ? 'block' : 'none' }};" id="payment-content">
+            {{-- <section class="payment-content" style="display: {{ $amount ? 'block' : 'none' }};" id="payment-content">
                 <div class="payment-method">
                     <label for="payment_method">Moyen de payement</label>
                     <select wire:model="payment_method" name="payment_method" id="payment_method" >
@@ -261,7 +287,7 @@
                     </select>
                 </div>
 
-                <div id="virement" class="payment-content" @if ( $payment_method != 'virement' ) style="display: none" @endif )>
+                <div id="virement" class="payment-content" @if ( $payment_method != 'virement' ) style="display: block" @endif )>
                     <p>Au profit de <strong>Science Events</strong></p>
                     <p>Domiciliée chez <strong>ATTIJARIWAFA BANK</strong></p>
                     <p>RIB: <strong>007 450 0015 2080 000 000 4997</strong></p>
@@ -310,7 +336,7 @@
                 </div>
             </section>
 
-            <div  id="alert-message"  style='@if ( $amount > 0 ) display:none; @else display:block; @endif color: red; text-align: center; font-size: 1em; font-weight: bold;'>Veuillez selectionner un pack d'abord</div>
+            <div  id="alert-message"  style='@if ( $amount > 0 ) display:none; @else display:block; @endif color: red; text-align: center; font-size: 1em; font-weight: bold;'>Veuillez selectionner un pack d'abord</div> --}}
             
             
             
