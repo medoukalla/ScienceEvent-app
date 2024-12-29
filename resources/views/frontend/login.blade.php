@@ -19,7 +19,7 @@
                     </div>
                 </div>
 	          <div style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="password-protected-image-wrap">
-	            <img src="https://cdn.prod.website-files.com/667cd9f8b1766578e6b4dfd1/66a9d5a0425336b208de78d1_password-protected.png" alt="" class="password-protected-image" />
+	            <img src="{{ asset('assets/svg/login-bg.svg') }}" alt="Login Svg" class="password-protected-image" />
 	          </div>
 	        </div>
 	      </div>
