@@ -13101,3 +13101,26 @@ input[type="radio"] {
   text-decoration: underline;
       line-height: 18px;
 }
+
+.pack-alert {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.pack-alert.danger {
+  background-color: #fab1a0;
+  color: #d63031;
+}
+
+.pack-alert.opps {
+    background-color: #f39d1233;
+    color: #d78809;
+}
+
+.pack-alert.success {
+    background-color: #2ecc7138;
+    color: #1ea758;
+}
+

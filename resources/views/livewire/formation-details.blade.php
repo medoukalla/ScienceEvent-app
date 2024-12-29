@@ -250,6 +250,16 @@
                     <div class="pack-price">6160 DH</div>
                 </div>
             </div>
+            {{-- Alert --}}
+            <div class="pack-alert danger" style="display: none">
+                Lorem ipsum dolor sit amet.
+            </div>
+            <div class="pack-alert opps" style="display: none">
+                Veuillez selectionner un pack d'abord!
+            </div>
+                        <div class="pack-alert success" style="display: block">
+                Veuillez selectionner un pack d'abord!
+            </div>
             {{-- <div class="packs-select" style="display: {{ count($formation->packs) == 0 ? 'none' : '' }}">
                 <table>
                     <thead>
@@ -272,8 +282,7 @@
                     </tbody>
                 </table>
             </div> --}}
-
-            <hr>
+            
 
             {{-- <section class="payment-content" style="display: {{ $amount ? 'block' : 'none' }};" id="payment-content">
                 <div class="payment-method">
