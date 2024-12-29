@@ -346,18 +346,7 @@
             </section>
 
             <div  id="alert-message"  style='@if ( $amount > 0 ) display:none; @else display:block; @endif color: red; text-align: center; font-size: 1em; font-weight: bold;'>Veuillez selectionner un pack d'abord</div> --}}
-            
-            
-            
-
-
-
-            <div class="floating-btn">
-                <div wire:click="register" class="btn-org" style="margin-top: 20px;">
-                    Retour
-                </div>
-            </div>
-            
+        
         </div>
     </div>
 
