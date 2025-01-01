@@ -2188,7 +2188,7 @@ textarea.w-select {
   --primary-bg-color: #f2e9e3;
   --gray-bg-color: #fffdf9;
   /* --primary-color: #ff5e14; */
-  --primary-color: #185085;
+  --primary-color: #1155aa;
   --primary-hover-color: #144777;
   --secondary-bg-color: #f3f7ec;
   --off-white-bg-color: #fffef6;
@@ -3450,7 +3450,7 @@ blockquote {
 }
 
 .footer-section {
-  background-color: #3d422f;
+  background-color: var(--hard-blue);
   padding-top: 80px;
 }
 
@@ -3545,10 +3545,6 @@ blockquote {
   color: var(--primary-color);
 }
 
-.footer-list-item {
-  margin-bottom: 5px;
-}
-
 .footer-list-item.mb-zero {
   margin-bottom: 0;
 }
@@ -3563,7 +3559,7 @@ blockquote {
 }
 
 .footer-contact-info-content {
-  color: var(--white);
+  color: #bfbfbf;
   white-space: pre-wrap;
   word-break: break-all;
   overflow-wrap: anywhere;
@@ -3581,7 +3577,7 @@ blockquote {
 .single-footer-contact-info-content {
   grid-column-gap: 9px;
   grid-row-gap: 9px;
-  color: var(--white);
+  color: #bfbfbf;
   margin-bottom: 11px;
   display: flex;
 }
@@ -3598,10 +3594,18 @@ blockquote {
 }
 
 .copyright-link-wrap {
-  color: #fff;
+  color: #bfbfbf;
   text-align: center;
   letter-spacing: -.18px;
   margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.copyright-link-wrap a span{
+  text-decoration: underline;
+  color: #bfbfbf;
+  font-weight: 300;
 }
 
 .copyright-link {
@@ -3620,20 +3624,18 @@ blockquote {
 }
 
 .footer-social-icon-inner {
-  background-color: var(--white);
-  color: var(--body-color);
+  color: var(--white);
   border-radius: 100%;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
   transition: color .3s, background-color .3s;
-  display: flex;
+  margin-right: 20px;
 }
 
 .footer-social-icon-inner:hover {
-  background-color: var(--primary-color);
-  color: var(--white);
+  color: var(--orange-clr);
+}
+
+.footer-social-icon-inner:last-child{
+  margin-right: 0;
 }
 
 .service-details-wrap {
@@ -13122,5 +13124,28 @@ input[type="radio"] {
 .pack-alert.success {
     background-color: #2ecc7138;
     color: #1ea758;
+}
+
+.footer-list-item a {
+  font-weight: 300;
+  font-size: 16px;
+  color: #bfbfbf;
+}
+
+.footer-list-item a:hover{
+  color: var(--orange-clr);
+}
+
+.site-disc p {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0;
+    line-height: 22px;
+}
+
+.site-disc {
+  width: 50%;
+
 }
 
