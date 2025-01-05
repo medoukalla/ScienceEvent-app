@@ -113,6 +113,19 @@
     </div>
 </section> --}}
 
+<section class="profile-wrapper">
+    <div class="w-layout-blockcontainer container w-container">
+        <div class="profile-wrapper-flex">
+            <div class="profile-left">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi recusandae neque doloribus delectus ipsa, voluptatem rem quam. Velit, asperiores quas?
+            </div>
+            <div class="profile-right">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi recusandae neque doloribus delectus ipsa, voluptatem rem quam. Velit, asperiores quas?
+            </div>
+        </div>
+    </div>
+</section>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {

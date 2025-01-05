@@ -13137,7 +13137,7 @@ input[type="radio"] {
 }
 
 .site-disc p {
-  color: var(--white);
+  color: #bfbfbf;
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 0;
@@ -13147,5 +13147,9 @@ input[type="radio"] {
 .site-disc {
   width: 50%;
 
+}
+
+.profile-wrapper .profile-wrapper-flex .profile-left {
+  width: 30%;
 }
 
