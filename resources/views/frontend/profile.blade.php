@@ -117,10 +117,80 @@
     <div class="w-layout-blockcontainer container w-container">
         <div class="profile-wrapper-flex">
             <div class="profile-left">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi recusandae neque doloribus delectus ipsa, voluptatem rem quam. Velit, asperiores quas?
+                <div class="profile-name">
+                    Daniel Lee
+                    <span>student</span>
+                </div>
+                <hr style="margin: 10px 0">
+                <div class="profile-nav">
+                    <button onclick="showDiv(1)" class="">
+                        <img src="{{ asset('assets/svg/profile-formation.svg') }}" alt="profile formation">
+                        Information du profil
+                    </button>
+                    <button onclick="showDiv(2)" class="active">
+                        <img src="{{ asset('assets/svg/cours.svg') }}" alt="profile formation">
+                        Mes cours
+                    </button>
+                    <button onclick="showDiv(3)" class="">
+                        <img src="{{ asset('assets/svg/settings.svg') }}" alt="profile formation">
+                        Paramètres
+                    </button>
+                </div>
             </div>
             <div class="profile-right">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi recusandae neque doloribus delectus ipsa, voluptatem rem quam. Velit, asperiores quas?
+                <div id="divOne" class="content hidden">
+                    <div class="hello-user">
+                        Bienvenue, <span>Admin</span>
+                    </div>
+                    <span class="sub-title">Vos informations personnelles :</span>
+                    <hr style="margin: 10px 0">
+                    <div class="infos-content">
+                        <div class="info">
+                            Nom : <span>Admin</span>
+                        </div>
+                        <div class="info">
+                            Email : <span>admin@gmail.com</span>
+                        </div>
+                        <div class="info">
+                            Numéro de téléphone : <span>+2126231548</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="divTwo" class="content">
+                    <div class="hello-user">
+                        Mes cours
+                    </div>
+                    <span class="sub-title">Découvrez les formations que vous avez acquises :</span>
+                    <hr style="margin: 10px 0">
+                <table class="courses-table">
+                <thead>
+                    <tr>
+                    <th>Mes cours</th>
+                    <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Introduction à la Programmation</td>
+                        <td class="pending" >En cours</td>
+                    </tr>
+                    <tr>
+                        <td>Développement Web Avancé</td>
+                        <td >
+                            <div class="discover">
+                                Discover cours
+                                <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Conception UI/UX</td>
+                        <td class="refuse">Non commencé</td>
+                    </tr>
+                </tbody>
+                </table>
+                </div>
+                <div id="divTree" class="content hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur commodi reiciendis in exercitationem saepe sequi molestias accusantium nobis beatae maxime.</div>
             </div>
         </div>
     </div>
@@ -128,25 +198,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#menu-profile-info').on('click', function (e) {
-            e.preventDefault();
-            $('#section-profile-info').show();
-            $('#section-my-courses, #section-settings').hide();
-        });
-
-        $('#menu-my-courses').on('click', function (e) {
-            e.preventDefault();
-            $('#section-my-courses').show();
-            $('#section-profile-info, #section-settings').hide();
-        });
-
-        $('#menu-settings').on('click', function (e) {
-            e.preventDefault();
-            $('#section-settings').show();
-            $('#section-profile-info, #section-my-courses').hide();
-        });
-    });
+    
 </script>
 
 @endsection
