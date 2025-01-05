@@ -162,50 +162,101 @@
                     </div>
                     <span class="sub-title">Découvrez les formations que vous avez acquises :</span>
                     <hr style="margin: 10px 0">
-                <table class="courses-table">
-                <thead>
-                    <tr>
-                    <th>Mes cours</th>
-                    <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="cours">
-                                <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                                Echocardiographie
-                            </div>
-                        </td>
-                        <td class="pending" >En cours</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="cours">
-                            <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                            Diabeto et endo pediatrique
-                            </div>
-                        </td>
-                        <td >
-                            <div class="discover">
-                                <span>Discover cours</span>
-                                <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="cours">
-                            <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                            Acupuncture <span>(Nephrologue)</span>
-                        </div>
-                        </td>
-                        <td class="refuse">Non commencé</td>
-                    </tr>
-                </tbody>
-                </table>
+                    <div class="courses-wrapper">
+                        <table class="courses-table">
+                        <thead>
+                            <tr>
+                            <th>Mes cours</th>
+                            <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="cours">
+                                        <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                        Echocardiographie
+                                    </div>
+                                </td>
+                                <td class="pending" >En cours</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cours">
+                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                    Autisme chez l'enfant
+                                    </div>
+                                </td>
+                                <td >
+                                    <div class="discover">
+                                        <span>Discover cours</span>
+                                        <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cours">
+                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                    Comprehensive Medical Training for Excellence ... <span>(Nephrologue)</span>
+                                </div>
+                                </td>
+                                <td class="refuse">Non commencé</td>
+                            </tr>
+                                                        <tr>
+                                <td>
+                                    <div class="cours">
+                                        <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                        Echocardiographie
+                                    </div>
+                                </td>
+                                <td class="pending" >En cours</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cours">
+                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                    Diabeto et endo pediatrique
+                                    </div>
+                                </td>
+                                <td >
+                                    <div class="discover">
+                                        <span>Discover cours</span>
+                                        <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cours">
+                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                    Acupuncture <span>(Nephrologue)</span>
+                                </div>
+                                </td>
+                                <td class="refuse">Non commencé</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
                 </div>
-                <div id="divTree" class="content hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur commodi reiciendis in exercitationem saepe sequi molestias accusantium nobis beatae maxime.</div>
+                <div id="divTree" class="content hidden">
+                    <div class="hello-user">
+                    Mes cours
+                    </div>
+                    <span class="sub-title">Découvrez les formations que vous avez acquises :</span>
+                    <hr style="margin: 10px 0">
+                    <div class="infos-content">
+                        <div class="info">
+                            Nom : <input type="text" placeholder="votre nom">
+                        </div>
+                        <div class="info">
+                            Email : <input type="text" name="" id="" placeholder="votre email">
+                        </div>
+                        <div class="info">
+                            Numéro de téléphone : <input type="text" name="" id="" placeholder="votre telephone">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
