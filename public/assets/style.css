@@ -13364,6 +13364,22 @@ input[type="radio"] {
   padding: 8px;
 }
 
+.courses-table td .cours{
+  display: flex;
+  align-items: center;
+}
+
+.courses-table td .cours span{
+  color: var(--gray-clr);
+  font-size: 14px;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.courses-table td .cours img{
+  margin-right: 10px;
+}
+
 .courses-table td.done {
   background-color: #2ecc71;
   color: var(--gray-bg-color);
@@ -13383,7 +13399,7 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .courses-table tr:nth-child(even) {

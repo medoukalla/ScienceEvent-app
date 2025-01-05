@@ -171,20 +171,35 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Introduction à la Programmation</td>
+                        <td>
+                            <div class="cours">
+                                <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                Echocardiographie
+                            </div>
+                        </td>
                         <td class="pending" >En cours</td>
                     </tr>
                     <tr>
-                        <td>Développement Web Avancé</td>
+                        <td>
+                            <div class="cours">
+                            <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                            Diabeto et endo pediatrique
+                            </div>
+                        </td>
                         <td >
                             <div class="discover">
-                                Discover cours
+                                <span>Discover cours</span>
                                 <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>Conception UI/UX</td>
+                        <td>
+                            <div class="cours">
+                            <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                            Acupuncture <span>(Nephrologue)</span>
+                        </div>
+                        </td>
                         <td class="refuse">Non commencé</td>
                     </tr>
                 </tbody>
