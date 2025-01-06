@@ -14,7 +14,7 @@
 
 <body>
   <div class="page-wrapper">
-    <header class="header off-white-bg-color">
+    <header class="header">
       <div class="w-layout-blockcontainer container w-container">
         <div data-animation="over-left" data-collapse="medium" data-duration="400" data-easing="ease"
           data-easing2="ease" role="banner" class="navbar-container w-nav">
@@ -101,7 +101,7 @@
         </div>
       </div>
     </header>
-    <section class="hero-section off-white-bg-color">
+    <section class="hero-section">
       <div class="container-fluid">
         <div data-w-id="c8543492-6040-37c1-7cf1-d258e6d21213" class="hero-wrap-two"><img
             src="https://i0.wp.com/buckrail.com/wp-content/uploads/2019/02/Eye-Doctor.jpg?fit=10697%2C4581&ssl=1"
@@ -138,7 +138,7 @@
       </div>
     </section>
     <section id="Why-Choose-Us"
-      class="why-choose-us-section section-padding-top-125 section-padding-bottom-130 off-white-bg-color">
+      class="why-choose-us-section section-padding-bottom-130">
       <div class="w-layout-blockcontainer container w-container">
         <div class="why-choose-us-wrap">
           <div class="why-choose-us-section-info-wrap">
@@ -216,7 +216,7 @@
         </div>
       </div>
     </section>
-    <section class="classes-section secondary-bg-color section-padding-top-125 section-padding-bottom-130">
+    <section class="classes-section section-padding-top-125">
       <div class="w-layout-blockcontainer container w-container">
         <div data-w-id="5fc3460f-5850-3652-132a-37b925fb21e3"
           style="-webkit-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d;opacity:0"
@@ -403,8 +403,8 @@
           </div>
         </div>
       </div>
+    </section>
   </div>
-  </section>
   <!-- <section class="pricing-table-section section-padding-top-125 section-padding-bottom-125 off-white-bg-color">
     <div class="w-layout-blockcontainer container w-container">
       <div class="pricing-table-wrap">
@@ -483,7 +483,7 @@
       style="-webkit-transform:translate3d(0, -100%, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -100%, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -100%, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -100%, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
       data-w-id="2c2b5b4c-56ad-9f6e-81d0-0258c7f91115" alt="Pricing Shape Image" class="pricing-shape-image" />
   </section> -->
-  <section class="team-section off-white-bg-color section-padding-top-125">
+  <section class="team-section section-padding-top-125">
     <div class="w-layout-blockcontainer container w-container">
       <div data-w-id="1b37800c-f132-1c28-2bf1-90b746977dbf"
         style="-webkit-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d;opacity:0"
@@ -1367,7 +1367,7 @@
           data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
           <div class="testimonial-mask w-slider-mask">
             <div class="testimonial-slide w-slide">
-              <div class="single-testimonial-slider-wrap secondary-bg-color">
+              <div class="single-testimonial-slider-wrap ">
                 <div class="testimonial-image-wrap"><img
                     src="https://cdn.prod.website-files.com/667cd9f8b1766578e6b4dfd1/66851b8eae8bae1118ec0763_testimonial-img-1.png"
                     loading="lazy" alt="Testimonial Image" class="testimonial-image" />
@@ -1428,7 +1428,7 @@
               </div>
             </div>
             <div class="testimonial-slide w-slide">
-              <div class="single-testimonial-slider-wrap secondary-bg-color">
+              <div class="single-testimonial-slider-wrap ">
                 <div class="testimonial-image-wrap"><img
                     src="https://cdn.prod.website-files.com/667cd9f8b1766578e6b4dfd1/6685284efb55fedc07158acd_testimonial-img-2.png"
                     loading="lazy" alt="Testimonial Image" class="testimonial-image" />
@@ -1488,7 +1488,7 @@
               </div>
             </div>
             <div class="testimonial-slide w-slide">
-              <div class="single-testimonial-slider-wrap secondary-bg-color">
+              <div class="single-testimonial-slider-wrap ">
                 <div class="testimonial-image-wrap"><img
                     src="https://cdn.prod.website-files.com/667cd9f8b1766578e6b4dfd1/66852868fd77fcd0a2f24561_testimonial-img-3.png"
                     loading="lazy" alt="Testimonial Image" class="testimonial-image" />
@@ -1591,7 +1591,7 @@
   </section> -->
 
   <!-- Blog -->
-  <!-- <section class="blog-section secondary-bg-color section-padding-top-125 section-padding-bottom-130">
+  <!-- <section class="blog-section  section-padding-top-125 section-padding-bottom-130">
     <div class="w-layout-blockcontainer container w-container">
       <div data-w-id="e43e80ce-2b89-381f-77f6-0255f3149922"
         style="-webkit-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50%, -20px) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(0) skew(0, 0);transform-style:preserve-3d;opacity:0"

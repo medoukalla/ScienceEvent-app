@@ -66,7 +66,7 @@
 
 {{-- Why choose us --}}
 <section id="Why-Choose-Us"
-    class="why-choose-us-section section-padding-top-125 off-white-bg-color">
+    class="why-choose-us-section section-padding-top-125 section-padding-bottom-130 off-white-bg-color">
     <div class="w-layout-blockcontainer container w-container">
         <div class="why-us-wrap">
             <div class=""></div>

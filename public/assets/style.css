@@ -9,6 +9,7 @@ html {
 
 body {
   margin: 0;
+  background-color: radial-gradient(100% 100% at 0 0,#fff 0,hsla(0,0%,100%,0) 100%),#f1f5f9;
 }
 
 article,
@@ -262,7 +263,6 @@ html {
 
 body {
   color: #333;
-  background-color: #fff;
   min-height: 100%;
   margin: 0;
   font-family: var(--source-serif-pro) !important;
@@ -4000,14 +4000,14 @@ blockquote {
 }
 
 .classes-section {
-  background-color: var(--gray-bg-color);
+  /* background-color: var(--gray-bg-color); */
   position: relative;
   overflow: hidden;
 }
 
-.classes-section.secondary-bg-color {
+/* .classes-section.secondary-bg-color {
   background-color: var(--secondary-bg-color);
-}
+} */
 
 .collection-item-classes {
   margin-bottom: 24px;
@@ -5858,9 +5858,9 @@ blockquote {
   margin-right: 30px;
 }
 
-.off-white-bg-color {
+/* .off-white-bg-color {
   background-color: var(--off-white-bg-color);
-}
+} */
 
 .faq-shape-image {
   width: 150px;
@@ -12565,7 +12565,6 @@ input[type="radio"] {
 
 .hero-video-animation {
   padding-top: 50px;
-  padding-bottom: 130px;
 }
 
 .hero-v-content-wrapper {
