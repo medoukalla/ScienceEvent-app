@@ -12476,8 +12476,7 @@ input[type="radio"] {
 }
 
 .formation-header-wrapper video {
-  height: 300px;
-  border-radius: 15px;
+  height: 100%;
 }
 
 .formation-header-wrapper p {
@@ -13581,6 +13580,18 @@ input[type="radio"] {
   width: 80%;
   text-align: center;
   margin: 0 auto;
+}
+
+#aboutVideo::-webkit-media-controls {
+    display: none !important; /* Hides controls in WebKit browsers like Chrome, Safari */
+}
+
+#aboutVideo::-moz-media-controls {
+    display: none !important; /* Hides controls in Firefox */
+}
+
+#aboutVideo::-ms-media-controls {
+    display: none !important; /* Hides controls in Microsoft Edge */
 }
 
 

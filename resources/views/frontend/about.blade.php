@@ -6,7 +6,7 @@
 <div class="formation-header section-padding-top-50">
     <div class="w-layout-blockcontainer container w-container">
         <div class="formation-header-wrapper about-us">
-            <div class="f-header-content">
+            <div class="f-header-content" style="width: 65%">
                 <div class="path-map">
                     <div class="map">
                         <div class="path-name">À propos de nous</div>
@@ -22,24 +22,19 @@
                     Rejoignez la communauté
                 </div>
             </div>
-            <div class="f-header-image">
-                <video controls crossorigin playsinline
-                    poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg">
+            <div class="f-header-image" 
+            style="
+            background: transparent; width:30%;
+            height:500px;
+            overflow:hidden;
+            border-radius:15px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            ">
+                <video id="aboutVideo" controls autoplay muted crossorigin playsinline >
                     <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
                         type="video/mp4" size="576">
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4"
-                        type="video/mp4" size="720">
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
-                        type="video/mp4" size="1080">
-
-                    <!-- Caption files -->
-                    <track kind="captions" label="English" srclang="en"
-                        src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt" default>
-                    <track kind="captions" label="Français" srclang="fr"
-                        src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
-                    <!-- Fallback for browsers that don't support the <video> element -->
-                    <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
-                        download>Download</a>
                 </video>
             </div>
         </div>
