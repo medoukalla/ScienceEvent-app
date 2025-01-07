@@ -3,7 +3,7 @@
 @section('content')
 
 
-<section class="classes-details-section">
+<section class="classes-details-section" style="padding-top: 50px">
     <div class="w-layout-blockcontainer container w-container">
         <div class="classes-details-wrap">
 
