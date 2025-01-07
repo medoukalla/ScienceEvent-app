@@ -8,6 +8,9 @@
             <div class="top-bar-right">
                 <div class="search-bar">
                     <input type="text" placeholder="Chercher votre future formation">
+                    <div class="search-icon-block">
+                        <img class="search-icon" src="{{ asset('assets/svg/search.svg') }}" alt="Search Icon">
+                    </div>
                 </div>
                 <a href="">
                     <div class="call-btn">
