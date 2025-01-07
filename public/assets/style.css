@@ -5805,6 +5805,10 @@ blockquote {
   padding-top: 95px;
 }
 
+.section-padding-top-50 {
+  padding-top: 50px;
+}
+
 .section-padding-bottom-130 {
   padding-bottom: 100px;
 }
@@ -12304,7 +12308,7 @@ input[type="radio"] {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100%;
   gap: 20px;
 }
@@ -12447,6 +12451,14 @@ input[type="radio"] {
   border-radius: 15px;
 }
 
+.formation-header-wrapper p {
+  padding: 20px 0;
+}
+
+.about-us .path-map .path-name {
+  color: var(--orange-clr);
+}
+
 .f-hear-content .path-map .map {
   margin-bottom: 0;
 }
@@ -12454,7 +12466,7 @@ input[type="radio"] {
 .f-header-content .f-h-title {
   font-size: 3rem;
   font-weight: 700;
-  line-height: 55px;
+  line-height: 45px;
 }
 
 .f-header-content .btn-org {
@@ -12584,7 +12596,7 @@ input[type="radio"] {
 .hero-v-content-wrapper .hero-v-content .hero-v-title {
   font-size: 2.5rem;
   font-weight: 700;
-  line-height: 55px;
+  line-height: 45px;
 }
 
 .hero-v-content-wrapper .hero-v-content p {
@@ -13497,6 +13509,27 @@ input[type="radio"] {
 
 .swiper-pagination-bullet {
   background-color: var(--orange-clr) !important;
+}
+
+/* All formations */
+.formation-header .all-formation-heading {
+  font-size: 2.5rem;
+  text-align: center;
+  width: 70%;
+  line-height: 45px;
+  font-weight: 700;
+  margin: 0 auto;
+}
+
+.formation-header .all-formation-heading span {
+  color: var(--orange-clr);
+}
+
+.formation-header .all-formation-heading p {
+  padding-top: 20px;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 
