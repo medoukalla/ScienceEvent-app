@@ -7,6 +7,7 @@ use App\Doctor;
 use Illuminate\Http\Request;
 use App\Formation;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class FrontendController extends Controller
 {

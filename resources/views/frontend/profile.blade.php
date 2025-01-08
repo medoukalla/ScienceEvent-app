@@ -27,37 +27,36 @@
                     <div><span>Email :</span>{{ auth()->user()->email }}</div>
                     <div><span>Numéro de téléphone :</span>{{ auth()->user()->phone }}</div>
                 </div>
-            </div>
-            <!-- Section: My Courses -->
-            <div id="section-my-courses" class="hidden">
-                <h3 class="text-lg font-semibold text-gray-700 mb-4">Mes cours</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    @forelse (auth()->user()->orders as $order)
-                        <div class="bg-gray-100 shadow rounded-lg p-4">
-                            <h4 class="text-md font-bold text-gray-800">{{ $order->formation->title }}</h4>
-                            <p class="text-sm text-gray-600">{{ $order->formation->brief }}</p>
-                        </div>
-                    @empty
-                        <p class="text-gray-700">Vous n'avez pas encore de cours.</p>
-                    @endforelse
-                </div>
-            </div>
-            <!-- Section: Settings -->
-            <div id="section-settings" class="{{ ($errors->any() || session('success')) ? '' : 'hidden' }}">
-                <!-- Alerts -->
-                @if(session('success'))
-                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6"
-                        role="alert">
-                        <strong class="font-bold">Succès !</strong>
-                        <span class="block sm:inline">{{ session('success') }}</span>
-                        <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="this.parentElement.style.display='none';">
-                            <svg class="fill-current h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20">
-                                <path d="M14.348 14.849a1 1 0 01-1.414 0L10 11.415l-2.934 2.935a1 1 0 01-1.415-1.414l2.934-2.935-2.934-2.934a1 1 0 011.415-1.415L10 8.585l2.934-2.934a1 1 0 011.414 1.415L11.415 10l2.934 2.934a1 1 0 010 1.415z" />
-                            </svg>
-                        </span>
+
+                <!-- Section: My Courses -->
+                <div id="section-my-courses" class="hidden">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Mes cours</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        @foreach (auth()->user()->orders as $order)
+                            <div class="bg-gray-100 shadow rounded-lg p-4">
+                                <h4 class="text-md font-bold text-gray-800">{{ $order->formation->title }}</h4>
+                                <p class="text-sm text-gray-600">{{ $order->formation->brief }}</p>
+                            </div>
+                        @endforeach
                     </div>
-                @endif
+                </div>
+
+                <!-- Section: Settings -->
+                <div id="section-settings" class="{{ ($errors->any() || session('success')) ? '' : 'hidden' }}">
+                    <!-- Alerts -->
+                    @if(session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6"
+                            role="alert">
+                            <strong class="font-bold">Succès !</strong>
+                            <span class="block sm:inline">{{ session('success') }}</span>
+                            <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="this.parentElement.style.display='none';">
+                                <svg class="fill-current h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20">
+                                    <path d="M14.348 14.849a1 1 0 01-1.414 0L10 11.415l-2.934 2.935a1 1 0 01-1.415-1.414l2.934-2.935-2.934-2.934a1 1 0 011.415-1.415L10 8.585l2.934-2.934a1 1 0 011.414 1.415L11.415 10l2.934 2.934a1 1 0 010 1.415z" />
+                                </svg>
+                            </span>
+                        </div>
+                    @endif
 
                 @if ($errors->any())
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6"
