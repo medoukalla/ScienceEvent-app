@@ -6,52 +6,55 @@
     <div class="w-layout-blockcontainer container w-container">
         <div class="hero-v-content-wrapper">
             <div class="hero-v-content">
+
                 <div class="hero-v-title">
-                    La formation e-learning
-                        que les soignants méritent
+                    {{ setting('accueil-hero.headline') }}
                 </div>
-                <p>Améliorez la prise en charge de vos patients à l’hôpital ou en libéral grâce à nos formations agréées DPC, conçues par les meilleurs experts européens.</p>
-                <div class="btn-org">
+
+                <p>{{ setting('accueil-hero.description') }}</p>
+                
+                <a href="{{ asset('storage/' . (optional(json_decode(setting('accueil-hero.catalogue-file'), true))[0]['download_link'] ?? '')) }}" download class="btn-org" style="text-decoration: none;">
                     Télécharger le catalogue
-                </div>
+                </a>
+
             </div>
             <div class="video-parts">
                 <div class="sticker-tage video-sticker">
-                    <img src="{{ asset('assets/svg/video.svg') }}" alt="Video icon">
+                    <img src="{{ asset('storage/' . setting('accueil-hero.second-popup-icon') ) }}" alt="Video icon">
                     <div class="content-wrapper">
-                        <div class="sticker-title">Video</div>
-                        <p>Nouvelle réponse d’un expert</p>
+                        <div class="sticker-title">{{ setting('accueil-hero.second-popup-title') }}</div>
+                        <p>{{ setting('accueil-hero.third-popup-title') }}</p>
                     </div>
                 </div>
                 <div class="sticker-tage chat-sticker">
-                    <img src="{{ asset('assets/svg/chat.svg') }}" alt="Video icon">
+                    <img src="{{ asset('storage/' . setting('accueil-hero.first-popup-icon') ) }}" alt="Video icon">
                     <div class="content-wrapper">
-                        <div class="sticker-title">Forum</div>
-                        <p>Nouvelle réponse d’un expert</p>
+                        <div class="sticker-title">{{ setting('accueil-hero.first-popup-title') }}</div>
+                        <p>{{ setting('accueil-hero.first-popup-text') }}</p>
                     </div>
                 </div>
                 <div class="sticker-tage ressource-sticker">
-                    <img src="{{ asset('assets/svg/ressource.svg') }}" alt="Video icon">
+                    <img src="{{ asset('storage/' . setting('accueil-hero.third-popup-icon') ) }}" alt="Video icon">
                     <div class="content-wrapper">
-                        <div class="sticker-title">Ressource</div>
-                        <p>Nouvelle réponse d’un expert</p>
+                        <div class="sticker-title">{{ setting('accueil-hero.second-popup-text') }}</div>
+                        <p>{{ setting('accueil-hero.third-popup-text') }}</p>
                     </div>
                 </div>
                 <div class="v-part v-part-left">
                     <div class="video-container">
-                        <video src="https://www.santeacademie.com/videos/Webm_Site_2024_gauche_vlongue.webm" autoplay loop muted width="600"></video>
+                        <video src="{{ asset('storage/' . (optional(json_decode(setting('accueil-hero.video-left'), true))[0]['download_link'] ?? '')) }}" autoplay loop muted width="600"></video>
                     </div>
                 </video>
                 </div>
                 <div class="v-part v-part-midle">
                     <div class="video-container">
-                        <video src="https://www.santeacademie.com/videos/Webm_Site_2024_milieu_vlongue.webm" autoplay loop muted width="600"></video>
+                        <video src="{{ asset('storage/' . (optional(json_decode(setting('accueil-hero.video-middle'), true))[0]['download_link'] ?? '')) }}" autoplay loop muted width="600"></video>
                     </div>
                 </video>
                 </div>
                 <div class="v-part v-part-right">
                    <div class="video-container">
-                    <video src="https://www.santeacademie.com/videos/Webm_Site_2024_droite_vlongue.webm" autoplay loop muted width="600"></video>
+                    <video src="{{ asset('storage/' . (optional(json_decode(setting('accueil-hero.video-right'), true))[0]['download_link'] ?? '')) }}" autoplay loop muted width="600"></video>
                     </video>
                    </div>
                 </div>

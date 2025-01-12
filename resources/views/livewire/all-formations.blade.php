@@ -2,18 +2,18 @@
     <div class="w-layout-blockcontainer container w-container">
         <div class="formations-wrapper">
             <div class="formations-filter">
-                <div class="formations-filter-wrapper">
+                <div class="formations-filter-wrapper" >
                     <div class="filter job">
                         <div class="filter-drop">
                             <span>Filter</span>
                             <span wire:click="resetFilters">Réinitialiser</span>
                         </div>
                         <div class="filter-options">
-                            <div class="filter-type">
+                            <div class="filter-type" onclick="$('#categoriesList').toggle(); $('#doctorsList').hide(); $('#typesList').hide();">
                                 <span>Categories</span>
                                 <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="">
                             </div>
-                            <ul>
+                            <ul style="display: none;" id="categoriesList" wire:ignore.self>
                                 @foreach ( $categories as $category )       
                                     <li wire:click="setCategory({{ $category->id }})">
                                         <input type="radio" name="category" value="{{ $category->id }}" @if ( $selectedCategory == $category->id ) checked @endif >
@@ -25,11 +25,11 @@
                     </div>
                     <div class="filter job">
                         <div class="filter-options">
-                            <div class="filter-type">
+                            <div class="filter-type" onclick="$('#doctorsList').toggle(); $('#categoriesList').hide(); $('#typesList').hide();" >
                                 <span>Médecins</span>
                                 <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="">
                             </div>
-                            <ul>
+                            <ul style="display: none;" id="doctorsList" wire:ignore.self>
                                 @foreach ( $doctors as $doctor )
                                     <li wire:click="setDoctor({{ $doctor->id }})">
                                         <input type="radio" name="doctor" value="{{ $doctor->id }}" @if ( $selectedDoctor == $doctor->id ) checked @endif>
@@ -41,11 +41,11 @@
                     </div>
                     <div class="filter job">
                         <div class="filter-options">
-                            <div class="filter-type">
+                            <div class="filter-type"  onclick="$('#typesList').toggle(); $('#categoriesList').hide(); $('#doctorsList').hide();" >
                                 <span>Type de formation</span>
                                 <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="">
                             </div>
-                            <ul>
+                            <ul style="display: none;" id="typesList" wire:ignore.self>
                                 @foreach ( ['1' => 'E-learning', '2' => 'Présentiel', '3' => 'Classe Virtuelle'] as $key => $value )
                                     <li wire:click="setType({{ $key }})">
                                         <input type="radio" name="type" value="{{ $key }}" @if ( $selectedType == $key ) checked @endif>
@@ -90,7 +90,7 @@
                                             @endphp
                                             
                                             @if (!empty($videos) && isset($videos[0]->download_link))
-                                                <video style="width: 100%; height: auto;" controlslist="nodownload nofullscreen noplaybackrate" disablepictureinpicture autoplay muted playsinline>
+                                                <video style="width: 100%; height: auto;" controlslist="nodownload nofullscreen noplaybackrate" disablepictureinpicture loop autoplay muted playsinline>
                                                     <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4">
                                                     Votre navigateur ne prend pas en charge la balise vidéo.
                                                 </video>

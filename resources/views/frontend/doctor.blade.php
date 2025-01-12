@@ -11,7 +11,23 @@
                     style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1"
                     class="class-details-summary-wrap w-richtext">
                     <h3>{{ $doctor->name }}</h3>
-                    <p>{{ $doctor->bio }}</p>
+                    
+                    @php
+                        $lines = explode("\n", $doctor->bio);
+                    @endphp
+
+                    @foreach ($lines as $line)
+                        @php $line = trim($line); @endphp
+
+                        @if (str_starts_with($line, '-'))
+                            <ul style="margin-bottom: 0px !important;">
+                                <li style="margin-bottom: 0px !important;">{{ ltrim($line, '-') }}</li>
+                            </ul>
+                        @elseif (str_starts_with($line, '*'))
+                            <p>{{ ltrim($line, '*') }}</p>
+                        @endif
+                    @endforeach
+
                     <div class="more-info-by-title">
                         Formation par : <span>{{ $doctor->name }}</span>
                     </div>

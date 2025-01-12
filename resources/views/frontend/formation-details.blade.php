@@ -106,20 +106,18 @@
                         </p>
 
                         @if ( count( $formation->extraits ) > 0 )
-                        @foreach ( $formation->extraits as $extrait )
-                        <div class="funfact-wrap">
-                            <a href="#">
-                                <div class="s-info">
-                                    <img src="{{ asset('storage/' . $extrait->thumbnail ) }}" alt="Similar Video">
-                                    <div class="vid-infos">
-                                        <div class="vid-title">{{ $extrait->title }}</div>
-                                        <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                            class="vid-icon">
-                                    </div>
+                            @foreach ( $formation->extraits as $extrait )
+                                <div class="funfact-wrap">
+                                    <a href="#">
+                                        <div class="s-info" style="height:200px !important">
+                                            <video controls class="formation-video">
+                                                <source src="{{ asset('storage/' . (optional(json_decode( $extrait->video, true))[0]['download_link'] ?? '')) }}" type="video/mp4">
+                                                Votre navigateur ne prend pas en charge la balise vidéo.
+                                            </video>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                        @endforeach
+                            @endforeach
                         @endif
                     </div>
                 </div>

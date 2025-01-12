@@ -9,7 +9,7 @@ class Formation extends Model
 {
     public static function index_formations()
     {
-        return Formation::limit(6)->latest()->get();
+        return Formation::orderBy('date', 'asc')->limit(6)->get();
     }
 
 
