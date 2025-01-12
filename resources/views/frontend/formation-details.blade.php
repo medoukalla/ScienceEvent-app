@@ -48,13 +48,9 @@
                         <div class="formation-heading">
                             <h3><span>Résumé</span> de la formation</h3>
                         </div>
-                        <p>{!! $formation->other_details !!}</p>
+                        
+                        {!! $formation->other_details !!}
 
-                        <ul role="list">
-                            <li>Accès à vie et documents à distribuer, cahiers d'exercices</li>
-                            <li>Intégrer la pleine conscience dans la vie quotidienne</li>
-                            <li>Cours en direct sur Zoom et accès à vie</li>
-                        </ul>
                     </div>
                     <br>
                     <!-- Unfloded -->
@@ -102,7 +98,7 @@
                     <div class="similar-informations">
                         <h3><span>Découvrez</span> des extraits</h3>
                         <p>
-                            {{ $formation->program   }}
+                            {!! $formation->program !!}
                         </p>
 
                         @if ( count( $formation->extraits ) > 0 )

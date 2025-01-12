@@ -62,6 +62,11 @@
 
     <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
 
+
+    <!-- timymce editor  -->
+    <script src="https://cdn.tiny.cloud/1/pgs9q9rp2as64d2xxnbtfdo6xxisqb8vb0v8mq8qur0vmt65/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+
     @yield('css')
     @if(__('voyager::generic.is_rtl') == 'true')
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css">

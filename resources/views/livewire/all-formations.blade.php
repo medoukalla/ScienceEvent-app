@@ -10,7 +10,7 @@
                         </div>
                         <div class="filter-options">
                             <div class="filter-type" onclick="$('#categoriesList').toggle(); $('#doctorsList').hide(); $('#typesList').hide();">
-                                <span>Categories</span>
+                                <span>Specialité</span>
                                 <img src="{{ asset('assets/svg/path-arrow.svg') }}" alt="">
                             </div>
                             <ul style="display: none;" id="categoriesList" wire:ignore.self>

@@ -12,21 +12,7 @@
                     class="class-details-summary-wrap w-richtext">
                     <h3>{{ $doctor->name }}</h3>
                     
-                    @php
-                        $lines = explode("\n", $doctor->bio);
-                    @endphp
-
-                    @foreach ($lines as $line)
-                        @php $line = trim($line); @endphp
-
-                        @if (str_starts_with($line, '-'))
-                            <ul style="margin-bottom: 0px !important;">
-                                <li style="margin-bottom: 0px !important;">{{ ltrim($line, '-') }}</li>
-                            </ul>
-                        @elseif (str_starts_with($line, '*'))
-                            <p>{{ ltrim($line, '*') }}</p>
-                        @endif
-                    @endforeach
+                    {!! $doctor->bio !!}
 
                     <div class="more-info-by-title">
                         Formation par : <span>{{ $doctor->name }}</span>

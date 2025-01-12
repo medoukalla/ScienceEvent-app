@@ -14,6 +14,7 @@ class Category extends Model
      */
     public function formations()
     {
-        return $this->hasMany(Formation::class, 'category_id');
+        // return $this->hasMany(Formation::class, 'category_id');
+        return $this->belongsToMany(Formation::class, 'category_formation', 'category_id', 'formation_id');
     }
 }
