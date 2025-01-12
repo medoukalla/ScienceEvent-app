@@ -1,4 +1,4 @@
-<nav class="nav-dropdown-list w-dropdown-list" wire:ignore.self >
+<nav class="nav-dropdown-list w-dropdown-list nav-desktop" wire:ignore.self >
     <div class="nav-dropdown-link-wrapper mega-menu">
         <div class="nav-y">
 

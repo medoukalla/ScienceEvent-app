@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <a href="">
-                    <div class="call-btn">
+                    <div class="call-btn call-btn-mobile">
                         <img src="{{ asset('assets/svg/call.svg') }}" alt="">
                         <span>Appeler un conseiller</span>
                     </div>

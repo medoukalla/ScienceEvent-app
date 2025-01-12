@@ -2233,6 +2233,9 @@ textarea.w-select {
   .w-layout-blockcontainer {
     max-width: 728px;
   }
+  .search-bar {
+    width: 250px !important;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -7744,6 +7747,40 @@ blockquote {
   margin-bottom: 10px;
 }
 
+@media screen and (min-width: 1023px) and (max-width: 1279px) {
+  .search-bar {
+    width: 450px !important;
+  }
+  .hero-v-content-wrapper .hero-v-content .hero-v-title {
+    font-size: 1.8rem !important;
+    line-height: 38px !important;
+}
+.hero-v-content-wrapper .hero-v-content .btn-org {
+    width: 80% !important;
+}
+.hero-v-content-wrapper .hero-v-content p {
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+    width: 90% !important;
+}
+  .categorie-box .cat-title {
+    font-size: 0.90rem !important;
+    text-align: center !important;
+    line-height: 20px !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+}
+.r-side-floating .class-categories {
+  flex-direction: column !important;
+}
+.r-side-floating .class-categories .class {
+  width: 100% !important;
+  margin: 5px 0 !important;
+}
+.r-side-floating .class-categories .class:last-child{
+  margin-bottom: 20px !important;
+}
+}
 @media screen and (min-width: 1280px) {
   h3 {
     font-size: 32px;
@@ -8912,7 +8949,7 @@ blockquote {
   }
 
   .class-details-instructor-wrap {
-    max-width: 400px;
+    max-width: 100%;
   }
 
   .class-details-instructor-inner {
@@ -9499,6 +9536,70 @@ blockquote {
   .landing-page-template-name-wrapper {
     top: -71px;
   }
+
+  .hero-v-content-wrapper{
+        flex-direction: column-reverse !important;
+        gap: 30px !important;
+  } 
+
+  .hero-v-content-wrapper .hero-v-content {
+    width: 100% !important;
+  }
+
+  .hero-v-content-wrapper .video-parts {
+    justify-content: space-around !important;
+    width: 100% !important;
+  }
+
+  .hero-v-content-wrapper .hero-v-content .hero-v-title,
+  .hero-v-content-wrapper .hero-v-content p {
+    text-align: center;
+  }
+
+  .hero-v-content-wrapper .hero-v-content .btn-org {
+    margin: 0 auto;
+  }
+  .cat-wrap {
+    flex-wrap: wrap !important;
+  }
+
+  .categorie-box {
+    width: 48% !important;
+  }
+  .footer-middle-wrap {
+        grid-template-columns: 1fr 1fr 1fr 1fr !important;
+  }
+  .nav-menu-wrapper {
+    width: 100% !important;
+    min-height : 100% !important;
+  }
+  .nav-dropdown-toggle,
+  .nav-menu-link {
+    font-size: 20px !important;
+  }
+  .nav-mobile-brand {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  .w-dropdown-list {
+    width:450px !important;
+  }
+  .navbar-wrapper {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav-desktop {
+    display: none !important;
+  }
+
+  .nav-mobile {
+    display: block !important;
+  }
+
+
 }
 
 @media screen and (max-width: 767px) {
@@ -10368,6 +10469,34 @@ blockquote {
   .landing-page-template-name-wrapper {
     top: -51px;
   }
+  .footer-middle-wrap {
+        grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+
+@media screen and (max-width: 529px ){
+  .categorie-box {
+    width: 100% !important;
+  }
+  .swiper-slide.dr-block {
+    width: 100% !important;
+  }
+  .search-bar {
+    display: none !important;
+  }
+  .accordion li label span {
+    font-size: 15px;
+    line-height: 18px;
+}
+  .footer-middle-wrap {
+        grid-template-columns: 1fr 1fr !important;
+  }
+  .footer-about {
+    flex: 0 0 20% !important;
+  }
+  .site-disc {
+    width: 100% !important;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -11161,6 +11290,18 @@ blockquote {
   .landing-page-template-name-wrapper {
     top: -37px;
   }
+  .navbar-brand {
+    max-width: 68px !important;
+  }
+  .call-btn {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 375px){
+  .hero-v-content-wrapper .hero-v-content .btn-org {
+    width: 100% !important;
+  }
 }
 
 #w-node-_96cf8a59-e27b-3eac-44d0-4c9376b0fd5a-e6b4dfe0,
@@ -11220,6 +11361,10 @@ blockquote {
   #w-node-a2d18aac-24ff-8031-2ad6-982e9ad5607f-3aa7fe38 {
     order: 9999;
   }
+  .r-side-floating .class-categories {
+    justify-content: flex-start !important;
+    gap: 20px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -11238,6 +11383,9 @@ blockquote {
   #w-node-_813782bd-d3ef-feab-199b-82dd8cfec9d8-406238ec {
     justify-self: start;
   }
+    .swiper-slide.dr-block {
+    width: 50% !important;
+  } 
 }
 
 @media screen and (max-width: 479px) {
@@ -13592,6 +13740,10 @@ input[type="radio"] {
 
 #aboutVideo::-ms-media-controls {
     display: none !important; /* Hides controls in Microsoft Edge */
+}
+
+.nav-mobile {
+  display: none;
 }
 
 
