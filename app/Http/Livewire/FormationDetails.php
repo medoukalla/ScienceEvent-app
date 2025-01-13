@@ -34,6 +34,7 @@ class FormationDetails extends Component
     public $specialite;
 
 
+    public $selected_pack;
     public $amount;
 
     public $proof;
@@ -45,6 +46,9 @@ class FormationDetails extends Component
 
     // new or old user 
     public $new_user = false;
+
+    // laboratoir nom 
+    public $laboratory_name;
 
     public function mount($formation) {
         $this->formation = $formation;
@@ -129,6 +133,13 @@ class FormationDetails extends Component
         $this->display = 'register';
     }
 
+    // change amount ( packs )
+    public function select_pack($pack_id, $amount) {
+        $this->selected_pack = $pack_id;
+        $this->amount = $amount;
+
+    }
+
     // show payment section 
     public function payment() {
         $this->display = 'payment';
@@ -142,12 +153,25 @@ class FormationDetails extends Component
 
     public function paymentOffline() {
 
+        // check for labo name if payment method is 'prise_en_charge'
+        if ($this->payment_method == 'prise_en_charge') {
+            $this->validate([
+                'laboratory_name' => 'required|string',
+            ], [
+                'laboratory_name.required' => 'Le nom du laboratoire est obligatoire.',
+                'laboratory_name.string' => 'Le nom du laboratoire doit etre une chaine de caracteres.',
+            ]);
+        }
+        
+
+
         // create new order
         $order = new Order();
         $order->formation_id = $this->formation->id;
         $order->user_id = $this->user->id;
         $order->price = $this->amount;
         $order->status = 1;
+        $order->labo_name = $this->laboratory_name;
 
         // payment method to number 
         switch ($this->payment_method) {
@@ -173,6 +197,22 @@ class FormationDetails extends Component
 
     }
 
+
+    public function paymentOnline() {
+        // create new order
+        $order = new Order();
+        $order->formation_id = $this->formation->id;
+        $order->user_id = $this->user->id;
+        $order->price = $this->amount;
+        $order->status = 1;
+        $order->payment_method = $this->payment_method;
+
+        if ( $order->save() ) {
+            $this->order_id = $order->id;
+            // redirect user to CMI payment page 
+            
+        }
+    }
 
     public function add_proof() {    
 

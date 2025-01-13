@@ -22,7 +22,9 @@
                                     Votre navigateur ne prend pas en charge la balise vidéo.
                                 </video>
                             @else
-                                <p>Aucune vidéo disponible.</p>
+                                <a href="{{ route('frontend.formation', $formation->id) }}">
+                                    <img src="{{ asset('storage/'.$formation->cover) }}" alt="" style="width: 100%; height: auto;">
+                                </a>
                             @endif
                         </div>
                         <div class="cat-tagge">
@@ -34,7 +36,7 @@
                         <div class="i-planning">
                         <div class="i-date">
                             <img src="{{ asset('assets/svg/i-date.svg') }}" alt="information date">
-                            <span>{{ $formation->date }}</span>
+                            <span>{{ $formation->date_details }}</span>
                         </div>
                         <div class="i-profile">
                             <img src="{{ asset('assets/svg/user.svg') }}" alt="information date">

@@ -117,20 +117,20 @@
         <div class="profile-wrapper-flex">
             <div class="profile-left">
                 <div class="profile-name">
-                    Daniel Lee
-                    <span>student</span>
+                    {{ Auth::user()->name }}
+                    <span>{{ Auth::user()->role->name }}</span>
                 </div>
                 <hr style="margin: 10px 0">
                 <div class="profile-nav">
-                    <button onclick="showDiv(1)" class="">
+                    <button onclick="$(this).addClass('active').siblings().removeClass('active'); showDiv(1);" class="">
                         <img src="{{ asset('assets/svg/profile-formation.svg') }}" alt="profile formation">
                         Information du profil
                     </button>
-                    <button onclick="showDiv(2)" class="active">
+                    <button onclick="$(this).addClass('active').siblings().removeClass('active'); showDiv(2)" class="active">
                         <img src="{{ asset('assets/svg/cours.svg') }}" alt="profile formation">
-                        Mes cours
+                        Mes inscriptions
                     </button>
-                    <button onclick="showDiv(3)" class="">
+                    <button onclick="$(this).addClass('active').siblings().removeClass('active'); showDiv(3)" class="">
                         <img src="{{ asset('assets/svg/settings.svg') }}" alt="profile formation">
                         Paramètres
                     </button>
@@ -139,25 +139,25 @@
             <div class="profile-right">
                 <div id="divOne" class="content hidden">
                     <div class="hello-user">
-                        Bienvenue, <span>Admin</span>
+                        Bienvenue, <span>{{ Auth::user()->name }}</span>
                     </div>
                     <span class="sub-title">Vos informations personnelles :</span>
                     <hr style="margin: 10px 0">
                     <div class="infos-content">
                         <div class="info">
-                            Nom : <span>Admin</span>
+                            Nom : <span>{{ Auth::user()->name }}</span>
                         </div>
                         <div class="info">
-                            Email : <span>admin@gmail.com</span>
+                            Email : <span>{{ Auth::user()->email }}</span>
                         </div>
                         <div class="info">
-                            Numéro de téléphone : <span>+2126231548</span>
+                            Date d'inscription : <span>{{ Auth::user()->created_at->format('d/m/Y') }}</span>
                         </div>
                     </div>
                 </div>
                 <div id="divTwo" class="content">
                     <div class="hello-user">
-                        Mes cours
+                        Mes inscriptions
                     </div>
                     <span class="sub-title">Découvrez les formations que vous avez acquises :</span>
                     <hr style="margin: 10px 0">
@@ -165,95 +165,95 @@
                         <table class="courses-table">
                         <thead>
                             <tr>
-                            <th>Mes cours</th>
+                            <th>Formation</th>
                             <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="cours">
-                                        <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                                        Echocardiographie
-                                    </div>
-                                </td>
-                                <td class="pending" >En cours</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="cours">
-                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                                    Autisme chez l'enfant
-                                    </div>
-                                </td>
-                                <td >
-                                    <div class="discover">
-                                        <span>Discover cours</span>
-                                        <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="cours">
-                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                                    Comprehensive Medical Training for Excellence ... <span>(Nephrologue)</span>
-                                </div>
-                                </td>
-                                <td class="refuse">Non commencé</td>
-                            </tr>
-                                                        <tr>
-                                <td>
-                                    <div class="cours">
-                                        <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                                        Echocardiographie
-                                    </div>
-                                </td>
-                                <td class="pending" >En cours</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="cours">
-                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                                    Diabeto et endo pediatrique
-                                    </div>
-                                </td>
-                                <td >
-                                    <div class="discover">
-                                        <span>Discover cours</span>
-                                        <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="cours">
-                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                                    Acupuncture <span>(Nephrologue)</span>
-                                </div>
-                                </td>
-                                <td class="refuse">Non commencé</td>
-                            </tr>
+
+                            @foreach (auth()->user()->orders as $order)
+                                @if ( $order->status == 1 )
+                                    <tr>
+                                        <td>
+                                            <div class="cours">
+                                                <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                                {{ $order->formation->title }}
+                                            </div>
+                                        </td>
+                                        <td class="pending" >En attente</td>
+                                    </tr>
+                                @elseif ( $order->status == 2 )
+                                    <tr>
+                                        <td>
+                                            <div class="cours">
+                                                <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                                {{ $order->formation->title }}
+                                            </div>
+                                        </td>
+                                        <td class="pending" >Non payée</td>
+                                    </tr>
+                                @elseif ( $order->status == 3 )
+                                    <tr>
+                                        <td>
+                                            <div class="cours">
+                                            <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                            {{ $order->formation->title }}
+                                            </div>
+                                        </td>
+                                        <td >
+                                            <a href="{{ route('frontend.formation.access', $order->formation) }}">
+                                                <div class="discover">
+                                                    <span>Discover cours</span>
+                                                    <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
+                                                </div>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @elseif ( $order->status == 4 )
+                                    <tr>
+                                        <td>
+                                            <div class="cours">
+                                            <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                            {{ $order->formation->title }}
+                                        </div>
+                                        </td>
+                                        <td class="refuse">Annulé</td>
+                                    </tr>
+                                @endif
+                                
+                            @endforeach
+
                         </tbody>
                     </table>
                     </div>
                 </div>
                 <div id="divTree" class="content hidden">
                     <div class="hello-user">
-                    Mes cours
+                    Paramètres
                     </div>
-                    <span class="sub-title">Découvrez les formations que vous avez acquises :</span>
+                    <span class="sub-title">Changer votre nom ou votre mot de passe pour protéger votre compte :</span>
                     <hr style="margin: 10px 0">
                     <div class="infos-content">
-                        <div class="info">
-                            Nom : <input type="text" placeholder="votre nom">
-                        </div>
-                        <div class="info">
-                            Email : <input type="text" name="" id="" placeholder="votre email">
-                        </div>
-                        <div class="info">
-                            Numéro de téléphone : <input type="text" name="" id="" placeholder="votre telephone">
-                        </div>
+                        <form method="POST" action="{{ route('frontend.profile.update') }}">
+                            @csrf
+
+                            <div class="info">
+                                Nom : <input type="text" name="name" value="{{ old('name', auth()->user()->name) }}">
+                            </div>
+                            <div class="info">
+                                Nouveau mot de passe : <input type="password"  name="password" id="" placeholder="******">
+                            </div>
+                            <div class="info">
+                                Confirmation du mot de passe : <input type="text" name="password_confirmation" id="" placeholder="*******">
+                            </div>
+
+                            <div class="info">
+                                <button type="submit" class="bg-blue-300 text-white px-3 py-2 rounded hover:bg-blue-700" style="font-size: 16px;">
+                                    Mettre à jour
+                                </button>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -262,8 +262,5 @@
 </section>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    
-</script>
 
 @endsection

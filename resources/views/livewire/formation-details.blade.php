@@ -8,7 +8,7 @@
                 {{ $formation->title }}
             </div>
             <div class="format">
-                Format
+                {{ $formation->category->name }}
             </div>
             <div class="class-categories">
                 <div class="class @if ( $formation->type == 1 ) selected @endif ">
@@ -115,30 +115,34 @@
     </div>
 
     <!-- Register form  -->
-    <div class="class-details-instructor-inner" @if ($display != 'register') style="display: block" @endif )>
+    <div class="class-details-instructor-inner" @if ($display != 'register') style="display: none" @endif >
         <div class="r-side-floating">
-            <div class="btn-back">
+            <div class="btn-back" wire:click="back">
                 <img src="{{ asset('assets/svg/arrow-back.svg') }}" alt="">
                 <span>Retour</span>
             </div>
             <div class="contact-us-form insc-floeating">
                 <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
                     <label for="">Nom et prénom :</label>
-                    <input class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre nom et prénom" type="tel" id="field-4" required="">
+                    <input wire:model.lazy="name" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre nom et prénom" type="tel" id="field-4" required="">
+                    @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
                     <label for="">Spécialité :</label>
-                    <input class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre spécialité" type="tel" id="field-4" required="">
+                    <input wire:model.lazy="specialite" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre spécialité" type="tel" id="field-4" required="">
+                    @error('specialite') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
                     <label for="">Téléphone :*</label>
-                    <input class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votr téléphone" type="tel" id="field-4" required="">
+                    <input wire:model.lazy="phone" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votr téléphone" type="tel" id="field-4" required="">
+                    @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
                     <label for="">Email :*</label>
-                    <input class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre email" type="tel" id="field-4" required="">
+                    <input wire:model.lazy="email" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre email" type="tel" id="field-4" required="">
+                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
-                <div class="btn-org">
+                <div class="btn-org" wire:click="save_user">
                     S'inscrire
                 </div>
             </div>
@@ -146,9 +150,9 @@
     </div>
 
     <!-- payment  -->
-    <div class="class-details-instructor-inner" @if ($display != 'payment') style="display: block" @endif >
+    <div class="class-details-instructor-inner" @if ($display != 'payment') style="display: none" @endif >
         <div class="r-side-floating">
-            <div class="btn-back">
+            <div wire:click="register" class="btn-back" >
                 <img src="{{ asset('assets/svg/arrow-back.svg') }}" alt="">
                 <span>Retour</span>
             </div>
@@ -156,7 +160,7 @@
                 {{ $formation->title }}
             </div>
             <div class="format">
-                Format
+                {{ $formation->category->name }}
             </div>
             <div class="class-categories">
                 <div class="class @if ( $formation->type == 1 ) selected @endif ">
@@ -180,50 +184,44 @@
             </div>
 
             <div class="formation-packs">
-                <div class="pack">
-                    <div class="pack-type">
-                        <input type="radio" name="" id="">
-                        <span>Pack inscription</span>
+                @foreach ( $formation->packs->sortBy('price') as $key => $pack )
+                    <div wire:click="select_pack({{ $pack->id }}, {{ $pack->price }})" class="pack @if ( $selected_pack == $pack->id ) selected @endif">
+                        <div class="pack-type">
+                            <input type="radio" name="" id="">
+                            <span>{{ $pack->title }}</span>
+                        </div>
+                        <div class="pack-price">{{ $pack->price }}.00DH</div>
                     </div>
-                    <div class="pack-price">6160 DH</div>
-                </div>
-                <div class="pack selected">
-                    <div class="pack-type">
-                        <input type="radio" name="" id="">
-                        <span>Pack inscription + Hébérgement 2 nuits en chambre double</span>
-                    </div>
-                    <div class="pack-price">6160 DH</div>
-                </div>
-                <div class="pack">
-                    <div class="pack-type">
-                        <input type="radio" name="" id="">
-                        <span>Pack inscription + Hébérgement 2 nuits en chambre single</span>
-                    </div>
-                    <div class="pack-price">6160 DH</div>
-                </div>
+                @endforeach
             </div>
 
-            <div class="method-payment">
+            <div class="pack-alert success" style="@if ( $amount > 0 ) display:none; @else display:block; @endif">
+                Veuillez selectionner un pack d'abord!
+            </div>
+
+
+            <div class="method-payment" style="display: {{ $amount ? 'block' : 'none' }};">
                 <div class="m-title">
                     Moyen de payement
                 </div>
-                <select name="" id="">
-                    <option value="">Virement / versement</option>
-                    <option value="">Chéque</option>
-                    <option value="">Espéce</option>
-                    <option value="">Prise on charge</option>
-                    <option value="">Credit card</option>
+                <select wire:model="payment_method" name="payment_method" id="payment_method" >
+                    <option value="virement" selected>Virement / Versement</option>
+                    <option value="cheque">Chéque</option>
+                    <option value="espece">Espèce</option>
+                    <option value="prise_en_charge">Prise en charge</option>
+                    <option value="credit_card">Credit card</option>
                 </select>
                 {{-- Virement / versement --}}
-                <div class="m-content-wrapper select-one">
-                    <div class="block">Au profit de : <span>Science Events</span></div>
-                    <div class="block">Domiciliée chez : <span>ATTIJARIWAFA BANK</span></div>
-                    <div class="block">RIB : <span>007 450 0015 2080 000 000 4997</span></div>
+                <div @if ( $payment_method != 'virement' ) style="display: none" @endif class="m-content-wrapper select-one">
+                    <div class="block">Au profit de : <span>{{ setting('virement.compte-name') }}</span></div>
+                    <div class="block">Domiciliée chez : <span>{{ setting('virement.bank-name') }}</span></div>
+                    <div class="block">RIB : <span>{{ setting('virement.rib') }}</span></div>
+                    <div class="block">IBAN : <span>{{ setting('virement.iban') }}</span></div>
                     <hr>
                     <p>Merci d'envoyer une copie de Virement ou Versement par</p>
                     <hr>
-                    <div class="block">Email : <span>contact@science-events.ma</span></div>
-                    <div class="block">Whatsapp : <span> 0700 443 555</span></div>
+                    <div class="block">Email : <span>{{ setting('site.email') }}</span></div>
+                    <div class="block">Whatsapp : <span>{{ setting('site.phone') }}</span></div>
                     <hr>
                     <p>Merci de demander a votre banquier de <span>préciser le nom de médecin participant</span> dans le motif.</p>
                     <p>Le nom de bénéficiaire de la formation doit être <span>noté clairement</span> dans le reçu de réglement que vous envoyez</p>
@@ -231,50 +229,46 @@
 
                 </div>
                 {{-- Chéque --}}
-                {{-- <div class="m-content-wrapper select-one">
-                    <div class="block">Au profit de : <span>Science Events</span></div>
+                <div @if ( $payment_method != 'cheque' ) style="display: none" @endif class="m-content-wrapper select-one">
+                    <div class="block">Au profit de : <span>{{ setting('virement.cheque-for') }}</span></div>
                     <hr>
                     <p>Les inscriptions ne sont ni annulables ni remboursables</p>
-                </div> --}}
+                </div>
                 {{-- Espéce --}}
-                {{-- <div class="m-content-wrapper select-one">
-                    <div class="block">Adresse : <span>Koutoubia Center 2, Av. Hassane 2, Guéliz - Marrakech</span></div>
+                <div @if ( $payment_method != 'espece' ) style="display: none" @endif class="m-content-wrapper select-one">
+                    <div class="block">Adresse : <span>{{ setting('virement.espece-address') }}</span></div>
                     <hr>
                     <p>Les inscriptions ne sont ni annulables ni remboursables</p>
-                </div> --}}
+                </div>
                 {{-- Prise on charge --}}
-                {{-- <div class="m-content-wrapper select-one">
+                <div @if ( $payment_method != 'prise_en_charge' ) style="display: none" @endif class="m-content-wrapper select-one">
                     <label for="">Nom de laboratoire*</label>
-                    <input type="text">
-                    <div class="block">Pour les laboratoires en compte, envoyez un bon de commande à : <span>contact@science-events.ma</span></div>
+                    <input wire:model="laboratory_name" type="text" name="laboratory_name">
+                    @error('laboratory_name') <span class="text-danger">{{ $message }}</span> @enderror
+                    <div class="block">Pour les laboratoires en compte, envoyez un bon de commande à : <span>{{ setting('site.email') }}</span></div>
                     <hr>
                     <p>Si non, la totalité du règlement doit être payé avant le jour de la formation.</p>
                     <hr>
                     <p>Les inscriptions ne sont ni annulables ni remboursables</p>
-                </div> --}}
-                {{-- <div class="m-content-wrapper select-one">
+                </div>
+                <div @if ( $payment_method != 'credit_card' ) style="display: none" @endif class="m-content-wrapper select-one">
                     <p>Pour les payements en ligne, cliquez sur le bouton ci-dessous pour être redirigé vers la page de payement.</p>
-                </div> --}}
+                    
+                </div>
             </div>
             
-            <div class="pack-alert danger" style="display: none">
-                Lorem ipsum dolor sit amet.
-            </div>
-            <div class="pack-alert opps" style="display: none">
-                Veuillez selectionner un pack d'abord!
-            </div>
-                        <div class="pack-alert success" style="display: block">
-                Veuillez selectionner un pack d'abord!
-            </div>
-            <div class="btn-org" style="margin-top: 20px">
-                Confirmer le payment
-            </div>
-            {{-- Credit button --}}
-            <div class="btn-org online-pay-btn" style="margin-top: 20px">
-                <a href="#">
-                    Payer en ligne : <span>( 6160 DH )</span>
-                </a>
-            </div>
+ 
+            @if ( $payment_method == 'credit_card' ) 
+                <div wire:click="paymentOnline" class="btn-org online-pay-btn" style="margin-top: 20px">
+                    Payer en ligne : <span>( {{ $amount }}.00 DH )</span>
+                </div>
+            @else
+                <div wire:click="paymentOffline" class="btn-org" style="margin-top: 20px">
+                    Confirmer le payment
+                </div>
+            @endif
+
+            
         </div>
     </div>
 
@@ -285,7 +279,7 @@
                 {{ $formation->title }}
             </div>
             <div class="format">
-                Format
+                {{ $formation->category->name }}
             </div>
             <div class="class-categories" style="display: block !important;">
             
@@ -319,7 +313,7 @@
         </div>
     </div>
 
-    <!-- Upload proof  -->
+    <!-- Success  -->
     <div class="class-details-instructor-inner" @if ($display != 'success') style="display: none" @endif >
         <div class="r-side-floating">
             <div class="r-s-title">

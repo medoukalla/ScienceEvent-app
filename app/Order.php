@@ -4,10 +4,14 @@ namespace App;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
+
+    use SoftDeletes;
+
+
     /**
      * Get the user that owns the Order
      *

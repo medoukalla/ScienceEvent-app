@@ -16,7 +16,9 @@
                     <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4" size="576">
                 </video>
                 @else
-                <p>Aucune vidéo disponible.</p>
+                    <a href="{{ route('frontend.formation', $formation->id) }}">
+                        <img src="{{ asset('storage/'.$formation->cover) }}" alt="" style="width: 100%; height: auto;">
+                    </a>
                 @endif
             </div>
             <div class="access-formations-details">

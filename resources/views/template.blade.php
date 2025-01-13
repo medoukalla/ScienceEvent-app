@@ -108,7 +108,7 @@
                     <h3 class="footer-title">À propos</h3>
                     <div class="footer-list-wrap">
                     <div class="footer-list-item"><a href="#" class="footer-list">Besoin d’aide ?</a></div>
-                    <div class="footer-list-item"><a href="#" class="footer-list">Nous contacter</a></div>
+                    <div class="footer-list-item"><a href="{{ route('frontend.contact') }}" class="footer-list">Nous contacter</a></div>
                     </div>
                 </div>
                 <div class="footer-widget">

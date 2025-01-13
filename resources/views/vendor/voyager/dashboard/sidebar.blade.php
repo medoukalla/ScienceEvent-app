@@ -1,4 +1,4 @@
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" >
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" style=" position: fixed; height: 100%; " >
 
           
     <div class="app-brand demo ">
@@ -29,65 +29,52 @@
             @php
                 $menu = menu('admin', '_json');
             @endphp
-            @foreach ( $menu as $item )
-                @if ( count( $item->children ) == 0 )
-                    <li class="menu-item">
-                        <a href="@if ( !is_null($item->route ) ) {{ route($item->route) }} @else {{ $item->url }} @endif" class="menu-link" target="{{ $item->target }}">
-                        <i class="menu-icon ti ti-{!! $item->icon_class !!}"></i>
-                        <div data-i18n="Email">{{ $item->title }}</div>
+            @foreach ($menu as $item)
+                @php
+                    // Determine if the current item or its children are active
+                    $isActiveMenu = Route::is(str_replace('.index', '.*', $item->route)) || collect($item->children)->contains(function ($child) {
+                        return Route::is(str_replace('.index', '.*', $child->route));
+                    });
+
+                @endphp
+
+                @if (count($item->children) == 0)
+                    @php
+                        $item_slug =  explode('.', $item->route)[1];
+                        $current_slug = explode('.', \Request::route()->getName())[1];
+                    @endphp
+                    <li class="menu-item {{ $isActiveMenu ? 'active' : '' }} @if ( $item_slug == $current_slug) active @endif" >
+                        <a href="@if (!is_null($item->route)) {{ route($item->route) }} @else {{ $item->url }} @endif" 
+                        class="menu-link" target="{{ $item->target }}">
+                            <i class="menu-icon ti ti-{!! $item->icon_class !!}"></i>
+                            <div data-i18n="{{ $item->title }}">{{ $item->title }}</div>
                         </a>
                     </li>
                 @else
-                <li class="menu-item">
-                    
-                    
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon ti ti-{!! $item->icon_class !!}"></i>
-                        <div data-i18n="{{ $item->title }}">{{ $item->title }}</div>
-                        {{-- <div class="badge bg-primary rounded-pill ms-auto">5</div> --}}
-                    </a>
-
-                    <ul class="menu-sub">
-
-                        @foreach ( $item->children  as  $itemChilds )
-
-                            @if ( count( $itemChilds->children ) == 0 )
-                                <li class="menu-item">
-                                    <a href="{{ route($itemChilds->route) }}" class="menu-link">
-                                    <i class="menu-icon ti ti-{!! $itemChilds->icon_class !!}"></i>
-                                    <div data-i18n="{{ $itemChilds->title }}">{{ $itemChilds->title }}</div>
+                    <li class="menu-item {{ $isActiveMenu ? 'open' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon ti ti-{!! $item->icon_class !!}"></i>
+                            <div data-i18n="{{ $item->title }}">{{ $item->title }}</div>
+                        </a>
+                        <ul class="menu-sub" style="display: {{ $isActiveMenu ? 'block' : 'none' }};">
+                            @foreach ($item->children as $child)
+                                @php
+                                    $isChildActive = Route::is($child->route);
+                                    $item_slug =  explode('.', $child->route)[1];
+                                    $current_slug = explode('.', \Request::route()->getName())[1];
+                                @endphp
+                                <li class="menu-item {{ $isChildActive ? 'active' : '' }} @if ( $item_slug == $current_slug) active @endif">
+                                    <a href="{{ route($child->route) }}" class="menu-link">
+                                        <i class="menu-icon ti ti-{!! $child->icon_class !!}"></i>
+                                        <div data-i18n="{{ $child->title }}">{{ $child->title }}</div>
                                     </a>
                                 </li>
-                            @else
-
-                            {{-- <li class="menu-item">
-                                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                <i class="menu-icon ti ti-{!! $itemChilds->icon_class !!}"></i>
-                                <div data-i18n="{{ $itemChilds->title }}">{{ $itemChilds->title }}</div>
-                                </a>
-
-                                <ul class="menu-sub">
-                                @foreach ( $itemChilds->children as $smallChild )
-                                    <li class="menu-item">
-                                    <a href="@if ( !is_null($smallChild->route ) ) {{ route($smallChild->route) }} @endif" target="{{ $smallChild->target }}" class="menu-link">
-                                        <div data-i18n="Analytics">{{ $smallChild->title }}</div>
-                                    </a>
-                                    </li>
-                                @endforeach
-                                </ul>
-
-                            </li> --}}
-
-                            @endif
-
-                        @endforeach
-                        
-                    </ul>
-
-                    
-                </li>
+                            @endforeach
+                        </ul>
+                    </li>
                 @endif
             @endforeach
+
 
           
 

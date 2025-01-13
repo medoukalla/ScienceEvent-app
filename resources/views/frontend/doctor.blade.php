@@ -33,7 +33,9 @@
                                             </video>
                                         </a>
                                     @else
-                                        <p>Aucune vidéo disponible.</p>
+                                        <a href="{{ route('frontend.formation', $formation->id) }}"  >
+                                            <img src="{{ asset('storage/'.$formation->cover) }}" alt="" style=" width: 100%; max-height: 130px; ">
+                                        </a>
                                     @endif
                                 </div>
                                 <div class="more-info-title">
@@ -45,7 +47,7 @@
                                 <div class="more-info-date">
                                     <a href="{{ route('frontend.formation', $formation->id) }}">
                                         <p>
-                                            {{ $formation->brief }} <span>à : {{ \Carbon\Carbon::parse($formation->created_at)->format('d F Y') }}</span>
+                                            {{ $formation->brief }} <span>à : {{ $formation->date_details }} </span>
                                         </p>
                                     </a>
                                 </div>
