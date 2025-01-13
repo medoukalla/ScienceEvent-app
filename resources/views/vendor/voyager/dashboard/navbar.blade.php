@@ -17,7 +17,7 @@
         <!-- <a class="nav-item nav-link search-toggler d-flex align-items-center px-0" href="javascript:void(0);"> -->
           <i class="ti ti-search ti-md me-2 me-lg-4 ti-lg"></i>
           <!-- <span class="d-none d-md-inline-block text-muted fw-normal">Search (Ctrl+/)</span> -->
-           <input type="text" placeholder="Search clients " class="border-0">
+          <input type="text" id="searchClients" placeholder="Rechercher des utilisateurs" class="border-0" title="Appuyer sur Entrée pour lancer la recherche" >
         <!-- </a> -->
       </div>
     </div>
@@ -244,6 +244,16 @@
     <i class="ti ti-x search-toggler cursor-pointer"></i>
   </div>
 
-
+  <script>
+    document.getElementById('searchClients').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent default behavior (e.g., form submission or reload)
+            const searchQuery = event.target.value.trim();
+            if (searchQuery) {
+                window.location.href = `{{ route('voyager.users.index') }}?s=${encodeURIComponent(searchQuery)}`;
+            }
+        }
+    });
+</script>
 
 </nav>
