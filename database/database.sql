@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 26, 2024 at 01:24 PM
+-- Generation Time: Jan 14, 2025 at 09:25 AM
 -- Server version: 10.11.10-MariaDB
 -- PHP Version: 7.2.34
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `brief` varchar(100) DEFAULT NULL,
+  `brief` text DEFAULT NULL,
   `icon` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -41,12 +41,21 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `brief`, `icon`, `created_at`, `updated_at`) VALUES
-(1, 'Nephrologue', 'Nephrologue', 'stethoscope', '2024-12-14 16:04:05', '2024-12-22 20:48:11'),
-(2, 'Esthetique', 'Esthetique', 'nurse', '2024-12-14 16:04:38', '2024-12-22 20:47:46'),
-(3, 'Urologue', 'Urologue', 'building-hospital', '2024-12-14 16:05:02', '2024-12-22 20:47:34'),
-(4, 'Interniste', 'Interniste', 'ambulance', '2024-12-14 16:05:42', '2024-12-22 20:47:20'),
-(5, 'Généraliste', 'Généraliste', 'report-medical', '2024-12-14 16:06:16', '2024-12-22 20:39:14'),
-(6, 'Pediatre', 'Pediatre', 'vaccine-off', '2024-12-14 15:20:41', '2024-12-22 20:48:23');
+(5, 'Allergologue', 'Médecin spécialisé dans le diagnostic et le traitement des allergies et des maladies allergiques. Il prend en charge les réactions allergiques, l\'asthme, l\'eczéma et autres manifestations allergiques. Il réalise des tests allergiques et prescrit des traitements adaptés.', 'virus-search', '2024-12-14 16:06:16', '2025-01-05 11:30:50'),
+(7, 'Anesthésiste réanimateur', 'Médecin spécialisé dans l\'anesthésie et la réanimation. Il assure la prise en charge du patient avant, pendant et après une intervention chirurgicale. Il gère également les situations d\'urgence vitale et les soins intensifs.', 'vaccine', '2025-01-05 11:32:42', '2025-01-05 11:32:42'),
+(8, 'Cardiologue', 'Spécialiste des maladies du cœur et des vaisseaux sanguins. Il diagnostique et traite les pathologies cardiovasculaires comme l\'hypertension, les troubles du rythme cardiaque, l\'insuffisance cardiaque et les maladies coronariennes.', 'heartbeat', '2025-01-05 11:33:09', '2025-01-05 11:33:09'),
+(9, 'Chirurgien cardio-vasculaire', 'Chirurgien spécialisé dans les interventions sur le cœur et les vaisseaux sanguins. Il réalise des opérations comme les pontages coronariens, les remplacements valvulaires et les interventions sur l\'aorte.', 'droplet-heart', '2025-01-05 11:36:16', '2025-01-05 11:36:16'),
+(10, 'Chirurgien vasculaire', 'Se concentre sur la chirurgie des vaisseaux sanguins hors cœur. Il traite les pathologies artérielles et veineuses, comme les varices, les anévrismes et l\'artériopathie des membres.', 'thermometer', '2025-01-05 11:39:16', '2025-01-05 11:39:16'),
+(11, 'Dermatologue', 'Spécialiste des maladies de la peau, des cheveux et des ongles. Il diagnostique et traite les affections cutanées comme l\'acné, l\'eczéma, le psoriasis et les cancers de la peau.', 'mood-smile', '2025-01-05 11:40:45', '2025-01-05 11:40:45'),
+(12, 'Endocrinologue', 'Spécialiste des troubles hormonaux et du système endocrinien. Il prend en charge les maladies comme le diabète, les troubles thyroïdiens, les problèmes de croissance et les désordres métaboliques.', 'building-hospital', '2025-01-05 11:48:12', '2025-01-05 11:48:12'),
+(13, 'Généraliste', 'Médecin de premier recours qui assure le suivi global des patients. Il diagnostique et traite les pathologies courantes, coordonne les soins et oriente vers les spécialistes si nécessaire.', 'stethoscope', '2025-01-05 11:49:05', '2025-01-05 11:49:05'),
+(14, 'Gynécologue', 'Spécialiste de la santé de la femme, particulièrement du système reproducteur féminin. Il assure le suivi gynécologique, la contraception, le suivi de grossesse et traite les pathologies gynécologiques.', 'gender-female', '2025-01-05 11:50:03', '2025-01-05 11:50:03'),
+(15, 'Interniste', 'Spécialiste qui prend en charge les maladies complexes touchant plusieurs organes. Il a une approche globale du patient et gère souvent les cas médicaux complexes nécessitant une expertise approfondie.', 'body-scan', '2025-01-05 11:51:28', '2025-01-05 11:51:28'),
+(16, 'Kinésithérapeute', 'Professionnel de santé spécialisé dans la rééducation fonctionnelle. Il traite les troubles musculo-squelettiques, respiratoires et neurologiques par des techniques manuelles et des exercices adaptés.', 'yoga', '2025-01-05 11:52:26', '2025-01-05 11:52:26'),
+(17, 'Néphrologue', 'Spécialiste des maladies des reins. Il traite l\'insuffisance rénale, l\'hypertension d\'origine rénale, et supervise les dialyses et les suivis de transplantation rénale.', 'body-scan', '2025-01-05 11:54:39', '2025-01-05 11:54:39'),
+(18, 'ORL (Oto-Rhino-Laryngologiste)', 'Spécialiste des pathologies de l\'oreille, du nez et de la gorge. Il traite les problèmes auditifs, les infections ORL, les troubles de la voix et les pathologies sinusiennes.', 'ear-scan', '2025-01-05 11:56:32', '2025-01-05 11:56:32'),
+(19, 'Pédiatre', 'Médecin spécialisé dans la santé des enfants et des adolescents. Il assure le suivi du développement, la prévention des maladies infantiles et le traitement des pathologies pédiatriques.', 'mood-kid', '2025-01-05 11:57:10', '2025-01-05 11:57:10'),
+(21, 'Urologue', 'Chirurgien spécialisé dans les pathologies de l\'appareil urinaire et de l\'appareil génital masculin. Il traite les calculs rénaux, les troubles de la prostate et les cancers urologiques.', 'stethoscope', '2025-01-05 12:06:53', '2025-01-05 12:06:53');
 
 -- --------------------------------------------------------
 
@@ -56,7 +65,7 @@ INSERT INTO `categories` (`id`, `name`, `brief`, `icon`, `created_at`, `updated_
 
 CREATE TABLE `category_formation` (
   `id` int(10) UNSIGNED NOT NULL,
-  `categories_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
   `formation_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -190,36 +199,36 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (21, 1, 'role_id', 'text', 'Role', 0, 1, 1, 1, 1, 1, '{}', 10),
 (22, 4, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (23, 4, 'name', 'text', 'Nom', 0, 1, 1, 1, 1, 1, '{}', 3),
-(24, 4, 'email', 'text', 'E-mail', 0, 1, 1, 1, 1, 1, '{}', 6),
-(25, 4, 'phone', 'text', 'Téléphone', 0, 1, 1, 1, 1, 1, '{}', 7),
-(26, 4, 'bio', 'text_area', 'Biographie', 0, 0, 1, 1, 1, 1, '{}', 5),
-(27, 4, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, '{}', 8),
+(24, 4, 'email', 'text', 'E-mail', 0, 0, 1, 1, 1, 1, '{}', 6),
+(25, 4, 'phone', 'text', 'Téléphone', 0, 0, 1, 1, 1, 1, '{}', 7),
+(26, 4, 'bio', 'rich_text_box', 'Biographie', 0, 0, 1, 1, 1, 1, '{}', 5),
+(27, 4, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 8),
 (28, 4, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
 (29, 4, 'avatar', 'image', 'Photo', 0, 1, 1, 1, 1, 1, '{}', 2),
 (30, 5, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (31, 5, 'title', 'text', 'Titre', 0, 1, 1, 1, 1, 1, '{}', 2),
 (32, 5, 'cover', 'image', 'Couverture', 0, 0, 1, 1, 1, 1, '{}', 4),
-(33, 5, 'date', 'date', 'Date de la formation', 0, 1, 1, 1, 1, 1, '{}', 7),
-(34, 5, 'price', 'hidden', 'Price', 0, 0, 1, 1, 1, 1, '{}', 8),
-(35, 5, 'objective', 'text_area', 'Objectif', 0, 0, 1, 1, 1, 1, '{}', 11),
-(36, 5, 'program', 'text_area', 'Les extraits (description)', 0, 0, 1, 1, 1, 1, '{}', 12),
-(37, 5, 'other_details', 'rich_text_box', 'Other Details', 0, 0, 1, 1, 1, 1, '{}', 10),
-(38, 5, 'location_training', 'code_editor', 'LIEU DE LA FORMATION', 0, 0, 1, 1, 1, 1, '{}', 13),
-(39, 5, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 14),
-(40, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 15),
-(41, 5, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 16),
+(33, 5, 'date', 'date', 'Premier jour de formation', 0, 0, 1, 1, 1, 1, '{}', 7),
+(34, 5, 'price', 'hidden', 'Prix', 0, 0, 1, 1, 1, 1, '{}', 9),
+(35, 5, 'objective', 'rich_text_box', 'Objectif', 0, 0, 1, 1, 1, 1, '{}', 12),
+(36, 5, 'program', 'rich_text_box', 'Les extraits (description)', 0, 0, 1, 1, 1, 1, '{}', 13),
+(37, 5, 'other_details', 'rich_text_box', 'Résumé de la formation', 0, 0, 1, 1, 1, 1, '{}', 11),
+(38, 5, 'location_training', 'code_editor', 'LIEU DE LA FORMATION', 0, 0, 1, 1, 1, 1, '{}', 14),
+(39, 5, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 15),
+(40, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 16),
+(41, 5, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 17),
 (42, 6, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(52, 6, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 10),
-(53, 6, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 11),
+(52, 6, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 14),
+(53, 6, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 15),
 (62, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 1, 1, 1, 1, 1, '{}', 8),
 (63, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (64, 9, 'name', 'text', 'Nom de la catégorie', 0, 1, 1, 1, 1, 1, '{}', 2),
 (65, 9, 'brief', 'text_area', 'Description', 0, 1, 1, 1, 1, 1, '{}', 3),
 (66, 9, 'icon', 'text', 'Icon Copier le nom de l\'icône à partir de ce site Web : https://tablericons.com/', 0, 0, 1, 1, 1, 1, '{}', 4),
-(67, 5, 'formation_hasone_doctor_relationship', 'relationship', 'Doctor', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Doctor\",\"table\":\"doctors\",\"type\":\"belongsTo\",\"column\":\"doctor_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 17),
-(68, 5, 'doctor_id', 'hidden', 'Doctor Id', 0, 1, 1, 1, 1, 1, '{}', 18),
-(69, 5, 'category_id', 'hidden', 'Category Id', 0, 1, 1, 1, 1, 1, '{}', 19),
-(70, 5, 'formation_belongstomany_category_relationship', 'relationship', 'categories', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsTo\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"category_formation\",\"pivot\":\"0\",\"taggable\":\"on\"}', 20),
+(67, 5, 'formation_hasone_doctor_relationship', 'relationship', 'Doctor', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Doctor\",\"table\":\"doctors\",\"type\":\"belongsTo\",\"column\":\"doctor_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 18),
+(68, 5, 'doctor_id', 'hidden', 'Doctor Id', 0, 1, 1, 1, 1, 1, '{}', 19),
+(69, 5, 'category_id', 'hidden', 'Category Id', 0, 0, 1, 1, 1, 1, '{}', 20),
+(70, 5, 'formation_belongstomany_category_relationship', 'relationship', 'Spécialités', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Category\",\"table\":\"categories\",\"type\":\"belongsToMany\",\"column\":\"category_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"category_formation\",\"pivot\":\"1\",\"taggable\":\"on\"}', 21),
 (71, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (72, 10, 'title', 'text', 'Title', 0, 1, 1, 1, 1, 1, '{}', 2),
 (73, 10, 'price', 'number', 'Price', 0, 1, 1, 1, 1, 1, '{}', 3),
@@ -230,12 +239,12 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (78, 10, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 8),
 (79, 10, 'pack_belongsto_formation_relationship', 'relationship', 'formations', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Formation\",\"table\":\"formations\",\"type\":\"belongsTo\",\"column\":\"formation_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":null}', 9),
 (80, 5, 'video', 'file', 'Présentation vidéo ( Vidéo courte )', 0, 0, 1, 1, 1, 1, '{\"mimes\":\"mp4,avi,mov,wmv,flv,mkv\",\"size\":\"50000\"}', 5),
-(86, 5, 'type', 'select_dropdown', 'Type de formation', 1, 1, 1, 1, 1, 1, '{\"default\":\"1\",\"options\":{\"1\":\"E-learning\",\"2\":\"Pr\\u00e9sentiel\",\"3\":\"Classe Virtuelle\"}}', 3),
+(86, 5, 'type', 'select_dropdown', 'Type de formation', 1, 0, 1, 1, 1, 1, '{\"default\":\"1\",\"options\":{\"1\":\"E-learning\",\"2\":\"Pr\\u00e9sentiel\",\"3\":\"Classe Virtuelle\"}}', 3),
 (88, 4, 'facebook', 'text', 'Facebook', 0, 0, 1, 1, 1, 1, '{}', 10),
 (89, 4, 'linkedin', 'text', 'Linkedin', 0, 0, 1, 1, 1, 1, '{}', 11),
 (90, 4, 'youtube', 'text', 'Youtube', 0, 0, 1, 1, 1, 1, '{}', 12),
 (91, 4, 'twiter', 'text', 'X ( Twitter )', 0, 0, 1, 1, 1, 1, '{}', 13),
-(92, 4, 'speciality', 'text', 'Speciality', 0, 0, 1, 1, 1, 1, '{}', 4),
+(92, 4, 'speciality', 'text', 'Specialité', 0, 0, 1, 1, 1, 1, '{}', 4),
 (93, 11, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (94, 11, 'question', 'text', 'Question', 0, 1, 1, 1, 1, 1, '{}', 2),
 (95, 11, 'answer', 'text_area', 'Answer', 0, 0, 1, 1, 1, 1, '{}', 3),
@@ -251,16 +260,16 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (115, 13, 'formation_id', 'text', 'Formation Id', 0, 1, 1, 1, 1, 1, '{}', 9),
 (116, 13, 'thumbnail', 'image', 'Miniature de la vidéo', 0, 1, 1, 1, 1, 1, '{}', 3),
 (117, 13, 'title', 'text', 'Titre d\'extraits', 0, 1, 1, 1, 1, 1, '{}', 2),
-(118, 5, 'brief', 'text_area', 'Bref aperçu de formation', 0, 0, 1, 1, 1, 1, '{}', 9),
-(119, 6, 'user_id', 'text', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 3),
-(120, 6, 'formation_id', 'text', 'Formation Id', 0, 1, 1, 1, 1, 1, '{}', 4),
-(121, 6, 'pack_id', 'text', 'Pack Id', 0, 1, 1, 1, 1, 1, '{}', 5),
-(122, 6, 'price', 'text', 'Prix', 0, 1, 1, 1, 1, 1, '{}', 6),
-(123, 6, 'status', 'select_dropdown', 'Statut', 0, 1, 1, 1, 1, 1, '{\"default\":1,\"options\":{\"1\":\"Nouvelle commande\",\"2\":\"Non pay\\u00e9\",\"3\":\"Pay\\u00e9\",\"4\":\"Annul\\u00e9\"}}', 7),
-(124, 6, 'confirmed_by', 'text', 'Confirmed By', 0, 1, 1, 1, 1, 1, '{}', 8),
-(125, 6, 'method_payment', 'select_dropdown', 'Method Payment', 0, 1, 1, 1, 1, 1, '{\"default\":1,\"options\":{\"1\":\"Virement \\/ Versement\",\"2\":\"Ch\\u00e9que\",\"3\":\"Esp\\u00e8ce\",\"4\":\"Prise en charge\",\"5\":\"Paiement en ligne\"}}', 9),
-(126, 6, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 12),
-(127, 6, 'proof', 'file', 'Preuve du paiement', 0, 1, 1, 1, 1, 1, '{}', 2),
+(118, 5, 'brief', 'text_area', 'Bref aperçu de formation', 0, 0, 1, 1, 1, 1, '{}', 10),
+(119, 6, 'user_id', 'text', 'User Id', 0, 1, 1, 1, 1, 1, '{}', 2),
+(120, 6, 'formation_id', 'text', 'Formation Id', 0, 1, 1, 1, 1, 1, '{}', 7),
+(121, 6, 'pack_id', 'text', 'Pack Id', 0, 0, 0, 0, 0, 1, '{}', 8),
+(122, 6, 'price', 'text', 'Prix', 0, 1, 1, 1, 1, 1, '{}', 9),
+(123, 6, 'status', 'select_dropdown', 'Statut', 0, 1, 1, 1, 1, 1, '{\"default\":1,\"options\":{\"1\":\"Nouvelle commande\",\"2\":\"Non pay\\u00e9\",\"3\":\"Pay\\u00e9\",\"4\":\"Annul\\u00e9\"}}', 10),
+(124, 6, 'confirmed_by', 'text', 'Confirmé par', 0, 1, 1, 1, 1, 1, '{}', 3),
+(125, 6, 'method_payment', 'select_dropdown', 'Method Payment', 0, 1, 1, 1, 1, 1, '{\"default\":1,\"options\":{\"1\":\"Virement \\/ Versement\",\"2\":\"Ch\\u00e9que\",\"3\":\"Esp\\u00e8ce\",\"4\":\"Prise en charge\",\"5\":\"Paiement en ligne\"}}', 11),
+(126, 6, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, '{}', 16),
+(127, 6, 'proof', 'image', 'Preuve du paiement', 0, 1, 1, 1, 1, 1, '{}', 13),
 (128, 9, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 5),
 (129, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
 (130, 5, 'video_full', 'file', 'Présentation vidéo ( Vidéo complète )', 0, 0, 1, 1, 1, 1, '{\"mimes\":\"mp4,avi,mov,wmv,flv,mkv\",\"size\":\"50000\"}', 6),
@@ -291,7 +300,13 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (155, 16, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
 (156, 16, 'like_belongsto_user_relationship', 'relationship', 'User', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 7),
 (157, 16, 'like_belongsto_formation_relationship', 'relationship', 'Formation', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Formation\",\"table\":\"formations\",\"type\":\"belongsTo\",\"column\":\"formation_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 8),
-(158, 16, 'like_belongsto_comment_relationship', 'relationship', 'Commentaire', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Comment\",\"table\":\"comments\",\"type\":\"belongsTo\",\"column\":\"comment_id\",\"key\":\"id\",\"label\":\"content\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 9);
+(158, 16, 'like_belongsto_comment_relationship', 'relationship', 'Commentaire', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Comment\",\"table\":\"comments\",\"type\":\"belongsTo\",\"column\":\"comment_id\",\"key\":\"id\",\"label\":\"content\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 9),
+(159, 6, 'order_belongsto_formation_relationship', 'relationship', 'Formation', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Formation\",\"table\":\"formations\",\"type\":\"belongsTo\",\"column\":\"formation_id\",\"key\":\"id\",\"label\":\"title\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 6),
+(160, 6, 'order_belongsto_user_relationship', 'relationship', 'Client', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 5),
+(161, 6, 'labo_name', 'text', 'Laboratoire', 0, 1, 1, 1, 1, 1, '{}', 12),
+(162, 5, 'date_details', 'text', 'Date de la formation', 0, 1, 1, 1, 1, 1, '{\"placeholder\":\"1-2-3\\/01\\/2025\"}', 8),
+(163, 1, 'color', 'color', 'Color', 0, 0, 1, 1, 1, 1, '{}', 12),
+(164, 6, 'order_belongsto_user_relationship_1', 'relationship', 'Confirmé par', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"confirmed_by\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4);
 
 -- --------------------------------------------------------
 
@@ -322,12 +337,12 @@ CREATE TABLE `data_types` (
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2024-11-21 18:54:11', '2024-11-22 15:32:15'),
+(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2024-11-21 18:54:11', '2025-01-14 09:21:09'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2024-11-21 18:54:11', '2024-11-21 18:54:11'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2024-11-21 18:54:11', '2024-11-21 18:54:11'),
-(4, 'doctors', 'doctors', 'Doctor', 'Doctors', NULL, 'App\\Doctor', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-11-22 12:41:57', '2024-12-15 01:12:14'),
-(5, 'formations', 'formations', 'Formation', 'Formations', NULL, 'App\\Formation', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-11-22 13:07:33', '2024-12-23 18:55:28'),
-(6, 'orders', 'inscriptions', 'Inscription', 'Inscriptions', NULL, 'App\\Order', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-11-22 14:33:19', '2024-12-19 20:50:25'),
+(4, 'doctors', 'doctors', 'Doctor', 'Doctors', NULL, 'App\\Doctor', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-11-22 12:41:57', '2025-01-12 15:07:02'),
+(5, 'formations', 'formations', 'Formation', 'Formations', NULL, 'App\\Formation', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-11-22 13:07:33', '2025-01-13 15:11:46'),
+(6, 'orders', 'inscriptions', 'Inscription', 'Inscriptions', NULL, 'App\\Order', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-11-22 14:33:19', '2025-01-14 09:24:16'),
 (9, 'categories', 'categories', 'Catégorie des formations', 'Catégories des formations', NULL, 'App\\Category', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-12-14 15:57:07', '2024-12-22 21:33:45'),
 (10, 'packs', 'packs', 'Pack', 'Packs', NULL, 'App\\Pack', NULL, NULL, NULL, 1, 0, NULL, '2024-12-14 17:33:37', '2024-12-14 17:33:37'),
 (11, 'faqs', 'faqs', 'Faq', 'Faqs', NULL, 'App\\Faq', NULL, NULL, NULL, 1, 1, '{\"scope\":null}', '2024-12-15 01:29:48', '2024-12-15 01:30:00'),
@@ -363,11 +378,19 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`id`, `name`, `email`, `phone`, `bio`, `created_at`, `updated_at`, `avatar`, `facebook`, `linkedin`, `youtube`, `twiter`, `speciality`) VALUES
-(2, 'Dr. CHROQUI Younes', 'example@gmail.com', '0600000000', 'Médecin anesthésiste réanimateur\r\nDiplômé en auriculothérapie et en acupuncture scientifique', '2024-11-22 12:50:39', '2024-11-22 12:50:39', 'doctors/November2024/hNK1oytefoUyZQZiE8Uf.jpg', 'https://www.facebook.com/', 'https://linkedin.com/', 'https://www.youtube.com/', 'https://x.com/', NULL),
-(3, 'Pr. Olivier HANON', 'example@gmail.com', '0600000000', 'Médecin Gériatrie / gérontologie\r\n\r\nProfesseur à l’Université Paris-Descartes ; service de gériatrie – Hôpital Broca, AP-HP Paris', '2024-11-22 12:51:19', '2024-11-22 12:55:59', 'doctors/November2024/nvlmeCPaSdD6CXRLKql0.jpg', 'https://www.facebook.com/', 'https://linkedin.com/', 'https://www.youtube.com/', 'https://x.com/', NULL),
-(4, 'Pr. Nadjib HAMMOUDI', 'example@gmail.com', '0600000000', 'Cardiologue et expert en échocardiographie, Paris – France', '2024-11-22 12:51:54', '2024-11-22 12:51:54', 'doctors/November2024/AOfADl7z85dbRpG7p7fE.png', 'https://www.facebook.com/', 'https://linkedin.com/', 'https://www.youtube.com/', 'https://x.com/', NULL),
-(5, 'Pr. Laurent Chiche', 'example@gmail.com', '0600000000', '– Professeur de chirurgie vasculaire : Assistance publique- hopitaux de paris\r\n– Chef du Service de Chirurgie Vasculaire et Endovasculaire : Faculté de médecine Sorbonne Université\r\n– Président : CIV-world congress\r\n– Centre Aortique Tertiaire. CHU Pitié-Salpêtrière', '2024-11-22 12:56:33', '2024-11-22 12:56:33', 'doctors/November2024/4WTp80LW581469fjkOml.jpeg', 'https://www.facebook.com/', 'https://linkedin.com/', 'https://www.youtube.com/', 'https://x.com/', NULL),
-(6, 'PF Fakhir bouchra', 'fakhirbouchra@gmail.com', '0600000000', 'Professeur de l’enseignement supérieur à la faculté de médecine et de pharmacie, université Caddi Ayyad de Marrakech. Chef de service du service de gynécologie obstétrique de l’hôpital Ibn Tofeil du Centre Hospitalo-Universitaire Mohammed VI de Marrakech', '2024-12-15 00:48:17', '2024-12-15 00:48:17', 'doctors/December2024/XmBHWvWBOBk5UEGuwirZ.jpg', 'https://www.facebook.com/', 'https://linkedin.com/', 'https://www.youtube.com/', 'https://x.com/', NULL);
+(2, 'Dr. CHROQUI Younes', NULL, NULL, 'Médecin anesthésiste réanimateur\r\nDiplômé en auriculothérapie et en acupuncture scientifique', '2024-11-22 12:50:39', '2025-01-05 10:36:26', 'doctors/January2025/jidRKuv1fCrLeVehdNPZ.jpg', NULL, NULL, NULL, NULL, 'Anesthésiste Réanimateur'),
+(3, 'Pr. CHIKHAOUI Nabil', NULL, NULL, 'Professeur universitaire à la Faculté de Médecine et de Pharmacie Université Hassan II et Chef du service de radiologie des urgences Centre Hospitalo-Universitaire Ibn Rochd Casablanca, depuis 1996', '2024-11-22 12:51:19', '2025-01-05 10:34:16', 'doctors/January2025/8Er11EgCzcPYk65p9sbI.PNG', NULL, NULL, NULL, NULL, 'Radiologue'),
+(4, 'Pr. HAMMOUDI Nadjib', NULL, NULL, 'Nadjib Hammoudi est cardiologue, professeur de médecine à l\'université de la Sorbonne et chef du service de soins intensifs cardiaques à l\'Institut de Cardiologie-Hôpital de la Pitié-Salpêtrière (Paris, France). Ses domaines de prédilection sont l\'échocardiographie et les valvulopathies.', '2024-11-22 12:51:54', '2025-01-05 10:20:57', 'doctors/November2024/AOfADl7z85dbRpG7p7fE.png', NULL, NULL, NULL, NULL, 'Cardiologie et Maladies Vasculaires'),
+(5, 'Pr. CHICHE Laurent', NULL, NULL, '– Professeur de chirurgie vasculaire : Assistance publique- hopitaux de paris\r\n– Chef du Service de Chirurgie Vasculaire et Endovasculaire : Faculté de médecine Sorbonne Université\r\n– Président : CIV-world congress\r\n– Centre Aortique Tertiaire. CHU Pitié-Salpêtrière', '2024-11-22 12:56:33', '2025-01-05 10:17:22', 'doctors/November2024/4WTp80LW581469fjkOml.jpeg', NULL, NULL, NULL, NULL, 'Chirurgie Vasculaire et Endovasculaire'),
+(6, 'Pr. FAKHIR Bouchra', NULL, NULL, 'Professeur de l’enseignement supérieur à la faculté de médecine et de pharmacie, université Caddi Ayyad de Marrakech. Chef de service du service de gynécologie obstétrique de l’hôpital Ibn Tofeil du Centre Hospitalo-Universitaire Mohammed VI de Marrakech', '2024-12-15 00:48:17', '2025-01-05 10:16:24', 'doctors/January2025/bCHESJhNKocpn639LnK4.jpg', NULL, NULL, NULL, NULL, 'Gynécologue'),
+(7, 'Pr. POLAK Michel', NULL, NULL, '- Chef de service, Endocrinologie gynécologie diabétologie pédiatriques à l’Hôpital Universitaire Necker Enfants Malades, AP-HP\r\n- Coordonnateur du Centre Régional de Dépistage Néonatal (CRDN) IDF', '2025-01-05 09:31:47', '2025-01-05 10:14:39', 'doctors/January2025/M7pzadDg6wYs6fORDn95.jpg', NULL, NULL, NULL, NULL, 'Endocrinologie, gynécologie et diabétologie pédiatriques'),
+(8, 'Pr. MOUSSAOUI Mohamed', NULL, NULL, '-Professeur de l’enseignement supérieur à la faculté de médecine Hassanll en anesthésie réanimation et Médecine d’urgence\r\n-Diplôme de formateur de médecine sur simulateur de l’université Paris Descartes\r\n-Diplôme d’anesthésie Réanimation de l’université libre de Bruxelles ULB', '2025-01-05 09:32:03', '2025-01-05 10:11:50', 'doctors/January2025/ilA6Qd4gle80EopRtQop.PNG', NULL, NULL, NULL, NULL, 'Anesthésiste-Réanimateur'),
+(9, 'Pr. LEZMI Guillaume', NULL, NULL, 'Le Dr. LEZMI GUILLAUME Pédiatrie à Paris 15e Arrondissement. Ce praticien est référencé sur notre site comme étant inscrit à l\'Ordre des Médecins. Il est donc titulaire du doctorat de Médecine et spécialiste de sa discipline médicale. Un médecin est un professionnel de santé qui est formé pour diagnostiquer et traiter les maladies et les troubles médicaux. Les médecins peuvent exercer dans une variété de spécialités, dont la médecine générale, la chirurgie, la pédiatrie, la gynécologie, la psychiatrie et bien d\'autres encore. Les médecins ont une formation approfondie en sciences médicales, en anatomie humaine, en physiologie, ainsi que dans la compréhension des maladies et des troubles médicaux. Votre médecin utilise son expertise médicale en Pédiatrie pour évaluer les symptômes de ses patients, effectuer les bons examens médicaux et prescrire des traitements appropriés. En plus de diagnostiquer et de traiter les maladies, les médecins peuvent également fournir des conseils sur la Pédiatrie, la prévention des pathologies associées et les stratégies de gestion de la santé à long terme. Le médecin est le professionnel qui a le bagage théorique et pratique le plus important et la vision la plus large et la plus experte de la santé humaine.', '2025-01-05 09:32:22', '2025-01-05 10:04:42', 'doctors/January2025/7mjJs34rwes2zDZZuih9.PNG', NULL, NULL, NULL, NULL, 'Pneumologie et allergologie pédiatriques'),
+(10, 'Pr. CARON Philippe', NULL, NULL, 'Docteur en Médecine : thèse n°36l. Toulouse. l980. <br>\r\nLes tumeurs à cellules de Leydig chez l’adulte.<br>\r\nLauréat de la Faculté de Toulouse (Médaille d’argent).\r\nChef de Clinique – Université Paul Sabatier. Octobre l980.\r\nDiplôme Universitaire de Médecine Interne. Octobre l980.\r\nSpécialiste en Médecine Interne. Juin l983.\r\nMembre du jury des épreuves du C.S.C.T. Faculté Toulouse Rangueil Juin 1991.\r\nChargé de cours à la faculté de Médecine. 1992-1994, 1995-2021.\r\nHabilitation à diriger des recherches 25 Mars 1998.\r\nDiplôme Universitaire d’Endocrinologie Moléculaire – Faculté de Montpellier 11 Septembre 1998.\r\nReprésentant de la Faculté de Médecine Toulouse-Rangueil à la Délégation Régionale à la Recherche Cliniqu Décembre 1999.\r\nJury Habilitation à diriger des Recherches Marie Pierre Teissier Novembre 2001.\r\nProfesseur des Universités Endocrinologie, Diabétologie et Maladies Métaboliques\r\n2 ème classe Septembre 2000.\r\n1 ère classe Septembre 2006.\r\nClasse exceptionnelle\r\n1 er échelon Septembre 2013.\r\n2 ème échelon Septembre 2017.\r\nMembre du jury des prix de thèse Université Paul Sabatier Toulouse III Juillet 2007, 2012.\r\nMembre au profil de l’Unité INSERM U1037 CRCT (équipe 6), IFR 31, Institut Louis Bugnard : PI3K de signalisation et contrôle de la traduction des cancers du pancréas et de l’hypophyse (Stéphane Pyronnet).\r\nDiplôme inter-universitaire de Thyroïdologie\r\nResponsable pédagogique 2010-1014\r\nDirecteur du diplôme à partir de 2015\r\nDirecteur de thèse en vue de l’obtention du Doctorat de l’Université de Toulouse (UT3 Paul Sabatier) Romain Baer : Rôles des isoformes de PI3K p110a et p110b dans l’initiation de la carcinogénèse pancréatique induite par Kras oncogènique, le 14 septembre 2015.\r\nJury Habilitation à diriger des Recherches Delphine Vezzosi Les tumeurs endocriniennes : du diagnostic à la prise en charge thérapeutique 27 janvier 2017.\r\nDirecteur de thèse en vue de l’obtention du Doctorat de l’Université de Toulouse (UT3 Paul Sabatier) Quemerais Christophe : Ciblage des vulnérabilités des fibroblastes\r\nassociés au cancer pancréatique en lien avec leur phénotype sécrétoire : rôle de FKBP7, le 23 Avril 2021\r\nProfesseur Emérite Septembre 2021', '2025-01-05 09:32:37', '2025-01-05 09:59:09', 'doctors/January2025/gtRlQulqDp43Yg3UUrW3.jpg', NULL, NULL, NULL, NULL, 'Endocrinologie et métabolismes'),
+(11, 'Pr. BAUDUCEAU Bernard', NULL, NULL, '<ul>\r\n<li>Ancien Chef du Service d&rsquo;Endocrinologie de l&rsquo;H&ocirc;pital B&eacute;gin</li>\r\n<li>Secr&eacute;taire g&eacute;n&eacute;ral de l&rsquo;Alf&eacute;diam de 1999 &agrave; 2003</li>\r\n<li>Tr&eacute;sorier de la SFD de 2007 &agrave; 2015</li>\r\n<li>Tr&eacute;sorier de la FFRD de 2013 &agrave; 2021</li>\r\n<li>Charg&eacute; de mission pour l&rsquo;organisation des congr&egrave;s de la - SFD depuis 2017</li>\r\n<li>Th&eacute;matiques de recherche et centres d&rsquo;int&eacute;r&ecirc;t</li>\r\n<li>Diab&egrave;te du sujet &acirc;g&eacute; : &eacute;tude G&eacute;rodiab</li>\r\n<li>Complications cardiovasculaires</li>\r\n<li>Neuropathie v&eacute;g&eacute;tative</li>\r\n<li>Traitement du diab&egrave;te de type 2</li>\r\n</ul>', '2025-01-05 09:32:50', '2025-01-12 15:08:18', 'doctors/January2025/xK0vMQpkDu8HeOX1Z3sF.jpg', NULL, NULL, NULL, NULL, 'Endocrinologie et métabolismes'),
+(12, 'Dr. BOURSASSI Abdelmajid', NULL, NULL, '–  Chirurgien chirurgie générale et chirurgie oncologique\r\n–  Diplôme en coeliochirurgie de la faculté de médecine Bordeaux France\r\n–  Diplôme en chirurgie cancérologique de la faculté de médecine de Rabat\r\n–  Diplôme en chirurgie proctologique de la faculté de médecine rabat\r\n–  Diplôme en échographie générale de la faculté de médecine de casa\r\n–  Ancien chef de polyclinique de santé à sidi Benour\r\n–  Ancien directeur d’hopital à el jadida\r\n–  Ancien délégué du ministère de la santé', '2025-01-05 09:33:01', '2025-01-05 10:48:19', 'doctors/January2025/8c0GYaXxSmTr2HGa7Sqn.PNG', NULL, NULL, NULL, NULL, 'Chirurgien Généraliste'),
+(13, 'Dr. HEFTI Abderrazak', NULL, NULL, 'Chirurgien à Clinique Zerktouni – Casablanca\r\nServiteur du football National\r\nChirurgien orthopédiste et traumatologue\r\nChirurgien Traumatologue Orthopédiste\r\nMembre de la fondation AO Suisse Chirurgie Prothétique\r\nArthroscopie\r\nChirurgie du sport\r\nChirurgie de la main et de l’épaule\r\nMaladie de la colonne vertébrale\r\nPRP\r\nles Urgences', '2025-01-05 09:33:18', '2025-01-05 09:47:55', 'doctors/January2025/IPo44nl4C21m3DZsDgBN.jpg', NULL, NULL, NULL, NULL, 'Orthopédiste Traumatologue'),
+(14, 'Dr. HADJ RABIA Smail', NULL, NULL, 'Le Dr. HADJ-RABIA SMAIL Dermatologie et vénéréologie à Paris 15e Arrondissement. Ce praticien est référencé sur notre site comme étant inscrit à l\'Ordre des Médecins. Il est donc titulaire du doctorat de Médecine et spécialiste de sa discipline médicale. Un médecin est un professionnel de santé qui est formé pour diagnostiquer et traiter les maladies et les troubles médicaux. Les médecins peuvent exercer dans une variété de spécialités, dont la médecine générale, la chirurgie, la pédiatrie, la gynécologie, la psychiatrie et bien d\'autres encore. Les médecins ont une formation approfondie en sciences médicales, en anatomie humaine, en physiologie, ainsi que dans la compréhension des maladies et des troubles médicaux. Votre médecin utilise son expertise médicale en Dermatologie et vénéréologie pour évaluer les symptômes de ses patients, effectuer les bons examens médicaux et prescrire des traitements appropriés. En plus de diagnostiquer et de traiter les maladies, les médecins peuvent également fournir des conseils sur la Dermatologie et vénéréologie, la prévention des pathologies associées et les stratégies de gestion de la santé à long terme. Le médecin est le professionnel qui a le bagage théorique et pratique le plus important et la vision la plus large et la plus experte de la santé humaine.', '2025-01-05 09:33:40', '2025-01-05 10:18:19', 'doctors/January2025/mUr2GYFlg0WEN3JFFMVm.png', NULL, NULL, NULL, NULL, 'Dermatologie et vénéréologie');
 
 -- --------------------------------------------------------
 
@@ -391,7 +414,7 @@ CREATE TABLE `extraits` (
 --
 
 INSERT INTO `extraits` (`id`, `video`, `created_at`, `updated_at`, `deleted_at`, `formation_id`, `thumbnail`, `title`) VALUES
-(5, '[{\"download_link\":\"extraits\\/December2024\\/NJWWHT3z6wmimvbbBtkO.mp4\",\"original_name\":\"View_From_A_Blue_Moon_Trailer-576p.mp4\"}]', '2024-12-15 05:41:00', '2024-12-15 05:54:53', NULL, 1, 'extraits/December2024/EayLaFZVG1exNNnzdU7C.jpg', 'Extraits video A');
+(5, '[{\"download_link\":\"extraits\\/January2025\\/uGAN73HqwCTD6Nn4nDCS.mp4\",\"original_name\":\"extrait - Plaies et processus de cicatrisation.mp4\"}]', '2024-12-15 05:41:00', '2025-01-05 19:18:27', NULL, 6, NULL, 'Plaies et processus de cicatrisation');
 
 -- --------------------------------------------------------
 
@@ -460,18 +483,44 @@ CREATE TABLE `formations` (
   `video` varchar(255) DEFAULT NULL,
   `type` int(11) NOT NULL DEFAULT 1,
   `brief` text DEFAULT NULL,
-  `video_full` varchar(255) DEFAULT NULL
+  `video_full` varchar(255) DEFAULT NULL,
+  `date_details` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `formations`
 --
 
-INSERT INTO `formations` (`id`, `title`, `cover`, `date`, `price`, `objective`, `program`, `other_details`, `location_training`, `created_at`, `updated_at`, `deleted_at`, `doctor_id`, `category_id`, `video`, `type`, `brief`, `video_full`) VALUES
-(1, 'Diabeto et endo pediatrique', 'formations/November2024/q4e8ZogCNlggsLLp7EsH.jpg', '2024-12-30', NULL, '<ul>\r\n                                    <li>Connaître les principales recommandations vaccinales concernant les\r\n                                        professionnels de santé.</li>\r\n                                    <li>Connaître les informations relatives à la vaccination à saisir dans le carnet de\r\n                                        vaccination du patient.</li>\r\n                                    <li>Connaître les différents outils numériques d’enregistrement des vaccinations\r\n                                        (DMP, Mon espace santé, carnet de vaccination électronique, etc) et les\r\n                                        différents modes de transmission sécurisés des informations du professionnel\r\n                                        vaccinateur au médecin traitant.</li>\r\n                                    <li>Connaître les principaux déterminants de l’hésitation vaccinale, savoir\r\n                                        argumenter face aux fausses nouvelles, savoir convaincre avec une information\r\n                                        claire et objective.</li>\r\n                                    <li>Savoir mener un entretien de manière à recueillir les antécédents médicaux et\r\n                                        les traitements en cours.</li>\r\n                                    <li>Savoir reconnaître les situations complexes de personnes à orienter vers le\r\n                                        médecin.</li>\r\n<li>Savoir reconnaître les situations complexes de personnes à orienter vers le\r\n                                        médecin.</li>\r\n                                </ul>', 'Cette formation a été conçue autour des situations les plus fréquemment rencontrées\r\n                                    par les Infirmier.ère au quotidien, dans un format qui met l’accent sur les aspects\r\n                                    pratiques, des conseils concrets et le retour d’expérience d’experts de terrain,\r\n                                    appuyé par les dernières recommandations scientifiques..', 'Les médecins généralistes sont souvent consultés pour diverses affections cutanées. L\'accessibilité aux spécialistes est devenue complexe. De ce fait, le médecin généraliste est amené de plus en plus à diagnostiquer et traiter des dermatoses inflammatoires, infectieuses communes et dermatoses faciales fréquentes afin d’améliorer le parcours de soins du patient. Le rôle du médecin généraliste est primordial en dermatologie car selon le lieu d’exercice, le recours à l’avis spécialisé est aussi limité. De plus, la dermatologie évolue rapidement avec une demande de prévention grandissante. De même, plus le diagnostic est précoce, moins la prise en charge sera complexe. Le praticien est ainsi amené à adopter une bonne analyse clinique, un interrogatoire précis et d’adresser de manière plus efficace et raisonnée au médecin spécialiste soit le dermatologue. En effet, entre les différentes manifestations virales et les affections diverses de la peau, le médecin généraliste doit adopter une démarche rigoureuse et structurée de gestion du risque lui permettant de poser le bon diagnostic. L\'utilisation d\'une nomenclature centrée sur l\'abord de ce risque et intégrée dans un outil informatisé de gestion d\'incertitude diagnostique (le Dictionnaire des Résultats de Consultation®, aligné CIM 10) permet au médecin généraliste de sécuriser l\'inconfort de l\'incertitude diagnostique ici dermatologiques', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26586.506912757377!2d-7.549152505849049!3d33.59717294320431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cc9b5ed39c01%3A0x4db6f1381ccf8d63!2zQcOvbiBTZWJhw6IsIENhc2FibGFuY2E!5e0!3m2!1sen!2sma!4v1732285411410!5m2!1sen!2sma\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', '2024-11-22 14:23:52', '2024-12-22 21:34:20', NULL, 4, 1, '[{\"download_link\":\"formations\\/December2024\\/AX6aNr6Az83oNGyAtNhT.mp4\",\"original_name\":\"View_From_A_Blue_Moon_Trailer-576p.mp4\"}]', 3, 'la prise en charge de vos patients à l’hôpital ou en libéral grâce à nos formations agréées DPC, conçues par les meilleurs experts européens.', NULL),
-(2, 'Echocardiographie', 'formations/November2024/q4e8ZogCNlggsLLp7EsH.jpg', '2024-12-30', NULL, 'Tout médecin, quelle que soit son lieu d’exercice ou sa spécialité, peut être confronté aux urgences.\r\nL’urgence surprend et il est attendu, tant d’un point de vue légal que d’un point de vue moral, que tous les médecins soient formés aux gestes d’urgence et sachent réagir devant une situation engageant le pronostic vital.\r\nLe médecin généraliste restera le premier maillon de la prise en charge des urgences médicales aussi bien ressenties que vitales, cependant ni sa formation de base ni son apprentissage sur le tas ne lui garantissent les compétences nécessaires pour gérer ces situations.\r\nLe programme comprendra des cours théoriques, des ateliers pratiques ::', 'PROGRAMME\r\n\r\n>>Samedi\r\n\r\n09h00 :\r\n– Arrêt cardiaque\r\n– Choc anaphylactique\r\n– OAP et urgences hypertensives\r\n10h30 – 11h00 : Pause\r\n11h00 :\r\n– Ateliers pratique & Cas Cliniques\r\n13h00 – 14h00 : Pause\r\n14h00 :\r\n– Convulsion et coma\r\n– La douleur aigue intense usage de morphiniques\r\n– Les médicaments et la trousse d’urgence\r\n16h00 – 16h30 : Pause\r\n16h30 :\r\n– Ateliers pratique & Cas Cliniques\r\n\r\n>>Dimanche\r\n\r\n9h00 :\r\n– Oxygénation ventilation\r\n– Massage cardiaque externe et Défibrillateur\r\n– ECG opérationnel et urgences cardiologiques\r\n10h30 – 11h00 : Pause\r\n11h00 :\r\n– Ateliers pratique & Cas Cliniques', NULL, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26586.506912757377!2d-7.549152505849049!3d33.59717294320431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cc9b5ed39c01%3A0x4db6f1381ccf8d63!2zQcOvbiBTZWJhw6IsIENhc2FibGFuY2E!5e0!3m2!1sen!2sma!4v1732285411410!5m2!1sen!2sma\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', '2024-11-22 14:23:52', '2024-12-22 21:34:12', NULL, 3, 1, '[{\"download_link\":\"formations\\/December2024\\/AX6aNr6Az83oNGyAtNhT.mp4\",\"original_name\":\"View_From_A_Blue_Moon_Trailer-576p.mp4\"}]', 2, NULL, NULL),
-(3, 'Urgence', 'formations/November2024/q4e8ZogCNlggsLLp7EsH.jpg', '2024-12-25', NULL, 'Tout médecin, quelle que soit son lieu d’exercice ou sa spécialité, peut être confronté aux urgences.\r\nL’urgence surprend et il est attendu, tant d’un point de vue légal que d’un point de vue moral, que tous les médecins soient formés aux gestes d’urgence et sachent réagir devant une situation engageant le pronostic vital.\r\nLe médecin généraliste restera le premier maillon de la prise en charge des urgences médicales aussi bien ressenties que vitales, cependant ni sa formation de base ni son apprentissage sur le tas ne lui garantissent les compétences nécessaires pour gérer ces situations.\r\nLe programme comprendra des cours théoriques, des ateliers pratiques :', 'PROGRAMME\r\n\r\n>>Samedi\r\n\r\n09h00 :\r\n– Arrêt cardiaque\r\n– Choc anaphylactique\r\n– OAP et urgences hypertensives\r\n10h30 – 11h00 : Pause\r\n11h00 :\r\n– Ateliers pratique & Cas Cliniques\r\n13h00 – 14h00 : Pause\r\n14h00 :\r\n– Convulsion et coma\r\n– La douleur aigue intense usage de morphiniques\r\n– Les médicaments et la trousse d’urgence\r\n16h00 – 16h30 : Pause\r\n16h30 :\r\n– Ateliers pratique & Cas Cliniques\r\n\r\n>>Dimanche\r\n\r\n9h00 :\r\n– Oxygénation ventilation\r\n– Massage cardiaque externe et Défibrillateur\r\n– ECG opérationnel et urgences cardiologiques\r\n10h30 – 11h00 : Pause\r\n11h00 :\r\n– Ateliers pratique & Cas Cliniques', NULL, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26586.506912757377!2d-7.549152505849049!3d33.59717294320431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cc9b5ed39c01%3A0x4db6f1381ccf8d63!2zQcOvbiBTZWJhw6IsIENhc2FibGFuY2E!5e0!3m2!1sen!2sma!4v1732285411410!5m2!1sen!2sma\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', '2024-11-22 14:23:52', '2024-12-15 00:21:53', NULL, 2, 1, '[{\"download_link\":\"formations\\/December2024\\/AX6aNr6Az83oNGyAtNhT.mp4\",\"original_name\":\"View_From_A_Blue_Moon_Trailer-576p.mp4\"}]', 1, NULL, NULL),
-(4, 'Acupuncture', 'formations/November2024/q4e8ZogCNlggsLLp7EsH.jpg', '2024-12-30', NULL, 'Tout médecin, quelle que soit son lieu d’exercice ou sa spécialité, peut être confronté aux urgences.\r\nL’urgence surprend et il est attendu, tant d’un point de vue légal que d’un point de vue moral, que tous les médecins soient formés aux gestes d’urgence et sachent réagir devant une situation engageant le pronostic vital.\r\nLe médecin généraliste restera le premier maillon de la prise en charge des urgences médicales aussi bien ressenties que vitales, cependant ni sa formation de base ni son apprentissage sur le tas ne lui garantissent les compétences nécessaires pour gérer ces situations.\r\nLe programme comprendra des cours théoriques, des ateliers pratiques :', 'PROGRAMME:\r\n\r\n>>Samedi\r\n\r\n09h00 :\r\n– Arrêt cardiaque\r\n– Choc anaphylactique\r\n– OAP et urgences hypertensives\r\n10h30 – 11h00 : Pause\r\n11h00 :\r\n– Ateliers pratique & Cas Cliniques\r\n13h00 – 14h00 : Pause\r\n14h00 :\r\n– Convulsion et coma\r\n– La douleur aigue intense usage de morphiniques\r\n– Les médicaments et la trousse d’urgence\r\n16h00 – 16h30 : Pause\r\n16h30 :\r\n– Ateliers pratique & Cas Cliniques\r\n\r\n>>Dimanche\r\n\r\n9h00 :\r\n– Oxygénation ventilation\r\n– Massage cardiaque externe et Défibrillateur\r\n– ECG opérationnel et urgences cardiologiques\r\n10h30 – 11h00 : Pause\r\n11h00 :\r\n– Ateliers pratique & Cas Cliniques', NULL, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26586.506912757377!2d-7.549152505849049!3d33.59717294320431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cc9b5ed39c01%3A0x4db6f1381ccf8d63!2zQcOvbiBTZWJhw6IsIENhc2FibGFuY2E!5e0!3m2!1sen!2sma!4v1732285411410!5m2!1sen!2sma\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', '2024-11-22 14:23:52', '2024-12-22 21:34:05', NULL, 5, 1, '[{\"download_link\":\"formations\\/December2024\\/AX6aNr6Az83oNGyAtNhT.mp4\",\"original_name\":\"View_From_A_Blue_Moon_Trailer-576p.mp4\"}]', 1, NULL, NULL);
+INSERT INTO `formations` (`id`, `title`, `cover`, `date`, `price`, `objective`, `program`, `other_details`, `location_training`, `created_at`, `updated_at`, `deleted_at`, `doctor_id`, `category_id`, `video`, `type`, `brief`, `video_full`, `date_details`) VALUES
+(6, 'Plaies et processus de cicatrisation', 'formations/January2025/7eSZWzvdDUNAWhjZW9QT.webp', '2025-01-18', NULL, NULL, NULL, '<ul>\r\n<li>Acc&egrave;s &agrave; vie et documents &agrave; distribuer, cahiers d\'exercices</li>\r\n<li>Int&eacute;grer la pleine conscience dans la vie quotidienne</li>\r\n<li>Cours en direct sur Zoom et acc&egrave;s &agrave; vie</li>\r\n</ul>', NULL, '2025-01-05 12:15:18', '2025-01-12 15:31:51', NULL, 12, 13, '[{\"download_link\":\"formations\\/January2025\\/e3eTTeElhe6wZzK6nYfV.mp4\",\"original_name\":\"Plaies et processus de cicatrisation.mp4\"}]', 2, NULL, '[{\"download_link\":\"formations\\/January2025\\/QnAVPoexBnVT2EuOl5yJ.mp4\",\"original_name\":\"extrait - Plaies et processus de cicatrisation.mp4\"}]', NULL),
+(7, 'Échographie néphro-urologique', 'formations/January2025/QXQiaxbaUj1md444kO7B.png', '2025-01-18', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:16:24', '2025-01-05 18:56:22', NULL, 3, 21, '[{\"download_link\":\"formations\\/January2025\\/aXL9e8pLoXS0vo1sKnVB.mp4\",\"original_name\":\"\\u00c9chographie n\\u00e9phro-urologique.mp4\"}]', 2, NULL, '[]', NULL),
+(8, 'Techniques avancées en phlébologie', 'formations/January2025/dHUyQkwX8RAoK5boQeCu.jpeg', '2025-01-24', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:17:23', '2025-01-05 12:17:23', NULL, 5, 8, '[]', 2, NULL, '[]', NULL),
+(9, 'Échographie pédiatrique', 'formations/January2025/r4Iy4EmbqjHU6ptvNXwK.jpg', '2025-01-25', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:18:15', '2025-01-05 12:18:15', NULL, 3, 19, '[]', 2, NULL, '[]', NULL),
+(10, 'Pathologies des membres supérieurs & inférieurs chez le sportif', 'formations/January2025/OlteCmLNyCPxbUIDPntC.png', '2025-02-08', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:19:36', '2025-01-05 19:00:29', NULL, 13, 13, '[{\"download_link\":\"formations\\/January2025\\/NVBnunuzAlx2D5n7X77m.mp4\",\"original_name\":\"Pathologies des membres sup\\u00e9rieurs inf\\u00e9rieurs .mp4\"}]', 2, NULL, '[]', NULL),
+(11, 'Echo Doppler Veineux', 'formations/January2025/lCwV9RffAiXQfXIM1zOU.jpg', '2025-02-08', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:20:26', '2025-01-05 12:20:26', NULL, 3, 8, '[]', 2, NULL, '[]', NULL),
+(12, 'Transition en endocrinologie', 'formations/January2025/uILHrAoR7WtiurAasc9r.png', '2025-02-14', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:21:19', '2025-01-05 12:21:19', NULL, 7, 19, '[]', 2, NULL, '[]', NULL),
+(13, 'Echo-doppler des fistule artério-veineuse', 'formations/January2025/womwEtNRtDWbDcWK36nO.png', '2025-04-12', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:22:26', '2025-01-05 19:04:47', NULL, 3, 8, '[{\"download_link\":\"formations\\/January2025\\/oFKJ480sApJ0N0gNtTXp.mp4\",\"original_name\":\"Echo-doppler des fistule art\\u00e9rio-veineuse.mp4\"}]', 2, NULL, '[]', NULL),
+(14, 'Allergologie pédiatrique', 'formations/January2025/qCSIwQKkFfmakhpIewFI.png', '2025-04-12', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:23:35', '2025-01-05 12:23:35', NULL, 9, 19, '[]', 2, NULL, '[]', NULL),
+(15, 'Petite chirurgie au cabinet', 'formations/January2025/koB2y6lbrDdrWEgPCRtk.webp', '2025-04-19', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:24:34', '2025-01-05 12:24:34', NULL, 12, 13, '[]', 2, NULL, '[]', NULL),
+(16, 'Pathologies du sein', NULL, '2025-04-19', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:33:07', '2025-01-05 12:33:07', NULL, 6, 14, '[]', 2, NULL, '[]', NULL),
+(17, 'Échographie des varices', NULL, '2025-04-26', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:36:21', '2025-01-05 18:16:07', NULL, 3, 9, '[]', 2, NULL, '[]', NULL),
+(18, 'Urgences en hémodialyse', 'formations/January2025/FcNk0HS3vXfmlDt98oHV.jpg', '2025-05-03', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:39:04', '2025-01-05 12:39:04', NULL, 8, 17, '[]', 2, NULL, '[]', NULL),
+(19, 'Anévrisme de l\'aorte abdominale', 'formations/January2025/4ECRrZS9vF8zfBtEUKlv.jpeg', '2025-05-03', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:39:59', '2025-01-05 12:39:59', NULL, 5, 9, '[]', 2, NULL, '[]', NULL),
+(20, 'Gynécologie médicale', 'formations/January2025/FU4TfSY6sLmXauC71sGU.jpg', '2025-05-10', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:41:36', '2025-01-05 12:41:36', NULL, 6, 14, '[]', 2, NULL, '[]', NULL),
+(21, 'Les infiltrations échoguidées', 'formations/January2025/FU7raOj37tSH6ZNZNzdY.png', '2025-05-17', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:42:37', '2025-01-05 12:42:37', NULL, 13, 13, '[]', 2, NULL, '[]', NULL),
+(22, 'Chirurgie dermatologique au cabinet', 'formations/January2025/JKngKLdWozRocYHOoQwn.png', '2025-05-24', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:43:36', '2025-01-05 12:43:36', NULL, 12, 13, '[]', 2, NULL, '[]', NULL),
+(23, 'Échographie gynéco-obstétrique', 'formations/January2025/JICwIkjYSIgp9ugHwGCM.jpg', '2025-05-24', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:44:34', '2025-01-05 12:44:34', NULL, 3, 13, '[]', 2, NULL, '[]', NULL),
+(24, 'Endocrinologie pédiatrique', 'formations/January2025/H6lK88MWD20ygVuvYX0s.jpg', '2025-05-30', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:45:22', '2025-01-05 12:45:22', NULL, 7, 19, '[]', 2, NULL, '[]', NULL),
+(25, 'Échographie obstétricale morphologique', 'formations/January2025/O9a4mU1dJZ8YvZw0vr2e.jpg', '2025-06-14', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:46:45', '2025-01-05 12:46:45', NULL, 3, 13, '[]', 1, NULL, '[]', NULL),
+(26, 'Échocardiographie de stress', 'formations/January2025/Epzr5juB9Ok64cbsA0yt.png', '2025-06-05', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:48:06', '2025-01-05 12:48:35', NULL, 4, 13, '[]', 2, NULL, '[]', NULL),
+(27, 'Acupuncture scientifique', 'formations/January2025/pyEB5IE6vopO3ArNLj8X.png', '2025-06-28', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:50:43', '2025-01-05 18:29:29', NULL, 2, 7, '[{\"download_link\":\"formations\\/January2025\\/t0Ab3tBhwGUyLUeu8lW0.mp4\",\"original_name\":\"Acupuncture scientifique.mp4\"}]', 2, NULL, '[]', NULL),
+(28, 'Échographie musculo-tendineuse', 'formations/January2025/kIIOqPv6iAfzrAwJMhvr.jpg', '2025-07-05', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:51:50', '2025-01-05 18:26:07', NULL, 3, 13, '[{\"download_link\":\"formations\\/January2025\\/scB8fDa6wjRq8K6ruwlb.mp4\",\"original_name\":\"\\u00c9chographie musculo-tendineuse.mp4\"}]', 2, NULL, '[]', NULL),
+(29, 'Echo doppler artériel', 'formations/January2025/7chgYtgrZgLxXvW30e6K.jpg', '2025-10-18', NULL, NULL, NULL, NULL, NULL, '2025-01-05 12:54:27', '2025-01-05 12:54:27', NULL, 3, 8, '[]', 2, NULL, '[]', NULL),
+(30, 'Pathologies thyroïdiennes', 'formations/January2025/4fzqF3GDfTfAz0kWFKFQ.jpg', '2025-10-18', NULL, NULL, NULL, NULL, NULL, '2025-01-05 13:00:34', '2025-01-05 13:00:34', NULL, 10, 18, '[]', 2, NULL, '[]', NULL),
+(31, 'Diabétologie 2025', 'formations/January2025/FGNHSl2ITcAk1zJlXOOg.png', '2025-10-24', NULL, NULL, NULL, NULL, NULL, '2025-01-05 18:03:00', '2025-01-05 18:22:54', NULL, 11, 18, '[{\"download_link\":\"formations\\/January2025\\/6kmTqZ5gJHlVkzCKbt5N.mp4\",\"original_name\":\"Diab\\u00e9tologie 2025.mp4\"}]', 2, NULL, '[]', NULL),
+(32, 'Urgences au cabinet', 'formations/January2025/yY8xq5eDwmJ7TbyqW0Bh.jpg', '2025-11-01', NULL, NULL, NULL, NULL, NULL, '2025-01-05 18:04:38', '2025-01-05 18:04:38', NULL, 8, 13, '[]', 2, NULL, '[]', NULL),
+(33, 'Dermatologie pédiatrique', 'formations/January2025/XMVPrwCCpXLhOapiU1na.png', NULL, NULL, NULL, NULL, NULL, NULL, '2025-01-05 18:05:28', '2025-01-05 18:05:28', NULL, 14, 11, '[]', 2, NULL, '[]', NULL),
+(34, 'Echographie Abdominale', 'formations/January2025/JRRzn7NF2yc23Q98AlN2.jpg', '2025-02-22', NULL, NULL, NULL, NULL, NULL, '2025-01-05 18:40:25', '2025-01-05 18:40:25', NULL, 3, 13, '[{\"download_link\":\"formations\\/January2025\\/CDuH6dL92s4liECllOfo.mp4\",\"original_name\":\"Echographie Abdominale.mp4\"}]', 2, NULL, '[]', NULL);
 
 -- --------------------------------------------------------
 
@@ -559,7 +608,6 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (4, 1, 'Rôles', '', '_self', 'user', '#000000', NULL, 3, '2024-11-21 18:54:12', '2024-12-15 20:11:59', 'voyager.roles.index', 'null'),
 (5, 1, 'Outils', '', '_self', 'tools', '#000000', NULL, 10, '2024-11-21 18:54:12', '2024-12-15 20:11:56', NULL, ''),
 (6, 1, 'Générateur de menus', '', '_self', 'voyager-list', '#000000', 5, 1, '2024-11-21 18:54:12', '2024-12-15 20:08:21', 'voyager.menus.index', 'null'),
-(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 2, '2024-11-21 18:54:12', '2024-12-15 20:11:54', 'voyager.compass.index', NULL),
 (10, 1, 'Paramètres', '', '_self', 'adjustments', '#000000', NULL, 9, '2024-11-21 18:54:12', '2024-12-15 20:11:56', 'voyager.settings.index', 'null'),
 (11, 1, 'Médecins', '', '_self', 'user-heart', '#000000', NULL, 6, '2024-11-22 12:41:57', '2024-12-15 20:11:56', 'voyager.doctors.index', 'null'),
 (12, 1, 'Formations', '', '_self', 'certificate', '#000000', 18, 2, '2024-11-22 13:07:33', '2024-12-14 17:23:20', 'voyager.formations.index', 'null'),
@@ -633,26 +681,21 @@ CREATE TABLE `orders` (
   `confirmed_by` int(11) DEFAULT NULL,
   `method_payment` int(11) DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `proof` varchar(250) DEFAULT NULL
+  `proof` varchar(250) DEFAULT NULL,
+  `labo_name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `created_at`, `updated_at`, `user_id`, `formation_id`, `pack_id`, `price`, `status`, `confirmed_by`, `method_payment`, `deleted_at`, `proof`) VALUES
-(4, '2024-12-19 20:15:19', '2024-12-19 20:15:38', 2, 1, NULL, '6500', 1, NULL, 1, NULL, '1734639338.png'),
-(5, '2024-12-19 20:18:41', '2024-12-19 20:18:46', 3, 1, NULL, '6160', 1, NULL, 2, NULL, '1734639526.png'),
-(6, '2024-12-19 20:40:58', '2024-12-19 20:41:05', 4, 1, NULL, '7000', 1, NULL, 2, NULL, 'proofs/zGPj7GOmuS4At5gOv9wcoqtbPqa55Sq4NqdIw9Iz.png'),
-(7, '2024-12-19 20:46:07', '2024-12-19 20:46:17', 1, 1, NULL, '6160', 1, NULL, 1, NULL, 'proofs/rbL7gXYBvoazRnzpKI37ncMKkawiX2cBed92hkC0.png'),
-(8, '2024-12-19 20:48:27', '2024-12-19 20:48:32', 5, 1, NULL, '7000', 1, NULL, 1, NULL, 'proofs/Screenshot from 2024-12-19 15.21.41.png'),
-(9, '2024-12-19 20:49:42', '2024-12-19 20:49:47', 6, 1, NULL, '6500', 1, NULL, 1, NULL, 'proofs/KDEscOwfPbIESyQtGy5pNxLH5EiVQ2V3BACJ9VLx.png'),
-(10, '2024-12-20 09:38:10', '2024-12-20 09:38:16', 7, 1, NULL, '6500', 1, NULL, 2, NULL, 'proofs/su749Bnfr9h3Z9AXbDhfpBC3UcXUBfDcWd7ZNAl0.png'),
-(11, '2024-12-20 09:41:41', '2024-12-20 09:41:46', 8, 1, NULL, '7000', 1, NULL, 1, NULL, 'proofs/GBJxEmXGe2LN4t1ebpPmXuvf21gVJBldDjI5LSC8.png'),
-(12, '2024-12-20 09:43:18', '2024-12-20 09:43:22', 8, 1, NULL, '6160', 1, NULL, 3, NULL, 'proofs/z0R48JPminDh6PYJsNhmOn9ya5dqrmjkQLk7A5cs.png'),
-(13, '2024-12-23 19:08:10', '2024-12-23 19:08:10', 1, 1, NULL, '6500', 1, NULL, 1, NULL, NULL),
-(14, '2024-12-23 19:37:33', '2024-12-23 19:37:33', 1, 1, NULL, '6500', 1, NULL, 2, NULL, NULL),
-(15, '2024-12-25 18:11:05', '2024-12-25 18:11:34', 1, 1, NULL, '7000', 1, NULL, 1, NULL, 'proofs/AztVrJ3pcsR6Dp6zNwbEXQPhDluxXaUojCuDYheT.png');
+INSERT INTO `orders` (`id`, `created_at`, `updated_at`, `user_id`, `formation_id`, `pack_id`, `price`, `status`, `confirmed_by`, `method_payment`, `deleted_at`, `proof`, `labo_name`) VALUES
+(16, '2024-12-29 12:23:17', '2025-01-05 08:15:21', 9, 1, NULL, '6160', 1, NULL, 3, NULL, '[{\"download_link\":\"inscriptions\\/January2025\\/dzDTppA413s4TRutnjcT.png\",\"original_name\":\"Cheque.png\"}]', NULL),
+(17, '2025-01-05 18:04:35', '2025-01-05 18:10:43', 8, 6, NULL, '6160', 1, NULL, 2, NULL, 'proofs/b4LFYqNceL4dyFWUM5ZIa5OGA626o0o2wwoFYbAY.png', NULL),
+(18, '2025-01-05 18:11:13', '2025-01-14 09:17:03', 1, 6, NULL, '7000', 3, 1, 3, NULL, 'proofs/rpHT1A2AlJdkg3PDPhxIAqyK7Wb0ZhUXwAvQbbIP.png', NULL),
+(19, '2025-01-13 02:52:05', '2025-01-14 09:16:55', 1, 6, NULL, '7000', 3, 1, 4, NULL, NULL, 'Labo name'),
+(20, '2025-01-05 18:11:13', '2025-01-14 09:17:10', 1, 6, NULL, '7000', 3, 1, 3, NULL, 'proofs/rpHT1A2AlJdkg3PDPhxIAqyK7Wb0ZhUXwAvQbbIP.png', NULL),
+(21, '2025-01-13 02:52:05', '2025-01-14 09:17:19', 1, 6, NULL, '7000', 4, 1, 4, NULL, NULL, 'Labo name');
 
 -- --------------------------------------------------------
 
@@ -676,9 +719,9 @@ CREATE TABLE `packs` (
 --
 
 INSERT INTO `packs` (`id`, `title`, `price`, `status`, `formation_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Pack inscription', '6160', 1, 1, '2024-12-14 17:35:11', '2024-12-14 17:35:11', NULL),
-(2, 'Pack inscription + Hébérgement 2 nuits en chambre single', '7000', 1, 1, '2024-12-14 17:36:01', '2024-12-14 17:36:01', NULL),
-(3, 'Pack inscription + Hébérgement 2 nuits en chambre double', '6500', 1, 1, '2024-12-14 17:40:01', '2024-12-14 17:40:01', NULL);
+(1, 'Pack inscription', '6160', 1, 6, '2024-12-14 17:35:11', '2025-01-05 18:03:55', NULL),
+(2, 'Pack inscription + Hébérgement 2 nuits en chambre single', '7000', 1, 6, '2024-12-14 17:36:01', '2025-01-05 18:03:49', NULL),
+(3, 'Pack inscription + Hébérgement 2 nuits en chambre double', '6500', 1, 6, '2024-12-14 17:40:01', '2025-01-05 18:03:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -804,6 +847,7 @@ CREATE TABLE `permission_role` (
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
+(1, 3),
 (2, 1),
 (3, 1),
 (4, 1),
@@ -839,10 +883,13 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (34, 1),
 (35, 1),
 (36, 1),
-(37, 1),
+(36, 3),
 (38, 1),
+(38, 3),
 (39, 1),
+(39, 3),
 (40, 1),
+(40, 3),
 (51, 1),
 (52, 1),
 (53, 1),
@@ -946,7 +993,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Administrator', '2024-11-21 18:54:12', '2024-11-21 18:54:12'),
-(2, 'user', 'Normal User', '2024-11-21 18:54:12', '2024-11-21 18:54:12');
+(2, 'Client', 'Client', '2024-11-21 18:54:12', '2025-01-13 21:38:00'),
+(3, 'Confirmation', 'Confirmation', '2025-01-13 21:39:18', '2025-01-13 21:39:18');
 
 -- --------------------------------------------------------
 
@@ -970,8 +1018,8 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`, `order`, `group`) VALUES
-(1, 'site.title', 'Site Title', 'Site Title', '', 'text', 2, 'Site'),
-(2, 'site.description', 'Site Description', 'Site Description', '', 'text', 3, 'Site'),
+(1, 'site.title', 'Site Title', 'Science Events', '', 'text', 2, 'Site'),
+(2, 'site.description', 'Site Description', 'Formation en echographie, echographie generale, echographie abdominale, echographie gynecho-obstetricale et mamaire, echo doppler, diabetologie, ech et l\'hta', '', 'text', 3, 'Site'),
 (3, 'site.logo', 'Site Logo', 'settings/November2024/K5zzpjzofLJzbKEW4C4T.png', '', 'image', 1, 'Site'),
 (4, 'site.google_analytics_tracking_id', 'Google Analytics Tracking ID', NULL, '', 'text', 4, 'Site'),
 (5, 'admin.bg_image', 'Admin Background Image', '', '', 'image', 5, 'Admin'),
@@ -981,16 +1029,34 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
 (10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', NULL, '', 'text', 1, 'Admin'),
 (11, 'virement.compte-name', 'Titulaire du compte', 'SCIENCE EVENTS', NULL, 'text', 6, 'Virement'),
-(12, 'virement.iban', 'IBAN', 'MA64 007 450 0015208000000049 97', NULL, 'text', 7, 'Virement'),
-(13, 'virement.swift', 'swift', 'BCMAMAMC', NULL, 'text', 8, 'Virement'),
-(14, 'virement.rib', 'RIB N°', '007 450 0015208000000049 97', NULL, 'text', 9, 'Virement'),
+(12, 'virement.iban', 'IBAN', 'MA64 007 450 0015208000000049 97', NULL, 'text', 9, 'Virement'),
+(13, 'virement.swift', 'swift', 'BCMAMAMC', NULL, 'text', 35, 'Virement'),
+(14, 'virement.rib', 'RIB N°', '007 450 0015208000000049 97', NULL, 'text', 8, 'Virement'),
 (15, 'reseaux-sociaux.facebook', 'Facebook', 'https://web.facebook.com/ScienceEvents.ma?_rdc=1&_rdr', NULL, 'text', 10, 'Reseaux sociaux'),
 (16, 'reseaux-sociaux.twitter', 'X ( Twitter )', 'https://x.com', NULL, 'text', 11, 'Reseaux sociaux'),
 (17, 'reseaux-sociaux.linkedin', 'Linkedin', 'https://linkedin.com', NULL, 'text', 12, 'Reseaux sociaux'),
 (18, 'reseaux-sociaux.youtube', 'Youtube', 'https://youtube.com', NULL, 'text', 13, 'Reseaux sociaux'),
 (19, 'site.adresse', 'Adresse', 'Koutoubia Center 2 – Avenue Hassan II – Guéliz – Marrakech', NULL, 'text', 14, 'Site'),
 (20, 'site.phone', 'Numéro de téléphone', '+212 700 443 555', NULL, 'text', 15, 'Site'),
-(21, 'site.email', 'Adresse email', 'contact@science-events.ma', NULL, 'text', 16, 'Site');
+(21, 'site.email', 'Adresse email', 'contact@science-events.ma', NULL, 'text', 16, 'Site'),
+(22, 'accueil-hero.headline', 'Titre', 'La formation e-learning que les soignants méritent', NULL, 'text', 17, 'Accueil Hero'),
+(23, 'accueil-hero.description', 'Description', 'Améliorez la prise en charge de vos patients à l’hôpital ou en libéral grâce à nos formations agréées DPC, conçues par les meilleurs experts européens.', NULL, 'text', 18, 'Accueil Hero'),
+(24, 'accueil-hero.catalogue-file', 'Catalogue ( pdf )', '[{\"download_link\":\"settings\\/January2025\\/1UGI3et3y7AJ0RV3HcQE.pdf\",\"original_name\":\"Science-Events-01-11-2025_07_12_PM.pdf\"}]', NULL, 'file', 19, 'Accueil Hero'),
+(25, 'accueil-hero.video-left', 'Vidéo sur le côté gauche', '[{\"download_link\":\"settings\\/January2025\\/ljjeEwIMahSvquIyKDpT.webm\",\"original_name\":\"hero_video_1.webm\"}]', NULL, 'file', 20, 'Accueil Hero'),
+(26, 'accueil-hero.video-middle', 'Vidéo au milieu', '[{\"download_link\":\"settings\\/January2025\\/0SJyo1hvI0lGipqMY8No.webm\",\"original_name\":\"hero_video_2.webm\"}]', NULL, 'file', 21, 'Accueil Hero'),
+(27, 'accueil-hero.video-right', 'Vidéo sur le côté droit', '[{\"download_link\":\"settings\\/January2025\\/lScIOWaDXT7MoHKtbUrM.webm\",\"original_name\":\"hero_video_3.webm\"}]', NULL, 'file', 22, 'Accueil Hero'),
+(32, 'accueil-hero.first-popup-title', 'Titre du premier autocollant', 'Forum', NULL, 'text', 27, 'Accueil Hero'),
+(33, 'accueil-hero.second-popup-title', 'Titre du deuxième autocollant', 'Video', NULL, 'text', 30, 'Accueil Hero'),
+(34, 'accueil-hero.third-popup-title', 'Troisième titre d\'autocollant', 'Nouvelle réponse d’un expert', NULL, 'text', 31, 'Accueil Hero'),
+(35, 'accueil-hero.first-popup-text', 'Texte du premier autocollant', 'Nouvelle réponse d’un expert', NULL, 'text', 28, 'Accueil Hero'),
+(36, 'accueil-hero.second-popup-text', 'Texte du deuxième autocollant', 'Ressource', NULL, 'text', 33, 'Accueil Hero'),
+(37, 'accueil-hero.third-popup-text', 'Texte du troisième autocollant', 'Nouvelle réponse d’un expert', NULL, 'text', 34, 'Accueil Hero'),
+(38, 'accueil-hero.first-popup-icon', 'Première icône d\'autocollant', 'settings/January2025/sR8JuA2ZHEjAli98dXpJ.png', NULL, 'image', 26, 'Accueil Hero'),
+(39, 'accueil-hero.second-popup-icon', 'Deuxième icône d\'autocollant', 'settings/January2025/dAj7h0e9ZcHcou1euY7n.png', NULL, 'image', 29, 'Accueil Hero'),
+(40, 'accueil-hero.third-popup-icon', 'Troisième icône d\'autocollant', 'settings/January2025/OXWxee784vujTBxCsDSY.png', NULL, 'image', 32, 'Accueil Hero'),
+(41, 'virement.bank-name', 'Nom de la banque', 'ATTIJARI BANK', NULL, 'text', 7, 'Virement'),
+(42, 'virement.cheque-for', 'chèque au profit de', 'Science Events', NULL, 'text', 36, 'Virement'),
+(43, 'virement.espece-address', 'Espéce Adresse', 'Koutoubia Center 2, Av. Hassane 2, Guéliz - Marrakech', NULL, 'text', 37, 'Virement');
 
 -- --------------------------------------------------------
 
@@ -1026,22 +1092,25 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) DEFAULT NULL,
   `settings` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `color` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@gmail.com', 'users/default.png', NULL, '$2y$10$MvY8O.B0upLlNGEgOp7ukez1KT/7eTMv4b0fL/mgOvaiyahWx00HK', NULL, '{\"locale\":\"fr\"}', '2024-11-21 19:04:13', '2024-12-20 11:39:11'),
-(2, 2, 'med', 'med@gmail.com', 'users/default.png', NULL, '$2y$10$1/gIBc9NwVNxpkpdJD.nbuhTpzyMFSf1mqXXKB41mrdvPhUwPpTeq', NULL, NULL, '2024-12-19 19:20:59', '2024-12-19 19:20:59'),
-(3, 2, 'Med', 'med2@gmail.com', 'users/default.png', NULL, '$2y$10$lDb.PhSP6C5fUBnyX9saT.aRYIjpmL.bHCtvzhAbDEe10PCcci/hC', NULL, NULL, '2024-12-19 20:18:34', '2024-12-19 20:18:34'),
-(4, 2, 'Med', 'med3@gmail.com', 'users/default.png', NULL, '$2y$10$beO1dLVjmsku9ZBR9rYegOBeLcfQLXXJf08jCabjC8if7u8VhZdBy', NULL, NULL, '2024-12-19 20:40:40', '2024-12-19 20:40:40'),
-(5, 2, 'des', 'example@gmail.com', 'users/default.png', NULL, '$2y$10$dmU.V2vMv8puAZaoiXoxI.cocEia26owsh9oF1cGZpAhRL3KOwTSq', NULL, NULL, '2024-12-19 20:48:21', '2024-12-19 20:48:21'),
-(6, 2, 'Med 4', 'med4@gmail.com', 'users/default.png', NULL, '$2y$10$V52UPm7qtvOizPBHudzlVeUqzVU0JOL1Aoo4bOYJB7HAzA7H.XRHu', NULL, NULL, '2024-12-19 20:49:32', '2024-12-19 20:49:32'),
-(7, 2, 'User', 'user@gmail.com', 'users/default.png', NULL, '$2y$10$7iWfCRJ9dUfAfvzIkynE9.kAheQi/H8f0l1rnfgH9eVF5mPfmGidW', NULL, '{\"locale\":\"fr\"}', '2024-12-20 09:38:03', '2024-12-24 13:29:22'),
-(8, 2, 'User 2', 'user2@gmail.com', 'users/default.png', NULL, '$2y$10$WGaw8ZuM2ubXUIHUMfApweJxLCm2grBsvH2aT//ToRk2ytQHt7aEu', NULL, '{\"locale\":\"fr\"}', '2024-12-20 09:41:36', '2024-12-25 20:36:08');
+INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `color`) VALUES
+(1, 1, 'Admin', 'admin@gmail.com', 'users/default.png', NULL, '$2y$10$MvY8O.B0upLlNGEgOp7ukez1KT/7eTMv4b0fL/mgOvaiyahWx00HK', NULL, '{\"locale\":\"fr\"}', '2024-11-21 19:04:13', '2025-01-14 09:17:48', NULL),
+(2, 2, 'med', 'med@gmail.com', 'users/default.png', NULL, '$2y$10$1/gIBc9NwVNxpkpdJD.nbuhTpzyMFSf1mqXXKB41mrdvPhUwPpTeq', NULL, NULL, '2024-12-19 19:20:59', '2024-12-19 19:20:59', NULL),
+(3, 2, 'Med', 'med2@gmail.com', 'users/default.png', NULL, '$2y$10$lDb.PhSP6C5fUBnyX9saT.aRYIjpmL.bHCtvzhAbDEe10PCcci/hC', NULL, NULL, '2024-12-19 20:18:34', '2024-12-19 20:18:34', NULL),
+(4, 2, 'Med', 'med3@gmail.com', 'users/default.png', NULL, '$2y$10$beO1dLVjmsku9ZBR9rYegOBeLcfQLXXJf08jCabjC8if7u8VhZdBy', NULL, NULL, '2024-12-19 20:40:40', '2024-12-19 20:40:40', NULL),
+(5, 2, 'des', 'example@gmail.com', 'users/default.png', NULL, '$2y$10$dmU.V2vMv8puAZaoiXoxI.cocEia26owsh9oF1cGZpAhRL3KOwTSq', NULL, NULL, '2024-12-19 20:48:21', '2024-12-19 20:48:21', NULL),
+(6, 2, 'Med 4', 'med4@gmail.com', 'users/default.png', NULL, '$2y$10$V52UPm7qtvOizPBHudzlVeUqzVU0JOL1Aoo4bOYJB7HAzA7H.XRHu', NULL, NULL, '2024-12-19 20:49:32', '2024-12-19 20:49:32', NULL),
+(7, 2, 'User', 'user@gmail.com', 'users/default.png', NULL, '$2y$10$nrKSzUptNWhOYsyRCkN3iuqW23dEe2t7/GDQ90USlyLXz.a9QjlsC', NULL, '{\"locale\":\"fr\"}', '2024-12-20 09:38:03', '2025-01-06 10:16:54', NULL),
+(8, 2, 'User 2', 'user2@gmail.com', 'users/default.png', NULL, '$2y$10$WGaw8ZuM2ubXUIHUMfApweJxLCm2grBsvH2aT//ToRk2ytQHt7aEu', NULL, '{\"locale\":\"fr\"}', '2024-12-20 09:41:36', '2024-12-25 20:36:08', NULL),
+(9, 2, 'Yassine Touhtane', 'test@test.tt', 'users/default.png', NULL, '$2y$10$jmQw8DBMlgt7EXmY8DeWuu7/81ccAqtlTqsau/mQZ.ss4tYDXqHRe', NULL, NULL, '2024-12-29 12:22:24', '2024-12-29 12:22:24', NULL),
+(10, NULL, 'Kawtar', 'kawtar@gmail.com', 'users/default.png', NULL, '$2y$10$G54MDkMqf/WaUCxyHSo2MuFBLHOI.PB/PScjWTnTUHyyuVXjOOBiy', NULL, '{\"locale\":\"fr\"}', '2025-01-14 09:21:44', '2025-01-14 09:21:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -1053,6 +1122,13 @@ CREATE TABLE `user_roles` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
+(10, 3);
 
 --
 -- Indexes for dumped tables
@@ -1246,7 +1322,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `category_formation`
@@ -1270,7 +1346,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT for table `data_types`
@@ -1282,7 +1358,7 @@ ALTER TABLE `data_types`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `extraits`
@@ -1306,7 +1382,7 @@ ALTER TABLE `faqs`
 -- AUTO_INCREMENT for table `formations`
 --
 ALTER TABLE `formations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `likes`
@@ -1336,7 +1412,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `packs`
@@ -1366,13 +1442,13 @@ ALTER TABLE `resources`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `translations`
@@ -1384,7 +1460,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
