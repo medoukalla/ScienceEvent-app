@@ -904,7 +904,7 @@
                             labels: labels,
                             datasets: [
                                 {
-                                    label: '{{ __('voyager::date.last_week') }}',
+                                    label: '{{ __('date.last_week') }}',
                                     fillColor: 'rgba(220,220,220,0.5)',
                                     strokeColor: 'rgba(220,220,220,1)',
                                     pointColor: 'rgba(220,220,220,1)',
@@ -912,7 +912,7 @@
                                     data: data2
                                 },
                                 {
-                                    label: '{{ __('voyager::date.this_week') }}',
+                                    label: '{{ __('date.this_week') }}',
                                     fillColor: 'rgba(151,187,205,0.5)',
                                     strokeColor: 'rgba(151,187,205,1)',
                                     pointColor: 'rgba(151,187,205,1)',
@@ -977,13 +977,13 @@
                             labels: labels,
                             datasets: [
                                 {
-                                    label: '{{ __('voyager::date.last_year') }}',
+                                    label: '{{ __('date.last_year') }}',
                                     fillColor: 'rgba(220,220,220,0.5)',
                                     strokeColor: 'rgba(220,220,220,1)',
                                     data: data2
                                 },
                                 {
-                                    label: '{{ __('voyager::date.this_year') }}',
+                                    label: '{{ __('date.this_year') }}',
                                     fillColor: 'rgba(151,187,205,0.5)',
                                     strokeColor: 'rgba(151,187,205,1)',
                                     data: data1

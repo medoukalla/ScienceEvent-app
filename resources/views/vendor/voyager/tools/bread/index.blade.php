@@ -4,7 +4,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        {{ __('voyager::generic.bread') }}
+        {{ __('generic.bread') }}
     </h1>
 @stop
 
@@ -18,8 +18,8 @@
                 <table class="table table-striped database-tables">
                     <thead>
                         <tr>
-                            <th>{{ __('voyager::database.table_name') }}</th>
-                            <th style="text-align:right">{{ __('voyager::bread.bread_crud_actions') }}</th>
+                            <th>{{ __('database.table_name') }}</th>
+                            <th style="text-align:right">{{ __('bread.bread_crud_actions') }}</th>
                         </tr>
                     </thead>
 
@@ -41,20 +41,20 @@
                             @if($table->dataTypeId)
                                 <a href="{{ route('voyager.' . $table->slug . '.index') }}"
                                    class="btn btn-sm btn-label-warning waves-effect browse_bread" style="margin-right: 0;">
-                                    <i class="voyager-plus"></i> {{ __('voyager::generic.browse') }}
+                                    <i class="voyager-plus"></i> {{ __('generic.browse') }}
                                 </a>
                                 <a href="{{ route('voyager.bread.edit', $table->name) }}"
                                    class="btn btn-sm btn-label-primary waves-effectm edit">
-                                    <i class="voyager-edit"></i> {{ __('voyager::generic.edit') }}
+                                    <i class="voyager-edit"></i> {{ __('generic.edit') }}
                                 </a>
                                 <a href="#delete-bread" data-id="{{ $table->dataTypeId }}" data-name="{{ $table->name }}"
                                      class="btn btn-sm btn-label-danger waves-effect delete">
-                                    <i class="voyager-trash"></i> {{ __('voyager::generic.delete') }}
+                                    <i class="voyager-trash"></i> {{ __('generic.delete') }}
                                 </a>
                             @else
                                 <a href="{{ route('voyager.bread.create', $table->name) }}"
                                    class="_btn btn btn-sm btn-label-default waves-effect pull-right">
-                                    <i class="voyager-plus"></i> {{ __('voyager::bread.add_bread') }}
+                                    <i class="voyager-plus"></i> {{ __('bread.add_bread') }}
                                 </a>
                             @endif
                         </td>
@@ -69,7 +69,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('voyager::generic.close') }}"><span
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('generic.close') }}"><span
                                 aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"><i class="voyager-trash"></i>  {!! __('voyager::bread.delete_bread_quest', ['table' => '<span id="delete_builder_name"></span>']) !!}</h4>
                 </div>
@@ -77,9 +77,9 @@
                     <form action="#" id="delete_builder_form" method="POST">
                         {{ method_field('DELETE') }}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="submit" class="btn btn-danger" value="{{ __('voyager::bread.delete_bread_conf') }}">
+                        <input type="submit" class="btn btn-danger" value="{{ __('bread.delete_bread_conf') }}">
                     </form>
-                    <button type="button" class="btn btn-outline pull-right" data-dismiss="modal">{{ __('voyager::generic.cancel') }}</button>
+                    <button type="button" class="btn btn-outline pull-right" data-dismiss="modal">{{ __('generic.cancel') }}</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -89,7 +89,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('voyager::generic.close') }}"><span
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('generic.close') }}"><span
                                 aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"><i class="voyager-data"></i> @{{ table.name }}</h4>
                 </div>
@@ -97,12 +97,12 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>{{ __('voyager::database.field') }}</th>
-                            <th>{{ __('voyager::database.type') }}</th>
-                            <th>{{ __('voyager::database.null') }}</th>
-                            <th>{{ __('voyager::database.key') }}</th>
-                            <th>{{ __('voyager::database.default') }}</th>
-                            <th>{{ __('voyager::database.extra') }}</th>
+                            <th>{{ __('database.field') }}</th>
+                            <th>{{ __('database.type') }}</th>
+                            <th>{{ __('database.null') }}</th>
+                            <th>{{ __('database.key') }}</th>
+                            <th>{{ __('database.default') }}</th>
+                            <th>{{ __('database.extra') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -118,7 +118,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-right" data-dismiss="modal">{{ __('voyager::generic.close') }}</button>
+                    <button type="button" class="btn btn-outline pull-right" data-dismiss="modal">{{ __('generic.close') }}</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

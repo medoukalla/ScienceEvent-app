@@ -210,7 +210,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        {{ __('voyager::generic.settings') }}
+        {{ __('generic.settings') }}
     </h1>
 @stop
 
@@ -219,8 +219,8 @@
         @include('voyager::alerts')
         @if(config('voyager.show_dev_tips'))
         <div class="alert alert-info">
-            <strong>{{ __('voyager::generic.how_to_use') }}:</strong>
-            <p>{{ __('voyager::settings.usage_help') }} <code>setting('group.key')</code></p>
+            <strong>{{ __('generic.how_to_use') }}:</strong>
+            <p>{{ __('settings.usage_help') }} <code>setting('group.key')</code></p>
         </div>
         @endif
     </div>
@@ -355,7 +355,7 @@
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-primary pull-right">{{ __('voyager::settings.save') }}</button>
+            <button type="submit" class="btn btn-primary pull-right">{{ __('settings.save') }}</button>
         </form>
 
         <div style="clear:both"></div>
@@ -364,38 +364,38 @@
         <div class="panel" style="margin-top:10px;">
             <div class="panel-heading new-setting">
                 <hr>
-                <h3 class="panel-title"><i class="voyager-plus"></i> {{ __('voyager::settings.new') }}</h3>
+                <h3 class="panel-title"><i class="voyager-plus"></i> {{ __('settings.new') }}</h3>
             </div>
             <div class="panel-body">
                 <form action="{{ route('voyager.settings.store') }}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="setting_tab" class="setting_tab" value="{{ $active }}" />
                     <div class="col-md-3">
-                        <label for="display_name">{{ __('voyager::generic.name') }}</label>
-                        <input type="text" class="form-control" name="display_name" placeholder="{{ __('voyager::settings.help_name') }}" required="required">
+                        <label for="display_name">{{ __('generic.name') }}</label>
+                        <input type="text" class="form-control" name="display_name" placeholder="{{ __('settings.help_name') }}" required="required">
                     </div>
                     <div class="col-md-3">
-                        <label for="key">{{ __('voyager::generic.key') }}</label>
-                        <input type="text" class="form-control" name="key" placeholder="{{ __('voyager::settings.help_key') }}" required="required">
+                        <label for="key">{{ __('generic.key') }}</label>
+                        <input type="text" class="form-control" name="key" placeholder="{{ __('settings.help_key') }}" required="required">
                     </div>
                     <div class="col-md-3">
-                        <label for="type">{{ __('voyager::generic.type') }}</label>
+                        <label for="type">{{ __('generic.type') }}</label>
                         <select name="type" class="form-control" required="required">
-                            <option value="">{{ __('voyager::generic.choose_type') }}</option>
-                            <option value="text">{{ __('voyager::form.type_textbox') }}</option>
-                            <option value="text_area">{{ __('voyager::form.type_textarea') }}</option>
-                            <option value="rich_text_box">{{ __('voyager::form.type_richtextbox') }}</option>
-                            <option value="markdown_editor">{{ __('voyager::form.type_markdowneditor') }}</option>
-                            <option value="code_editor">{{ __('voyager::form.type_codeeditor') }}</option>
-                            <option value="checkbox">{{ __('voyager::form.type_checkbox') }}</option>
-                            <option value="radio_btn">{{ __('voyager::form.type_radiobutton') }}</option>
-                            <option value="select_dropdown">{{ __('voyager::form.type_selectdropdown') }}</option>
-                            <option value="file">{{ __('voyager::form.type_file') }}</option>
-                            <option value="image">{{ __('voyager::form.type_image') }}</option>
+                            <option value="">{{ __('generic.choose_type') }}</option>
+                            <option value="text">{{ __('form.type_textbox') }}</option>
+                            <option value="text_area">{{ __('form.type_textarea') }}</option>
+                            <option value="rich_text_box">{{ __('form.type_richtextbox') }}</option>
+                            <option value="markdown_editor">{{ __('form.type_markdowneditor') }}</option>
+                            <option value="code_editor">{{ __('form.type_codeeditor') }}</option>
+                            <option value="checkbox">{{ __('form.type_checkbox') }}</option>
+                            <option value="radio_btn">{{ __('form.type_radiobutton') }}</option>
+                            <option value="select_dropdown">{{ __('form.type_selectdropdown') }}</option>
+                            <option value="file">{{ __('form.type_file') }}</option>
+                            <option value="image">{{ __('form.type_image') }}</option>
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label for="group">{{ __('voyager::settings.group') }}</label>
+                        <label for="group">{{ __('settings.group') }}</label>
                         <select class="form-control group_select group_select_new" name="group">
                             @foreach($groups as $group)
                                 <option value="{{ $group }}">{{ $group }}</option>
@@ -405,18 +405,18 @@
                     <div class="col-md-12">
                         <a id="toggle_options"><i class="voyager-double-down"></i> {{ mb_strtoupper(__('voyager::generic.options')) }}</a>
                         <div class="new-settings-options">
-                            <label for="options">{{ __('voyager::generic.options') }}
-                                <small>{{ __('voyager::settings.help_option') }}</small>
+                            <label for="options">{{ __('generic.options') }}
+                                <small>{{ __('settings.help_option') }}</small>
                             </label>
                             <div id="options_editor" class="form-control min_height_200" data-language="json"></div>
                             <textarea id="options_textarea" name="details" class="hidden"></textarea>
-                            <div id="valid_options" class="alert-success alert" style="display:none">{{ __('voyager::json.valid') }}</div>
-                            <div id="invalid_options" class="alert-danger alert" style="display:none">{{ __('voyager::json.invalid') }}</div>
+                            <div id="valid_options" class="alert-success alert" style="display:none">{{ __('json.valid') }}</div>
+                            <div id="invalid_options" class="alert-danger alert" style="display:none">{{ __('json.invalid') }}</div>
                         </div>
                     </div>
                     <div style="clear:both"></div>
                     <button type="submit" class="btn btn-primary pull-right new-setting-btn">
-                        <i class="voyager-plus"></i> {{ __('voyager::settings.add_new') }}
+                        <i class="voyager-plus"></i> {{ __('settings.add_new') }}
                     </button>
                     <div style="clear:both"></div>
                 </form>
@@ -430,7 +430,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('voyager::generic.close') }}">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('generic.close') }}">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title">
@@ -441,9 +441,9 @@
                     <form action="#" id="delete_form" method="POST">
                         {{ method_field("DELETE") }}
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="{{ __('voyager::settings.delete_confirm') }}">
+                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="{{ __('settings.delete_confirm') }}">
                     </form>
-                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">{{ __('voyager::generic.cancel') }}</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">{{ __('generic.cancel') }}</button>
                 </div>
             </div>
         </div>

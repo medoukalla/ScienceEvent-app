@@ -5,7 +5,7 @@
         <li class="dd-item" data-id="{{ $item->id }}">
             <div class="pull-right item_actions">
                 <div class="btn btn-sm btn-danger pull-right delete" data-id="{{ $item->id }}">
-                   {{ __('voyager::generic.delete') }}
+                   {{ __('generic.delete') }}
                 </div>
                 <div class="btn btn-sm btn-primary pull-right edit"
                     data-id="{{ $item->id }}"
@@ -18,7 +18,7 @@
                     data-parameters="{{ json_encode($item->parameters) }}"
                     tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser"
                 >
-                    </i> {{ __('voyager::generic.edit') }}
+                    </i> {{ __('generic.edit') }}
                 </div>
             </div>
             <div class="dd-handle">

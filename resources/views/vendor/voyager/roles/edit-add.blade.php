@@ -9,7 +9,7 @@
 @section('page_header')
     <h1 class="page-title">
         <i class="{{ $dataType->icon }}"></i>
-        {{ __('voyager::generic.'.(isset($dataTypeContent->id) ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular') }}
+        {{ __('generic.'.(isset($dataTypeContent->id) ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular') }}
     </h1>
 @stop
 
@@ -54,8 +54,8 @@
                                 </div>
                             @endforeach
 
-                            <label for="permission">{{ __('voyager::generic.permissions') }}</label><br>
-                            <a href="#" class="permission-select-all">{{ __('voyager::generic.select_all') }}</a> / <a href="#"  class="permission-deselect-all">{{ __('voyager::generic.deselect_all') }}</a>
+                            <label for="permission">{{ __('generic.permissions') }}</label><br>
+                            <a href="#" class="permission-select-all">{{ __('generic.select_all') }}</a> / <a href="#"  class="permission-deselect-all">{{ __('generic.deselect_all') }}</a>
                             <ul class="permissions checkbox">
                                 <?php
                                     $role_permissions = (isset($dataTypeContent)) ? $dataTypeContent->permissions->pluck('key')->toArray() : [];
@@ -77,7 +77,7 @@
                             </ul>
                         </div><!-- panel-body -->
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary">{{ __('voyager::generic.submit') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('generic.submit') }}</button>
                         </div>
                     </form>
 

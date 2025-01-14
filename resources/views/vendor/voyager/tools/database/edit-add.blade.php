@@ -8,9 +8,9 @@
 @section('page_header')
     <h1 class="page-title">
         @if($db->action == 'update')
-            {{ __('voyager::database.editing_table', ['table' => $db->table->name]) }}
+            {{ __('database.editing_table', ['table' => $db->table->name]) }}
         @else
-            {{ __('voyager::database.create_new_table') }}
+            {{ __('database.create_new_table') }}
         @endif
     </h1>
 @stop
@@ -18,19 +18,19 @@
 @section('breadcrumbs')
 <ol class="breadcrumb hidden-xs">
     <li>
-        <a href="{{ route('voyager.dashboard')}}"><i class="voyager-boat"></i> {{ __('voyager::generic.dashboard') }}</a>
+        <a href="{{ route('voyager.dashboard')}}"><i class="voyager-boat"></i> {{ __('generic.dashboard') }}</a>
     </li>
     <li>
         <a href="{{ route('voyager.database.index') }}">
-            {{ __('voyager::generic.database') }}
+            {{ __('generic.database') }}
         </a>
     </li>
 
     @if($db->action == 'update')
-    <li class="active">{{ __('voyager::generic.edit') }}</li>
+    <li class="active">{{ __('generic.edit') }}</li>
     <li class="active">{{ $db->table->name }}</li>
     @else
-    <li class="active">{{ __('voyager::generic.add') }}</li>
+    <li class="active">{{ __('generic.add') }}</li>
     @endif
 </ol>
 @endsection

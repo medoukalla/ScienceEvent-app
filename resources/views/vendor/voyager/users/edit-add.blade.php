@@ -9,7 +9,7 @@
 @section('page_header')
     <h1 class="page-title">
         
-        {{ __('voyager::generic.'.(isset($dataTypeContent->id) ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular') }}
+        {{ __('generic.'.(isset($dataTypeContent->id) ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular') }}
     </h1>
 @stop
 
@@ -40,22 +40,22 @@
 
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="name">{{ __('voyager::generic.name') }}</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('voyager::generic.name') }}"
+                                <label for="name">{{ __('generic.name') }}</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('generic.name') }}"
                                        value="{{ old('name', $dataTypeContent->name ?? '') }}">
                             </div>
 
                             <div class="form-group">
-                                <label for="email">{{ __('voyager::generic.email') }}</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="{{ __('voyager::generic.email') }}"
+                                <label for="email">{{ __('generic.email') }}</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="{{ __('generic.email') }}"
                                        value="{{ old('email', $dataTypeContent->email ?? '') }}">
                             </div>
 
                             <div class="form-group">
-                                <label for="password">{{ __('voyager::generic.password') }}</label>
+                                <label for="password">{{ __('generic.password') }}</label>
                                 @if(isset($dataTypeContent->password))
                                     <br>
-                                    <small>{{ __('voyager::profile.password_hint') }}</small>
+                                    <small>{{ __('profile.password_hint') }}</small>
                                 @endif
                                 <input type="password" class="form-control" id="password" name="password" value="" autocomplete="new-password">
                             </div>
@@ -70,7 +70,7 @@
                                     @endphp
                                 </div>
                                 <div class="form-group">
-                                    <label for="default_role">{{ __('voyager::profile.role_default') }}</label>
+                                    <label for="default_role">{{ __('profile.role_default') }}</label>
                                     @php
                                         $row     = $dataTypeRows->where('field', 'user_belongstomany_role_relationship')->first();
                                         $options = $row->details;
@@ -87,7 +87,7 @@
 
                             @endphp
                             <div class="form-group">
-                                <label for="locale">{{ __('voyager::generic.locale') }}</label>
+                                <label for="locale">{{ __('generic.locale') }}</label>
                                 <select class="form-control select2" id="locale" name="locale">
                                     @foreach (Voyager::getLocales() as $locale)
                                     <option value="{{ $locale }}"
@@ -98,7 +98,7 @@
 
                             <div class="form-group">
                                 <label for="color">{{ __('generic.color') }}</label>
-                                <input type="color" class="form-control" id="color" name="color" placeholder="{{ __('voyager::generic.color') }}"
+                                <input type="color" class="form-control" id="color" name="color" placeholder="{{ __('generic.color') }}"
                                        value="{{ old('color', $dataTypeContent->color ?? '') }}">
                             </div>
                         </div>
@@ -120,7 +120,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary pull-right save">
-                {{ __('voyager::generic.save') }}
+                {{ __('generic.save') }}
             </button>
         </form>
         <div style="display:none">
