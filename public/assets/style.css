@@ -6000,7 +6000,7 @@ blockquote {
 }
 
 .nav-menu-link-shape {
-  background-color: var(--primary-color);
+  background-color: var(--orange-clr);
   border-radius: 100px;
   width: 11px;
   height: 4px;
@@ -6031,7 +6031,7 @@ blockquote {
 }
 
 .nav-menu-link:hover {
-  color: var(--primary-color);
+  color: var(--orange-clr);
 }
 
 .nav-menu-link:focus-visible {
@@ -6063,7 +6063,7 @@ blockquote {
 }
 
 .nav-dropdown-toggle:hover {
-  color: var(--primary-color);
+  color: var(--orange-clr);
 }
 
 .nav-dropdown-toggle:focus-visible {
@@ -7780,6 +7780,18 @@ blockquote {
 .r-side-floating .class-categories .class:last-child{
   margin-bottom: 20px !important;
 }
+.access-formations-details {
+  flex-direction: column !important;
+}
+.class-details-content-and-instructor-wrap {
+  width: 100% !important;
+}
+.access-formations-details .class-information-right-side {
+  width: 100% !important;
+}
+.class-information-right-side .funfact-wrap {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 }
 @media screen and (min-width: 1280px) {
   h3 {
@@ -8695,6 +8707,18 @@ blockquote {
 }
 
 @media screen and (max-width: 991px) {
+  .access-formations-details {
+  flex-direction: column !important;
+}
+.class-details-content-and-instructor-wrap {
+  width: 100% !important;
+}
+.access-formations-details .class-information-right-side {
+  width: 100% !important;
+}
+.class-information-right-side .funfact-wrap {
+  grid-template-columns: 1fr 1fr 1fr;
+}
   h1 {
     font-size: 58px;
     line-height: 68px;
@@ -9595,7 +9619,32 @@ blockquote {
     display: none !important;
   }
 
-  .nav-mobile {
+  .mobile-menu-btn{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap:5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .mobile-menu-btn span {
+    height: 5px;
+    width: 37px;
+    background-color: var(--black);
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .mobile-menu-btn span:nth-child(2){
+    width: 25px;
+  }
+
+  .mobile-menu-btn:hover span:nth-child(2){
+    width: 37px;
+  }
+
+  .nav-mobile-list {
     display: block !important;
   }
 
@@ -9603,6 +9652,9 @@ blockquote {
 }
 
 @media screen and (max-width: 767px) {
+  .class-information-right-side .funfact-wrap {
+  grid-template-columns: 1fr 1fr;
+}
   h1 {
     font-size: 48px;
     line-height: 58px;
@@ -11821,7 +11873,7 @@ header {
 }
 
 .primary-btn {
-  background-color: var(--primary-color);
+  background-color: var(--orange-clr);
   width: 100%;
   color: var(--gray-bg-color);
   text-align: center;
@@ -11830,7 +11882,7 @@ header {
 }
 
 .primary-btn:hover {
-  background-color: var(--primary-hover-color);
+  background-color: var(--orange-hover-clr);
 }
 
 /* button orange */
@@ -13742,9 +13794,56 @@ input[type="radio"] {
     display: none !important; /* Hides controls in Microsoft Edge */
 }
 
-.nav-mobile {
+.nav-mobile-list {
   display: none;
 }
+
+.access-formations-details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.access-formations-details .class-information-right-side  {
+  width: 40%;
+}
+
+.access-formations-details .class-details-content-and-instructor-wrap {
+  display: flex !important;
+  width: 60%;
+}
+
+.access-formations-details .class-details-content-and-instructor-wrap .class-details-content-wrap  {
+  width: 100%;
+  margin-right: 0 !important;
+}
+
+.class-information-right-side .funfact-wrap {
+  grid-column-gap: 5px;
+}
+
+.class-information-right-side .funfact-wrap .s-info{
+  height: 150px;
+}
+
+.class-information-right-side .class-informations-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.class-information-right-side .class-informations-title span {
+  color: var(--orange-clr);
+}
+
+.class-information-right-side p {
+  color: var(--gray-clr);
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
 
 
 
