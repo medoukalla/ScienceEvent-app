@@ -69,14 +69,6 @@
             </li>
           </ul>
         </nav>
-        <div class="nav-button-block large-none call-btn-mobile">
-          <a href="">
-            <div class="call-btn">
-            <img src="{{ asset('assets/svg/call.svg') }}" alt="">
-            <span>Appeler un conseiller</span>
-            </div>
-          </a>
-        </div>
         <div class="auth">
           @auth
             <a href="{{ route('frontend.profile') }}" >

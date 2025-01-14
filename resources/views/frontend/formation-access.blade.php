@@ -110,71 +110,71 @@
                 </div>
                 <div class="class-information-right-side">
                     <div class="class-informations-title">
-                        <span>Découvrez</span> des extraits
+                        <span>Découvrez</span> des informations similaires
                         <p>Discover similar formations, highlighting shared features and functions.</p>
                     </div>
-                        <div class="funfact-wrap">
-                            <a href="#">
-                                <div class="s-info">
-                                    <img src="{{ asset('assets/images/s-video-2.png') }}" alt="Similar Video">
-                                    <div class="vid-infos">
-                                        <div class="vid-title">Extraits video A</div>
-                                        <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                            class="vid-icon">
-                                    </div>
+                    <div class="funfact-wrap">
+                        <a href="#">
+                            <div class="s-info">
+                                <img src="{{ asset('assets/images/s-video-2.png') }}" alt="Similar Video">
+                                <div class="vid-infos">
+                                    <div class="vid-title">Formation vid...</div>
+                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
+                                        class="vid-icon">
                                 </div>
-                            </a>
-                            <a href="#">
-                                <div class="s-info">
-                                    <img src="{{ asset('assets/images/s-video-1.png') }}" alt="Similar Video">
-                                    <div class="vid-infos">
-                                        <div class="vid-title">Extraits video A</div>
-                                        <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                            class="vid-icon">
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="s-info">
+                                <img src="{{ asset('assets/images/s-video-1.png') }}" alt="Similar Video">
+                                <div class="vid-infos">
+                                    <div class="vid-title">Formation vid...</div>
+                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
+                                        class="vid-icon">
                                 </div>
-                            </a>
-                            <a href="#">
-                                <div class="s-info">
-                                    <img src="{{ asset('assets/images/s-video-4.png') }}" alt="Similar Video">
-                                    <div class="vid-infos">
-                                        <div class="vid-title">Extraits video A</div>
-                                        <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                            class="vid-icon">
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="s-info">
+                                <img src="{{ asset('assets/images/s-video-4.png') }}" alt="Similar Video">
+                                <div class="vid-infos">
+                                    <div class="vid-title">Formation vid...</div>
+                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
+                                        class="vid-icon">
                                 </div>
-                            </a>
-                            <a href="#">
-                                <div class="s-info">
-                                    <img src="{{ asset('assets/images/s-video-1.png') }}" alt="Similar Video">
-                                    <div class="vid-infos">
-                                        <div class="vid-title">Extraits video A</div>
-                                        <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                            class="vid-icon">
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="s-info">
+                                <img src="{{ asset('assets/images/s-video-1.png') }}" alt="Similar Video">
+                                <div class="vid-infos">
+                                    <div class="vid-title">Formation vid...</div>
+                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
+                                        class="vid-icon">
                                 </div>
-                            </a>
-                                                        <a href="#">
-                                <div class="s-info">
-                                    <img src="{{ asset('assets/images/dr5.jpg') }}" alt="Similar Video">
-                                    <div class="vid-infos">
-                                        <div class="vid-title">Extraits video A</div>
-                                        <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                            class="vid-icon">
-                                    </div>
+                            </div>
+                        </a>
+                                                    <a href="#">
+                            <div class="s-info">
+                                <img src="{{ asset('assets/images/dr5.jpg') }}" alt="Similar Video">
+                                <div class="vid-infos">
+                                    <div class="vid-title">Formation vid...</div>
+                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
+                                        class="vid-icon">
                                 </div>
-                            </a>
-                            <a href="#">
-                                <div class="s-info">
-                                    <img src="{{ asset('assets/images/s-video-2.png') }}" alt="Similar Video">
-                                    <div class="vid-infos">
-                                        <div class="vid-title">Extraits video A</div>
-                                        <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                            class="vid-icon">
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="s-info">
+                                <img src="{{ asset('assets/images/s-video-2.png') }}" alt="Similar Video">
+                                <div class="vid-infos">
+                                    <div class="vid-title">Formation vid...</div>
+                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
+                                        class="vid-icon">
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
