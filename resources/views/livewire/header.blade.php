@@ -97,7 +97,9 @@
           @endguest
         </div>
         <div class="menu-button w-nav-button">
-          <div class="w-icon-nav-menu"></div>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
     </div>

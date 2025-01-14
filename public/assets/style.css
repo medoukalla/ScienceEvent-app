@@ -9186,6 +9186,17 @@ blockquote {
     background-color: #040306;
     border-radius: 5px;
     padding: 12px;
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+  }
+
+  .menu-button span {
+    width: 47px;
+    height: 5px;
+    background-color: var(--gray-bg-color);
+    border-radius: 50px;
   }
 
   .menu-button.w--open {
@@ -9600,6 +9611,10 @@ blockquote {
   .nav-dropdown-toggle,
   .nav-menu-link {
     font-size: 20px !important;
+    float: left;
+  }
+  .nav-menu-list {
+    width: 100%;
   }
   .nav-mobile-brand {
     display: flex;
@@ -9608,7 +9623,7 @@ blockquote {
     align-items: center;
   }
   .w-dropdown-list {
-    width:450px !important;
+    width:100% !important;
   }
   .navbar-wrapper {
     justify-content: space-between;
