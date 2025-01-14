@@ -40,42 +40,38 @@
 
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="name">{{ __('generic.name') }}</label>
+                                <label for="name">{{ __('generic.name') }} *</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('generic.name') }}"
                                        value="{{ old('name', $dataTypeContent->name ?? '') }}">
                             </div>
 
                             <div class="form-group">
-                                <label for="email">{{ __('generic.email') }}</label>
+                                <label for="email">{{ __('generic.email') }} *</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="{{ __('generic.email') }}"
                                        value="{{ old('email', $dataTypeContent->email ?? '') }}">
                             </div>
 
                             <div class="form-group">
-                                <label for="password">{{ __('generic.password') }}</label>
-                                @if(isset($dataTypeContent->password))
-                                    <br>
-                                    <small>{{ __('profile.password_hint') }}</small>
-                                @endif
+                                <label for="password">{{ __('generic.password') }} *</label>
                                 <input type="password" class="form-control" id="password" name="password" value="" autocomplete="new-password">
                             </div>
 
                             @can('editRoles', $dataTypeContent)
                                 <div class="form-group">
+                                    <label for="default_role">Role *</label>
                                     @php
                                         $dataTypeRows = $dataType->{(isset($dataTypeContent->id) ? 'editRows' : 'addRows' )};
-
                                         $row     = $dataTypeRows->where('field', 'user_belongsto_role_relationship')->first();
                                         $options = $row->details;
+
+                                        $the_roles = TCG\Voyager\Models\Role::all();
                                     @endphp
-                                </div>
-                                <div class="form-group">
-                                    <label for="default_role">{{ __('profile.role_default') }}</label>
-                                    @php
-                                        $row     = $dataTypeRows->where('field', 'user_belongstomany_role_relationship')->first();
-                                        $options = $row->details;
-                                    @endphp
-                                    @include('voyager::formfields.relationship')
+                                    <select name="role_id" id="" class="form-control select2" required>
+                                        <option value="">Role</option>
+                                        @foreach ($the_roles as $role)
+                                            <option value="{{ $role->id }}" {{ ($dataTypeContent->role == $role->id ? 'selected' : '') }}>{{ $role->display_name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             @endcan
                             @php
