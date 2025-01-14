@@ -159,7 +159,17 @@
 
                                                 @elseif(($row->type == 'select_dropdown' || $row->type == 'radio_btn') && property_exists($row->details, 'options'))
 
-                                                    {!! $row->details->options->{$data->{$row->field}} ?? '' !!}
+                                                    @if ( $row->field == 'status' )
+                                                        @if ( $data->status == 1 )
+                                                        <div class="ms-4 badge bg-label-info">Nouvelle commande</div>
+                                                        @elseif ( $data->status == 3 )
+                                                        <div class="ms-4 badge bg-label-success">Confirmé</div>
+                                                        @elseif ( $data->status == 4 )
+                                                        <div class="ms-4 badge bg-label-danger">Annulé</div>
+                                                        @endif
+                                                    @else
+                                                        {!! $row->details->options->{$data->{$row->field}} ?? '' !!}                                                    
+                                                    @endif
 
                                                 @elseif($row->type == 'date' || $row->type == 'timestamp')
                                                     @if ( property_exists($row->details, 'format') && !is_null($data->{$row->field}) )
@@ -251,14 +261,27 @@
                                                     <span>{{ $data->{$row->field} }}</span>
                                                 @endif
                                             </td>
-                                        @endforeach
-                                        <td class="no-sort no-click bread-actions">
-                                            @foreach($actions as $action)
-                                                @if (!method_exists($action, 'massAction'))
-                                                    @include('voyager::bread.partials.actions', ['action' => $action])
-                                                @endif
                                             @endforeach
-                                        </td>
+                                            <td class="no-sort no-click bread-actions">
+                                                @foreach($actions as $action)
+                                                    @if (!method_exists($action, 'massAction'))
+                                                        @include('voyager::bread.partials.orders-actions', ['action' => $action])
+                                                    @endif
+                                                @endforeach
+
+                                                @if ( $data->status != 3 )
+                                                    <a href="javascript:;" title="Confirmer la commande" class="btn btn-sm btn-success confirmOrder pull-right validate waves-effect waves-light" data-id="{{ $data->id }}" id="validate-{{ $data->id }}">
+                                                        <i class="menu-icon ti ti-thumb-up" style=" font-size: 24px; margin-bottom: 2px !important; width: 16px; "></i>
+                                                    </a>
+                                                @endif
+
+                                                @if ( $data->status != 4 )
+                                                <a href="javascript:;" title="Annuler la commande" class="btn btn-sm btn-danger pull-right delete  waves-effect waves-light" data-id="{{ $data->id }}" id="-{{ $data->id }}">
+                                                    <i class="menu-icon ti ti-thumb-down" style=" font-size: 24px; margin-bottom: 2px !important; width: 16px; "></i>
+                                                </a>
+                                                @endif
+                                            </td>
+
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -290,18 +313,34 @@
         </div>
     </div>
 
-    {{-- Single delete modal --}}
+    {{-- Single Cancel modal --}}
     <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style=" border: 3px dotted #ff4c51; border-radius: 17px; ">
                 <div class="modal-header">
-                    <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('voyager::generic.delete_question') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}?</h4>
+                    <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('generic.reject_question') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}?</h4>
                 </div>
                 <div class="modal-footer">
                     <form action="#" id="delete_form" method="POST">
-                        {{ method_field('DELETE') }}
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-danger pull-right delete-confirm text-danger" value="{{ __('voyager::generic.delete_confirm') }}">
+                        <input type="submit" class="btn btn-danger pull-right delete-confirm text-danger" value="{{ __('generic.reject_confirm') }}">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Single Confirm modal --}}
+    <div class="modal modal-danger fade" tabindex="-1" id="confirm_modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style=" border: 3px dotted #28c76f; border-radius: 17px; ">
+                <div class="modal-header">
+                    <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('generic.confirm_question') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}?</h4>
+                </div>
+                <div class="modal-footer">
+                    <form action="#" id="confirm_form" method="POST">
+                        {{ csrf_field() }}
+                        <input type="submit" class="btn btn-success pull-right delete-confirm text-success" value="{{ __('generic.confirm_confirm') }}">
                     </form>
                 </div>
             </div>
@@ -354,8 +393,13 @@
 
         var deleteFormAction;
         $('td').on('click', '.delete', function (e) {
-            $('#delete_form')[0].action = '{{ route('voyager.'.$dataType->slug.'.destroy', '__id') }}'.replace('__id', $(this).data('id'));
+            $('#delete_form')[0].action = '{{ route('orders.reject', '__id') }}'.replace('__id', $(this).data('id'));
             $('#delete_modal').modal('show');
+        });
+
+        $('td').on('click', '.confirmOrder', function (e) {
+            $('#confirm_form')[0].action = '{{ route('orders.confirm', '__id') }}'.replace('__id', $(this).data('id'));
+            $('#confirm_modal').modal('show');
         });
 
         @if($usesSoftDeletes)
@@ -390,4 +434,62 @@
             $('.selected_ids').val(ids);
         });
     </script>
+
+<style>
+    .avatar-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+    .avatar-popup img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .avatar-popup-title {
+        font-size: 16px;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .avatar-popup-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    table td img {
+        cursor: pointer;
+    }
+
+
+</style>
+<script>
+    $(document).ready(function () {
+        var table = $('table#dataTable');
+        table.find('img').on('click', function() {
+            var img = $(this);
+            var src = img.attr('src');
+            var popup = '<div class="avatar-popup"><a href="#" class="avatar-popup-close">&times;</a><img src="' + src + '" ></div>';
+            $('body').append(popup);
+            $('.avatar-popup').fadeIn();
+            $('.avatar-popup-close').on('click', function(e) {
+                e.preventDefault();
+                $('.avatar-popup').fadeOut(function() {
+                    $(this).remove();
+                });
+            });
+        });
+    })
+</script>
+
 @stop

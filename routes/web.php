@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackendController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,9 @@ Route::get('formation/{formation}/access', [FrontendController::class, 'formatio
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    // cancel an order 
+    Route::post('reject_order/{order}', [BackendController::class, 'reject_order'])->name('orders.reject');
+    Route::post('confirm_order/{order}', [BackendController::class, 'confirm_order'])->name('orders.confirm');
+
 });

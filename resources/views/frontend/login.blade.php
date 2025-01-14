@@ -3,7 +3,7 @@
 @section('content')
     
 
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
 
 <!-- <div class="utility-page-wrap section-padding-bottom-130 gray-bg-color">
   <div class="utility-page-content w-password-page w-form">
