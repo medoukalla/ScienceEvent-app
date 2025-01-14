@@ -115,4 +115,5 @@ return [
     'yes'                    => 'Yes',
     'yes_please'             => 'Yes, Please',
     'contains'               => 'contains',
+    'color'                  => 'Color',
 ];

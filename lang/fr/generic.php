@@ -111,4 +111,6 @@ return [
     'whoopsie'               => 'Oups !',
     'yes'                    => 'Oui',
     'yes_please'             => 'Oui SVP',
+    'color'                  => 'Couleur',
+
 ];
