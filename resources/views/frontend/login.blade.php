@@ -31,7 +31,7 @@
       </div>
       @if ($errors->has('email') || $errors->has('password'))
         <div class="w-password-page w-form-fail">
-            <div>{{ __('auth.failed') }}</div>
+            <div>{{ __('voyager::auth.failed') }}</div>
         </div>
       @endif
 
@@ -62,7 +62,7 @@
 
                 @if ($errors->has('email') || $errors->has('password'))
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-                        <p>{{ __('auth.failed') }}</p>
+                        <p>{{ __('voyager::auth.failed') }}</p>
                     </div>
                 @endif
 

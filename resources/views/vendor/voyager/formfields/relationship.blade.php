@@ -17,7 +17,7 @@
                 @if(isset($query))
                     <p>{{ $query->{$options->label} }}</p>
                 @else
-                    <p>{{ __('generic.no_results') }}</p>
+                    <p>{{ __('voyager::generic.no_results') }}</p>
                 @endif
 
             @else
@@ -59,7 +59,7 @@
             @if(isset($query))
                 <p>{{ $query->{$options->label} }}</p>
             @else
-                <p>{{ __('generic.no_results') }}</p>
+                <p>{{ __('voyager::generic.no_results') }}</p>
             @endif
 
         @elseif($options->type == 'hasMany')
@@ -81,13 +81,13 @@
                         if(mb_strlen($string_values) > 25){ $string_values = mb_substr($string_values, 0, 25) . '...'; }
                     @endphp
                     @if(empty($selected_values))
-                        <p>{{ __('generic.no_results') }}</p>
+                        <p>{{ __('voyager::generic.no_results') }}</p>
                     @else
                         <p>{{ $string_values }}</p>
                     @endif
                 @else
                     @if(empty($selected_values))
-                        <p>{{ __('generic.no_results') }}</p>
+                        <p>{{ __('voyager::generic.no_results') }}</p>
                     @else
                         <ul>
                             @foreach($selected_values as $selected_value)
@@ -111,7 +111,7 @@
                         @endforeach
                     </ul>
                 @else
-                    <p>{{ __('generic.no_results') }}</p>
+                    <p>{{ __('voyager::generic.no_results') }}</p>
                 @endif
 
             @endif
@@ -134,13 +134,13 @@
                         if(mb_strlen($string_values) > 25){ $string_values = mb_substr($string_values, 0, 25) . '...'; }
                     @endphp
                     @if(empty($selected_values))
-                        <p>{{ __('generic.no_results') }}</p>
+                        <p>{{ __('voyager::generic.no_results') }}</p>
                     @else
                         <p>{{ $string_values }}</p>
                     @endif
                 @else
                     @if(empty($selected_values))
-                        <p>{{ __('generic.no_results') }}</p>
+                        <p>{{ __('voyager::generic.no_results') }}</p>
                     @else
                         <ul>
                             @foreach($selected_values as $selected_value)

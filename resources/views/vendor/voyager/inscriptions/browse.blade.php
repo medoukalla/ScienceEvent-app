@@ -9,7 +9,7 @@
         </h1>
         @can('add', app($dataType->model_name))
             <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success btn-add-new">
-                <i class="voyager-plus"></i> <span>{{ __('generic.add_new') }}</span>
+                <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
             </a>
         @endcan
         @can('delete', app($dataType->model_name))
@@ -18,13 +18,13 @@
         @can('edit', app($dataType->model_name))
             @if(!empty($dataType->order_column) && !empty($dataType->order_display_column))
                 <a href="{{ route('voyager.'.$dataType->slug.'.order') }}" class="btn btn-primary btn-add-new">
-                    <i class="voyager-list"></i> <span>{{ __('bread.order') }}</span>
+                    <i class="voyager-list"></i> <span>{{ __('voyager::bread.order') }}</span>
                 </a>
             @endif
         @endcan
         @can('delete', app($dataType->model_name))
             @if($usesSoftDeletes)
-                <input type="checkbox" @if ($showSoftDeleted) checked @endif id="show_soft_deletes" data-toggle="toggle" data-on="{{ __('bread.soft_deletes_off') }}" data-off="{{ __('bread.soft_deletes_on') }}">
+                <input type="checkbox" @if ($showSoftDeleted) checked @endif id="show_soft_deletes" data-toggle="toggle" data-on="{{ __('voyager::bread.soft_deletes_off') }}" data-off="{{ __('voyager::bread.soft_deletes_on') }}">
             @endif
         @endcan
         @foreach($actions as $action)
@@ -34,6 +34,14 @@
         @endforeach
         @include('voyager::multilingual.language-selector')
     </div>
+
+<style>
+    .toggle-group label {
+        font-size: 14px;
+        line-height: 9px;
+        margin-top: -8px !important;
+    }
+</style>
 @stop
 
 @section('content')
@@ -55,12 +63,12 @@
                                     </div>
                                     <div class="col-2">
                                         <select id="filter" name="filter">
-                                            <option value="contains" @if($search->filter == "contains") selected @endif>{{ __('generic.contains') }}</option>
+                                            <option value="contains" @if($search->filter == "contains") selected @endif>{{ __('voyager::generic.contains') }}</option>
                                             <option value="equals" @if($search->filter == "equals") selected @endif>=</option>
                                         </select>
                                     </div>
                                     <div class="input-group col-md-12">
-                                        <input type="text" class="form-control" placeholder="{{ __('generic.search') }}" name="s" value="{{ $search->value }}">
+                                        <input type="text" class="form-control" placeholder="{{ __('voyager::generic.search') }}" name="s" value="{{ $search->value }}">
                                         <span class="input-group-btn">
                                             <button class="btn btn-info btn-lg" type="submit">
                                                 <i class="voyager-search"></i>
@@ -101,7 +109,7 @@
                                             @endif
                                         </th>
                                         @endforeach
-                                        <th class="actions text-right dt-not-orderable">{{ __('generic.actions') }}</th>
+                                        <th class="actions text-right dt-not-orderable">{{ __('voyager::generic.actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -153,7 +161,7 @@
                                                                     @endif
                                                                 @endforeach
                                                             @else
-                                                                {{ __('generic.none') }}
+                                                                {{ __('voyager::generic.none') }}
                                                             @endif
                                                         @endif
 
@@ -165,7 +173,7 @@
                                                                     @endif
                                                                 @endforeach
                                                             @else
-                                                                {{ __('generic.none') }}
+                                                                {{ __('voyager::generic.none') }}
                                                             @endif
 
                                                     @elseif(($row->type == 'select_dropdown' || $row->type == 'radio_btn') && property_exists($row->details, 'options'))
@@ -217,7 +225,7 @@
                                                             @endforeach
                                                         @else
                                                             <a href="{{ Storage::disk(config('voyager.storage.disk'))->url($data->{$row->field}) }}" target="_blank">
-                                                                {{ __('generic.download') }}
+                                                                {{ __('voyager::generic.download') }}
                                                             </a>
                                                         @endif
                                                     @elseif($row->type == 'rich_text_box')
@@ -254,7 +262,7 @@
                                                                 </ul>
                                                             @endif
                                                             @if (count($files) > 3)
-                                                                {{ __('media.files_more', ['count' => (count($files) - 3)]) }}
+                                                                {{ __('voyager::media.files_more', ['count' => (count($files) - 3)]) }}
                                                             @endif
                                                         @elseif (is_array($files) && count($files) == 0)
                                                             {{ trans_choice('voyager::media.files', 0) }}
@@ -329,12 +337,12 @@
         <div class="modal-dialog">
             <div class="modal-content" style=" border: 3px dotted #ff4c51; border-radius: 17px; ">
                 <div class="modal-header">
-                    <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('generic.reject_question') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}?</h4>
+                    <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('voyager::generic.reject_question') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}?</h4>
                 </div>
                 <div class="modal-footer">
                     <form action="#" id="delete_form" method="POST">
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-danger pull-right delete-confirm text-danger" value="{{ __('generic.reject_confirm') }}">
+                        <input type="submit" class="btn btn-danger pull-right delete-confirm text-danger" value="{{ __('voyager::generic.reject_confirm') }}">
                     </form>
                 </div>
             </div>
@@ -346,12 +354,12 @@
         <div class="modal-dialog">
             <div class="modal-content" style=" border: 3px dotted #28c76f; border-radius: 17px; ">
                 <div class="modal-header">
-                    <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('generic.confirm_question') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}?</h4>
+                    <h4 class="modal-title"><i class="voyager-trash"></i> {{ __('voyager::generic.confirm_question') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}?</h4>
                 </div>
                 <div class="modal-footer">
                     <form action="#" id="confirm_form" method="POST">
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-success pull-right delete-confirm text-success" value="{{ __('generic.confirm_confirm') }}">
+                        <input type="submit" class="btn btn-success pull-right delete-confirm text-success" value="{{ __('voyager::generic.confirm_confirm') }}">
                     </form>
                 </div>
             </div>

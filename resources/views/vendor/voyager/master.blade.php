@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="{{ config('app.locale') }}" dir="{{ __('generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}"  data-style="light">
+<html lang="{{ config('app.locale') }}" dir="{{ __('voyager::generic.is_rtl') == 'true' ? 'rtl' : 'ltr' }}"  data-style="light">
 
   <head>
     <meta charset="utf-8" />
