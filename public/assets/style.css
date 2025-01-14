@@ -865,6 +865,9 @@ textarea.w-select {
 }
 
 @media screen and (max-width: 991px) {
+  .formation-tab .f-tab {
+    padding: 5px 35px !important;
+  }
   .w-container {
     max-width: 728px;
   }
@@ -1005,6 +1008,9 @@ textarea.w-select {
 }
 
 @media screen and (max-width: 479px) {
+  .formation-tab .f-tab {
+    padding: 5px 14px !important;
+  }
   .w-container {
     max-width: none;
   }
@@ -13857,6 +13863,28 @@ input[type="radio"] {
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 20px;
+}
+
+.add-comment {
+    width: 100%;
+}
+
+.add-comment textarea {
+      width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #0000003b;
+    padding: 10px 20px;
+    outline: none;
+}
+
+.add-comment button {
+    float: right;
+    background: var(--orange-clr);
+    color: white;
+    font-size: 15px;
+    padding: 2px 20px;
+    border-radius: 50px;
 }
 
 
