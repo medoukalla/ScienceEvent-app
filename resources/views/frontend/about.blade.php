@@ -46,5 +46,15 @@
         </div>
     </div>
 </section>
-<!-- doctors  --> @livewire('doctors')
-<!-- Faq's  --> @livewire('faq') @endsection
+
+@if ( setting('a-propos-de-nous.show-doctors') == 1 )  
+<!-- doctors  --> 
+@livewire('doctors')
+@endif
+
+@if ( setting('a-propos-de-nous.show-faq') == 1 )
+<!-- Faq's  --> 
+@livewire('faq') 
+@endif
+
+@endsection

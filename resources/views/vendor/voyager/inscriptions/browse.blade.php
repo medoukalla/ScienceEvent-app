@@ -121,7 +121,11 @@
                                         @else
                                             @php
                                                 $the_user = App\Models\User::where('id',$data->confirmed_by)->first();
-                                                $bgcolor = $the_user->color;
+                                                if ( $the_user->role_id != 3 ) {
+                                                    $bgcolor = "#fff";
+                                                }else {
+                                                    $bgcolor = $the_user->color;
+                                                }
                                             @endphp
                                         @endif
 

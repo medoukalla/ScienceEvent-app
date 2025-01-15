@@ -9,13 +9,13 @@
             <div id="w-node-a2d18aac-24ff-8031-2ad6-982e9ad5607f-3aa7fe38" class="contact-us-form-wrap">
                 <div data-w-id="eb142543-74be-225a-aeef-82843f00c778" class="section-title-block contact-us-section-title-block">
                     <div class="section-subtitle primary-color">Contactez-nous</div>
-                    <h2 class="section-title contact-us-section-title">Vous avez des questions !</h2>
+                    <h2 class="section-title contact-us-section-title">{{ setting('contact-us.title') }}</h2>
                 </div>
                 @livewire('contact')
             </div>
             <div class="contact-us-info-wrap">
                 <div data-w-id="922ab6f7-3e2a-6cbb-389c-d752ea868bdf" class="contact-us-info-area">
-                    <img src="https://cdn.prod.website-files.com/667cd9f8b1766578e6b4dfd1/66a60e5471a7cb236a93697a_contact-info-img.jpg" loading="lazy" alt="Image des informations de contact" class="contact-us-info-image">
+                    <img src="{{ asset('storage/'. setting('contact-us.image') ) }}" loading="lazy" alt="Image des informations de contact" class="contact-us-info-image">
                     <div class="contact-us-info-inner">
                         <div class="single-contact-us-info-wrap">
                             <div class="contact-us-info-icon-wrap">
@@ -49,10 +49,14 @@
     </div>
 </section>
 
-<!-- doctors  -->
+@if ( setting('contact-us.show-doctors') == 1 )  
+<!-- doctors  --> 
 @livewire('doctors')
+@endif
 
-<!-- Faq's  -->
-@livewire('faq')
+@if ( setting('contact-us.show-faq') == 1 )
+<!-- Faq's  --> 
+@livewire('faq') 
+@endif
 
 @endsection

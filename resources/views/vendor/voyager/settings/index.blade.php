@@ -205,6 +205,22 @@
         .voyager .settings .nav-tabs > li > a:hover{
             background-color:#fff !important;
         }
+        label.btn.btn-primary.toggle-on {
+            font-size: 12px !important;
+            padding-top: 0px !important;
+            padding-left: 4px !important;
+        }
+        label.btn.btn-default.active.toggle-off {
+            font-size: 12px !important;
+            padding-top: 0px !important;
+            padding-right: 6px !important;
+        }
+        .col-md-2.no-padding-left-right .select2 {
+            display: none !important;
+        }
+        .panel-actions {
+            display: none;
+        }
     </style>
 @stop
 
