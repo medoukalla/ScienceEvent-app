@@ -39,7 +39,7 @@
                   <div class="nav-menu-link-shape dropdown"></div>
                 </div>
                 @livewire('hero-section')
-                <nav class="nav-dropdown-list w-dropdown-list nav-mobile-list">
+                <!-- <nav class="nav-dropdown-list w-dropdown-list nav-mobile-list">
                   <div class="nav-dropdown-link-wrapper"><a href="/home-pages/home-one"
                   data-w-id="b209fa0f-e639-eccc-0896-595290f492c8"
                   class="nav-dropdown-link-block w-inline-block">
@@ -52,7 +52,7 @@
                   <div class="nav-dropdown-link-text">Anesthésiste reanimateur</div>
                   </a>
                   </div>
-                </nav>
+                </nav> -->
               </div>
             </li>
             <li class="nav-menu-list">

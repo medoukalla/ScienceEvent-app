@@ -21,7 +21,9 @@ class FrontendController extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+        return view('frontend.about',[
+            'categories' => Category::limit(4)->get(),
+        ]);
     }
 
     public function formation_details( Formation $formation )   
