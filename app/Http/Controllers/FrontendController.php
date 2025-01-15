@@ -97,7 +97,9 @@ class FrontendController extends Controller
         return view('frontend.formations',[
             'formations' => $formations,
             'categories' => Category::all(),
-            'doctors' => Doctor::all()
+            'doctors' => Doctor::all(),
+            'selectedCategory' => null,
+
         ]);
     } 
     

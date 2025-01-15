@@ -37,7 +37,7 @@
                         <p>
                             {{ $category->brief  }}
                         </p>
-                        <a href="{{ route('frontend.formations') }}" class="cat-link">
+                        <a href="{{ route('frontend.formations.category', [$category,$category->name]) }}" class="cat-link">
                             Voir les formations
                         </a>
                     </div>

@@ -59,7 +59,8 @@
                         </div>
                     @endforeach
                     <!-- Button more results -->
-                    <a href="{{ route('frontend.formations') }}" class="more-results">
+
+                    <a href="{{ route('frontend.formations.category', [$selectedCategory,$selectedCategory->name]) }}" class="more-results">
                         <div class="more-btn">
                             Voir tous les formations
                         </div>
