@@ -30,9 +30,9 @@ Route::get('login', [FrontendController::class, 'login'])->name('frontend.login'
 
 Route::post('login', [FrontendController::class, 'postLogin'])->name('frontend.postlogin');
 
-Route::get('register', [FrontendController::class, 'register'])->name('frontend.register');
+// Route::get('register', [FrontendController::class, 'register'])->name('frontend.register');
 
-Route::post('register', [FrontendController::class, 'postRegister'])->name('frontend.postregister');
+// Route::post('register', [FrontendController::class, 'postRegister'])->name('frontend.postregister');
 
 Route::get('doctor/{doctor}/{name}', [FrontendController::class, 'doctor'])->name('frontend.doctor');
 

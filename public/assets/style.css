@@ -11590,6 +11590,8 @@ header {
   position: relative;
   width: 45%;
   min-width: 45%;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .nav-y::before {

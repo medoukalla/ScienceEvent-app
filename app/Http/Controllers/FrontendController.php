@@ -76,8 +76,19 @@ class FrontendController extends Controller
 
     public function formations()
     {
+
+        $search = request('search');
+        if ( is_null( $search ) ) {
+            $formations = Formation::all();
+        }else {
+            $formations = Formation::where(function ($query) use ($search) {
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('brief', 'like', '%' . $search . '%');
+            })->get();
+        }
+
         return view('frontend.formations',[
-            'formations' => Formation::all(),
+            'formations' => $formations,
             'categories' => Category::all(),
             'doctors' => Doctor::all()
         ]);
