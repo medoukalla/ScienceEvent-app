@@ -47,6 +47,9 @@ Route::post('profile', [FrontendController::class, 'profile_update'])->name('fro
 Route::get('formation/{formation}/access', [FrontendController::class, 'formation_access'])->name('frontend.formation.access')->middleware('auth');
 
 
+Route::post('/notifications/{id}/mark-as-read', [FrontendController::class, 'markAsRead'])->name('markAsRead');
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 

@@ -239,9 +239,19 @@ class FormationDetails extends Component
         if ( $this->new_user == false ) {
             $user = User::find($this->user->id);
             $user->notify(new WaitingConfirmation($user, $order));
+
+            $admins = User::where('role_id', '!=', 2)->get();
+            foreach ($admins as $admin) {
+                $admin->notify(new WaitingConfirmation($user, $order));
+            }
         }else {
             $user = User::find($this->user->id);
             $user->notify(new WelcomeNewUser($user, $order, $this->password));
+
+            $admins = User::where('role_id', '!=', 2)->get();
+            foreach ($admins as $admin) {
+                $admin->notify(new WaitingConfirmation($user, $order));
+            }
         }
     }   
 }

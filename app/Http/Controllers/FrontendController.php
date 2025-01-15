@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Formation;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Illuminate\Notifications\DatabaseNotification;
 
 class FrontendController extends Controller
 {
@@ -157,5 +158,17 @@ class FrontendController extends Controller
 
         return redirect()->route('frontend.profile')->with('success', 'Mis jour avec succès.');
         
+    }
+
+
+    public function markAsRead(Request $request, $id)
+    {
+        $notification = DatabaseNotification::find($id);
+
+        if ($notification && $notification->notifiable_id === auth()->id()) { // Check if notification belongs to the current user
+            $notification->markAsRead();
+        }
+
+        return redirect()->back(); // Or redirect to a specific route
     }
 }
