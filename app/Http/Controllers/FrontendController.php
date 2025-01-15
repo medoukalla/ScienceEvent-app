@@ -26,6 +26,13 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function aide()
+    {
+        return view('frontend.aide',[
+            'categories' => Category::limit(4)->get(),
+        ]);
+    }
+
     public function formation_details( Formation $formation )   
     {
         return view('frontend.formation-details', compact('formation'));
@@ -92,7 +99,17 @@ class FrontendController extends Controller
             'categories' => Category::all(),
             'doctors' => Doctor::all()
         ]);
-    }   
+    } 
+    
+    public function formations_category( Category $category )
+    {
+        return view('frontend.formations',[
+            'formations' => Formation::all(),
+            'categories' => Category::all(),
+            'doctors' => Doctor::all(),
+            'selectedCategory' => $category->id,
+        ]);
+    } 
 
 
     public function doctor(Doctor $doctor, $name) {

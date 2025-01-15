@@ -24,7 +24,11 @@ Route::get('contact', [FrontendController::class, 'contact'])->name('frontend.co
 
 Route::get('formations', [FrontendController::class, 'formations'])->name('frontend.formations');
 
+Route::get('formations/{category}/{slug}', [FrontendController::class, 'formations_category'])->name('frontend.formations.category');
+
 Route::get('about', [FrontendController::class, 'about'])->name('frontend.about');
+
+Route::get('aide', [FrontendController::class, 'aide'])->name('frontend.aide');
 
 Route::get('login', [FrontendController::class, 'login'])->name('frontend.login');  
 

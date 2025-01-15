@@ -96,18 +96,18 @@
                 <div class="footer-widget footer-widget-ml-one">
                     <h3 class="footer-title">Formations santé</h3>
                     <div class="footer-list-wrap">
-                    <div class="footer-list-item"><a href="#" class="footer-list">Nephrologue</a></div>
-                    <div class="footer-list-item"><a href="#" class="footer-list">Esthetique</a></div>
-                    <div class="footer-list-item"><a href="#" class="footer-list">Urologue</a></div>
-                    <div class="footer-list-item mb-zero"><a href="#" class="footer-list">Interniste</a></div>
-                    <div class="footer-list-item mb-zero"><a href="#" class="footer-list">Généraliste</a></div>
-                    <div class="footer-list-item mb-zero"><a href="#" class="footer-list">Pediatre</a></div>
+                        @php
+                            $categories = \App\Category::latest()->take(5)->get();
+                        @endphp
+                        @foreach ($categories as $category)
+                            <div class="footer-list-item"><a href="{{ route('frontend.formations.category', [$category,$category->name]) }}">{{ $category->name }}</a></div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="footer-widget footer-widget-ml-two">
                     <h3 class="footer-title">À propos</h3>
                     <div class="footer-list-wrap">
-                    <div class="footer-list-item"><a href="#" class="footer-list">Besoin d’aide ?</a></div>
+                    <div class="footer-list-item"><a href="{{ route('frontend.aide') }}" class="footer-list">Besoin d’aide ?</a></div>
                     <div class="footer-list-item"><a href="{{ route('frontend.contact') }}" class="footer-list">Nous contacter</a></div>
                     </div>
                 </div>
