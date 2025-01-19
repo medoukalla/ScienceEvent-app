@@ -27,7 +27,7 @@
             <li class="nav-menu-list">
               <div data-delay="500" data-hover="false" data-w-id="b209fa0f-e639-eccc-0896-595290f492c0"
                 class="nav-dropdown w-dropdown">
-                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                <div class="nav-dropdown-toggle hover w-dropdown-toggle">
                   <div>Formations</div>
                   <div class="nav-dropdown-icon w-embed">
                     <svg viewBox="0 0 14 9" fill="none"

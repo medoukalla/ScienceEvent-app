@@ -2249,6 +2249,9 @@ textarea.w-select {
 }
 
 @media screen and (max-width: 767px) {
+  .search-bar {
+    display: none !important;
+  }
   .w-layout-blockcontainer {
     max-width: none;
   }
@@ -6048,6 +6051,10 @@ blockquote {
   color: var(--orange-clr);
 }
 
+.nav-dropdown-toggle.hover {
+  color: var(--orange-clr);
+}
+
 .nav-menu-link:focus-visible {
   color: #ff7659;
 }
@@ -8721,6 +8728,16 @@ blockquote {
 }
 
 @media screen and (max-width: 991px) {
+  .f-header-image {
+    width: 100% !important;
+    height: 399px !important;
+  }
+  .f-header-content {
+    width: 100% !important;
+  }
+  .formation-header-wrapper {
+    flex-direction: column;
+  }
   .access-formations-details {
   flex-direction: column !important;
 }
@@ -9199,7 +9216,7 @@ blockquote {
     color: #fff;
     background-color: #040306;
     border-radius: 5px;
-    padding: 12px;
+    padding: 7px;
     display: flex !important;
     flex-direction: column;
     align-items: flex-end;
@@ -9207,8 +9224,8 @@ blockquote {
   }
 
   .menu-button span {
-    width: 47px;
-    height: 5px;
+    width: 33px;
+    height: 3px;
     background-color: var(--gray-bg-color);
     border-radius: 50px;
   }
