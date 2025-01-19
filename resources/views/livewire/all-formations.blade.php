@@ -62,22 +62,27 @@
                     <div role="list" class="collection-grid-classes w-dyn-items">
 
                         @php
-                            if ( $selectedCategory || $selectedDoctor || $selectedType ) {
-                                $formations = $formations->filter(function($formation) use ($selectedCategory, $selectedDoctor, $selectedType) {
+                            if ($selectedCategory || $selectedDoctor || $selectedType) {
+                                $formations = $formations->filter(function ($formation) use ($selectedCategory, $selectedDoctor, $selectedType) {
                                     $result = true;
-                                    if ( $selectedCategory ) {
-                                        $result = $result && $formation->category_id == $selectedCategory;
-                                    }
-                                    if ( $selectedDoctor ) {
+
+                                    if ($selectedDoctor) {
                                         $result = $result && $formation->doctor_id == $selectedDoctor;
                                     }
-                                    if ( $selectedType ) {
+
+                                    if ($selectedType) {
                                         $result = $result && $formation->type == $selectedType;
                                     }
+
+                                    if ($selectedCategory) {
+                                        // Check if the formation has the selected category
+                                        $hasCategory = $formation->categories->contains('id', $selectedCategory);
+                                        $result = $result && $hasCategory;
+                                    }
+
                                     return $result;
                                 });
                             }
-                            
                         @endphp
                         @foreach ( $formations as $formation )
                             <div role="listitem" class="collection-grid-item-classes w-dyn-item">
@@ -99,7 +104,9 @@
                                             @endif
                                         </div>
                                         <div class="cat-tagge">
-                                            {{ $formation->category->name }}
+                                            @foreach ($formation->categories as $category)
+                                                <span class="category-tag">{{ $category->name }}</span> @if (!$loop->last), @endif
+                                            @endforeach
                                         </div>
                                         <div class="i-title">
                                             {{ $formation->title }}

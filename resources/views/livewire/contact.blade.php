@@ -1,28 +1,43 @@
-<div>
-    <h2 class="text-2xl font-bold text-gray-800 mb-6">
-        Contactez-nous
-    </h2>
-    <form class="space-y-4">
-        <div>
-            <label for="nom" class="block text-sm font-medium text-gray-700">
-                Nom
-            </label>
-            <input type="text" id="nom" name="nom" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Votre nom">
+<div class="contact-us-form-block w-form">
+
+    @if($success)
+        <div class="w-form-done" tabindex="-1" role="region" style="display:block;border-radius: 30px;padding-left: 15px;">
+            <div>Merci ! Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</div>
+        </div><br>
+    @endif
+
+    @if($error)
+        <div class="w-form-fail" tabindex="-1" role="region" style="display:block;border-radius: 30px;padding-left: 15px;">
+            <div>{{ $error }}</div>
+        </div><br>
+    @endif
+
+    <form id="email-form" name="email-form" class="contact-us-form">
+        <div class="contact-us-form-column">
+            <input class="form-input-field w-input" maxlength="256" name="name" placeholder="Prénom" type="text" id="name-2" wire:model.defer="prenom">
         </div>
-        <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">
-                Email
-            </label>
-            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Votre email">
+        <div class="contact-us-form-column">
+            <input class="form-input-field w-input" maxlength="256" name="last_name" placeholder="Nom de famille" type="text" id="name-3" wire:model.defer="last_name">
         </div>
-        <div>
-            <label for="message" class="block text-sm font-medium text-gray-700">
-                Message
-            </label>
-            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Votre message"></textarea>
+        <div class="contact-us-form-column">
+            <input class="form-input-field w-input" maxlength="256" name="email" placeholder="Adresse e-mail" type="email" id="email-2" wire:model.defer="email" required>
         </div>
-        <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-            Envoyer
-        </button>
+        <div class="contact-us-form-column">
+            <input class="form-input-field w-input" maxlength="256" name="phone" placeholder="Téléphone" type="tel" id="field-4" wire:model.defer="phone" required>
+        </div>
     </form>
+    
+    <div class="contact-us-form-column">
+        <input class="form-input-field w-input" maxlength="256" name="subject" placeholder="Sujet" type="text" id="field-2" wire:model.defer="subject" required style="margin: 15px 0px;">
+    </div>
+    <div class="contact-us-form-column">
+        <textarea required placeholder="Envoyez-nous votre message et nous vous contacterons dès que possible" maxlength="5000" id="field-3" name="message" class="form-input-field textarea w-input" wire:model.defer="message"></textarea>
+    </div>
+    <div class="contact-us-form-column" style="display:none;">
+        <input type="text" wire:model="bot_field" />
+    </div>
+
+    <div wire:click="handleSubmit" class="primary-btn" style="margin-top: 15px; cursor: pointer">Envoyer</div>
+
 </div>
+    

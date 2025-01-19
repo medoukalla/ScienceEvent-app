@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Formation;
 use Illuminate\Support\Facades\Validator;
 use Auth;
+use Illuminate\Notifications\DatabaseNotification;
 
 class FrontendController extends Controller
 {
@@ -21,7 +22,16 @@ class FrontendController extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+        return view('frontend.about',[
+            'categories' => Category::limit(4)->get(),
+        ]);
+    }
+
+    public function aide()
+    {
+        return view('frontend.aide',[
+            'categories' => Category::limit(4)->get(),
+        ]);
     }
 
     public function formation_details( Formation $formation )   
@@ -74,12 +84,35 @@ class FrontendController extends Controller
 
     public function formations()
     {
+
+        $search = request('search');
+        if ( is_null( $search ) ) {
+            $formations = Formation::all();
+        }else {
+            $formations = Formation::where(function ($query) use ($search) {
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('brief', 'like', '%' . $search . '%');
+            })->get();
+        }
+
+        return view('frontend.formations',[
+            'formations' => $formations,
+            'categories' => Category::all(),
+            'doctors' => Doctor::all(),
+            'selectedCategory' => null,
+
+        ]);
+    } 
+    
+    public function formations_category( Category $category )
+    {
         return view('frontend.formations',[
             'formations' => Formation::all(),
             'categories' => Category::all(),
-            'doctors' => Doctor::all()
+            'doctors' => Doctor::all(),
+            'selectedCategory' => $category->id,
         ]);
-    }   
+    } 
 
 
     public function doctor(Doctor $doctor, $name) {
@@ -125,5 +158,17 @@ class FrontendController extends Controller
 
         return redirect()->route('frontend.profile')->with('success', 'Mis jour avec succès.');
         
+    }
+
+
+    public function markAsRead(Request $request, $id)
+    {
+        $notification = DatabaseNotification::find($id);
+
+        if ($notification && $notification->notifiable_id === auth()->id()) { // Check if notification belongs to the current user
+            $notification->markAsRead();
+        }
+
+        return redirect()->back(); // Or redirect to a specific route
     }
 }

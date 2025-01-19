@@ -30,7 +30,11 @@ return [
     'default'                => 'Par défaut',
     'delete'                 => 'Supprimer',
     'delete_confirm'         => 'Oui, supprimer !',
+    'confirm_confirm'        => 'Oui, confirmez-le !',
+    'reject_confirm'         => 'Oui, annulez-le !',
     'delete_question'        => 'Êtes-vous sûr de vouloir supprimer',
+    'confirm_question'       => 'Etes-vous sûr de vouloir confirmer',
+    'reject_question'        => 'Etes-vous sûr de vouloir annuler',
     'delete_this_confirm'    => 'Oui, le supprimer',
     'descending'             => 'Descendant',
     'deselect_all'           => 'Tout désélectionner',
@@ -107,4 +111,6 @@ return [
     'whoopsie'               => 'Oups !',
     'yes'                    => 'Oui',
     'yes_please'             => 'Oui SVP',
+    'color'                  => 'Couleur',
+
 ];

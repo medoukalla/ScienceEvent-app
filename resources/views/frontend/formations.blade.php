@@ -11,7 +11,7 @@
     </div>
 </div>
 
-@livewire('all-formations', ['formations' => $formations, 'categories' => $categories, 'doctors' => $doctors])
+@livewire('all-formations', ['formations' => $formations, 'categories' => $categories, 'doctors' => $doctors, 'selectedCategory' => $selectedCategory])
 
 
 

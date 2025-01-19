@@ -1,54 +1,62 @@
 @extends('template')
 
 @section('content')
-<script src="https://cdn.tailwindcss.com"></script>
 
-<div class="min-h-screen flex items-center justify-center bg-gray-50">
-    <div class="container mx-auto px-6 lg:px-20 py-12 bg-white shadow-lg rounded-lg">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <!-- Colonne de gauche : Coordonnées -->
-            <div class="space-y-6">
-                <h2 class="text-2xl font-bold text-gray-800">
-                    Entrer en contact
-                </h2>
-                <p class="text-gray-600">
-                    Nous serions ravis de vous entendre ! Contactez-nous via le formulaire ou les détails ci-dessous.
-                </p>
-                
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        📍 Adresse :
-                    </h3>
-                    <p class="text-gray-600">
-                        {{ setting('site.adresse') }}
-                    </p>
+
+<section class="contact-us-form-section gray-bg-color section-padding-top-125 section-padding-bottom-130">
+    <div class="w-layout-blockcontainer container w-container">
+        <div class="contact-us-form-area">
+            <div id="w-node-a2d18aac-24ff-8031-2ad6-982e9ad5607f-3aa7fe38" class="contact-us-form-wrap">
+                <div data-w-id="eb142543-74be-225a-aeef-82843f00c778" class="section-title-block contact-us-section-title-block">
+                    <div class="section-subtitle primary-color">Contactez-nous</div>
+                    <h2 class="section-title contact-us-section-title">{{ setting('contact-us.title') }}</h2>
                 </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        ☎️ Téléphone :
-                    </h3>
-                    <p class="text-gray-600">
-                        {{ setting('site.phone') }}
-                    </p>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        ✉️ Email :
-                    </h3>
-                    <p class="text-gray-600">
-                        {{ setting('site.email') }}
-                    </p>
+                @livewire('contact')
+            </div>
+            <div class="contact-us-info-wrap">
+                <div data-w-id="922ab6f7-3e2a-6cbb-389c-d752ea868bdf" class="contact-us-info-area">
+                    <img src="{{ asset('storage/'. setting('contact-us.image') ) }}" loading="lazy" alt="Image des informations de contact" class="contact-us-info-image">
+                    <div class="contact-us-info-inner">
+                        <div class="single-contact-us-info-wrap">
+                            <div class="contact-us-info-icon-wrap">
+                                <div class="contact-us-info-icon w-embed">
+                                    <i class="menu-icon ti ti-phone"></i>
+                                </div>
+                            </div>
+                            <p class="contact-us-info-content">{{ setting('site.phone') }}</p>
+                        </div>
+                        <div class="single-contact-us-info-wrap">
+                            <div class="contact-us-info-icon-wrap">
+                                <div class="contact-us-info-icon mail w-embed">
+                                    <i class="menu-icon ti ti-mail"></i>
+                                </div>
+                            </div>
+                            <p class="contact-us-info-content">{{ setting('site.email') }}</p>
+                        </div>
+                        <div class="single-contact-us-info-wrap mb-zero">
+                            <div class="contact-us-info-icon-wrap">
+                                <div class="contact-us-info-icon location w-embed">
+                                    <i class="menu-icon ti ti-map-pin"></i>
+                                </div>
+                            </div>
+                            <p class="contact-us-info-content">{{ setting('site.adresse') }}</p>
+                        </div>
+                    </div>
+                    <div class="on-scroll-overlay"></div>
                 </div>
             </div>
-            
-            <!-- Colonne de droite : Formulaire de contact -->
-            @livewire('contact')
         </div>
     </div>
-</div>
+</section>
 
+@if ( setting('contact-us.show-doctors') == 1 )  
+<!-- doctors  --> 
+@livewire('doctors')
+@endif
+
+@if ( setting('contact-us.show-faq') == 1 )
+<!-- Faq's  --> 
+@livewire('faq') 
+@endif
 
 @endsection

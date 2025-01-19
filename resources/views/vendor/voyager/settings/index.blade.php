@@ -205,6 +205,22 @@
         .voyager .settings .nav-tabs > li > a:hover{
             background-color:#fff !important;
         }
+        label.btn.btn-primary.toggle-on {
+            font-size: 12px !important;
+            padding-top: 0px !important;
+            padding-left: 4px !important;
+        }
+        label.btn.btn-default.active.toggle-off {
+            font-size: 12px !important;
+            padding-top: 0px !important;
+            padding-right: 6px !important;
+        }
+        .col-md-2.no-padding-left-right .select2 {
+            display: none !important;
+        }
+        .panel-actions {
+            display: none;
+        }
     </style>
 @stop
 
@@ -272,7 +288,26 @@
                                     @elseif($setting->type == "text_area")
                                         <textarea class="form-control" name="{{ $setting->key }}">{{ $setting->value ?? '' }}</textarea>
                                     @elseif($setting->type == "rich_text_box")
-                                        <textarea class="form-control richTextBox" name="{{ $setting->key }}">{{ $setting->value ?? '' }}</textarea>
+                                        <textarea class="form-control richTextBox" name="{{ $setting->key }}" id="richtextv2{{ $setting->id }}">{{ $setting->value ?? '' }}</textarea>
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                // Debugging: Verify if TinyMCE is loading
+                                                console.log('TinyMCE loaded:', typeof tinymce !== 'undefined');
+
+                                                tinymce.init({
+                                                    selector: '#richtextv2{{ $setting->id }}', // Ensure this matches your textarea ID
+                                                    menubar: false, // Disable the menubar for simplicity
+                                                    plugins: 'link image lists code', // Add commonly used plugins
+                                                    toolbar: 'undo redo | styleselect | bold italic underline strikethrough | alignleft aligncenter alignright | link image | numlist bullist | outdent indent | blockquote | table | emoticons | forecolor backcolor', // Expanded toolbar
+                                                    branding: false, // Disable TinyMCE branding
+                                                    height: 300, // Editor height
+                                                    setup: function (editor) {
+                                                        console.log('TinyMCE initialized:', editor.id);
+                                                    },
+                                                    content_style: 'body { font-family:Arial,Helvetica,sans-serif; font-size:14px }', // Styling inside the editor
+                                                });
+                                            });
+                                        </script>
                                     @elseif($setting->type == "markdown_editor")
                                         <textarea class="form-control easymde" name="{{ $setting->key }}">{{ $setting->value ?? '' }}</textarea>
                                     @elseif($setting->type == "code_editor")

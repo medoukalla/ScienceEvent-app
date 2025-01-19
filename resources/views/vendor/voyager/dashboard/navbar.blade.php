@@ -131,9 +131,38 @@
           </li>
           <li class="dropdown-notifications-list scrollable-container">
             <ul class="list-group list-group-flush">
+
+            @foreach (auth()->user()->unreadNotifications as $notification)
+                @if ($notification->type === App\Notifications\WaitingConfirmation::class)
+                    
+                    <!-- New order is coming  -->
+                    <li class="list-group-item list-group-item-action dropdown-notifications-item">
+                      <div class="d-flex">
+                        <div class="flex-shrink-0 me-3">
+                          <div class="avatar">
+                            <span class="avatar-initial rounded-circle bg-label-success"><i class="ti ti-shopping-cart"></i></span>
+                          </div>
+                        </div>
+                        <div class="flex-grow-1">
+                          <a href="{{ $notification->data['link'] }}">
+                          <h6 class="mb-1 small">{{ $notification->data['message'] }} 🛒 </h6>
+                          <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
+                          </a>
+                        </div>
+                        <div class="flex-shrink-0 dropdown-notifications-actions">
+                          <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
+                          <form method="POST" action="{{ route('markAsRead', $notification->id) }}">
+                              @csrf
+                              <button type="submit" style="background-color: transparent;border: none;outline: none;"><span class="ti ti-x"></span></button>
+                          </form>
+                        </div>
+                      </div>
+                    </li>
+                @endif
+            @endforeach
               
               <!-- New message from contact page  -->
-              <li class="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
+              <!-- <li class="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar">
@@ -150,27 +179,9 @@
                     <a href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
                   </div>
                 </div>
-              </li>
+              </li> -->
 
-              <!-- New order is coming  -->
-              <li class="list-group-item list-group-item-action dropdown-notifications-item">
-                <div class="d-flex">
-                  <div class="flex-shrink-0 me-3">
-                    <div class="avatar">
-                      <span class="avatar-initial rounded-circle bg-label-success"><i class="ti ti-shopping-cart"></i></span>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1">
-                    <h6 class="mb-1 small">Whoo! You have new order 🛒 </h6>
-                    <small class="mb-1 d-block text-body">ACME Inc. made new order $1,154</small>
-                    <small class="text-muted">1 day ago</small>
-                  </div>
-                  <div class="flex-shrink-0 dropdown-notifications-actions">
-                    <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
-                    <a href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
-                  </div>
-                </div>
-              </li>
+              
               
             </ul>
           </li>

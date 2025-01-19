@@ -77,4 +77,8 @@ class Formation extends Model
     {
         return $this->hasMany(Comment::class, 'formation_id');
     }
+
+    public function categories() {
+        return $this->belongsToMany(Category::class, 'category_formation'); // 'category_formation' is the pivot table name
+    }
 }

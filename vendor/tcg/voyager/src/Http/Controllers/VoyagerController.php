@@ -2,6 +2,9 @@
 
 namespace TCG\Voyager\Http\Controllers;
 
+use App\Formation;
+use App\Models\User;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -15,7 +18,47 @@ class VoyagerController extends Controller
 {
     public function index()
     {
-        return Voyager::view('voyager::index');
+
+        // check if logged in user is a client redirect back to profile
+        if (Auth::user()->role_id == 3) {
+            return redirect()->route('frontend.profile');
+        }
+
+        $formations = Formation::all();
+        $formationId = request('formation_id');
+        $dateRange = explode(' - ', request('date_range', ''));
+
+        $startDate = $dateRange[0] ?? null;
+        $endDate = $dateRange[1] ?? null;
+
+        $users = User::where('role_id', 3)->get(['id', 'name', 'color']);
+
+        $data = $users->map(function ($user) use ($formationId, $startDate, $endDate) {
+            return [
+                'name' => $user->name,
+                'color' => $user->color,
+                'order_count' => Order::where('confirmed_by', $user->id)
+                    ->where('status', 3)
+                    ->when($formationId, function ($query) use ($formationId) {
+                        $query->where('formation_id', $formationId);
+                    })
+                    ->when($startDate && $endDate, function ($query) use ($startDate, $endDate) {
+                        $query->whereBetween('created_at', [$startDate, $endDate]);
+                    })
+                    ->count(),
+            ];
+        });
+
+        $maxOrders = Order::where('status', 3)
+            ->when($formationId, function ($query) use ($formationId) {
+                $query->where('formation_id', $formationId);
+            })
+            ->when($startDate && $endDate, function ($query) use ($startDate, $endDate) {
+                $query->whereBetween('created_at', [$startDate, $endDate]);
+            })
+            ->count();
+
+        return Voyager::view('voyager::index', compact('data', 'maxOrders', 'formations', 'formationId', 'startDate', 'endDate'));
     }
 
     public function logout()

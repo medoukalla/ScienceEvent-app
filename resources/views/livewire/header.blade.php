@@ -14,7 +14,7 @@
                   src="{{ asset('storage/'.setting('site.logo')) }}"
                   alt="Brand Logo" class="brand-logo" />
               </a>
-              <div class="close-btn">
+              <div class="close-btn menu-button w-nav-button">
                 <img src="{{ asset('assets/svg/close.svg') }}" alt="">
               </div>
             </li>
@@ -24,7 +24,7 @@
                 <div class="nav-menu-link-shape"></div>
               </div>
             </li>
-            <li class="nav-menu-list">
+            <li class="nav-menu-list largeMenu">
               <div data-delay="500" data-hover="false" data-w-id="b209fa0f-e639-eccc-0896-595290f492c0"
                 class="nav-dropdown w-dropdown">
                 <div class="nav-dropdown-toggle hover w-dropdown-toggle">
@@ -38,24 +38,32 @@
                   </div>
                   <div class="nav-menu-link-shape dropdown"></div>
                 </div>
-                @livewire('hero-section')
-                <nav class="nav-dropdown-list w-dropdown-list nav-mobile-list">
-                  <div class="nav-dropdown-link-wrapper"><a href="/home-pages/home-one"
-                  data-w-id="b209fa0f-e639-eccc-0896-595290f492c8"
-                  class="nav-dropdown-link-block w-inline-block">
-                  <div class="nav-dropdown-shape"></div>
-                  <div class="nav-dropdown-link-text">Allergologue</div>
-                  </a><a href="/home-pages/home-two"
-                  data-w-id="b209fa0f-e639-eccc-0896-595290f492cc" aria-current="page"
-                  class="nav-dropdown-link-block w-inline-block w--current">
-                  <div class="nav-dropdown-shape"></div>
-                  <div class="nav-dropdown-link-text">Anesthésiste reanimateur</div>
-                  </a>
-                  </div>
-                </nav>
+                
+                  @livewire('hero-section')
+
               </div>
             </li>
-            <li class="nav-menu-list">
+            <li class="nav-menu-list smallMenu">
+              <div data-delay="500" data-hover="false" data-w-id="b209fa0f-e639-eccc-0896-595290f492c0"
+                class="nav-dropdown w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                  <div>Formations</div>
+                  <div class="nav-dropdown-icon w-embed">
+                    <svg viewBox="0 0 14 9" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13 1.50005C13 1.50005 8.5811 7.5 7 7.5C5.4188 7.5 1 1.5 1 1.5" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <div class="nav-menu-link-shape dropdown"></div>
+                </div>
+                
+
+                  @livewire('mobile-formations-menu')
+
+              </div>
+            </li>
+            <li class="nav-menu-list thirdListMobile" >
               <div class="nav-menu-link-wrapper">
                 <a href="{{ route('frontend.about') }}" class="nav-menu-link">Apropos de nous</a>
                 <div class="nav-menu-link-shape"></div>

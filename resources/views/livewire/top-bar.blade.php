@@ -7,10 +7,21 @@
             </a>
             <div class="top-bar-right">
                 <div class="search-bar">
-                    <input type="text" placeholder="Chercher votre future formation" wire:model="show_phone">
-                    <div class="search-icon-block">
-                        <img class="search-icon" src="{{ asset('assets/svg/search.svg') }}"  alt="Search Icon">
-                    </div>
+                    <form action="{{ route('frontend.formations') }}" method="get" id="searchForm">
+                        <input type="text" placeholder="Chercher votre future formation" name="search" required id="searchInput" value="{{ request('search') }}" >
+                        <div class="search-icon-block">
+                            <img role="button" onclick="
+                                const form = document.getElementById('searchForm');
+                                const input = document.getElementById('searchInput');
+                                if (input.checkValidity()) {
+                                    form.submit();
+                                } else {
+                                    input.reportValidity(); // Show validation message
+                                }
+                            " class="search-icon" src="{{ asset('assets/svg/search.svg') }}" alt="Search Icon">
+                        </div>
+                    </form>
+                        
                 </div>
                 <a href="javascript:;" wire:click="togglePhone" >
                     <div class="call-btn">

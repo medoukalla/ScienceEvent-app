@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 14, 2025 at 09:25 AM
+-- Generation Time: Jan 15, 2025 at 12:54 PM
 -- Server version: 10.11.10-MariaDB
 -- PHP Version: 7.2.34
 
@@ -147,7 +147,10 @@ INSERT INTO `comments` (`id`, `user_id`, `formation_id`, `parent_id`, `content`,
 (8, 8, 1, NULL, 'New comment from user 2', '2024-12-25 20:36:45', '2024-12-25 20:36:45'),
 (9, 1, 1, 6, 'test', '2024-12-25 20:46:39', '2024-12-25 20:46:39'),
 (10, 1, 1, NULL, 'hola homa', '2024-12-25 20:46:53', '2024-12-25 20:46:53'),
-(11, 1, 1, 10, 'bien , question', '2024-12-25 20:50:21', '2024-12-25 20:50:21');
+(11, 1, 1, 10, 'bien , question', '2024-12-25 20:50:21', '2024-12-25 20:50:21'),
+(12, 1, 6, NULL, 'test', '2025-01-14 13:55:33', '2025-01-14 13:55:33'),
+(13, 1, 6, NULL, 'test', '2025-01-14 13:55:38', '2025-01-14 13:55:38'),
+(14, 1, 6, 12, 'test', '2025-01-14 13:56:05', '2025-01-14 13:56:05');
 
 -- --------------------------------------------------------
 
@@ -185,7 +188,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (7, 1, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
 (8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, '{}', 2),
 (9, 1, 'user_belongsto_role_relationship', 'relationship', 'Role', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11),
-(10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 12),
+(10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 0, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 12),
 (11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, '{}', 13),
 (12, 2, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
 (13, 2, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 2),
@@ -220,7 +223,7 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (42, 6, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (52, 6, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 14),
 (53, 6, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 15),
-(62, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 1, 1, 1, 1, 1, '{}', 8),
+(62, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 0, 1, 1, 1, 1, '{}', 8),
 (63, 9, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (64, 9, 'name', 'text', 'Nom de la catégorie', 0, 1, 1, 1, 1, 1, '{}', 2),
 (65, 9, 'brief', 'text_area', 'Description', 0, 1, 1, 1, 1, 1, '{}', 3),
@@ -305,8 +308,18 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (160, 6, 'order_belongsto_user_relationship', 'relationship', 'Client', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 5),
 (161, 6, 'labo_name', 'text', 'Laboratoire', 0, 1, 1, 1, 1, 1, '{}', 12),
 (162, 5, 'date_details', 'text', 'Date de la formation', 0, 1, 1, 1, 1, 1, '{\"placeholder\":\"1-2-3\\/01\\/2025\"}', 8),
-(163, 1, 'color', 'color', 'Color', 0, 0, 1, 1, 1, 1, '{}', 12),
-(164, 6, 'order_belongsto_user_relationship_1', 'relationship', 'Confirmé par', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"confirmed_by\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4);
+(163, 1, 'color', 'color', 'Color', 0, 1, 1, 1, 1, 1, '{}', 12),
+(164, 6, 'order_belongsto_user_relationship_1', 'relationship', 'Confirmé par', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"confirmed_by\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"categories\",\"pivot\":\"0\",\"taggable\":\"0\"}', 4),
+(165, 17, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(166, 17, 'name', 'text', 'Prenom', 0, 1, 1, 1, 1, 1, '{}', 2),
+(167, 17, 'last_name', 'text', 'Nom', 0, 1, 1, 1, 1, 1, '{}', 3),
+(168, 17, 'email', 'text', 'E-mail', 0, 1, 1, 1, 1, 1, '{}', 4),
+(169, 17, 'phone', 'text', 'Téléphone', 0, 1, 1, 1, 1, 1, '{}', 5),
+(170, 17, 'subject', 'text', 'Sujet', 0, 1, 1, 1, 1, 1, '{}', 6),
+(171, 17, 'message', 'text_area', 'Message', 0, 0, 1, 1, 1, 1, '{}', 7),
+(172, 17, 'created_at', 'timestamp', 'Reçu à', 0, 1, 1, 1, 0, 1, '{}', 8),
+(173, 17, 'updated_at', 'timestamp', 'Mis à jour à', 0, 0, 0, 0, 0, 0, '{}', 9),
+(174, 17, 'deleted_at', 'timestamp', 'Supprimé à', 0, 0, 0, 0, 0, 1, '{}', 10);
 
 -- --------------------------------------------------------
 
@@ -337,7 +350,7 @@ CREATE TABLE `data_types` (
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2024-11-21 18:54:11', '2025-01-14 09:21:09'),
+(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2024-11-21 18:54:11', '2025-01-14 10:05:24'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2024-11-21 18:54:11', '2024-11-21 18:54:11'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2024-11-21 18:54:11', '2024-11-21 18:54:11'),
 (4, 'doctors', 'doctors', 'Doctor', 'Doctors', NULL, 'App\\Doctor', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2024-11-22 12:41:57', '2025-01-12 15:07:02'),
@@ -349,7 +362,8 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (13, 'extraits', 'extraits', 'Extrait', 'Extraits', NULL, 'App\\Extrait', NULL, NULL, NULL, 1, 0, '{\"scope\":null}', '2024-12-15 04:46:18', '2024-12-15 05:54:24'),
 (14, 'resources', 'resources', 'Resource', 'Resources', NULL, 'App\\Resource', NULL, NULL, NULL, 1, 1, '{\"scope\":null}', '2024-12-24 18:49:06', '2024-12-24 18:54:26'),
 (15, 'comments', 'comments', 'Comment', 'Comments', NULL, 'App\\Comment', NULL, NULL, NULL, 1, 1, '{\"scope\":null}', '2024-12-25 15:36:59', '2024-12-25 16:03:58'),
-(16, 'likes', 'likes', 'Like', 'Likes', NULL, 'App\\Like', NULL, NULL, NULL, 1, 0, '{\"scope\":null}', '2024-12-25 16:48:02', '2024-12-25 17:13:07');
+(16, 'likes', 'likes', 'Like', 'Likes', NULL, 'App\\Like', NULL, NULL, NULL, 1, 0, '{\"scope\":null}', '2024-12-25 16:48:02', '2024-12-25 17:13:07'),
+(17, 'messages', 'messages', 'Message', 'Messages', NULL, 'App\\Message', NULL, NULL, NULL, 1, 0, NULL, '2025-01-14 22:42:33', '2025-01-14 22:42:33');
 
 -- --------------------------------------------------------
 
@@ -553,7 +567,8 @@ INSERT INTO `likes` (`id`, `user_id`, `formation_id`, `comment_id`, `created_at`
 (16, 1, 1, 6, '2024-12-25 20:46:26', '2024-12-25 20:46:26'),
 (17, 1, 1, 7, '2024-12-25 20:46:35', '2024-12-25 20:46:35'),
 (26, 1, 1, 8, '2024-12-25 21:12:37', '2024-12-25 21:12:37'),
-(29, 1, 1, 10, '2024-12-25 21:15:13', '2024-12-25 21:15:13');
+(29, 1, 1, 10, '2024-12-25 21:15:13', '2024-12-25 21:15:13'),
+(30, 1, 6, 13, '2025-01-14 13:55:44', '2025-01-14 13:55:44');
 
 -- --------------------------------------------------------
 
@@ -612,14 +627,42 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (11, 1, 'Médecins', '', '_self', 'user-heart', '#000000', NULL, 6, '2024-11-22 12:41:57', '2024-12-15 20:11:56', 'voyager.doctors.index', 'null'),
 (12, 1, 'Formations', '', '_self', 'certificate', '#000000', 18, 2, '2024-11-22 13:07:33', '2024-12-14 17:23:20', 'voyager.formations.index', 'null'),
 (13, 1, 'Inscriptions', '', '_self', 'currency-dollar', '#000000', NULL, 8, '2024-11-22 14:33:19', '2024-12-15 20:11:56', 'voyager.inscriptions.index', 'null'),
-(17, 1, 'Catégories', '', '_self', 'category-2', '#000000', 18, 1, '2024-12-14 15:57:07', '2024-12-14 17:23:20', 'voyager.categories.index', 'null'),
+(17, 1, 'Spécialités', '', '_self', 'category-2', '#000000', 18, 1, '2024-12-14 15:57:07', '2025-01-14 15:10:03', 'voyager.categories.index', 'null'),
 (18, 1, 'Les formations', '#', '_self', 'certificate', '#000000', NULL, 7, '2024-12-14 17:22:57', '2024-12-15 20:11:56', NULL, ''),
 (19, 1, 'Packs', '', '_self', NULL, '#000000', 18, 3, '2024-12-14 17:33:37', '2024-12-14 17:42:49', 'voyager.packs.index', 'null'),
 (20, 1, 'Faqs', '', '_self', 'help-hexagon', '#000000', NULL, 11, '2024-12-15 01:29:48', '2024-12-15 20:11:56', 'voyager.faqs.index', 'null'),
 (22, 1, 'Extraits', '', '_self', 'circle-dashed-check', '#000000', 18, 5, '2024-12-15 04:46:19', '2024-12-25 16:59:47', 'voyager.extraits.index', 'null'),
 (23, 1, 'Page d\'accueil', '', '_blank', 'home', '#000000', NULL, 2, '2024-12-15 20:11:49', '2024-12-15 20:11:59', 'frontend.index', NULL),
 (24, 1, 'Resources', '', '_self', 'archive', '#000000', 18, 4, '2024-12-24 18:49:06', '2024-12-24 18:52:28', 'voyager.resources.index', 'null'),
-(25, 1, 'Comments', '', '_self', NULL, NULL, 18, 6, '2024-12-25 15:36:59', '2024-12-25 16:59:47', 'voyager.comments.index', NULL);
+(25, 1, 'Comments', '', '_self', NULL, NULL, 18, 6, '2024-12-25 15:36:59', '2024-12-25 16:59:47', 'voyager.comments.index', NULL),
+(27, 1, 'Messages', '', '_self', 'inbox', '#000000', NULL, 12, '2025-01-14 22:42:33', '2025-01-14 22:43:43', 'voyager.messages.index', 'null');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(25) DEFAULT NULL,
+  `last_name` varchar(25) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `phone` varchar(25) DEFAULT NULL,
+  `subject` varchar(250) DEFAULT NULL,
+  `message` longtext DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `name`, `last_name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Prenom', 'Nom', 'email@gmail.com', '0600000000', 'Subject', 'Message ici', '2025-01-15 12:16:01', '2025-01-15 12:16:01', NULL),
+(2, 'Prenom', 'Nom', 'email@gmail.com', '0600000000', 'Subject', 'Message ici', '2025-01-15 12:16:16', '2025-01-15 12:16:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -691,11 +734,11 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `created_at`, `updated_at`, `user_id`, `formation_id`, `pack_id`, `price`, `status`, `confirmed_by`, `method_payment`, `deleted_at`, `proof`, `labo_name`) VALUES
 (16, '2024-12-29 12:23:17', '2025-01-05 08:15:21', 9, 1, NULL, '6160', 1, NULL, 3, NULL, '[{\"download_link\":\"inscriptions\\/January2025\\/dzDTppA413s4TRutnjcT.png\",\"original_name\":\"Cheque.png\"}]', NULL),
-(17, '2025-01-05 18:04:35', '2025-01-05 18:10:43', 8, 6, NULL, '6160', 1, NULL, 2, NULL, 'proofs/b4LFYqNceL4dyFWUM5ZIa5OGA626o0o2wwoFYbAY.png', NULL),
-(18, '2025-01-05 18:11:13', '2025-01-14 09:17:03', 1, 6, NULL, '7000', 3, 1, 3, NULL, 'proofs/rpHT1A2AlJdkg3PDPhxIAqyK7Wb0ZhUXwAvQbbIP.png', NULL),
+(17, '2025-01-05 18:04:35', '2025-01-14 10:41:12', 8, 6, NULL, '6160', 1, NULL, 2, '2025-01-14 10:41:12', 'proofs/b4LFYqNceL4dyFWUM5ZIa5OGA626o0o2wwoFYbAY.png', NULL),
+(18, '2025-01-05 18:11:13', '2025-01-14 16:55:08', 1, 6, NULL, '7000', 4, 1, 3, NULL, 'proofs/rpHT1A2AlJdkg3PDPhxIAqyK7Wb0ZhUXwAvQbbIP.png', NULL),
 (19, '2025-01-13 02:52:05', '2025-01-14 09:16:55', 1, 6, NULL, '7000', 3, 1, 4, NULL, NULL, 'Labo name'),
-(20, '2025-01-05 18:11:13', '2025-01-14 09:17:10', 1, 6, NULL, '7000', 3, 1, 3, NULL, 'proofs/rpHT1A2AlJdkg3PDPhxIAqyK7Wb0ZhUXwAvQbbIP.png', NULL),
-(21, '2025-01-13 02:52:05', '2025-01-14 09:17:19', 1, 6, NULL, '7000', 4, 1, 4, NULL, NULL, 'Labo name');
+(20, '2025-01-05 18:11:13', '2025-01-14 15:04:52', 1, 6, NULL, '7000', 3, 11, 3, NULL, 'proofs/rpHT1A2AlJdkg3PDPhxIAqyK7Wb0ZhUXwAvQbbIP.png', NULL),
+(21, '2025-01-13 02:52:05', '2025-01-14 10:31:53', 1, 6, NULL, '7000', 3, 10, 4, NULL, NULL, 'Labo name');
 
 -- --------------------------------------------------------
 
@@ -828,7 +871,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (87, 'read_likes', 'likes', '2024-12-25 16:48:02', '2024-12-25 16:48:02'),
 (88, 'edit_likes', 'likes', '2024-12-25 16:48:02', '2024-12-25 16:48:02'),
 (89, 'add_likes', 'likes', '2024-12-25 16:48:02', '2024-12-25 16:48:02'),
-(90, 'delete_likes', 'likes', '2024-12-25 16:48:02', '2024-12-25 16:48:02');
+(90, 'delete_likes', 'likes', '2024-12-25 16:48:02', '2024-12-25 16:48:02'),
+(91, 'browse_messages', 'messages', '2025-01-14 22:42:33', '2025-01-14 22:42:33'),
+(92, 'read_messages', 'messages', '2025-01-14 22:42:33', '2025-01-14 22:42:33'),
+(93, 'edit_messages', 'messages', '2025-01-14 22:42:33', '2025-01-14 22:42:33'),
+(94, 'add_messages', 'messages', '2025-01-14 22:42:33', '2025-01-14 22:42:33'),
+(95, 'delete_messages', 'messages', '2025-01-14 22:42:33', '2025-01-14 22:42:33');
 
 -- --------------------------------------------------------
 
@@ -849,41 +897,73 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
 (1, 3),
 (2, 1),
+(2, 3),
 (3, 1),
+(3, 3),
 (4, 1),
+(4, 3),
 (5, 1),
+(5, 3),
 (6, 1),
+(6, 3),
 (7, 1),
+(7, 3),
 (8, 1),
+(8, 3),
 (9, 1),
+(9, 3),
 (10, 1),
+(10, 3),
 (11, 1),
+(11, 3),
 (12, 1),
+(12, 3),
 (13, 1),
+(13, 3),
 (14, 1),
+(14, 3),
 (15, 1),
+(15, 3),
 (16, 1),
+(16, 3),
 (17, 1),
+(17, 3),
 (18, 1),
+(18, 3),
 (19, 1),
+(19, 3),
 (20, 1),
+(20, 3),
 (21, 1),
+(21, 3),
 (22, 1),
-(23, 1),
-(24, 1),
-(25, 1),
+(22, 3),
+(23, 3),
+(24, 3),
+(25, 3),
 (26, 1),
+(26, 3),
 (27, 1),
+(27, 3),
 (28, 1),
+(28, 3),
 (29, 1),
+(29, 3),
 (30, 1),
+(30, 3),
 (31, 1),
+(31, 3),
 (32, 1),
+(32, 3),
 (33, 1),
+(33, 3),
 (34, 1),
+(34, 3),
 (35, 1),
+(35, 3),
 (36, 1),
 (36, 3),
+(37, 3),
 (38, 1),
 (38, 3),
 (39, 1),
@@ -891,40 +971,81 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (40, 1),
 (40, 3),
 (51, 1),
+(51, 3),
 (52, 1),
+(52, 3),
 (53, 1),
+(53, 3),
 (54, 1),
+(54, 3),
 (55, 1),
+(55, 3),
 (56, 1),
+(56, 3),
 (57, 1),
+(57, 3),
 (58, 1),
+(58, 3),
 (59, 1),
+(59, 3),
 (60, 1),
+(60, 3),
 (61, 1),
+(61, 3),
 (62, 1),
+(62, 3),
 (63, 1),
+(63, 3),
 (64, 1),
+(64, 3),
 (65, 1),
+(65, 3),
 (71, 1),
+(71, 3),
 (72, 1),
+(72, 3),
 (73, 1),
+(73, 3),
 (74, 1),
+(74, 3),
 (75, 1),
+(75, 3),
 (76, 1),
+(76, 3),
 (77, 1),
+(77, 3),
 (78, 1),
+(78, 3),
 (79, 1),
+(79, 3),
 (80, 1),
+(80, 3),
 (81, 1),
+(81, 3),
 (82, 1),
+(82, 3),
 (83, 1),
+(83, 3),
 (84, 1),
+(84, 3),
 (85, 1),
+(85, 3),
 (86, 1),
+(86, 3),
 (87, 1),
+(87, 3),
 (88, 1),
+(88, 3),
 (89, 1),
-(90, 1);
+(89, 3),
+(90, 1),
+(90, 3),
+(91, 1),
+(91, 3),
+(92, 1),
+(92, 3),
+(95, 1),
+(95, 3);
 
 -- --------------------------------------------------------
 
@@ -1056,7 +1177,16 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (40, 'accueil-hero.third-popup-icon', 'Troisième icône d\'autocollant', 'settings/January2025/OXWxee784vujTBxCsDSY.png', NULL, 'image', 32, 'Accueil Hero'),
 (41, 'virement.bank-name', 'Nom de la banque', 'ATTIJARI BANK', NULL, 'text', 7, 'Virement'),
 (42, 'virement.cheque-for', 'chèque au profit de', 'Science Events', NULL, 'text', 36, 'Virement'),
-(43, 'virement.espece-address', 'Espéce Adresse', 'Koutoubia Center 2, Av. Hassane 2, Guéliz - Marrakech', NULL, 'text', 37, 'Virement');
+(43, 'virement.espece-address', 'Espéce Adresse', 'Koutoubia Center 2, Av. Hassane 2, Guéliz - Marrakech', NULL, 'text', 37, 'Virement'),
+(44, 'a-propos-de-nous.title', 'Titre', 'Empouvoir la prochaine génération de professionnels de la santé', NULL, 'text', 38, 'A Propos de nous'),
+(46, 'a-propos-de-nous.video', 'Video', '[{\"download_link\":\"settings\\/January2025\\/zQGFDqbQZTS1ER5WFyNo.mp4\",\"original_name\":\"View_From_A_Blue_Moon_Trailer-576p (1).mp4\"}]', NULL, 'file', 41, 'A Propos de nous'),
+(47, 'a-propos-de-nous.description', 'Description', 'Notre mission est d’accompagner les étudiants en médecine en leur offrant un soutien personnalisé par des experts. Grâce à notre plateforme, nous leur offrons des opportunités d’apprentissage innovantes pour les aider à exceller et à devenir les leaders de demain dans le domaine de la santé.', NULL, 'text_area', 40, 'A Propos de nous'),
+(48, 'a-propos-de-nous.show-doctors', 'Afficher la section médecins ?', '1', '{\r\n    \"on\" : \"Oui\",\r\n    \"off\" : \"No\",\r\n    \"checked\" : true\r\n}', 'checkbox', 42, 'A Propos de nous'),
+(49, 'a-propos-de-nous.show-faq', 'Afficher la section FAQ ?', '1', '{\r\n    \"on\" : \"Oui\",\r\n    \"off\" : \"No\",\r\n    \"checked\" : true\r\n}', 'checkbox', 43, 'A Propos de nous'),
+(50, 'contact-us.image', 'Image', 'settings/January2025/qJEFWvEm35FD2mamHNsw.jpg', NULL, 'image', 44, 'Contact us'),
+(51, 'contact-us.title', 'Titre', 'Vous avez des questions !', NULL, 'text', 45, 'Contact us'),
+(52, 'contact-us.show-doctors', 'Afficher la section médecins ?', '1', '{\r\n    \"on\" : \"Oui\",\r\n    \"off\" : \"No\",\r\n    \"checked\" : true\r\n}', 'checkbox', 46, 'Contact us'),
+(53, 'contact-us.show-faq', 'Afficher la section FAQ ?', '1', '{\r\n    \"on\" : \"Oui\",\r\n    \"off\" : \"No\",\r\n    \"checked\" : true\r\n}', 'checkbox', 47, 'Contact us');
 
 -- --------------------------------------------------------
 
@@ -1101,7 +1231,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `color`) VALUES
-(1, 1, 'Admin', 'admin@gmail.com', 'users/default.png', NULL, '$2y$10$MvY8O.B0upLlNGEgOp7ukez1KT/7eTMv4b0fL/mgOvaiyahWx00HK', NULL, '{\"locale\":\"fr\"}', '2024-11-21 19:04:13', '2025-01-14 09:17:48', NULL),
+(1, 1, 'Admin', 'admin@gmail.com', 'users/default.png', NULL, '$2y$10$MvY8O.B0upLlNGEgOp7ukez1KT/7eTMv4b0fL/mgOvaiyahWx00HK', NULL, '{\"locale\":\"en\"}', '2024-11-21 19:04:13', '2025-01-15 12:29:22', '#000000'),
 (2, 2, 'med', 'med@gmail.com', 'users/default.png', NULL, '$2y$10$1/gIBc9NwVNxpkpdJD.nbuhTpzyMFSf1mqXXKB41mrdvPhUwPpTeq', NULL, NULL, '2024-12-19 19:20:59', '2024-12-19 19:20:59', NULL),
 (3, 2, 'Med', 'med2@gmail.com', 'users/default.png', NULL, '$2y$10$lDb.PhSP6C5fUBnyX9saT.aRYIjpmL.bHCtvzhAbDEe10PCcci/hC', NULL, NULL, '2024-12-19 20:18:34', '2024-12-19 20:18:34', NULL),
 (4, 2, 'Med', 'med3@gmail.com', 'users/default.png', NULL, '$2y$10$beO1dLVjmsku9ZBR9rYegOBeLcfQLXXJf08jCabjC8if7u8VhZdBy', NULL, NULL, '2024-12-19 20:40:40', '2024-12-19 20:40:40', NULL),
@@ -1110,7 +1240,8 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified
 (7, 2, 'User', 'user@gmail.com', 'users/default.png', NULL, '$2y$10$nrKSzUptNWhOYsyRCkN3iuqW23dEe2t7/GDQ90USlyLXz.a9QjlsC', NULL, '{\"locale\":\"fr\"}', '2024-12-20 09:38:03', '2025-01-06 10:16:54', NULL),
 (8, 2, 'User 2', 'user2@gmail.com', 'users/default.png', NULL, '$2y$10$WGaw8ZuM2ubXUIHUMfApweJxLCm2grBsvH2aT//ToRk2ytQHt7aEu', NULL, '{\"locale\":\"fr\"}', '2024-12-20 09:41:36', '2024-12-25 20:36:08', NULL),
 (9, 2, 'Yassine Touhtane', 'test@test.tt', 'users/default.png', NULL, '$2y$10$jmQw8DBMlgt7EXmY8DeWuu7/81ccAqtlTqsau/mQZ.ss4tYDXqHRe', NULL, NULL, '2024-12-29 12:22:24', '2024-12-29 12:22:24', NULL),
-(10, NULL, 'Kawtar', 'kawtar@gmail.com', 'users/default.png', NULL, '$2y$10$G54MDkMqf/WaUCxyHSo2MuFBLHOI.PB/PScjWTnTUHyyuVXjOOBiy', NULL, '{\"locale\":\"fr\"}', '2025-01-14 09:21:44', '2025-01-14 09:21:44', NULL);
+(10, 3, 'Kawtar', 'kawtar@gmail.com', 'users/default.png', NULL, '$2y$10$G54MDkMqf/WaUCxyHSo2MuFBLHOI.PB/PScjWTnTUHyyuVXjOOBiy', NULL, '{\"locale\":\"fr\"}', '2025-01-14 09:21:44', '2025-01-14 10:01:58', '#fdc9ef'),
+(11, 3, 'Fatima', 'fatima@gmail.com', 'users/default.png', NULL, '$2y$10$sBDtGAcH3D2F1erwDpkrSeI/7h3b9xkjHlQoFMQnWRhC6M/UzpieG', NULL, '{\"locale\":\"fr\"}', '2025-01-14 15:03:05', '2025-01-14 15:03:05', '#7aa7ff');
 
 -- --------------------------------------------------------
 
@@ -1122,13 +1253,6 @@ CREATE TABLE `user_roles` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `user_roles`
---
-
-INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
-(10, 3);
 
 --
 -- Indexes for dumped tables
@@ -1223,6 +1347,12 @@ ALTER TABLE `menus`
 ALTER TABLE `menu_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_items_menu_id_foreign` (`menu_id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -1340,19 +1470,19 @@ ALTER TABLE `chat`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -1388,7 +1518,7 @@ ALTER TABLE `formations`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -1400,7 +1530,13 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1424,7 +1560,7 @@ ALTER TABLE `packs`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1448,7 +1584,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `translations`
@@ -1460,7 +1596,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
