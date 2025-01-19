@@ -28,7 +28,9 @@
                             @endif
                         </div>
                         <div class="cat-tagge">
-                        <a href="{{ route('frontend.formation',$formation->id) }}">{{ $formation->category->name }}</a>
+                            @foreach ($formation->categories as $category)
+                                <span class="category-tag">{{ $category->name }}</span> @if (!$loop->last), @endif
+                            @endforeach
                         </div>
                         <div class="i-title">
                             <a href="{{ route('frontend.formation',$formation->id) }}">{{ $formation->title }}</a>
