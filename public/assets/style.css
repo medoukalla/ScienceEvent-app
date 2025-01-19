@@ -10562,7 +10562,7 @@ blockquote {
     line-height: 18px;
 }
   .footer-middle-wrap {
-        grid-template-columns: 1fr 1fr !important;
+        grid-template-columns: 1fr !important;
   }
   .footer-about {
     flex: 0 0 20% !important;
@@ -13890,6 +13890,25 @@ input[type="radio"] {
 }
 
 
+/* Hide largeMenu on small devices (max-width 767px) */
+@media screen and (max-width: 767px) {
+  .largeMenu {
+    display: none;
+  }
+  .smallMenu {
+    display: block;
+  }
+  .thirdListMobile {
+    margin-top: -10px;
+  }
+}
 
-
-
+/* Show largeMenu on larger devices (min-width 768px) */
+@media screen and (min-width: 768px) {
+  .largeMenu {
+    display: block;
+  }
+  .smallMenu {
+    display: none;
+  }
+}
