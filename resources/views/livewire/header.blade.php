@@ -20,7 +20,7 @@
             </li>
             <li class="nav-menu-list">
               <div class="nav-menu-link-wrapper">
-                <a href="{{ route('frontend.index') }}" class="nav-menu-link">Accueil</a>
+                <a href="{{ route('frontend.index') }}" class="nav-menu-link hover">Accueil</a>
                 <div class="nav-menu-link-shape"></div>
               </div>
             </li>
@@ -28,7 +28,7 @@
               <div data-delay="500" data-hover="false" data-w-id="b209fa0f-e639-eccc-0896-595290f492c0"
                 class="nav-dropdown w-dropdown">
                 <div class="nav-dropdown-toggle w-dropdown-toggle">
-                  <div>Formationssss</div>
+                  <div>Formations</div>
                   <div class="nav-dropdown-icon w-embed">
                     <svg viewBox="0 0 14 9" fill="none"
                       xmlns="http://www.w3.org/2000/svg">

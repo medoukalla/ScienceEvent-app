@@ -865,6 +865,10 @@ textarea.w-select {
 }
 
 @media screen and (max-width: 991px) {
+  .nav-menu-link-shape {
+    display: none !important;
+  }
+
   .formation-tab .f-tab {
     padding: 5px 35px !important;
   }
@@ -6036,7 +6040,11 @@ blockquote {
   display: inline-block;
 }
 
-.nav-menu-link:hover {
+/* .nav-menu-link:hover {
+  color: var(--orange-clr);
+} */
+
+.nav-menu-link.hover {
   color: var(--orange-clr);
 }
 
@@ -6068,9 +6076,9 @@ blockquote {
   display: flex;
 }
 
-.nav-dropdown-toggle:hover {
+/* .nav-dropdown-toggle:hover {
   color: var(--orange-clr);
-}
+} */
 
 .nav-dropdown-toggle:focus-visible {
   color: #ff7659;
