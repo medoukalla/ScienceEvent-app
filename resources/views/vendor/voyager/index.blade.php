@@ -35,7 +35,7 @@
     new Litepicker({
       element: document.getElementById('dateRangePicker'),
       format: 'YYYY-MM-DD',
-      singleMode: false, // Enable range selection
+      singleMode: false,
       dropdowns: {
         minYear: 2023,
         maxYear: 2030
@@ -52,7 +52,6 @@
       data: {
         labels: data.map(item => item.name),
         datasets: [{
-          label: 'Commandes confirmées',
           data: data.map(item => item.order_count),
           backgroundColor: data.map(item => item.color),
           borderWidth: 1
@@ -66,6 +65,11 @@
             ticks: {
               stepSize: 1
             }
+          }
+        },
+        plugins: { // Add this plugins option
+          legend: {
+            display: false // Hide the legend
           }
         }
       }

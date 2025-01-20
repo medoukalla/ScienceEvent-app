@@ -11885,7 +11885,6 @@ header {
   border-radius: 5px;
   margin-top: 20px;
 }
-
 .information-wrap .i-title {
   font-family: var(--source-serif-pro);
   font-size: 20px;
@@ -11919,7 +11918,10 @@ header {
   color: var(--primary-color);
   line-height: 0;
 }
-
+.information-wrap .i-planning .i-date span,
+.information-wrap .i-planning .i-profile span {
+  line-height: 10px;
+}
 .primary-btn {
   background-color: var(--orange-clr);
   width: 100%;

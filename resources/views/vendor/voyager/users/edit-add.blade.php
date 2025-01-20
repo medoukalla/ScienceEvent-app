@@ -67,9 +67,8 @@
                                         $the_roles = TCG\Voyager\Models\Role::all();
                                     @endphp
                                     <select name="role_id" id="" class="form-control select2" required>
-                                        <option value="">Role</option>
-                                        @foreach ($the_roles as $role)
-                                            <option value="{{ $role->id }}" {{ ($dataTypeContent->role == $role->id ? 'selected' : '') }}>{{ $role->display_name }}</option>
+                                        @foreach ($the_roles as $the_role)
+                                            <option value="{{ $the_role->id }}" {{ (Auth::user()->role_id == $the_role->id ? 'selected' : '') }}>{{ $the_role->display_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -92,11 +91,13 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="color">{{ __('voyager::generic.color') }}</label>
-                                <input type="color" class="form-control" id="color" name="color" placeholder="{{ __('voyager::generic.color') }}"
-                                       value="{{ old('color', $dataTypeContent->color ?? '') }}">
-                            </div>
+                            @if ( Auth::user()->role_id == 1 )    
+                                <div class="form-group">
+                                    <label for="color">{{ __('voyager::generic.color') }}</label>
+                                    <input type="color" class="form-control" id="color" name="color" placeholder="{{ __('voyager::generic.color') }}"
+                                        value="{{ old('color', $dataTypeContent->color ?? '') }}">
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -122,7 +122,7 @@
         <ul class="dropdown-menu dropdown-menu-end p-0">
           <li class="dropdown-menu-header border-bottom">
             <div class="dropdown-header d-flex align-items-center py-3">
-              <h6 class="mb-0 me-auto">Notification</h6>
+              <h6 class="mb-0 me-auto">Les notifications</h6>
               <div class="d-flex align-items-center h6 mb-0">
                 <!-- <span class="badge bg-label-primary me-2">8 New</span>
                   <a href="javascript:void(0)" class="btn btn-text-secondary rounded-pill btn-icon dropdown-notifications-all" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i class="ti ti-mail-opened text-heading"></i></a> -->
@@ -150,7 +150,7 @@
                           </a>
                         </div>
                         <div class="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a>
+                          <!-- <a href="javascript:void(0)" class="dropdown-notifications-read"><span class="badge badge-dot"></span></a> -->
                           <form method="POST" action="{{ route('markAsRead', $notification->id) }}">
                               @csrf
                               <button type="submit" style="background-color: transparent;border: none;outline: none;"><span class="ti ti-x"></span></button>

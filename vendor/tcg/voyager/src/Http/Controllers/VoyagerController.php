@@ -20,7 +20,7 @@ class VoyagerController extends Controller
     {
 
         // check if logged in user is a client redirect back to profile
-        if (Auth::user()->role_id == 3) {
+        if (Auth::user()->role_id == 2) {
             return redirect()->route('frontend.profile');
         }
 
