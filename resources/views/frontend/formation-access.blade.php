@@ -116,66 +116,27 @@
                         <p>Discover similar formations, highlighting shared features and functions.</p>
                     </div>
                     <div class="funfact-wrap">
-                        <a href="#">
+
+                    @foreach ( $last_formations as $last_formation )
+                        <a href="{{ route('frontend.formation', $formation->id) }}">
                             <div class="s-info">
-                                <img src="{{ asset('assets/images/s-video-2.png') }}" alt="Similar Video">
+                            @if (!empty($last_formation) && isset($last_formation[0]->download_link))
+                                <video style="width: 100%; height: auto;" controlslist="nodownload nofullscreen noplaybackrate" disablepictureinpicture loop autoplay muted playsinline>
+                                    <source src="{{ asset('storage/' . $last_formation[0]->download_link) }}" type="video/mp4">
+                                    Votre navigateur ne prend pas en charge la balise vidéo.
+                                </video>
+                            @else
+                                <img src="{{ asset('storage/'.$last_formation->cover) }}" alt="Similar Video">
                                 <div class="vid-infos">
-                                    <div class="vid-title">Formation vid...</div>
-                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                        class="vid-icon">
+                                    <div class="vid-title">{{ substr($last_formation->title, 0, 13) }}...</div>
+                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon" class="vid-icon">
                                 </div>
+                            @endif
+                                
                             </div>
                         </a>
-                        <a href="#">
-                            <div class="s-info">
-                                <img src="{{ asset('assets/images/s-video-1.png') }}" alt="Similar Video">
-                                <div class="vid-infos">
-                                    <div class="vid-title">Formation vid...</div>
-                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                        class="vid-icon">
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="s-info">
-                                <img src="{{ asset('assets/images/s-video-4.png') }}" alt="Similar Video">
-                                <div class="vid-infos">
-                                    <div class="vid-title">Formation vid...</div>
-                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                        class="vid-icon">
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="s-info">
-                                <img src="{{ asset('assets/images/s-video-1.png') }}" alt="Similar Video">
-                                <div class="vid-infos">
-                                    <div class="vid-title">Formation vid...</div>
-                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                        class="vid-icon">
-                                </div>
-                            </div>
-                        </a>
-                                                    <a href="#">
-                            <div class="s-info">
-                                <img src="{{ asset('assets/images/dr5.jpg') }}" alt="Similar Video">
-                                <div class="vid-infos">
-                                    <div class="vid-title">Formation vid...</div>
-                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                        class="vid-icon">
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="s-info">
-                                <img src="{{ asset('assets/images/s-video-2.png') }}" alt="Similar Video">
-                                <div class="vid-infos">
-                                    <div class="vid-title">Formation vid...</div>
-                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon"
-                                        class="vid-icon">
-                                </div>
-                            </div>
-                        </a>
+                    @endforeach
+                        
                     </div>
                 </div>
             </div>

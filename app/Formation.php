@@ -69,6 +69,17 @@ class Formation extends Model
 
 
     /**
+     * Get all of the orders for the Formation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'formation_id');
+    }
+
+
+    /**
      * Get all of the comments for the Formation
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

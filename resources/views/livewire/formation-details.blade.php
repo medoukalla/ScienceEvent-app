@@ -108,7 +108,7 @@
             </div>
             <div class="info-supp">
                 Contactez nous au <div class="phone">
-                    02 22 44 42 11
+                    {{ setting('site.phone') }}
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@
 
     <!-- payment  -->
     <div class="class-details-instructor-inner" @if ($display != 'payment') style="display: none" @endif >
-        <div class="r-side-floating">
+        <div class="r-side-floating" style=" max-height: 660px; overflow-x: scroll; ">
             <div wire:click="register" class="btn-back" >
                 <img src="{{ asset('assets/svg/arrow-back.svg') }}" alt="">
                 <span>Retour</span>
@@ -259,7 +259,7 @@
             
  
             @if ( $payment_method == 'credit_card' ) 
-                <div wire:click="paymentOnline" class="btn-org online-pay-btn" style="margin-top: 20px">
+                <div  class="btn-org online-pay-btn" style="margin-top: 20px">
                     Payer en ligne : <span>( {{ $amount }}.00 DH )</span>
                 </div>
             @else

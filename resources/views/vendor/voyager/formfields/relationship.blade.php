@@ -20,27 +20,23 @@
                     <p>{{ __('voyager::generic.no_results') }}</p>
                 @endif
 
-            @else
+                @else
 
-                <select
-                    class="form-control select2-ajax" name="{{ $options->column }}"
-                    data-get-items-route="{{route('voyager.' . $dataType->slug.'.relation')}}"
-                    data-get-items-field="{{$row->field}}"
-                    @if(!is_null($dataTypeContent->getKey())) data-id="{{$dataTypeContent->getKey()}}" @endif
-                    data-method="{{ !is_null($dataTypeContent->getKey()) ? 'edit' : 'add' }}"
-                    @if($row->required == 1) required @endif
-                >
+                <select class="form-control" name="{{ $options->column }}" @if($row->required == 1) required @endif>
                     @php
                         $model = app($options->model);
-                        $query = $model::where($options->key, old($options->column, $dataTypeContent->{$options->column}))->get();
+                        $allOptions = $model::all(); // Fetch all options for the select
+                        $selectedValue = old($options->column, $dataTypeContent->{$options->column});
                     @endphp
 
                     @if(!$row->required)
                         <option value="">{{__('voyager::generic.none')}}</option>
                     @endif
 
-                    @foreach($query as $relationshipData)
-                        <option value="{{ $relationshipData->{$options->key} }}" @if(old($options->column, $dataTypeContent->{$options->column}) == $relationshipData->{$options->key}) selected="selected" @endif>{{ $relationshipData->{$options->label} }}</option>
+                    @foreach($allOptions as $option)
+                        <option value="{{ $option->{$options->key} }}" @if($selectedValue == $option->{$options->key}) selected @endif>
+                            {{ $option->{$options->label} }}
+                        </option>
                     @endforeach
                 </select>
 

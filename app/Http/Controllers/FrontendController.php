@@ -43,6 +43,12 @@ class FrontendController extends Controller
     public function formation_access( Formation $formation )   
     {
 
+        // check if user traying to acces is already bought this course 
+        $inscription = $formation->orders()->where('status', 3)->where('user_id', auth()->id())->first();
+        if ( is_null($inscription) || empty($inscription) || $inscription == '' ) {
+            return redirect()->route('frontend.profile');
+        }
+
         // count number of comments
         $number_of_comments = $formation->comments()->count();
         // count number of resources
@@ -51,7 +57,8 @@ class FrontendController extends Controller
         return view('frontend.formation-access', [
             'formation' => $formation,
             'number_of_comments' => $number_of_comments,
-            'number_of_resources' => $number_of_resources
+            'number_of_resources' => $number_of_resources,
+            'last_formations' => Formation::latest()->take(6)->get(),
         ]);
     }
 

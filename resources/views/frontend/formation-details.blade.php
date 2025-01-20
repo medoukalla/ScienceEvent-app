@@ -21,7 +21,9 @@
                     </div>
                     <!-- Domain tage -->
                     <div class="domain-tage">
-                        <span>{{ $formation->category->name }}</span>
+                        @foreach ($formation->categories as $category)
+                            <span >{{ $category->name }}</span> @if (!$loop->last), @endif
+                        @endforeach
                     </div>
                     <div data-w-id="316ed8d2-66d5-d21f-f414-3781cc3a9386"
                         style="-webkit-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 70px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1; margin-top: -90px;"
@@ -48,18 +50,30 @@
                             </a>
                         @endif
                         <div class="formation-heading">
-                            <h3><span>Résumé</span> de la formation</h3>
+                            <h3><span>Programme</span> de la formation</h3>
                         </div>
                         
                         {!! $formation->other_details !!}
 
                     </div>
-                    <br>
+                    <br><br>
+                    <!-- information targets -->
+                    <div class="formation-target">
+                        <h3><span>Objectifs</span> de la formation</h3>
+                        {!! $formation->objective !!}
+
+                    </div>
                     <!-- Unfloded -->
                     <div class="unfolded">
                         <h3>Déroulé</h3>
                         <div class="unfolded-tage">
-                            E-learning
+                            @if ( $formation->type == 1 )
+                                E-learning
+                            @elseif ( $formation->type == 2 )
+                                Présentiel
+                            @elseif ( $formation->type == 3 )
+                                Classe Virtuelle
+                            @endif
                         </div>
                         <div class="unfolded-list">
                             <div class="list">
@@ -90,12 +104,7 @@
                             <li>Accès à la communauté pour continuer l’échange</li>
                         </ul>
                     </div>
-                    <!-- information targets -->
-                    <div class="formation-target">
-                        <h3><span>Objectifs</span> de la formation</h3>
-                        {!! $formation->objective !!}
-
-                    </div>
+                    
                     <!-- Similar informations -->
                     <div class="similar-informations">
                         <h3><span>Découvrez</span> des extraits</h3>
