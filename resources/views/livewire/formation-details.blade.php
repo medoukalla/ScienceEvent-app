@@ -299,6 +299,12 @@
                         Confirmer paiement
                     </div>
                 </div>
+
+                <div class="floating-btn">
+                    <div wire:click="exportPdf"  class="btn-org" style="margin-top: 20px;">
+                        Telecharger bon de livraison
+                    </div>
+                </div>
             
             </div>
             
@@ -329,10 +335,13 @@
                     <br>
                     Veuillez consulter votre boite email pour plus de details.
                 </p>
-        
-            
             </div>
 
+            <div class="floating-btn">
+                <div wire:click="exportPdf"  class="btn-org" style="margin-top: 20px;">
+                    Telecharger bon de livraison
+                </div>
+            </div>
             
         </div>
     </div>

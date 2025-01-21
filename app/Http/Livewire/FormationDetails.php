@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class FormationDetails extends Component
 {
@@ -191,6 +193,8 @@ class FormationDetails extends Component
 
         if ( $order->save() ) {
             $this->order_id = $order->id;
+
+            $this->exportPdf();
             
             $this->display = 'send_proof';
         }
@@ -205,7 +209,7 @@ class FormationDetails extends Component
         $order->user_id = $this->user->id;
         $order->price = $this->amount;
         $order->status = 1;
-        $order->payment_method = $this->payment_method;
+        $order->payment_method = 5;
 
         if ( $order->save() ) {
             $this->order_id = $order->id;
@@ -239,19 +243,55 @@ class FormationDetails extends Component
         if ( $this->new_user == false ) {
             $user = User::find($this->user->id);
             $user->notify(new WaitingConfirmation($user, $order));
-
-            $admins = User::where('role_id', '!=', 2)->get();
-            foreach ($admins as $admin) {
-                $admin->notify(new WaitingConfirmation($user, $order));
-            }
         }else {
             $user = User::find($this->user->id);
             $user->notify(new WelcomeNewUser($user, $order, $this->password));
-
-            $admins = User::where('role_id', '!=', 2)->get();
-            foreach ($admins as $admin) {
-                $admin->notify(new WaitingConfirmation($user, $order));
-            }
         }
     }   
+
+
+    public function exportPdf()
+    {
+        switch ($this->payment_method) {
+            case 'virement':
+                $method_payment = "Virement / Versement";
+                break;
+            case 'cheque':
+                $method_payment = "Chéque";
+                break;
+            case 'espece':
+                $method_payment = "Espèce";
+                break;
+            case 'prise_en_charge':
+                $method_payment = "Prise en charge";
+                break;
+            case 'credit_card':
+                $method_payment = "Paiement en ligne";
+                break;
+        }
+
+        $data = [
+            'customerName' => $this->name,
+            'customerPhone' => $this->phone,
+            'customerEmail' => $this->email,
+            'orderNumber' => 'ORD-'.now()->format('ymd').'0'.$this->order_id,
+            'orderDate' => now()->format('d-m-Y'),
+            'paymentMethod' => $method_payment,
+            'items' => [
+                [
+                    'name' => $this->formation->title,
+                    'date' => $this->formation->date_details,
+                    'price' => $this->amount
+                ]
+            ],
+            'total' => $this->amount,
+        ];
+        
+        $pdf = Pdf::loadView('pdfs.delivery_note', $data); // Ensure 'pdf.template' exists with the desired blade view content
+
+        return response()->streamDownload(
+            fn() => print($pdf->stream()),
+            'Science-event.pdf'
+        );
+    }
 }
