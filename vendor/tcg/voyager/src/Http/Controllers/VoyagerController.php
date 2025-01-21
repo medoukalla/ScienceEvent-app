@@ -58,7 +58,10 @@ class VoyagerController extends Controller
             })
             ->count();
 
-        return Voyager::view('voyager::index', compact('data', 'maxOrders', 'formations', 'formationId', 'startDate', 'endDate'));
+
+        $formation_id = request('formation_id') ?? null;
+        
+        return Voyager::view('voyager::index', compact('data', 'maxOrders', 'formations', 'formationId', 'startDate', 'endDate', 'formation_id'));
     }
 
     public function logout()

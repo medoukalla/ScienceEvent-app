@@ -202,9 +202,17 @@ $data = [];
 $totalEarnings = 0;
 
 foreach ($paymentMethods as $methodId => $methodName) {
-    $earnings = Order::where('status', 3)
-        ->where('method_payment', $methodId)
-        ->sum('price');
+
+    if ( !is_null( $formation_id) && $formation_id > 0 ) {
+      $earnings = Order::where('status', 3)
+          ->where('formation_id', $formation_id)
+          ->where('method_payment', $methodId)
+          ->sum('price');
+    }else {
+      $earnings = Order::where('status', 3)
+          ->where('method_payment', $methodId)
+          ->sum('price');
+    }
 
     $totalEarnings += $earnings;
 
@@ -223,7 +231,7 @@ foreach ($paymentMethods as $methodId => $methodName) {
                 <p class="card-subtitle">Aperçu hebdomadaire des revenus</p>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body py-0 ">
             <div class="row align-items-center g-md-8">
                 <div class="col-12 col-md-5 d-flex flex-column">
                     <div class="d-flex gap-2 align-items-center mb-3 flex-wrap">
