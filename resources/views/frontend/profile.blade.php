@@ -130,6 +130,10 @@
                         <img src="{{ asset('assets/svg/cours.svg') }}" alt="profile formation">
                         Mes inscriptions
                     </button>
+                    <button onclick="$(this).addClass('active').siblings().removeClass('active'); showDiv(4)" class="">
+                        <img src="{{ asset('assets/svg/facture.svg') }}" alt="profile formation">
+                        Les factures
+                    </button>
                     <button onclick="$(this).addClass('active').siblings().removeClass('active'); showDiv(3)" class="">
                         <img src="{{ asset('assets/svg/settings.svg') }}" alt="profile formation">
                         Paramètres
@@ -255,6 +259,9 @@
 
                         </form>
                     </div>
+                </div>
+                <div id="divFour" class="content hidden">
+                    @livewire('invoices')
                 </div>
             </div>
         </div>

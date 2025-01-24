@@ -13461,7 +13461,7 @@ input[type="radio"] {
 }
 
 .profile-wrapper .profile-wrapper-flex .profile-left {
-  width: 40%;
+  width: 25%;
   height: 350px;
   padding: 30px 30px;
   display: flex;
@@ -13520,8 +13520,8 @@ input[type="radio"] {
 }
 
 .profile-wrapper .profile-wrapper-flex  .profile-right {
-  width: 60%;
-  height: 350px;
+  width: 75%;
+  /* height: 350px; */
   padding: 30px 30px;
   display: flex;
   flex-direction: column;

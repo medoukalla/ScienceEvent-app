@@ -53,8 +53,12 @@ Route::post('/notifications/{id}/mark-as-read', [FrontendController::class, 'mar
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
-    // cancel an order 
+    // cancel or confirm an order 
     Route::post('reject_order/{order}', [BackendController::class, 'reject_order'])->name('orders.reject');
     Route::post('confirm_order/{order}', [BackendController::class, 'confirm_order'])->name('orders.confirm');
+
+    // cancel or confirm facture request
+    Route::post('reject_request_invoice/{requestInvoice}', [BackendController::class, 'reject_request_invoice'])->name('request-invoice.reject');
+    Route::post('confirm_request_invoice/{requestInvoice}', [BackendController::class, 'confirm_request_invoice'])->name('request-invoice.confirm');
 
 });
