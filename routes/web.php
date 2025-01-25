@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('pdf', function() {
+
+    $logoPath = asset('storage/'.setting('site.logo'));
+
+    return view('pdfs.delivery_note',[
+        'base64Logo' => base64_encode(file_get_contents($logoPath))
+    ]);
+});
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 

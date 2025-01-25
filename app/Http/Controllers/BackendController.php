@@ -37,6 +37,7 @@ class BackendController extends Controller
         $order = Order::where('id',$requestInvoice->order_id)->first();
 
         $order->access_invoice = 0;
+        $order->touch();
         $order->save();
 
         session()->flash('success', __('generic.successfully_updated'));
@@ -53,6 +54,7 @@ class BackendController extends Controller
         $order = Order::where('id',$requestInvoice->order_id)->first();
 
         $order->access_invoice = 3;
+        $order->touch();
         $order->save();
 
         session()->flash('success', __('generic.successfully_updated'));

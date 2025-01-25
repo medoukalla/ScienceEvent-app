@@ -8,72 +8,83 @@
     </div>
 
     <style>
-    .tva-message {
-        background-color: #f5f5f5;
-        padding: 10px;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        font-size:14px;
-    }
+        .tva-message {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-size:14px;
+        }
     </style>
     <hr style="margin: 10px 0">
+    
     <div class="courses-wrapper" @if ( $hide_form == true ) style="display: none" @endif >
-        <table class="courses-table">
-            <thead>
-                <tr>
-                    <th>Formation</th>
-                    <th>Prix (DH)</th>
-                    <th>TVA (20%)</th>
-                    <th>Total (DH)</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
 
-                @foreach ( $orders as $order)
+        @if ( count( $orders ) < 1 )
+            <div class="tva-message">
+                <p><b style="color:darkgoldenrod;">Vous n'avez aucune formation confirmée pour demander une facture .</b></p>
+            </div>
+            
+        @else
+            <table class="courses-table">
+                <thead>
                     <tr>
-                        <td>
-                            <div class="cours">
-                                <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                                {{ $order->formation->title }} {{ $order->id }}
-                            </div>
-                        </td>
-                        <td>{{ $order->price }} </td>
-                        <td>{{ $order->price * 0.2 }} </td>
-                        <td>{{ $order->price * 1.2 }} </td>
-
-                        @if ( $order->access_invoice == 0 )
-                            <td>
-                                <a wire:click='toggleShowForm( "{{ $order->id }}", "{{ $order->formation->title }}", "{{ $order->price }}" )' href="javascript:;">
-                                    <div class="discover">
-                                        <span style="color:#1694c5;" >Demande de facture</span>
-                                        <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
-                                    </div>
-                                </a>
-                            </td>
-                        @elseif ( $order->access_invoice == 2 )
-                            <td>
-                                <a  href="javascript:;">
-                                    <div class="discover">
-                                        <span style="color:#2cb167;" >En attente de confirmation</span>
-                                    </div>
-                                </a>
-                            </td>
-                        @elseif ( $order->access_invoice == 3 )
-                            <td>
-                                <a  href="javascript:;">
-                                    <div class="discover">
-                                        <span style="color:darkgoldenrod;">Télécharger la facture</span>
-                                    </div>
-                                </a>
-                            </td>
-                        @endif
+                        <th>Formation</th>
+                        <th>Prix (DH)</th>
+                        <th>TVA (20%)</th>
+                        <th>Total (DH)</th>
+                        <th>Action</th>
                     </tr>
-                @endforeach
+                </thead>
+                <tbody>
 
-            </tbody>
-        </table>
+                    @foreach ( $orders as $order)
+                        <tr>
+                            <td>
+                                <div class="cours">
+                                    <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
+                                    {{ $order->formation->title }} {{ $order->id }}
+                                </div>
+                            </td>
+                            <td>{{ $order->price }} </td>
+                            <td>{{ $order->price * 0.2 }} </td>
+                            <td>{{ $order->price * 1.2 }} </td>
+
+                            @if ( $order->access_invoice == 0 )
+                                <td>
+                                    <a wire:click='toggleShowForm( "{{ $order->id }}", "{{ $order->formation->title }}", "{{ $order->price }}" )' href="javascript:;">
+                                        <div class="discover">
+                                            <span style="color:#1694c5;" >Demande de facture</span>
+                                            <img src="{{ asset('assets/svg/arrow-right.svg') }}" alt="">
+                                        </div>
+                                    </a>
+                                </td>
+                            @elseif ( $order->access_invoice == 2 )
+                                <td>
+                                    <a  href="javascript:;">
+                                        <div class="discover">
+                                            <span style="color:#2cb167;" >En attente de confirmation</span>
+                                        </div>
+                                    </a>
+                                </td>
+                            @elseif ( $order->access_invoice == 3 )
+                                <td>
+                                    <a wire:click="exportPdf('{{ $order->id }}')"  href="javascript:;">
+                                        <div class="discover">
+                                            <span style="color:darkgoldenrod;">Télécharger la facture</span>
+                                        </div>
+                                    </a>
+                                </td>
+                            @endif
+                        </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        @endif
+
     </div>
+
     <div class="courses-wrapper"  style=" height: auto; overflow: hidden; @if ( $hide_form == false ) display: none @endif " >
         <div wire:click="hide_table" class="btn-back" >
             <img src="{{ asset('assets/svg/arrow-back.svg') }}" alt="">
@@ -93,13 +104,13 @@
                     <td>
                         <div class="cours">
                             <img src="{{ asset('assets/svg/cours-table.svg') }}" alt="">
-                            {{ $order->formation->title }} (DH)
+                            {{ $title }} (DH)
                         </div>
                     </td>
-                    <td>{{ $order->price }} DH </td>
+                    <td>{{ $price }} DH </td>
 
-                    <td style=" background-color: #adffadc2; "><b>{{ $order->price * 0.2 }} DH</b></td>
-                    <td>{{ $order->price * 1.2 }} DH</td>
+                    <td style=" background-color: #adffadc2; "><b>{{ $price * 0.2 }} DH</b></td>
+                    <td>{{ $price * 1.2 }} DH</td>
                 </tr>
             </tbody>
         </table>

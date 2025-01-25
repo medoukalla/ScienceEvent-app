@@ -104,8 +104,8 @@
         <img src="{{ public_path('storage/'.setting('site.logo')) }}" alt="" style="width: 200px; height: auto;">
 
             <div>
-                <p class="invoice-title">FACTURE PROFORMA</p>
-                <p class="invoice-number"># PROFORMA-{{ $order->created_at->format('y') }}/0{{ $order->id }}</p>
+                <p class="invoice-title">FACTURE</p>
+                <p class="invoice-number"># INV{{ $order->created_at->format('y') }}/0{{ $order->id }}</p>
             </div>
         </div>
 
@@ -150,7 +150,8 @@
                     <th>Désignation</th>
                     <th>Qté</th>
                     <th>Prix unitaire</th>
-                    <th>Montant H.T</th>
+                    <th></th>
+                    <th>Montant TTC</th>
                 </tr>
             </thead>
             <tbody>
@@ -162,7 +163,8 @@
                     </td>
                     <td>1</td>
                     <td class="text-right">{{ $order->price }}.00</td>
-                    <td class="text-right">{{ $order->price }}.00</td>
+                    <td>TVA 20.00%</td>
+                    <td class="text-right">{{ $order->price * 1.2 }}.00</td>
                 </tr>
             </tbody>
         </table>
@@ -170,16 +172,7 @@
         <!-- Total Section -->
         <div class="total-section">
             <p class="total-label">Total en lettre : <b>{{ $total_letters }}</b></p>
-            <p class="total-label">Total H.T : <b>{{ $order->price }}.00 MAD</b></p>
-        </div>
-
-        <hr>
-
-        <div class="total-section">
-            <b>
-                Si vous avez besoin d'une facture avec TVA, veuillez vous connecter sur notre <a href="{{ env('APP_URL') }}">site web</a>, aller sur votre profil et cliquer sur "Demande de facture", Merci
-
-            </b>
+            <p class="total-label">Total TTC : <b>{{ $order->price * 1.2 }}.00 MAD</b></p>
         </div>
 
         <!-- Footer Section -->

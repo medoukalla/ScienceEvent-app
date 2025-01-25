@@ -7,6 +7,9 @@ use App\Order;
 use App\RequestInvoice;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use NumberFormatter;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class Invoices extends Component
 {
@@ -21,14 +24,17 @@ class Invoices extends Component
 
 
     // selected order info 
-    public $order_id;
+    public $order_id = null;
     public $title;
     public $price;
     public $tva;
 
+    public function mount() {
+        $this->orders = Order::where('user_id', Auth::user()->id)->where('status', 3)->get();
+    }
+
     public function render()
     {
-        $this->orders = Order::where('user_id', Auth::user()->id)->where('status', 3)->get();
         return view('livewire.invoices');
     }
 
@@ -91,10 +97,36 @@ class Invoices extends Component
             $order->access_invoice = 2;
             $order->save();
 
+            $this->orders = Order::where('user_id', Auth::user()->id)->where('status', 3)->get();
             $this->hide_table();
         }
 
         // then change order->access_invoice to 1 ( waiting confirmation )
 
+    }
+
+    public function exportPdf( $order_id )
+    {
+
+        $order = Order::find($order_id);
+
+
+        $logoPath = asset('storage/'.setting('site.logo'));
+
+        // total in letters 
+        $formatter = new NumberFormatter('fr', NumberFormatter::SPELLOUT); // 'fr' for French
+        $total_letters = $formatter->format($order->price * 1.2);
+
+        $data = [
+            'order' => $order,
+            'total_letters' => $total_letters
+        ];   
+        
+        $pdf = Pdf::loadView('pdfs.delivery_with_tva', $data); // Ensure 'pdf.template' exists with the desired blade view content
+
+        return response()->streamDownload(
+            fn() => print($pdf->stream()),
+            'Science-event-facture.pdf'
+        );
     }
 }

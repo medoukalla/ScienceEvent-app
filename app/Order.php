@@ -32,4 +32,15 @@ class Order extends Model
     {
         return $this->belongsTo(Formation::class, 'formation_id');
     }
+
+
+    /**
+     * Get the pack that owns the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function pack()
+    {
+        return $this->belongsTo(Pack::class, 'pack_id');
+    }
 }

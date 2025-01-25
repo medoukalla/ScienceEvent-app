@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use NumberFormatter;
 
 class FormationDetails extends Component
 {
@@ -172,6 +172,7 @@ class FormationDetails extends Component
         $order->formation_id = $this->formation->id;
         $order->user_id = $this->user->id;
         $order->price = $this->amount;
+        $order->pack_id = $this->selected_pack;
         $order->status = 1;
         $order->labo_name = $this->laboratory_name;
 
@@ -208,6 +209,7 @@ class FormationDetails extends Component
         $order->formation_id = $this->formation->id;
         $order->user_id = $this->user->id;
         $order->price = $this->amount;
+        $order->pack_id = $this->selected_pack;
         $order->status = 1;
         $order->payment_method = 5;
 
@@ -270,6 +272,12 @@ class FormationDetails extends Component
                 break;
         }
 
+        $logoPath = asset('storage/'.setting('site.logo'));
+
+        // total in letters 
+        $formatter = new NumberFormatter('fr', NumberFormatter::SPELLOUT); // 'fr' for French
+        $total_letters = $formatter->format($this->amount);
+
         $data = [
             'customerName' => $this->name,
             'customerPhone' => $this->phone,
@@ -285,7 +293,10 @@ class FormationDetails extends Component
                 ]
             ],
             'total' => $this->amount,
-        ];
+            'base64Logo' => base64_encode(file_get_contents($logoPath)),
+            'order' => Order::find($this->order_id),
+            'total_letters' => $total_letters
+        ];   
         
         $pdf = Pdf::loadView('pdfs.delivery_note', $data); // Ensure 'pdf.template' exists with the desired blade view content
 
