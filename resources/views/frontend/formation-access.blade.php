@@ -112,30 +112,30 @@
                 </div>
                 <div class="class-information-right-side">
                     <div class="class-informations-title">
-                        <span>Découvrez</span> des informations similaires
-                        <p>Discover similar formations, highlighting shared features and functions.</p>
+                        <span>Découvrez</span> notre sélection de formations
+                        <p>Un large choix de formations pour répondre à vos besoins.</p>
                     </div>
                     <div class="funfact-wrap">
 
-                    @foreach ( $last_formations as $last_formation )
-                        <a href="{{ route('frontend.formation', $formation->id) }}">
-                            <div class="s-info">
-                            @if (!empty($last_formation) && isset($last_formation[0]->download_link))
-                                <video style="width: 100%; height: auto;" controlslist="nodownload nofullscreen noplaybackrate" disablepictureinpicture loop autoplay muted playsinline>
-                                    <source src="{{ asset('storage/' . $last_formation[0]->download_link) }}" type="video/mp4">
-                                    Votre navigateur ne prend pas en charge la balise vidéo.
-                                </video>
-                            @else
-                                <img src="{{ asset('storage/'.$last_formation->cover) }}" alt="Similar Video">
-                                <div class="vid-infos">
-                                    <div class="vid-title">{{ substr($last_formation->title, 0, 13) }}...</div>
-                                    <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon" class="vid-icon">
+                        @foreach ( $last_formations as $last_formation )
+                            <a href="{{ route('frontend.formation', $last_formation) }}">
+                                <div class="s-info">
+                                @if (!empty($last_formation) && isset($last_formation[0]->download_link))
+                                    <video style="width: 100%; height: auto;" controlslist="nodownload nofullscreen noplaybackrate" disablepictureinpicture loop autoplay muted playsinline>
+                                        <source src="{{ asset('storage/' . $last_formation[0]->download_link) }}" type="video/mp4">
+                                        Votre navigateur ne prend pas en charge la balise vidéo.
+                                    </video>
+                                @else
+                                    <img src="{{ asset('storage/'.$last_formation->cover) }}" alt="Similar Video">
+                                    <div class="vid-infos">
+                                        <div class="vid-title">{{ substr($last_formation->title, 0, 13) }}...</div>
+                                        <img src="{{ asset('assets/svg/video-icon.svg') }}" alt="Video Icon" class="vid-icon">
+                                    </div>
+                                @endif
+                                    
                                 </div>
-                            @endif
-                                
-                            </div>
-                        </a>
-                    @endforeach
+                            </a>
+                        @endforeach
                         
                     </div>
                 </div>
