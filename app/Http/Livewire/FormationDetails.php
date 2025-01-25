@@ -22,6 +22,8 @@ class FormationDetails extends Component
 
     public $display;
 
+    public $button_route;
+
 
     public $payment_method = 'virement';
 

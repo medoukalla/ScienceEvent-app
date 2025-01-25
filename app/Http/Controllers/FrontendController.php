@@ -36,7 +36,16 @@ class FrontendController extends Controller
 
     public function formation_details( Formation $formation )   
     {
-        return view('frontend.formation-details', compact('formation'));
+
+        // check if user traying to acces is already bought this course 
+        $inscription = $formation->orders()->where('status', 3)->where('user_id', auth()->id())->first();
+        if ( is_null($inscription) || empty($inscription) || $inscription == '' ) {
+            $button_route = null;
+        }else {
+            $button_route = route('frontend.formation.access',[$formation, $formation->title]);
+        }
+
+        return view('frontend.formation-details', compact('formation','button_route'));
     }
 
 

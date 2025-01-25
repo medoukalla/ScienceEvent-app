@@ -130,7 +130,7 @@
                 </div>
 
                 <!-- Right section  -->
-                @livewire('formation-details', ['formation' => $formation])
+                @livewire('formation-details', ['formation' => $formation, 'button_route' => $button_route])
             </div>
         </div>
     </div>

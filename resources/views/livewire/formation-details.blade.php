@@ -86,11 +86,30 @@
                 </div>
             </div>
             
-            <div class="floating-btn">
-                <div wire:click="register" class="btn-org" style="margin-top: 20px;">
-                    Acheter cette formation
+            @auth
+                @if ( is_null( $button_route ) )
+                    <div class="floating-btn">
+                        <div wire:click="register" class="btn-org" style="margin-top: 20px;">
+                            Acheter cette formation
+                        </div>
+                    </div>
+                @else
+                    <div class="floating-btn">
+                        <a href="{{ $button_route }}">
+                            <div class="btn-org" style="margin-top: 20px;">
+                                Accéder à cette formation
+                            </div>
+                        </a>
+                    </div>
+                @endif
+            @endauth
+            @guest
+                <div class="floating-btn">
+                    <div wire:click="register" class="btn-org" style="margin-top: 20px;">
+                        Acheter cette formation
+                    </div>
                 </div>
-            </div>
+            @endguest
 
             <hr>
             <div class="info-ref-wrap">
