@@ -11460,7 +11460,29 @@ blockquote {
     width: 100px !important;
 }
 .r-side-floating .class-categories {
-  gap: 10px !important;
+  gap: 5px !important;
+}
+.r-side-floating .information-details .detail .detail-tags .tage {
+      font-size: 10px !important; 
+}
+.r-side-floating .info-ref-wrap .info-ref {
+  font-size: 10px !important;
+}
+.r-side-floating .information-details .detail span {
+  font-size: 13px !important;
+}
+.path-map .map {
+  gap: 5px !important;
+}
+.path-map .map .path-name {
+  font-size: 11px !important;
+}
+.unfolded .unfolded-list .list p {
+font-size: 16px !important;
+        line-height: 25px;
+}
+.similar-informations h3 {
+  font-size: 20px !important;
 }
 }
 
