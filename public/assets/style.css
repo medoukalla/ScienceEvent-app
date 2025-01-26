@@ -10606,6 +10606,9 @@ blockquote {
 .unfolded .unfolded-list .list {
   width: 100% !important;
 }
+.similar-informations h3 {
+  font-size: 26px !important;
+}
 }
 
 @media screen and (max-width: 529px ){
