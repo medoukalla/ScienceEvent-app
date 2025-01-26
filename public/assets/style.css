@@ -10598,6 +10598,14 @@ blockquote {
     transform: translateX(-50%) !important;
     line-height: 19px !important;
 }
+
+.unfolded h3, .formation-heading h3,
+.formation-target h3 {
+  font-size: 26px !important;
+}
+.unfolded .unfolded-list .list {
+  width: 100% !important;
+}
 }
 
 @media screen and (max-width: 529px ){
@@ -11428,7 +11436,34 @@ blockquote {
   .hero-v-content-wrapper .hero-v-content .btn-org {
     width: 100% !important;
   }
+  .similar-informations h3 {
+    font-size: 23px !important;
+  }
+  .unfolded h3, .formation-heading h3, .formation-target h3 {
+    font-size: 20px !important;
+  }
+  .formation-heading h2 {
+    font-size: 25px !important;
+  }
+  .formation-ended h3 {
+    font-size: 19px !important;
+  }
+  .formation-ended ul li {
+    font-size: 17px !important;
+    line-height: 25px !important;
 }
+.r-side-floating {
+    padding: 20px 10px !important;
+}
+.r-side-floating .class-categories .class {
+      font-size: 9px !important;
+    width: 100px !important;
+}
+.r-side-floating .class-categories {
+  gap: 10px !important;
+}
+}
+
 
 #w-node-_96cf8a59-e27b-3eac-44d0-4c9376b0fd5a-e6b4dfe0,
 #w-node-_684f3228-15ac-b3a3-dc2f-9502e371b1be-ca905a02,
