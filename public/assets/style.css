@@ -10570,6 +10570,16 @@ blockquote {
   .footer-middle-wrap {
         grid-template-columns: 1fr 1fr 1fr !important;
   }
+  .f-header-content .f-h-title {
+    font-size: 2rem !important;
+    line-height: 38px !important;
+}
+  .formation-header-wrapper p {
+    line-height: 22px;
+  }
+  .accordion li {
+    padding: 7px 45px !important;
+  }
 }
 
 @media screen and (max-width: 529px ){
