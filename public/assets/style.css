@@ -8428,6 +8428,15 @@ blockquote {
   .landing-page-template-name-wrapper {
     top: -116px;
   }
+  .sticky-buy-block .sticky-buy-title {
+    font-size: 18px !important;
+  }
+  .sticky-buy-block .sticky-buy-button {
+    font-size: 14px !important;
+  }
+  .sticky-buy-block .sticky-buy-title p {
+    font-size: 14px !important;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -9695,6 +9704,28 @@ blockquote {
     display: block !important;
   }
 
+  .sticky-buy-block .sticky-buy-title {
+    text-align: center;
+}
+
+.sticky-buy-block .sticky-buy-title p {
+    text-align: center;
+}
+
+.sticky-buy-block .sticky-help {
+    text-align: -webkit-center;
+}
+
+  .sticky-buy-block .sticky-buy-wrap {
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+  .sticky-buy-block {
+    height: 250px !important;
+  }
+
 
 }
 
@@ -10634,6 +10665,24 @@ blockquote {
   }
   .site-disc {
     width: 100% !important;
+  }
+  .sticky-buy-block .sticky-buy-title {
+    font-size: 20px !important;
+    line-height: 25px !important;
+  }
+  .sticky-buy-block .sticky-buy-title p {
+    line-height: 19px;
+    font-size: 14px;
+  }
+  .sticky-buy-block .sticky-help {
+      font-size: 14px;
+  }
+  .sticky-buy-block {
+    /* bottom: 100% !important; */
+    height: 270px !important;
+  } 
+  .r-side-floating .class-categories .class {
+    font-size: 13px !important;
   }
 }
 
@@ -14054,7 +14103,7 @@ input[type="radio"] {
   height: 100px;
   bottom:0;
   left: 0;
-  z-index: 1000;
+  z-index: 100;
   padding: 20px 50px;
   box-shadow: 0px -5px 10px #00000017;
 }
