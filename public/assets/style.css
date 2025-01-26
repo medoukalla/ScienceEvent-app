@@ -1080,6 +1080,14 @@ textarea.w-select {
   .w-col-tiny-12 {
     width: 100%;
   }
+
+  .path-map .map {
+    gap: 5px !important;
+  }
+
+  .path-map .map .path-name {
+    font-size: 12px !important;
+  }
 }
 
 .w-widget {
@@ -11483,6 +11491,9 @@ blockquote {
   .call-btn {
     display: none !important;
   }
+  .formation-heading h2 {
+    font-size: 24px !important;
+  }
 }
 
 @media screen and (max-width: 375px){
@@ -12304,7 +12315,6 @@ input[type="radio"] {
 
 .path-map .map {
   display: flex;
-  align-items: center;
   gap: 20px;
   margin-bottom: 38px;
 }

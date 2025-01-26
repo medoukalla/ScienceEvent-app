@@ -129,7 +129,7 @@
                     {{-- Alert when no tutorial information yet --}}
                     <div class="no-infos-alert">
                         <p>
-                            This tutorial is currently being prepared. Check back soon.
+                            Ce tutoriel est en cours de préparation. Revenez bientôt.
                         </p>
                     </div>
                 </div>
