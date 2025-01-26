@@ -13939,3 +13939,14 @@ input[type="radio"] {
     display: none;
   }
 }
+
+.no-infos-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+}
+
+.no-infos-alert p {
+  color: rgb(179, 179, 179);
+}

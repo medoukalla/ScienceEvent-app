@@ -60,7 +60,6 @@
             <div class="formations">
                 <div class="collection-grid-wrapper-classes w-dyn-list">
                     <div role="list" class="collection-grid-classes w-dyn-items">
-
                         @php
                             if ($selectedCategory || $selectedDoctor || $selectedType) {
                                 $formations = $formations->filter(function ($formation) use ($selectedCategory, $selectedDoctor, $selectedType) {
@@ -126,6 +125,12 @@
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    {{-- Alert when no tutorial information yet --}}
+                    <div class="no-infos-alert">
+                        <p>
+                            This tutorial is currently being prepared. Check back soon.
+                        </p>
                     </div>
                 </div>
             </div>

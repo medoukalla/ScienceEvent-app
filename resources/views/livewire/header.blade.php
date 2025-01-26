@@ -20,7 +20,7 @@
             </li>
             <li class="nav-menu-list">
               <div class="nav-menu-link-wrapper">
-                <a href="{{ route('frontend.index') }}" class="nav-menu-link hover">Accueil</a>
+                <a href="{{ route('frontend.index') }}" class="git hover">Accueil</a>
                 <div class="nav-menu-link-shape"></div>
               </div>
             </li>
