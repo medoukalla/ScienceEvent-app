@@ -6,7 +6,6 @@
 <section class="classes-details-section" style="padding-top: 50px">
     <div class="w-layout-blockcontainer container w-container">
         <div class="classes-details-wrap">
-
             <div class="class-details-content-and-instructor-wrap">
                 <div class="class-details-content-wrap">
                     <!-- Pages path -->
@@ -135,6 +134,17 @@
         </div>
     </div>
 </section>
+<div class="sticky-buy-block">
+    <div class="sticky-buy-wrap">
+        <div class="sticky-buy-title">
+            Formation Dermatologie Pédiatrique
+            <p>Formation financée à <span class="span-one">100%</span> par le <span class="span-two">DPC</span>. 8h de vidéos + ressources pratiques.</p>
+        </div>
+        <div class="sticky-help"><b>Besoin d'aide?</b> Contactez-nous au <span>+212 700 443 555</span></div>
+        <div class="sticky-buy-button">Acheter maintenant</div>
+    </div>
+
+</div>
 
 
 @stop

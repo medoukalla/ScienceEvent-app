@@ -1,6 +1,5 @@
 <div class="class-details-instructor-wrap">
 
-
     <!-- visitor  -->
     <div class="class-details-instructor-inner" @if ($display != 'details') style="display: none" @endif >
         <div class="r-side-floating">
@@ -272,7 +271,6 @@
                 </div>
                 <div @if ( $payment_method != 'credit_card' ) style="display: none" @endif class="m-content-wrapper select-one">
                     <p>Pour les payements en ligne, cliquez sur le bouton ci-dessous pour être redirigé vers la page de payement.</p>
-                    
                 </div>
             </div>
             
