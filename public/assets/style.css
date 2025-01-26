@@ -9231,7 +9231,7 @@ blockquote {
   }
 
   .menu-button.w--open {
-    background-color: #ff692e;
+    background-color: rgb(230, 230, 230);
   }
 
   .nav-heading {
