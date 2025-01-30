@@ -19,3 +19,12 @@ var swiper = new Swiper(".mySwiper", {
     clickable: true,
   },
 });
+
+
+document.querySelector('.mobile-filter-btn').addEventListener('click', function () {
+    document.querySelector('.formations-filter').style.display = 'block';
+});
+
+document.querySelector('.close-bar button').addEventListener('click', function () {
+    document.querySelector('.formations-filter').style.display = 'none';
+});

@@ -2,6 +2,11 @@
     <div class="w-layout-blockcontainer container w-container">
         <div class="formations-wrapper">
             <div class="formations-filter">
+                <div class="close-bar">
+                    <button>
+                        <img src="{{ asset('assets/svg/close.svg') }}" alt="">
+                    </button>
+                </div>
                 <div class="formations-filter-wrapper" >
                     <div class="filter job">
                         <div class="filter-drop">
@@ -56,6 +61,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="mobile-filter-btn">
+                <img src="{{ asset('assets/svg/filter.svg') }}" alt="Filter Icon">
+                <span>Filter</span>
             </div>
             <div class="formations">
                 <div class="collection-grid-wrapper-classes w-dyn-list">
