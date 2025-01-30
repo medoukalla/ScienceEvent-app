@@ -23,7 +23,20 @@ var swiper = new Swiper(".mySwiper", {
 
 document.querySelector('.mobile-filter-btn').addEventListener('click', function () {
     document.querySelector('.formations-filter').style.display = 'block';
+    document.querySelector('.overlay').style.display = 'block';
 });
+
+document.querySelector('.close-bar button').addEventListener('click', function () {
+    document.querySelector('.formations-filter').style.display = 'none';
+    document.querySelector('.overlay').style.display = 'none';
+});
+
+// لإغلاق الفلتر عند النقر على الخلفية
+document.querySelector('.overlay').addEventListener('click', function () {
+    document.querySelector('.formations-filter').style.display = 'none';
+    this.style.display = 'none';
+});
+
 
 document.querySelector('.close-bar button').addEventListener('click', function () {
     document.querySelector('.formations-filter').style.display = 'none';

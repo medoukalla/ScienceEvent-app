@@ -950,13 +950,28 @@ textarea.w-select {
     display: none;
     position: fixed;
     background-color: var(--white);
-    width: 80% !important;
+    width: 90% !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50px !important;
     padding: 50px 50px;
-    z-index: 10000;
+    z-index: 10000 !important;
+  }
+
+  .mobile-filter-btn {
+    display: block !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+  }
+
+  .close-bar button {
+    display: block !important;
+  }
+  .formation-header .all-formation-heading{
+    font-size: 2.0rem !important;
+    width: 100% !important;
+
   }
 }
 
@@ -1108,6 +1123,19 @@ textarea.w-select {
 
   .path-map .map .path-name {
     font-size: 12px !important;
+  }
+  .formation-header .all-formation-heading {
+    font-size: 1.8rem !important;
+    width: 100% !important;
+    line-height: 38px !important;
+  }
+
+  .formations-filter {
+    padding: 20px 20px;
+    border-radius: 10px !important;
+  }
+  .mobile-filter-btn {
+    padding: 5px 30px !important;
   }
 }
 
@@ -14193,7 +14221,7 @@ input[type="radio"] {
 
 .mobile-filter-btn {
   cursor: pointer;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 10px;
   background-color: var(--white);
@@ -14208,9 +14236,26 @@ input[type="radio"] {
 }
 
 .close-bar button {
+  display: none;
     float: right;
     border-radius: 5px;
     background-color: #f5f5f5;
     width: 35px;
     margin-bottom: 20px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 9000;
+}
+.formations-filter {
+    position: fixed;
+    z-index: 10;
+    background: white;
 }
