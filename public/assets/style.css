@@ -948,7 +948,7 @@ textarea.w-select {
 
   .formations-filter {
     display: none;
-    position: fixed;
+    position: fixed !important;
     background-color: var(--white);
     width: 90% !important;
     top: 50%;
@@ -12763,6 +12763,7 @@ input[type="radio"] {
 }
 
 .formations-wrapper .formations-filter {
+  position: relative;
   border-radius: 5px;
   border: 1px solid rgba(128, 128, 128, 0.2);
   width: 20%;
@@ -14253,9 +14254,4 @@ input[type="radio"] {
     background: rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 9000;
-}
-.formations-filter {
-    position: fixed;
-    z-index: 10;
-    background: white;
 }
