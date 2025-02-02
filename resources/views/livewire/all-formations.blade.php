@@ -1,4 +1,3 @@
-<div class="overlay"></div>
 <div class="all-formations">
     <div class="w-layout-blockcontainer container w-container">
         <div class="formations-wrapper">
@@ -69,7 +68,6 @@
             </div>
             <div class="formations">
                 <div class="collection-grid-wrapper-classes w-dyn-list">
-                    <div role="list" class="collection-grid-classes w-dyn-items">
                         @php
                             if ($selectedCategory || $selectedDoctor || $selectedType) {
                                 $formations = $formations->filter(function ($formation) use ($selectedCategory, $selectedDoctor, $selectedType) {
@@ -93,55 +91,63 @@
                                 });
                             }
                         @endphp
-                        @foreach ( $formations as $formation )
-                            <div role="listitem" class="collection-grid-item-classes w-dyn-item">
-                                <div class="information-wrap">
-                                    <a href="{{ route('frontend.formation', $formation->id) }}">
 
-                                        <div class="i-img-wrap">
-                                            @php
-                                                $videos = json_decode($formation->video);
-                                            @endphp
-                                            
-                                            @if (!empty($videos) && isset($videos[0]->download_link))
-                                                <video style="width: 100%; height: auto;" controlslist="nodownload nofullscreen noplaybackrate" disablepictureinpicture loop autoplay muted playsinline>
-                                                    <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4">
-                                                    Votre navigateur ne prend pas en charge la balise vidéo.
-                                                </video>
-                                            @else
-                                                    <img src="{{ asset('storage/'.$formation->cover) }}" alt="" style="width: 100%; height: auto;">
-                                            @endif
-                                        </div>
-                                        <div class="cat-tagge">
-                                            @foreach ($formation->categories as $category)
-                                                <span class="category-tag">{{ $category->name }}</span> @if (!$loop->last), @endif
-                                            @endforeach
-                                        </div>
-                                        <div class="i-title">
-                                            {{ $formation->title }}
-                                        </div>
-                                        <div class="i-planning">
-                                            <div class="i-date">
-                                                <img src="{{ asset('assets/svg/i-date.svg') }}" alt="information date">
-                                                <span>{{ $formation->date_details }}</span>
-                                            </div>
-                                            <div class="i-profile">
-                                                <img src="{{ asset('assets/svg/user.svg') }}" alt="information date">
-                                                <span>{{ $formation->doctor->name }}</span>
-                                            </div>
-                                        </div>
-                                    </a>
-
+                        @if ( $formations->count() < 1)
+                            {{-- Alert when no tutorial information yet --}}
+                            <div role="list" class="collection-grid-classes w-dyn-items" style=" grid: none !important; ">
+                                <div class="no-infos-alert">
+                                    <p>
+                                        Ce tutoriel est en cours de préparation. Revenez bientôt.
+                                    </p>
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
-                    {{-- Alert when no tutorial information yet --}}
-                    <div class="no-infos-alert">
-                        <p>
-                            Ce tutoriel est en cours de préparation. Revenez bientôt.
-                        </p>
-                    </div>
+                        @else
+                            <div role="list" class="collection-grid-classes w-dyn-items">
+                                @foreach ( $formations as $formation )
+                                    <div role="listitem" class="collection-grid-item-classes w-dyn-item">
+                                        <div class="information-wrap">
+                                            <a href="{{ route('frontend.formation', $formation->id) }}">
+
+                                                <div class="i-img-wrap">
+                                                    @php
+                                                        $videos = json_decode($formation->video);
+                                                    @endphp
+                                                    
+                                                    @if (!empty($videos) && isset($videos[0]->download_link))
+                                                        <video style="width: 100%; height: auto;" controlslist="nodownload nofullscreen noplaybackrate" disablepictureinpicture loop autoplay muted playsinline>
+                                                            <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4">
+                                                            Votre navigateur ne prend pas en charge la balise vidéo.
+                                                        </video>
+                                                    @else
+                                                            <img src="" alt="" style="width: 100%; height: auto;">
+                                                    @endif
+                                                </div>
+                                                <div class="cat-tagge">
+                                                    @foreach ($formation->categories as $category)
+                                                        <span class="category-tag">{{ $category->name }}</span> @if (!$loop->last), @endif
+                                                    @endforeach
+                                                </div>
+                                                <div class="i-title">
+                                                    {{ $formation->title }}
+                                                </div>
+                                                <div class="i-planning">
+                                                    <div class="i-date">
+                                                        <img src="{{ asset('assets/svg/i-date.svg') }}" alt="information date">
+                                                        <span>{{ $formation->date_details }}</span>
+                                                    </div>
+                                                    <div class="i-profile">
+                                                        <img src="{{ asset('assets/svg/user.svg') }}" alt="information date">
+                                                        <span>{{ $formation->doctor->name }}</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    
                 </div>
             </div>
         </div>

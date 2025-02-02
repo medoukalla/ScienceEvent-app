@@ -12119,7 +12119,7 @@ header {
 }
 .information-wrap .i-planning .i-date span,
 .information-wrap .i-planning .i-profile span {
-  line-height: 10px;
+  line-height: 12px;
 }
 .primary-btn {
   background-color: var(--orange-clr);
