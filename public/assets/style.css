@@ -14116,7 +14116,7 @@ input[type="radio"] {
 
 
 /* Hide largeMenu on small devices (max-width 767px) */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
   .largeMenu {
     display: none;
   }
@@ -14129,7 +14129,7 @@ input[type="radio"] {
 }
 
 /* Show largeMenu on larger devices (min-width 768px) */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .largeMenu {
     display: block;
   }
