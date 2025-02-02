@@ -137,11 +137,33 @@
 <div class="sticky-buy-block">
     <div class="sticky-buy-wrap">
         <div class="sticky-buy-title">
-            Formation Dermatologie Pédiatrique
+            {{ $formation->title }}
             <p>Formation financée à <span class="span-one">100%</span> par le <span class="span-two">DPC</span>. 8h de vidéos + ressources pratiques.</p>
         </div>
         <div class="sticky-help"><b>Besoin d'aide?</b> Contactez-nous au <span>+212 700 443 555</span></div>
-        <div class="sticky-buy-button">Acheter maintenant</div>
+        
+        @auth
+            @if ( is_null( $button_route ) )
+                <div class="sticky-buy-button" onclick="$(document).ready(function(){ 
+                    $('html, body').animate({
+                        scrollTop: $('.class-details-instructor-wrap').offset().top
+                    }, 1000);
+                });">Acheter maintenant</div>
+            @else
+            <div class="sticky-buy-button">
+                <a href="{{ $button_route }}">
+                    Acheter maintenant
+                </a>
+            </div>
+            @endif
+        @endauth
+        @guest
+            <div class="sticky-buy-button" onclick="$(document).ready(function(){ 
+                $('html, body').animate({
+                    scrollTop: $('.class-details-instructor-wrap').offset().top
+                }, 1000);
+            });">Acheter maintenant</div>
+        @endguest
     </div>
 
 </div>
