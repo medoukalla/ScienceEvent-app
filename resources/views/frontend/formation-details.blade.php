@@ -39,10 +39,18 @@
                         @endphp
 
                         @if (!empty($videos) && isset($videos[0]->download_link))
-                            <video controls class="formation-video">
+                            <video class="formation-video" id="start-video" controls controlslist="nodownload noplaybackrate" muted loop >
                                 <source src="{{ asset('storage/' . $videos[0]->download_link) }}" type="video/mp4">
                                 Votre navigateur ne prend pas en charge la balise vidéo.
                             </video>
+                            <script>
+                                $(window).on('load', function() {
+                                    setTimeout(function() {
+                                        $('#start-video').get(0).volume = true;
+                                        $('#start-video').get(0).play();
+                                    }, 1000);
+                                });
+                            </script>
                         @else
                             <a href="{{ route('frontend.formation', $formation->id) }}">
                                 <img src="{{ asset('storage/'.$formation->cover) }}" alt="" style="width: 100%;max-height: 300px;object-fit: cover;">
