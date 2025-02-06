@@ -134,7 +134,9 @@
         </div>
     </div>
 </section>
-<div class="sticky-buy-block">
+
+
+<div class="sticky-buy-block" style="display: none;">
     <div class="sticky-buy-wrap">
         <div class="sticky-buy-title">
             {{ $formation->title }}
