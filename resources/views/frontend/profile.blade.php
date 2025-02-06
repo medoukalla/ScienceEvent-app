@@ -118,7 +118,6 @@
             <div class="profile-left">
                 <div class="profile-name">
                     {{ Auth::user()->name }}
-                    <span>{{ Auth::user()->role->name }}</span>
                 </div>
                 <hr style="margin: 10px 0">
                 <div class="profile-nav">
