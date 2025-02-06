@@ -10,27 +10,38 @@
                 {{ $formation->category->name }}
             </div>
             <div class="class-categories">
-                <div class="class @if ( $formation->type == 1 ) selected @endif ">
-                    <div class="class-icon">
-                        <img src="{{ asset('assets/svg/e-learining-icon.svg') }}" alt="E-learning">
+                @if ( $formation->type == 1 )
+
+                    <div class="class selected">
+                        <div class="class-icon">
+                            <img src="{{ asset('assets/svg/e-learining-icon.svg') }}" alt="E-learning">
+                        </div>
+                        E-learning
                     </div>
-                    E-learning
-                </div>
-                <div class="class @if ( $formation->type == 2 ) selected @endif ">
-                    <div class="class-icon">
-                        <img src="{{ asset('assets/svg/presentiel-icon.svg') }}" alt="E-learning">
+
+                @elseif ( $formation->type == 2 )
+
+                    <div class="class selected">
+                        <div class="class-icon">
+                            <img src="{{ asset('assets/svg/presentiel-icon.svg') }}" alt="E-learning">
+                        </div>
+                        Présentiel
                     </div>
-                    Présentiel
-                </div>
-                <div class="class @if ( $formation->type == 3 ) selected @endif ">
-                    <div class="class-icon">
-                        <img src="{{ asset('assets/svg/class-virtual-icon.svg') }}" alt="E-learning">
+
+                @elseif ( $formation->type == 3 )
+
+                    <div class="class selected">
+                        <div class="class-icon">
+                            <img src="{{ asset('assets/svg/class-virtual-icon.svg') }}" alt="E-learning">
+                        </div>
+                        Classe Virtuelle
                     </div>
-                    Classe Virtuelle
-                </div>
+
+                @endif
+
             </div>
             <div class="information-details">
-                <div class="detail">
+                <div class="detail" style="display: none;">
                     <div class="detail-text">
                         <div class="detail-icon">
                             <img src="{{ asset('assets/svg/detail-hand.svg') }}" alt="">
@@ -142,22 +153,22 @@
             <div class="contact-us-form insc-floeating">
                 <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
                     <label for="">Nom et prénom :</label>
-                    <input wire:model.lazy="name" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre nom et prénom" type="tel" id="field-4" required="">
+                    <input wire:model.lazy="name" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre nom et prénom" type="text" id="field-4" required="">
                     @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
                     <label for="">Spécialité :</label>
-                    <input wire:model.lazy="specialite" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre spécialité" type="tel" id="field-4" required="">
+                    <input wire:model.lazy="specialite" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre spécialité" type="text" id="field-4" required="">
                     @error('specialite') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
                     <label for="">Téléphone :*</label>
-                    <input wire:model.lazy="phone" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votr téléphone" type="tel" id="field-4" required="">
+                    <input wire:model.lazy="phone" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votr téléphone" type="text" id="field-4" required="">
                     @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div id="w-node-_65e7f6f3-9693-8c9e-4ccb-602a19bdcae8-3aa7fe38" class="contact-us-form-column">
                     <label for="">Email :*</label>
-                    <input wire:model.lazy="email" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre email" type="tel" id="field-4" required="">
+                    <input wire:model.lazy="email" class="form-input-field w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="Votre email" type="text" id="field-4" required="">
                     @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div class="btn-org" wire:click="save_user">
