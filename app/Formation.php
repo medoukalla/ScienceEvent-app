@@ -12,6 +12,15 @@ class Formation extends Model
         return Formation::orderBy('date', 'asc')->limit(6)->get();
     }
 
+    public static function index_formations_limit($limit = 6)
+    {
+        $query = self::orderBy('date', 'asc');
+        if ($limit) {
+            $query->take($limit);
+        }
+        return $query->get();
+    }
+
 
     /**
      * Get the category that owns the Formation

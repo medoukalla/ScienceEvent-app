@@ -8,15 +8,17 @@ use Livewire\Component;
 class Formations extends Component
 {
 
-    // get formations
     public $formations;
+    public $limit = 6;
 
-    public function mount() {
-        $this->formations = Formation::index_formations();
+    public function loadAll()
+    {
+        $this->limit = null; // Remove limit to show all
     }
 
     public function render()
     {
+        $this->formations = Formation::index_formations_limit($this->limit);
         return view('livewire.formations');
     }
 }
