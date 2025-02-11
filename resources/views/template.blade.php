@@ -55,6 +55,20 @@
 
 
         <footer class="footer-section">
+            
+            {{-- Cookies card --}}
+            <div class="cookie-card">
+                <span class="title">🍪 Cookie Notice</span>
+                    <p class="description">Nous avons pris soin de nous assurer d'abord que nos formations médicales suscitent votre intérêt avant de vous contacter, mais nous serions ravis de vous accompagner lors de votre visite… Cela vous convient-il ? </p>
+                    <div class="actions">
+                    <a href="#">
+                        Lire la politique de confidentialité
+                    </a>
+                    <button class="accept">
+                    Accept
+                    </button>
+                </div>
+            </div>
             <div class="w-layout-blockcontainer container w-container">
             <div class="footer-wrap">
                 <div class="footer-top-wrap">
