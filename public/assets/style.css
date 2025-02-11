@@ -976,6 +976,9 @@ textarea.w-select {
 }
 
 @media screen and (max-width: 767px) {
+    .cookie-card {
+    left: 15px !important;
+  }
 
   .w-hidden-main,
   .w-hidden-medium {
@@ -1048,6 +1051,9 @@ textarea.w-select {
 }
 
 @media screen and (max-width: 479px) {
+  .cookie-card {
+        max-width: 370px;
+  }
   .formation-tab .f-tab {
     padding: 5px 14px !important;
   }
@@ -8726,6 +8732,9 @@ blockquote {
   .landing-page-hero-image {
     margin-top: -32%;
   }
+  .cookie-card {
+    left: 59px !important;
+  }
 }
 
 @media screen and (min-width: 1920px) {
@@ -14137,6 +14146,9 @@ input[type="radio"] {
   }
   .smallMenu {
     display: none;
+  }
+    .cookie-card {
+    left: 44px !important;
   }
 }
 
