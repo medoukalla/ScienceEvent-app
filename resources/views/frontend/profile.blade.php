@@ -137,6 +137,15 @@
                         <img src="{{ asset('assets/svg/settings.svg') }}" alt="profile formation">
                         Paramètres
                     </button>
+
+                    <form action="{{ route('voyager.logout') }}" method="POST">
+                        {{ csrf_field() }}
+
+                        <button type="submit" class="">
+                            <img src="{{ asset('assets/svg/settings.svg') }}" alt="Déconnexion">
+                            Déconnexion
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="profile-right">
