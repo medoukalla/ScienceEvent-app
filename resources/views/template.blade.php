@@ -58,7 +58,7 @@
             
             {{-- Cookies card --}}
             <div class="cookie-card">
-                <span class="title">🍪 Cookie Notice</span>
+                <span class="title">🍪 les Cookies !</span>
                     <p class="description">Nous avons pris soin de nous assurer d'abord que nos formations médicales suscitent votre intérêt avant de vous contacter, mais nous serions ravis de vous accompagner lors de votre visite… Cela vous convient-il ? </p>
                     <div class="actions">
                     <a href="#">
