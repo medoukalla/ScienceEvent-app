@@ -287,11 +287,11 @@
             
  
             @if ( $payment_method == 'credit_card' ) 
-                <div  class="btn-org online-pay-btn" style="margin-top: 20px">
+                <div  class="btn-org online-pay-btn" style="margin-top: 20px; @if ( $amount < 1 ) display:none; @else display:block; @endif  ">
                     Payer en ligne : <span>( {{ $amount }}.00 DH )</span>
                 </div>
             @else
-                <div wire:click="paymentOffline" class="btn-org" style="margin-top: 20px">
+                <div wire:click="paymentOffline" class="btn-org" style="margin-top: 20px; @if ( $amount < 1 ) display:none; @else display:block; @endif  ">
                     Confirmer le payment
                 </div>
             @endif
