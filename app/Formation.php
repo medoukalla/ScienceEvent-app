@@ -54,17 +54,17 @@ class Formation extends Model
         return $this->hasMany(Extrait::class, 'formation_id');
     }
 
-
+    
     /**
-     * Get all of the packs for the Formation
+     * The packs that belong to the Formation
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function packs()
     {
-        return $this->hasMany(Pack::class, 'formation_id');
+        return $this->belongsToMany(Pack::class, 'pack_formation');
     }
-
+    
 
     /**
      * Get all of the resources for the Formation

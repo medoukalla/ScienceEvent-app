@@ -470,6 +470,8 @@
         z-index: 1000;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         display: none;
+        max-height: 90vh;
+        overflow: auto;
     }
     .avatar-popup img {
         max-width: 100%;
@@ -484,9 +486,9 @@
     }
     .avatar-popup-close {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 20px;
+        top: 0px;
+        right: 16px;
+        font-size: 40px;
         cursor: pointer;
     }
 
