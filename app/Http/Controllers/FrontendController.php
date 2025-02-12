@@ -34,6 +34,13 @@ class FrontendController extends Controller
         ]);
     }
 
+    
+    public function confidentialite()
+    {
+        return view('frontend.confidentialite');
+    }
+    
+
     public function formation_details( Formation $formation )   
     {
 

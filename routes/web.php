@@ -57,6 +57,8 @@ Route::get('formation/{formation}/access', [FrontendController::class, 'formatio
 
 Route::post('/notifications/{id}/mark-as-read', [FrontendController::class, 'markAsRead'])->name('markAsRead');
 
+Route::get('confidentialite', [FrontendController::class, 'confidentialite'])->name('frontend.confidentialite');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

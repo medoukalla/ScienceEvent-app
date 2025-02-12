@@ -13,9 +13,6 @@
 
   <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-
   <!-- for seo  -->
   <meta name="description" content="{{ setting('site.meta_description') }}">
   <meta name="keywords" content="{{ setting('site.meta_keywords') }}">
@@ -30,9 +27,6 @@
   <meta name="twitter:title" content="{{ setting('site.title') }}">
   <meta name="twitter:description" content="{{ setting('site.meta_description') }}">
   <meta name="twitter:image" content="{{ asset('storage/'.setting('site.logo')) }}">
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 
   @livewireStyles
 
@@ -57,16 +51,14 @@
         <footer class="footer-section">
             
             {{-- Cookies card --}}
-            <div class="cookie-card">
+            <div class="cookie-card" style="display: none;">
                 <span class="title">🍪 les Cookies !</span>
                     <p class="description">Nous avons pris soin de nous assurer d'abord que nos formations médicales suscitent votre intérêt avant de vous contacter, mais nous serions ravis de vous accompagner lors de votre visite… Cela vous convient-il ? </p>
                     <div class="actions">
-                    <a href="#">
+                    <a href="{{ route('frontend.confidentialite') }}" target="_blanck">
                         Lire la politique de confidentialité
                     </a>
-                    <button class="accept">
-                    Accept
-                    </button>
+                    <button class="accept">Accept</button>
                 </div>
             </div>
             <div class="w-layout-blockcontainer container w-container">
@@ -123,6 +115,7 @@
                     <div class="footer-list-wrap">
                     <div class="footer-list-item"><a href="{{ route('frontend.aide') }}" class="footer-list">Besoin d’aide ?</a></div>
                     <div class="footer-list-item"><a href="{{ route('frontend.contact') }}" class="footer-list">Nous contacter</a></div>
+                    <div class="footer-list-item"><a href="{{ route('frontend.confidentialite') }}" class="footer-list">Politique de confidentialité</a></div>
                     </div>
                 </div>
                 <div class="footer-widget">
@@ -180,11 +173,30 @@
 
     <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=667cd9f8b1766578e6b4dfd1"
-    type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdn.prod.website-files.com/667cd9f8b1766578e6b4dfd1/js/webflow.e2eb9be86.js"
     type="text/javascript"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            // Check if the 'science-events' cookie exists
+            if ($.cookie('science-events') !== 'accepted') {
+                // If the cookie doesn't exist or its value is not 'accepted', show the cookie-card
+                $('.cookie-card').show();
+            }
+
+            // Add click event listener to the button with class 'accept'
+            $('.accept').on('click', function () {
+                // Set the session cookie with name 'science-events' and value 'accepted'
+                $.cookie('science-events', 'accepted', { path: '/' });
+
+                // Hide the div with class 'cookie-card'
+                $('.cookie-card').hide();
+            });
+        });
+    </script>
 
     @livewireScripts
 
