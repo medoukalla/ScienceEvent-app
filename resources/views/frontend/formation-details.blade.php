@@ -119,19 +119,26 @@
                             {!! $formation->program !!}
                         </p>
 
+                        
                         @if ( count( $formation->extraits ) > 0 )
-                            @foreach ( $formation->extraits as $extrait )
-                                <div class="funfact-wrap">
-                                    <a href="#">
-                                        <div class="s-info" style="height:200px !important">
+                            <div class="funfact-wrap">
+                                @foreach ($formation->extraits as $extrait)
+                                    <div class="s-info" style="height:200px !important">
+                                        @if (!is_null($extrait->thumbnail))
+                                            <a href="{{ asset('public/'.$extrait->thumbnail) }}" data-lightbox="formation-images" data-title="{{ $extrait->title }}">
+                                                <img src="{{ asset('public/'.$extrait->thumbnail) }}" alt="{{ $extrait->title }}">
+                                            </a>
+                                        @endif
+
+                                        @if (!is_null($extrait->video))
                                             <video controls class="formation-video">
-                                                <source src="{{ asset('storage/' . (optional(json_decode( $extrait->video, true))[0]['download_link'] ?? '')) }}" type="video/mp4">
+                                                <source src="{{ asset('public/'.$extrait->video) }}" type="video/mp4">
                                                 Votre navigateur ne prend pas en charge la balise vidéo.
                                             </video>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
+                                        @endif
+                                    </div>
+                                @endforeach
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -178,5 +185,19 @@
 
 </div>
 
+
+<style>
+    /* Add this to your CSS file */
+.s-info img {
+    cursor: zoom-in;
+    object-fit: cover; /* ensures images fill their container */
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox img {
+    max-height: 80vh;
+}
+</style>
 
 @stop

@@ -28,6 +28,8 @@
   <meta name="twitter:description" content="{{ setting('site.meta_description') }}">
   <meta name="twitter:image" content="{{ asset('storage/'.setting('site.logo')) }}">
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
   @livewireStyles
 
 </head>
@@ -177,6 +179,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdn.prod.website-files.com/667cd9f8b1766578e6b4dfd1/js/webflow.e2eb9be86.js"
     type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
 
 
     <script>
