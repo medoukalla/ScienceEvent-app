@@ -119,9 +119,13 @@
             </div>
             @if ( $edit == true )
                 <div class="col-md-6">
-                    @livewire('admin-packs',['formation_id' => $dataTypeContent->id]);
+                    <div class="row" style="margin-left: 15px !important;">
+                        @livewire('admin-packs',['formation_id' => $dataTypeContent->id])
+    
+                        @livewire('admin-extraits',['formation_id' => $dataTypeContent->id])
 
-                    @livewire('admin-extraits',['formation_id' => $dataTypeContent->id]);
+                        @livewire('admin-resources',['formation_id' => $dataTypeContent->id])
+                    </div>
                 </div>
             @endif
             

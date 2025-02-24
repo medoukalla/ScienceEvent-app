@@ -1,4 +1,4 @@
-<div class="panel p-3">
+<div class="panel p-3" style=" background-color: #00bad10a !important">
 
     <div class="form-group  col-md-12 ">
         <h3>Packs de formation</h3>

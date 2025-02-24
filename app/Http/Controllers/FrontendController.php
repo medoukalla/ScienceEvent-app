@@ -6,6 +6,7 @@ use App\Category;
 use App\Doctor;
 use Illuminate\Http\Request;
 use App\Formation;
+use App\Resource;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use Illuminate\Notifications\DatabaseNotification;
@@ -18,6 +19,48 @@ class FrontendController extends Controller
             'last_formation' => Formation::latest()->first(),
             'categories' => Category::limit(4)->get(),
         ]);
+    }
+
+
+    public function download(Resource $resource)
+    {
+        // Get the file path from the resource
+        $filePath = storage_path('app/' . $resource->file_path);
+
+        // Check if the file exists
+        if (!file_exists($filePath)) {
+            return response()->json(['error' => 'File not found'], 404);
+        }
+
+        // Extract the original file name and ensure it has an extension
+        $originalFileName = $this->getFullFileName($resource->file_name, $resource->file_path);
+
+        // Return the file as a downloadable response
+        $response = response()->download($filePath, $originalFileName, [
+            'Content-Type' => mime_content_type($filePath),
+        ]);
+
+        // Handle redirect if provided
+        if (request()->has('redirect')) {
+            $redirectUrl = request()->input('redirect');
+            $response->headers->set('X-Redirect', $redirectUrl); // Add custom header for redirection
+        }
+
+        return $response;
+    }
+
+    // Helper method to ensure the file name includes an extension
+    protected function getFullFileName($fileName, $filePath)
+    {
+        // Extract the file extension from the file path
+        $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
+
+        // Append the extension to the file name if it doesn't already have one
+        if (pathinfo($fileName, PATHINFO_EXTENSION) === '') {
+            $fileName .= '.' . $fileExtension;
+        }
+
+        return $fileName;
     }
 
     public function about()

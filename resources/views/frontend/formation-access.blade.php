@@ -66,34 +66,37 @@
                                             <div class="resources-list">
                                                 @foreach($formation->resources as $resource)
                                                     @php
-                                                        $resource_info = json_decode($resource->file_path);
+                                                        $ext = substr(strrchr($resource->file_path, '.'), 1);
                                                     @endphp
                                                     <div class="resource-item">
                                                         <div class="resource-icon">
-                                                            @if (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['png', 'jpg', 'jpeg','gif', 'webp']))
+                                                            @if (in_array($ext, ['png', 'jpg', 'jpeg','gif', 'webp', 'Png']))
                                                                 <i class="ti ti-photo"></i>
-                                                            @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['pdf']))
+                                                            @elseif (in_array($ext, ['pdf']))
                                                                 <i class="ti ti-file-type-pdf"></i>
-                                                            @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['docx', 'doc']))
+                                                            @elseif (in_array($ext, ['docx', 'doc']))
                                                                 <i class="ti ti-brand-office"></i>
-                                                            @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['xlsx', 'xls']))
+                                                            @elseif (in_array($ext, ['xlsx', 'xls']))
                                                                 <i class="ti ti-file-excel"></i>
-                                                            @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['pptx', 'ppt']))
+                                                            @elseif (in_array($ext, ['pptx', 'ppt']))
                                                                 <i class="ti ti-presentation"></i>
-                                                            @elseif (in_array(substr(strrchr($resource_info[0]->download_link, '.'), 1), ['mp4', 'webm', 'mov', 'avi']))
+                                                            @elseif (in_array($ext, ['mp4', 'webm', 'mov', 'avi']))
                                                                 <i class="ti ti-video"></i>
-                                                            
                                                             @else
                                                                 <i class="ti ti-file-text"></i>
                                                             @endif
                                                         </div>
                                                         <div class="resource-details">
                                                             <h4 class="resource-title">{{ $resource->file_name }}</h4>
-                                                            <p class="resource-type">Type : {{ ucfirst(pathinfo($resource_info[0]->download_link, PATHINFO_EXTENSION)) }}</p>
+                                                            <p class="resource-type">Type : {{ ucfirst(pathinfo($resource->file_path, PATHINFO_EXTENSION)) }}</p>
                                                         </div>
-                                                        <a href="{{ Storage::url($resource_info[0]->download_link) }}" download class="resource-download-btn">
-                                                            Télécharger
-                                                        </a>
+                                                        <form id="download-form-{{ $resource->id }}" action="{{ route('download.resource', $resource) }}" method="post" target="_blank">
+                                                            @csrf
+                                                            <input type="hidden" name="redirect" value="{{ url()->previous() }}">
+                                                            <button type="submit" class="resource-download-btn">
+                                                                Télécharger
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 @endforeach
                                                 
@@ -174,6 +177,25 @@
         // scroll chat to botton on page load
         $('#chat-messages').animate({ scrollTop: $('#chat-messages').prop('scrollHeight') }, 500);
         $('#send-message-btn').click(() => $('#chat-messages').animate({ scrollTop: $('#chat-messages').prop('scrollHeight') }, 800));
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const forms = document.querySelectorAll('form[target="_blank"]');
+
+            forms.forEach(form => {
+                form.addEventListener('submit', function () {
+                    const redirectUrl = new URLSearchParams(window.location.search).get('redirect');
+
+                    // Redirect the user back after a short delay
+                    setTimeout(function () {
+                        if (redirectUrl) {
+                            window.location.href = redirectUrl;
+                        } else {
+                            history.back();
+                        }
+                    }, 500); // Adjust the delay as needed (in milliseconds)
+                });
+            });
+        });
     });
 
     
@@ -417,10 +439,6 @@
         align-items: center;
         gap: 5px;
         transition: background-color 0.3s ease;
-    }
-
-    .resource-download-btn:hover {
-        background-color: var(--primary-color-hover);
     }
 </style>
 @stop

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\FrontendController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +61,7 @@ Route::post('/notifications/{id}/mark-as-read', [FrontendController::class, 'mar
 
 Route::get('confidentialite', [FrontendController::class, 'confidentialite'])->name('frontend.confidentialite');
 
+Route::post('download/{resource}', [FrontendController::class, 'download'])->name('download.resource')->middleware('auth');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
