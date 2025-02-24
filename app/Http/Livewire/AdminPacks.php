@@ -16,7 +16,7 @@ class AdminPacks extends Component
     // inputs to add new pack 
     public $title;
     public $price;
-    public $status;
+    public $status = 1;
 
     public function mount($formation_id)
     {
@@ -35,7 +35,6 @@ class AdminPacks extends Component
         $this->validate([
             'title' => 'required|min:3',
             'price' => 'required|numeric',
-            'status' => 'required|in:0,1',
         ]);
 
         Pack::create([
