@@ -13,7 +13,7 @@
                             {{ $extrait->title }} 
                         </a>
                     @endif
-                    
+
                     @if ( !is_null( $extrait->video) )
                         <a href="{{ asset('public/'.$extrait->video) }}" target="_blank" title="Voir extrait">
                             {{ $extrait->title }} 
@@ -32,30 +32,35 @@
     <hr>
 
     <div class="col-md-12">
-        <h5>Ajouter un extrait : </h5>
+        <h5>Ajouter un extrait :</h5>
     </div>
 
     <div class="form-group  col-md-12 ">
         <label class="control-label" for="name">Title</label>
-        <input wire:model="title" type="text" class="form-control" name="title" placeholder="Title">
+        <input wire:model.defer="title" type="text" class="form-control" name="title" placeholder="Title">
         @error('title') <div class="alert alert-danger">{{ $message }}</div> @enderror
     </div>
 
-    <div class="form-group  col-md-12 ">
+    <div class="form-group  col-md-12 " style="display: {{ ($video) ? 'none' : '' }}">
         <label class="control-label" for="name">Image</label>
-        <input wire:model="image" type="file" class="form-control" name="image" step="any" placeholder="Price">
+        <input wire:model="image" type="file" class="form-control" name="image" placeholder="Price">
         @error('image') <div class="alert alert-danger">{{ $message }}</div> @enderror
     </div>
 
-    <div class="form-group  col-md-12 ">
+    <div class="form-group  col-md-12 " style="display: {{ ($image) ? 'none' : '' }}">
         <label class="control-label" for="name">Video</label>
-        <input wire:model="video" type="file" class="form-control" name="video" step="any" placeholder="Video">
+        <input wire:model="video" type="file" class="form-control" name="video" placeholder="Video">
         @error('video') <div class="alert alert-danger">{{ $message }}</div> @enderror
     </div>
 
 
-    <div class="panel-footer">
+    <div class="panel-footer " style="display: {{ ($image || $video) ? '' : 'none' }}">
         <button wire:click="add_extrait()" type="button" class="btn btn-primary save waves-effect waves-light">Enregistrer</button>
+    </div>
+    <div class="panel-footer " wire:loading>
+        <div class="alert alert-warning d-block">
+            <b>Veuillez patienter svp ...</b>
+        </div>
     </div>
 
 </div>

@@ -21,6 +21,9 @@ class AdminExtraits extends Component
     public $image = null;
     public $video = null;
 
+    public $isProcessing = false;
+
+
     public function mount($formation_id)
     {
         $this->formation_extraits = Extrait::where('formation_id', $formation_id)->get();
@@ -34,32 +37,49 @@ class AdminExtraits extends Component
 
     public function add_extrait()
     {
+        $this->isProcessing = true; // Start loading
+
         $this->validate([
             'title' => 'required|min:3',
             'image' => 'nullable|image|max:2048', // 2MB Max
-            'video' => 'nullable|mimetypes:video/avi,video/mpeg,video/quicktime,video/x-ms-wmv,video/x-flv,video/mp4',
+            'video' => 'nullable|mimetypes:video/avi,video/mpeg,video/quicktime,video/x-ms-wmv,video/x-flv,video/mp4|max:51200', // 50MB Max
         ]);
 
+        // Initialize variables
+        $imagePath = null;
+        $videoPath = null;
 
-        // save image 
-        if ( !is_null( $this->image ) ) {
-            $image = $this->image->store('extraits/photos', 'real_public');
-        }else { $image = null; }
+        try {
+            // Save image if provided
+            if ($this->image && $this->image->isValid()) {
+                $imagePath = $this->image->store('extraitsPhotos', 'real_public');
+            }
 
-        // save video 
-        if ( !is_null( $this->video ) ) {
-            $video = $this->video->store('extraits/videos', 'real_public');
-        }else { $video = null; }
+            // Save video if provided
+            if ($this->video && $this->video->isValid()) {
+                $videoPath = $this->video->store('extraitsVideos', 'real_public');
+            }
 
-        Extrait::create([
-            'title' => $this->title,
-            'video' => $video,
-            'thumbnail' => $image,
-            'formation_id' => $this->formation_id,
-        ]);
+            // Create the extrait record only after both files are processed
+            Extrait::create([
+                'title' => $this->title,
+                'video' => $videoPath,
+                'thumbnail' => $imagePath,
+                'formation_id' => $this->formation_id,
+            ]);
 
-        $this->formation_extraits = Extrait::where('formation_id', $this->formation_id)->get();
-        $this->reset(['title', 'image', 'video']);
+            // Refresh the formation extraits list
+            $this->formation_extraits = Extrait::where('formation_id', $this->formation_id)->get();
+
+            // Reset form inputs
+            $this->reset(['title', 'image', 'video']);
+            $this->isProcessing = false; // Stop loading after completion
+        } catch (\Exception $e) {
+            $this->isProcessing = false; // Stop loading after completion
+            // Log any errors that occur during file processing
+            \Log::error('Error creating extrait:', ['message' => $e->getMessage()]);
+            session()->flash('error', 'An error occurred while processing your request.');
+        }
     }
 
 
