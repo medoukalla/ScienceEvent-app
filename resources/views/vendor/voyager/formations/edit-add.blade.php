@@ -120,6 +120,8 @@
             @if ( $edit == true )
                 <div class="col-md-6">
                     @livewire('admin-packs',['formation_id' => $dataTypeContent->id]);
+
+                    @livewire('admin-extraits',['formation_id' => $dataTypeContent->id]);
                 </div>
             @endif
             
