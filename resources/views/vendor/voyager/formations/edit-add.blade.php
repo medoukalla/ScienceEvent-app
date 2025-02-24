@@ -25,7 +25,7 @@
             @if ( $add == true )
                 <div class="col-md-12">
                     <div class="alert alert-primary">
-                        Pour ajouter des packs, vous devez d'abord ajouter la formation, puis allez la modifier pour ajouter les packs.
+                        Pour ajouter des packs, des extraits ou des ressources, vous devez d'abord ajouter la formation, puis allez la modifier pour ajouter ces éléments.
                     </div>
                 </div>
             @endif
