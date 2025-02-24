@@ -81,7 +81,7 @@
                             }
 
                             @endphp
-                            <div class="form-group">
+                            <div class="form-group" style="display: none;">
                                 <label for="locale">{{ __('voyager::generic.locale') }}</label>
                                 <select class="form-control select2" id="locale" name="locale">
                                     @foreach (Voyager::getLocales() as $locale)

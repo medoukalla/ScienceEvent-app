@@ -171,7 +171,7 @@ class VoyagerBreadController extends Controller
             // Save translations if applied
             $dataType->saveTranslations($translations);
 
-            return redirect()->route('voyager.bread.index')->with($data);
+            return back()->route('voyager.bread.index')->with($data);
         } catch (Exception $e) {
             return back()->with($this->alertException($e, __('voyager::generic.update_failed')));
         }

@@ -62,7 +62,8 @@ class Formation extends Model
      */
     public function packs()
     {
-        return $this->belongsToMany(Pack::class, 'pack_formation');
+        // return $this->belongsToMany(Pack::class, 'pack_formation');
+        return $this->hasMany(Pack::class, 'formation_id');
     }
     
 
