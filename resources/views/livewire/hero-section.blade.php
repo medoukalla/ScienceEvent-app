@@ -96,15 +96,15 @@
                     <div class="s-r-tags">
                         <div class="r-tag">
                             @switch($lastFormation->type)
-                            @case(1)
-                            E-learning
-                            @break
-                            @case(2)
-                            Présentiel
-                            @break
-                            @case(3)
-                            Classe Virtuelle
-                            @break
+                                @case(1)
+                                E-learning
+                                @break
+                                @case(2)
+                                Présentiel
+                                @break
+                                @case(3)
+                                Classe Virtuelle
+                                @break
                             @endswitch
                         </div>
                         <div class="r-tag">

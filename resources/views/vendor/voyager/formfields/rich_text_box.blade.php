@@ -8,20 +8,43 @@
 @push('javascript')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Debugging: Verify if TinyMCE is loading
-            console.log('TinyMCE loaded:', typeof tinymce !== 'undefined');
-
             tinymce.init({
-                selector: '#richtextv2{{ $row->field }}', // Ensure this matches your textarea ID
-                menubar: false, // Disable the menubar for simplicity
-                plugins: 'link image lists code', // Add commonly used plugins
-                toolbar: 'undo redo | styleselect | bold italic underline strikethrough | alignleft aligncenter alignright | link image | numlist bullist | outdent indent | blockquote | table | emoticons | forecolor backcolor', // Expanded toolbar
-                branding: false, // Disable TinyMCE branding
-                height: 300, // Editor height
+                selector: '#richtextv2{{ $row->field }}',
+                menubar: false,
+                plugins: 'link image lists code',
+                toolbar: 'undo redo | customCopy customPaste | styleselect | bold italic underline strikethrough | alignleft aligncenter alignright | link image | numlist bullist | outdent indent | blockquote | table | emoticons | forecolor backcolor',
+                branding: false,
+                height: 300,
                 setup: function (editor) {
-                    console.log('TinyMCE initialized:', editor.id);
+                    // Custom Copy Button
+                    editor.ui.registry.addButton('customCopy', {
+                        text: 'Copie',
+                        onAction: function () {
+                            const content = editor.getContent();
+                            navigator.clipboard.writeText(content).then(function () {
+                                console.log('Content copied to clipboard');
+                            }).catch(function (err) {
+                                console.error('Failed to copy content: ', err);
+                                alert('Failed to copy content. Please use Ctrl+C instead.');
+                            });
+                        }
+                    });
+
+                    // Custom Paste Button
+                    editor.ui.registry.addButton('customPaste', {
+                        text: 'Coller',
+                        onAction: function () {
+                            // Ensure the paste operation is triggered by user interaction
+                            navigator.clipboard.readText().then(function (text) {
+                                editor.insertContent(text);
+                            }).catch(function (err) {
+                                console.error('Failed to paste content: ', err);
+                                alert('Failed to paste content. Please use Ctrl+V instead.');
+                            });
+                        }
+                    });
                 },
-                content_style: 'body { font-family:Arial,Helvetica,sans-serif; font-size:14px }', // Styling inside the editor
+                content_style: 'body { font-family:Arial,Helvetica,sans-serif; font-size:14px }',
             });
         });
     </script>

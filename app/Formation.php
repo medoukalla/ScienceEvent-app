@@ -14,7 +14,7 @@ class Formation extends Model
 
     public static function index_formations_limit($limit = 6)
     {
-        $query = self::orderBy('date', 'asc');
+        $query = self::orderByRaw('case when date is null then 1 else 0 end, date asc');
         if ($limit) {
             $query->take($limit);
         }

@@ -111,6 +111,36 @@
                             <li>Accès à la communauté pour continuer l’échange</li>
                         </ul>
                     </div>
+
+                    <!-- Similar informations -->
+                    <div class="similar-informations">
+                        <h3><span>Lieu</span> de la formation</h3>
+                        <p>
+                            {{ $formation->location_training }}
+                        </p>
+
+                        
+                        @if ( count( $formation->extraits ) > 0 )
+                            <div class="funfact-wrap">
+                                @foreach ($formation->extraits as $extrait)
+                                    <div class="s-info" style="height:200px !important">
+                                        @if (!is_null($extrait->thumbnail))
+                                            <a href="{{ asset('public/'.$extrait->thumbnail) }}" data-lightbox="formation-images" data-title="{{ $extrait->title }}">
+                                                <img src="{{ asset('public/'.$extrait->thumbnail) }}" alt="{{ $extrait->title }}">
+                                            </a>
+                                        @endif
+
+                                        @if (!is_null($extrait->video))
+                                            <video controls class="formation-video">
+                                                <source src="{{ asset('public/'.$extrait->video) }}" type="video/mp4">
+                                                Votre navigateur ne prend pas en charge la balise vidéo.
+                                            </video>
+                                        @endif
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
                     
                     <!-- Similar informations -->
                     <div class="similar-informations">
