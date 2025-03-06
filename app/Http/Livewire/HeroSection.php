@@ -29,6 +29,7 @@ class HeroSection extends Component
 
     public function render()
     {
+        // dd( $this->lastFormations);
 
         if ( $this->categoryChanged == false ) {
             $this->selectedCategory = $this->categories->first();
